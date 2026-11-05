@@ -1,0 +1,73 @@
+flowchart TD
+    %% Styling Classes
+    classDef implemented fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#ecfdf5;
+    classDef router fill:#312e81,stroke:#6366f1,stroke-width:2px,color:#e0e7ff;
+    classDef storage fill:#14532d,stroke:#22c55e,stroke-width:2px,color:#f0fdf4;
+    classDef planned fill:#451a03,stroke:#f59e0b,stroke-width:2px,stroke-dasharray: 5 5,color:#fffbeb;
+
+    subgraph Legend ["Component Status Legend"]
+        Leg1["Implemented Offline Agent Node"]:::implemented
+        Leg2{"Implemented Conditional Router"}:::router
+        Leg3[("Implemented Storage / Queue")]:::storage
+        Leg4["Planned Future Capability"]:::planned
+    end
+
+    subgraph OfflinePipeline ["MMI-Gram StEER Offline LangGraph Pipeline"]
+        START((START))
+
+        NodeLoad["Agent 1: load_observation_baseline
+(MMI 9.0, Conf 0.90, Coords 0,0)"]:::implemented
+        NodeInitialQC["Agent 2: initial_qc_check
+(Detects Null Island 0,0 Error)"]:::implemented
+        RouteCoord{"Router:
+coords_invalid?"}:::router
+
+        NodeGeoResolve["Agent 3: resolve_geolocation
+(Parses Sagaing DMS text -> Candidate Coords)"]:::implemented
+        NodeSecondaryQC["Agent 4: secondary_qc_check
+(Evaluates MMI 9.0 & Candidate Coords)"]:::implemented
+        RouteReview{"Router:
+requires_review?"}:::router
+
+        NodeQueue["Agent 5: route_to_human_review
+(Enqueues in HumanReviewQueue)"]:::implemented
+        ReviewStore[("Human Review Queue
+(Holds MMI >= 9.0 for Expert Audit)")]:::storage
+
+        NodeSummary["Agent 6: format_stage_summary
+(Produces Structured Stage Results)"]:::implemented
+        ENDNode(((END)))
+
+        START --> NodeLoad
+        NodeLoad --> NodeInitialQC
+        NodeInitialQC --> RouteCoord
+
+        RouteCoord -- "Coords == (0,0) / Invalid" --> NodeGeoResolve
+        RouteCoord -- "Coords Valid" --> NodeSecondaryQC
+
+        NodeGeoResolve --> NodeSecondaryQC
+        NodeSecondaryQC --> RouteReview
+
+        RouteReview -- "MMI >= 9.0 or FLAGGED" --> NodeQueue
+        RouteReview -- "Clean & Calibrated" --> NodeSummary
+
+        NodeQueue --> ReviewStore
+        ReviewStore --> NodeSummary
+        NodeSummary --> ENDNode
+    end
+
+    subgraph PlannedExtensions ["Planned Future Capabilities (Phase 3+)"]
+        PlannedHarvester["Planned: Social Media Harvester
+(Real-time X/Telegram Stream)"]:::planned
+        PlannedDedupe["Planned: Perceptual Hash Dedupe
+(Clustering Viral Reposts)"]:::planned
+        PlannedLandmark["Planned: Visual Landmark OCR
+(Banners/Signs/Gazetteer Lookup)"]:::planned
+        PlannedGIS["Planned: Python-native GIS Cartography
+(GeoPandas & ShakeMap Generation)"]:::planned
+
+        PlannedHarvester -.-> PlannedDedupe
+        PlannedDedupe -.-> NodeLoad
+        NodeGeoResolve -.-> PlannedLandmark
+        NodeSummary -.-> PlannedGIS
+    end

@@ -1,0 +1,37 @@
+{
+  "_metadata": {
+    "description": "Recorded baseline output from legacy CRAG pipeline for server/test_page1.pdf (2025 Myanmar StEER Report)",
+    "recorded_at": "2025-07-03T18:57:27Z",
+    "disclaimer": "This represents the observed empirical output of the legacy AI pipeline (MMI 9.0, confidence 0.90). It is preserved strictly as a regression testing baseline and is NOT an authoritative ground truth without expert consensus."
+  },
+  "input": {
+    "file_name": "test_page1.pdf",
+    "mime_type": "application/pdf",
+    "source_url": "https://x.com/heungburma/status/1905986787698458947",
+    "raw_location_string": "Sagaing city, 21 52' 49.27\" N, 95 59' 5.57\" E",
+    "expected_parsed_coords": {
+      "latitude": 21.880353,
+      "longitude": 95.984881,
+      "dms_lat": "21°52'49.27\"N",
+      "dms_lon": "95°59'5.57\"E"
+    }
+  },
+  "observed_legacy_baseline": {
+    "mmi_estimation": 9.0,
+    "confidence": 0.90,
+    "location": {
+      "address": "Sagaing city",
+      "coordinates": [21.880352777777777, 95.98488055555556]
+    },
+    "building_type": "Masonry and framed residential structure",
+    "building_materials": "Brick, mortar, timber framing",
+    "visual_observation": "Severe structural cracks, collapse of unreinforced perimeter walls, debris in courtyard.",
+    "reasoning": "Substantial failure of masonry and panel walls, fallen chimneys and cracks consistent with violent shaking.",
+    "generation": "EARTHQUAKE ASSESSMENT REPORT\n============================\nFile: test_page1.pdf\nMMI Estimation: 9.0\nConfidence: 0.90\n\nDescription: Severe structural damage in Sagaing city\nLocation: Sagaing city [21.880353, 95.984881]\nBuilding Type: Masonry\nReasoning: Panel walls thrown out of frame structures, partial collapse."
+  },
+  "scientific_validation_status": {
+    "is_authoritative_ground_truth": false,
+    "review_status": "PENDING_EXPERT_REVIEW",
+    "notes": "Baseline regression tests verify model determinism and stability against legacy behavior (MMI 9.0). Scientific accuracy tests will evaluate whether MMI 9.0 or an alternative intensity is seismologically justified."
+  }
+}
