@@ -5,9 +5,8 @@ from typing import List, Dict, Any
 from typing_extensions import TypedDict
 import subprocess
 
-from vertexai.generative_models import Part
-from services.MMIRetriever import MMIRetriever
-from services.manage_model import get_response
+from services.MMIRetriever import MMIRetriever, validate_scale_completeness
+from services.manage_model import Part, get_response, get_session_telemetry, reset_session_telemetry, get_last_telemetry
 
 from dotenv import load_dotenv
 from google.auth.transport.requests import Request
@@ -53,6 +52,11 @@ class State(TypedDict):
     web_search : str
     final_analysis : Dict[str, Any]
     generation : str
+    retrieval_status : str
+    retrieval_source : str
+    reference_mode : str
+    mmi_documents_count : int
+    token_usage : Dict[str, Any]
 
 GRADE_DOCUMENTS_SCHEMA = {
     "type": "object",
@@ -184,6 +188,9 @@ class MultimodalEarthquakeCRAG:
             "mime_type": mime_type
         }
         
+        # Reset telemetry for this execution run
+        reset_session_telemetry()
+        
         for output in self.app.stream(inputs):
             for key, value in output.items():
                 # Node
@@ -310,20 +317,28 @@ class MultimodalEarthquakeCRAG:
         }
 
     def retrieve_docs(self, state):
-        print("---RETRIEVE MMI DOCUMENTS---")
+        ref_mode = os.environ.get("MMI_REFERENCE_MODE", "full_scale").lower()
+        print(f"---RETRIEVE MMI DOCUMENTS (Mode: {ref_mode.upper()})---")
         context = state["context_summary"]
         
-        # retrieve from PineCone
-        retrieved_docs = self.mmi_retriever.retrieveDocs(context)
-        print("retrieved from PC: ", retrieved_docs)
+        # Retrieve from Pinecone using configured reference mode
+        retrieved_docs = self.mmi_retriever.retrieveDocs(query=context, reference_mode=ref_mode)
+        print(f"retrieved from PC: {len(retrieved_docs)} documents")
+
+        retrieval_status = getattr(self.mmi_retriever, "last_retrieval_status", "SUCCESS" if retrieved_docs else "UNRETRIEVED")
+        retrieval_source = "pinecone_mmi_idx" if retrieved_docs else "none"
 
         return {
             **state, 
-            "mmi_documents": retrieved_docs
+            "mmi_documents": retrieved_docs,
+            "retrieval_status": retrieval_status,
+            "retrieval_source": retrieval_source,
+            "reference_mode": ref_mode,
         }
     
     def grade_documents(self, state):
-        print("---GRADE RETRIEVED DOCUMENTS---")
+        ref_mode = state.get("reference_mode", os.environ.get("MMI_REFERENCE_MODE", "full_scale")).lower()
+        print(f"---GRADE RETRIEVED DOCUMENTS (Mode: {ref_mode.upper()})---")
 
         context = state["context_summary"]
         documents = state.get("mmi_documents", [])
@@ -334,17 +349,57 @@ class MultimodalEarthquakeCRAG:
             return {
                 **state,
                 "mmi_documents": [],
-                "web_search": "Yes"
+                "web_search": "Yes",
+                "retrieval_status": "UNRETRIEVED",
             }
 
+        # ──────────────────────────────────────────────────────────────────────
+        # Branch 1: Full-Scale Reference Mode
+        # In full-scale mode, all 10 authoritative MMI definitions (I to X) are
+        # supplied to the final analysis without vector-ranking exclusions.
+        # We validate completeness of the 10-level scale rather than dropping levels.
+        # ──────────────────────────────────────────────────────────────────────
+        if ref_mode == "full_scale":
+            is_complete, msg, details = validate_scale_completeness(documents)
+            if is_complete:
+                print(f"---GRADE: FULL-SCALE MODE - ALL 10 MMI DEFINITIONS (I-X) VERIFIED COMPLETE AND RETAINED---")
+                return {
+                    **state,
+                    "mmi_documents": documents,
+                    "web_search": "No",
+                    "retrieval_status": "SUCCESS",
+                }
+            else:
+                print(f"⚠️ Full-scale retrieval incomplete: {msg}. Falling back to web search.")
+                return {
+                    **state,
+                    "mmi_documents": documents,
+                    "web_search": "Yes",
+                    "retrieval_status": "INCOMPLETE",
+                }
+
+        # ──────────────────────────────────────────────────────────────────────
+        # Branch 2: Vector-Search Mode
+        # Grader evaluates each candidate document's substantive relevance to the
+        # observed damage context. Avoids treating all references as automatically
+        # relevant just because they mention "MMI".
+        # ──────────────────────────────────────────────────────────────────────
         import time
         for i, doc in enumerate(documents, 1):
+            doc_id = doc.metadata.get("id", f"doc-{i}")
             grader_prompt = f"""
-                You are a grader assessing relevance of seismic/earthquake documents to earthquake damage assessment.
-                If the document contains information about earthquake intensity scales (like MMI), building damage patterns,
-                seismic indicators, or earthquake impact assessment, grade it as relevant.
-                Retrieved document: {doc.page_content}
-            Analysis context: {context}
+                You are a seismic expert assessing the relevance of a retrieved Modified Mercalli Intensity (MMI) reference document to an earthquake damage observation.
+                
+                Observed Damage Context:
+                {context}
+                
+                Retrieved Reference Document ({doc_id}):
+                {doc.page_content}
+                
+                Criteria:
+                - Grade as "yes" (RELEVANT) if the reference document describes shaking effects, structural damage patterns, or intensity criteria that are relevant to characterizing, bounding, or estimating the intensity of the observed earthquake effects.
+                - Grade as "no" (NOT RELEVANT) if the reference document describes intensity levels completely unrelated to the observed damage (for example, "Not Felt" or "No damage" when the observation shows severe structural collapse or heavy masonry failure, or vice-versa).
+                - Do NOT mark a document as relevant simply because it mentions the words "MMI" or "earthquake". It must be substantively relevant to the observed shaking intensity.
             """
 
             try:
@@ -352,11 +407,10 @@ class MultimodalEarthquakeCRAG:
                 score = self.get_structured_response(contents, GRADE_DOCUMENTS_SCHEMA)
 
                 if score.get("binary_score") == "yes":
-                    print(f"---GRADE: DOCUMENT {i} RELEVANT---")
+                    print(f"---GRADE: DOCUMENT {i} ({doc_id}) RELEVANT---")
                     filtered_docs.append(doc)
                 else:
-                    print(f"---GRADE: DOCUMENT {i} NOT RELEVANT---")
-                    web_search = "Yes"
+                    print(f"---GRADE: DOCUMENT {i} ({doc_id}) NOT RELEVANT---")
             except Exception as e:
                 print(f"Notice: Document {i} grading encountered rate limit/error ({e}). Defaulting to RELEVANT.")
                 filtered_docs.append(doc)
@@ -364,34 +418,64 @@ class MultimodalEarthquakeCRAG:
             # Pacing delay between grading calls to avoid Vertex AI burst quota
             time.sleep(1.0)
         
-        if not filtered_docs:
+        if filtered_docs:
+            print(f"---DECISION: {len(filtered_docs)}/{len(documents)} DOCUMENTS RELEVANT, PROCEEDING TO ANALYSIS---")
+            web_search = "No"
+        else:
+            print("---DECISION: NO RELEVANT DOCUMENTS FOUND AMONG CANDIDATES, SEARCH FOR MORE---")
             web_search = "Yes"
 
         return {
             **state, 
-            "mmi_documents" : filtered_docs,
-            "web_search" : web_search
+            "mmi_documents": filtered_docs,
+            "web_search": web_search,
         }
 
     def web_search(self, state):
-        """Search web for additional seismic information."""
+        """Search web for additional seismic information (fallback)."""
         print("---WEB SEARCH FOR SEISMIC INFO---")
         query = state["context_summary"]
         documents = list(state.get("mmi_documents", []))
+        retrieval_status = state.get("retrieval_status", "UNRETRIEVED")
+        retrieval_source = state.get("retrieval_source", "none")
         
-        # Perform web search
+        # Perform web search if tool is available
         if self.web_search_tool:
             try:
                 search_results = self.web_search_tool.invoke({"query": f"earthquake intensity scale MMI damage assessment {query}"})
-                web_content = "\n".join([result.get("content", "") for result in search_results if isinstance(result, dict)])
-                web_doc = Document(page_content=web_content)
-                documents.append(web_doc)
+                web_content = "\n".join([
+                    result.get("content", "").strip() 
+                    for result in search_results 
+                    if isinstance(result, dict) and result.get("content")
+                ]).strip()
+
+                # STRICT REQUIREMENT: Reject empty or whitespace-only web content
+                if len(web_content) >= 30:
+                    web_doc = Document(
+                        page_content=web_content,
+                        metadata={
+                            "source": "web_search_fallback",
+                            "is_authoritative_reference": False, # Fallback web evidence, not authoritative standard
+                        }
+                    )
+                    documents.append(web_doc)
+                    retrieval_status = "FALLBACK_WEB"
+                    retrieval_source = "web_search_fallback"
+                    print(f"✅ Added web search fallback document ({len(web_content)} chars)")
+                else:
+                    print("⚠️ Web search returned empty or insufficient content; rejected as reference.")
             except Exception as e:
                 print(f"Notice: Tavily search error: {e}")
         
+        if not documents:
+            retrieval_status = "UNRETRIEVED"
+            retrieval_source = "none"
+
         return {
             **state,
-            "mmi_documents": documents
+            "mmi_documents": documents,
+            "retrieval_status": retrieval_status,
+            "retrieval_source": retrieval_source,
         }
 
     def transform_query(self, state):
@@ -465,10 +549,21 @@ class MultimodalEarthquakeCRAG:
         Reasoning: {analysis.get('reasoning', '')}
         """
         
+        retrieval_status = state.get("retrieval_status", "UNRETRIEVED")
+        if not documents:
+            retrieval_status = "UNRETRIEVED"
+        retrieval_source = state.get("retrieval_source", "none")
+        reference_mode = state.get("reference_mode", os.environ.get("MMI_REFERENCE_MODE", "full_scale")).lower()
+
         return {
             **state,
             "final_analysis": analysis,
-            "generation": generation
+            "generation": generation,
+            "token_usage": get_session_telemetry(),
+            "retrieval_status": retrieval_status,
+            "retrieval_source": retrieval_source,
+            "reference_mode": reference_mode,
+            "mmi_documents_count": len(documents)
         }
 
     

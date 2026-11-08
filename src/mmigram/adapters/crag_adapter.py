@@ -25,7 +25,7 @@ def check_live_prerequisites() -> Tuple[bool, list[str]]:
     missing = []
     
     # Check packages
-    for pkg in ["google.cloud.storage", "google.cloud.bigquery", "vertexai"]:
+    for pkg in ["google.cloud.storage", "google.cloud.bigquery", "vertexai", "google.genai"]:
         try:
             __import__(pkg)
         except ImportError:

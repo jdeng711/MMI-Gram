@@ -18,6 +18,7 @@ FLAG_UNVERIFIED_ESTIMATE = "UNVERIFIED_ESTIMATE"
 FLAG_COORDINATE_DISCREPANCY = "COORDINATE_DISCREPANCY"
 FLAG_COORDINATES_DISAGREE = "COORDINATE_DISCREPANCY"
 FLAG_MODEL_LOCATION_UNAVAILABLE = "MODEL_LOCATION_UNAVAILABLE"
+FLAG_REFERENCE_RETRIEVAL_FAILED = "REFERENCE_RETRIEVAL_FAILED"
 
 
 def check_coordinates(coords: Optional[Coordinates]) -> Tuple[bool, List[str]]:
@@ -95,5 +96,14 @@ def check_damage_evidence(damage: Optional[StructuralDamageAssessment]) -> Tuple
     flags = []
     if damage is None or not damage.visual_observations or len(damage.visual_observations.strip()) < 20:
         flags.append(FLAG_SPARSE_EVIDENCE)
+        return False, flags
+    return True, flags
+
+
+def check_reference_retrieval(retrieval_status: Optional[str]) -> Tuple[bool, List[str]]:
+    """Check that authoritative seismic reference documents were successfully retrieved."""
+    flags = []
+    if retrieval_status is not None and retrieval_status.upper() in ("UNRETRIEVED", "FAILED", "INCOMPLETE"):
+        flags.append(FLAG_REFERENCE_RETRIEVAL_FAILED)
         return False, flags
     return True, flags

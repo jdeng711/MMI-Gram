@@ -40,12 +40,18 @@ from mmigram.comparison.comparator import BenchmarkComparator
 
 # Standard verified Vertex AI / Gemini models
 VERIFIED_MODELS = [
+    "gemini-3.8-flash",
     "gemini-2.5-flash",
     "gemini-2.0-flash",
     "gemini-1.5-flash",
     "gemini-1.5-pro",
 ]
-DEFAULT_MODEL = "gemini-2.5-flash"
+DEFAULT_MODEL = "gemini-3.8-flash"
+DEFAULT_THINKING_LEVEL = "HIGH"
+# Supported thinking levels for Gemini 3.8 Flash (Google does not support MINIMAL for this model)
+SUPPORTED_THINKING_LEVELS = ["HIGH", "MEDIUM", "LOW"]
+DEFAULT_REFERENCE_MODE = "full_scale"
+SUPPORTED_REFERENCE_MODES = ["full_scale", "vector_search"]
 
 
 def validate_model_identifier(model_name: Optional[str]) -> str:
@@ -56,7 +62,7 @@ def validate_model_identifier(model_name: Optional[str]) -> str:
     if clean_name not in VERIFIED_MODELS:
         print(f"⚠️  Note on Model Identifier: '{clean_name}' is not in the verified Vertex AI model registry.")
         print(f"   Known verified models: {', '.join(VERIFIED_MODELS)}.")
-        print("   If live execution fails, override with: --model gemini-2.5-flash\n")
+        print(f"   If live execution fails, override with: --model {DEFAULT_MODEL}\n")
     return clean_name
 
 
@@ -100,6 +106,8 @@ def cmd_analyze(args: argparse.Namespace) -> int:
     """Analyze a single StEER PDF."""
     mode = "live" if args.live else "offline"
     model = validate_model_identifier(args.model)
+    thinking_level = getattr(args, "thinking_level", DEFAULT_THINKING_LEVEL)
+    reference_mode = getattr(args, "reference_mode", DEFAULT_REFERENCE_MODE)
 
     if args.live and not args.confirm_live_api:
         print("\n❌ Live Execution Blocked: Running with '--live' requires explicit user authorization via '--confirm-live-api'.")
@@ -109,12 +117,16 @@ def cmd_analyze(args: argparse.Namespace) -> int:
     print("=" * 80)
     print("🌍 MMI-GRAM: STEER RECONNAISSANCE ANALYSIS")
     print(f"📄 Input File:  {args.pdf}")
-    print(f"⚙️ Mode:        {mode.upper()} {'(Offline Fixtures Only)' if mode == 'offline' else f'(Live Vertex AI: {model})'}")
+    thinking_mode_str = f" [Thinking: {thinking_level}]" if ("3.8" in model or "gemini-3" in model) else ""
+    print(f"⚙️ Mode:        {mode.upper()} {'(Offline Fixtures Only)' if mode == 'offline' else f'(Live Vertex AI: {model}{thinking_mode_str})'}")
+    ref_desc = "All 10 MMI definitions without vector exclusions" if reference_mode == "full_scale" else "Top-k semantic similarity search"
+    print(f"📚 Ref Mode:    {reference_mode.upper()} ({ref_desc})")
     print("=" * 80)
 
-    # Set model in environment if live
-    if args.live:
-        os.environ["GEMINI_MODEL"] = model
+    # Explicit CLI arguments strictly override .env configuration
+    os.environ["GEMINI_MODEL"] = model
+    os.environ["GEMINI_THINKING_LEVEL"] = thinking_level
+    os.environ["MMI_REFERENCE_MODE"] = reference_mode
 
     logger = StructuredAgentLogger(name="mmigram.cli", console_output=not args.quiet)
     review_queue = HumanReviewQueue(persistence_file=args.review_db)
@@ -124,6 +136,9 @@ def cmd_analyze(args: argparse.Namespace) -> int:
         logger=logger,
         review_queue=review_queue,
         allow_live_api=(args.live and args.confirm_live_api),
+        model_name=model,
+        thinking_level=thinking_level,
+        reference_mode=reference_mode,
     )
 
     t0 = time.time()
@@ -158,7 +173,18 @@ def cmd_analyze(args: argparse.Namespace) -> int:
         print(f"Artifact Provenance:   {prov_label} (Baseline: {prov.get('baseline_type')})")
         sha_str = prov.get('source_sha256', 'N/A')
         short_sha = sha_str[:12] + "..." if len(sha_str) > 12 else sha_str
-        print(f"Execution Provenance:  Mode: {prov.get('execution_mode', mode).upper()} | Model: {prov.get('model_identifier', 'N/A')} | SHA256: {short_sha}")
+        thinking_str = f" [Thinking: {prov.get('thinking_level')}]" if prov.get('thinking_level') else ""
+        print(f"Execution Provenance:  Mode: {prov.get('execution_mode', mode).upper()} | Model: {prov.get('model_identifier', 'N/A')}{thinking_str} | SHA256: {short_sha}")
+        if prov.get("token_usage"):
+            tu = prov["token_usage"]
+            if tu.get("calls", 0) > 0 or tu.get("total_tokens", 0) > 0:
+                print(f"Token Consumption:     Prompt: {tu.get('prompt_tokens', 0)} | Candidates: {tu.get('candidates_tokens', 0)} | Thinking: {tu.get('thoughts_tokens', 0)} | Total: {tu.get('total_tokens', 0)}")
+        if prov.get("retrieval"):
+            ret = prov["retrieval"]
+            auth_str = "Yes (Official MMI Scale)" if ret.get("has_authoritative_reference") else "No"
+            ref_mode_str = f" | Mode: {ret.get('reference_mode')}" if ret.get('reference_mode') else ""
+            count_str = f" ({ret.get('document_count')} defs)" if ret.get('document_count') else ""
+            print(f"Reference Retrieval:   Status: {ret.get('status')} | Source: {ret.get('source')}{ref_mode_str}{count_str} | Authoritative: {auth_str}")
         print(f"Document Text Status:  {result.get('document_extraction', {}).get('extraction_status')}")
 
         seis = result.get("seismic_intensity", {})
@@ -239,6 +265,8 @@ def cmd_batch(args: argparse.Namespace) -> int:
 
     mode = "live" if args.live else "offline"
     model = validate_model_identifier(args.model)
+    thinking_level = getattr(args, "thinking_level", DEFAULT_THINKING_LEVEL)
+    reference_mode = getattr(args, "reference_mode", DEFAULT_REFERENCE_MODE)
     pace = max(0.0, float(args.pace))
 
     if args.live and not args.confirm_live_api:
@@ -249,10 +277,18 @@ def cmd_batch(args: argparse.Namespace) -> int:
     print("🌍 MMI-GRAM: BATCH RECONNAISSANCE PROCESSING")
     print(f"📍 Event ID:       {args.event_id}")
     print(f"📁 Inbound Dir:    {inbound_dir} ({len(pdf_files)} documents found)")
-    print(f"⚙️ Mode:           {mode.upper()} {'(Strict Offline Fixtures)' if mode == 'offline' else f'(Live Model: {model})'}")
+    thinking_mode_str = f" [Thinking: {thinking_level}]" if ("3.8" in model or "gemini-3" in model) else ""
+    print(f"⚙️ Mode:           {mode.upper()} {'(Strict Offline Fixtures)' if mode == 'offline' else f'(Live Model: {model}{thinking_mode_str})'}")
+    ref_desc = "All 10 MMI definitions without vector exclusions" if reference_mode == "full_scale" else "Top-k semantic similarity search"
+    print(f"📚 Ref Mode:       {reference_mode.upper()} ({ref_desc})")
     if pace > 0:
         print(f"⏱️ Request Pacing: {pace:.1f}s between documents")
     print("=" * 80)
+
+    # Explicit CLI arguments strictly override .env configuration
+    os.environ["GEMINI_MODEL"] = model
+    os.environ["GEMINI_THINKING_LEVEL"] = thinking_level
+    os.environ["MMI_REFERENCE_MODE"] = reference_mode
 
     comparator = BenchmarkComparator(event_id=args.event_id)
     review_queue = HumanReviewQueue(persistence_file=args.review_db)
@@ -263,6 +299,9 @@ def cmd_batch(args: argparse.Namespace) -> int:
         logger=logger,
         review_queue=review_queue,
         allow_live_api=(args.live and args.confirm_live_api),
+        model_name=model,
+        thinking_level=thinking_level,
+        reference_mode=reference_mode,
     )
 
     out_dir = Path(args.output_dir) if args.output_dir else inbound_dir.parent / "results"
@@ -320,6 +359,13 @@ def cmd_check_env(args: argparse.Namespace) -> int:
     except ImportError:
         print("❌ pypdf NOT installed — Run: pip install pypdf")
 
+    # google-genai SDK check
+    try:
+        import google.genai
+        print(f"✅ google-genai installed (Version: {google.genai.__version__}) — Gemini 3.8 Flash HIGH thinking is operational.")
+    except ImportError:
+        print("❌ google-genai NOT installed — Run: pip install google-genai")
+
     # Cloud live prerequisites
     ready, missing = check_live_prerequisites()
     print("\n☁️ Live Cloud Integration Status:")
@@ -332,7 +378,8 @@ def cmd_check_env(args: argparse.Namespace) -> int:
 
     print("\n🤖 Supported Verified Gemini Models:")
     for m in VERIFIED_MODELS:
-        print(f"   • {m}")
+        marker = " (Primary Default: Thinking Level HIGH)" if m == DEFAULT_MODEL else ""
+        print(f"   • {m}{marker}")
 
     print("\n💾 Review Queue Persistent Location:")
     print(f"   • {DEFAULT_PERSISTENCE_PATH}")
@@ -385,6 +432,8 @@ def build_parser() -> argparse.ArgumentParser:
     p_mode.add_argument("--live", action="store_true", default=False, help="Run in live cloud mode")
     p_analyze.add_argument("--confirm-live-api", action="store_true", default=False, help="Explicit confirmation for paid live cloud calls")
     p_analyze.add_argument("--model", type=str, default=DEFAULT_MODEL, help=f"Gemini model ID (default: {DEFAULT_MODEL})")
+    p_analyze.add_argument("--thinking-level", type=str, default=DEFAULT_THINKING_LEVEL, choices=SUPPORTED_THINKING_LEVELS, help=f"Thinking level for Gemini 3.8 Flash (choices: {', '.join(SUPPORTED_THINKING_LEVELS)}; default: {DEFAULT_THINKING_LEVEL})")
+    p_analyze.add_argument("--reference-mode", type=str, default=DEFAULT_REFERENCE_MODE, choices=SUPPORTED_REFERENCE_MODES, help=f"MMI reference retrieval mode (choices: {', '.join(SUPPORTED_REFERENCE_MODES)}; default: {DEFAULT_REFERENCE_MODE})")
     p_analyze.add_argument("--review-db", type=str, default=str(DEFAULT_PERSISTENCE_PATH), help="Path to review queue storage")
     p_analyze.add_argument("--output", "-o", type=str, default=None, help="Path to export JSON output")
     p_analyze.add_argument("--quiet", "-q", action="store_true", help="Quiet mode")
@@ -399,6 +448,8 @@ def build_parser() -> argparse.ArgumentParser:
     p_mode_b.add_argument("--live", action="store_true", default=False, help="Run in live cloud mode")
     p_batch.add_argument("--confirm-live-api", action="store_true", default=False, help="Explicit confirmation for paid live cloud calls")
     p_batch.add_argument("--model", type=str, default=DEFAULT_MODEL, help=f"Gemini model ID (default: {DEFAULT_MODEL})")
+    p_batch.add_argument("--thinking-level", type=str, default=DEFAULT_THINKING_LEVEL, choices=SUPPORTED_THINKING_LEVELS, help=f"Thinking level for Gemini 3.8 Flash (choices: {', '.join(SUPPORTED_THINKING_LEVELS)}; default: {DEFAULT_THINKING_LEVEL})")
+    p_batch.add_argument("--reference-mode", type=str, default=DEFAULT_REFERENCE_MODE, choices=SUPPORTED_REFERENCE_MODES, help=f"MMI reference retrieval mode (choices: {', '.join(SUPPORTED_REFERENCE_MODES)}; default: {DEFAULT_REFERENCE_MODE})")
     p_batch.add_argument("--pace", type=float, default=0.0, help="Seconds to sleep between documents (e.g. 2.0)")
     p_batch.add_argument("--review-db", type=str, default=str(DEFAULT_PERSISTENCE_PATH), help="Path to review queue storage")
     p_batch.add_argument("--output-dir", type=str, default=None, help="Directory to export batch results and summary")

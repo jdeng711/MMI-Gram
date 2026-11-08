@@ -172,10 +172,52 @@ Rules are evaluated deterministically in `src/mmigram/qc/checker.py`:
 - Logs node execution timestamp (UTC), input state snapshot, output payload, and duration in milliseconds.
 - **Security Redaction Engine**: Recursively filters GCS V4 signed URLs (`https://storage.googleapis.com/...?[REDACTED_SIGNATURE]`), Bearer tokens, and sensitive query parameters from terminal streaming, LangGraph node dumps, and persisted traces.
 
-### E. Dependencies & SDK Modernization Roadmap
-- **Current Integration**: Operates using Vertex AI via `google-cloud-aiplatform>=2.7.0` and `langchain-google-genai<3.0`, providing backward compatibility with Clara's original `MultimodalEarthquakeCRAG`.
-- **Deprecation Notice**: Google has deprecated `vertexai.generative_models` in favor of the new unified `google-genai` SDK (`from google import genai`).
-- **Roadmap**: A future milestone will migrate the invocation layer to `google-genai` while preserving the existing MMI-Gram LangGraph node contracts, state schemas, and redaction boundaries.
+### E. Google Gen AI SDK & Gemini 3.8 Flash Upgrade
+- **Unified SDK**: Model invocations use the modern `google-genai` SDK (`from google import genai`) configured for Vertex AI mode (`vertexai=True`, `project=...`, `location=...`, using existing authorized Google Cloud Application Default Credentials).
+- **Primary Model**: `gemini-3.8-flash` with explicit `thinking_level=HIGH` (`types.ThinkingConfig(thinking_level=types.ThinkingLevel.HIGH, include_thoughts=True)`). Supported thinking levels are `HIGH`, `MEDIUM`, and `LOW` (`MINIMAL` is not supported for Gemini 3.8 Flash).
+- **Parameter Adaptation**: Deprecated sampling parameters (`temperature`, `top_p`, `top_k`, `candidate_count`) are omitted for Gemini 3.8 Flash, as required by the Gemini 3 API specification.
+- **Comparative Benchmarking**: Legacy models such as `gemini-2.5-flash` remain fully supported as explicit CLI arguments (`--model gemini-2.5-flash`) with their standard parameters preserved for comparative experiments.
+- **Scientific Integrity Guardrail**: The pipeline **never** silently switches models on rate limits or errors. Retries use exponential backoff on the requested model exclusively.
+- **Comprehensive Workflow Token Tracking**: Captures input tokens (`prompt_tokens`), output tokens (`candidates_tokens`), thinking tokens (`thoughts_tokens`), and total token consumption across **every** Gemini invocation made throughout the CRAG workflow (initial analysis, document grading passes, and final analysis).
+
+> [!NOTE]
+> **Illustrative Example Schema (Not an Empirical Gemini 3.8 Measurement)**:
+> The JSON block below is a structural reference showing how cumulative token usage is logged in provenance. It does not represent an actual live test measurement:
+> ```json
+> "provenance": {
+>   "model_identifier": "gemini-3.8-flash",
+>   "thinking_level": "HIGH",
+>   "execution_mode": "live",
+>   "source_sha256": "...",
+>   "mmi_result": 10.0,
+>   "uncalibrated_confidence": 0.95,
+>   "token_usage": {
+>     "calls": 4,
+>     "prompt_tokens": 1845,
+>     "candidates_tokens": 312,
+>     "thoughts_tokens": 1280,
+>     "total_tokens": 3437
+>   },
+>   "execution_duration_ms": 32800.5
+> }
+> ```
+
+### F. MMI Reference Retrieval & Scale Selection Architecture
+MMI-Gram supports two scientifically distinct reference retrieval modes:
+1. **Full-Scale Mode (`MMI_REFERENCE_MODE=full_scale`, Default & Recommended)**:
+   - Deterministically fetches all ten official Modified Mercalli Intensity scale definitions ($I$ through $X$) via Pinecone read-only `fetch(ids=['mmi-1'..'mmi-10'])`.
+   - Supplies the complete, unclipped reference scale to the final analysis prompt without arbitrary vector-ranking exclusions.
+   - **Completeness Validator** (`validate_scale_completeness`): Verifies that each of the 10 integer levels ($1..10$) is present exactly once with substantive text. If any level is missing, duplicated, or empty, sets status to `INCOMPLETE`, triggering QC flag `REFERENCE_RETRIEVAL_FAILED` and routing the observation to the Human Review Queue.
+   - **Grading In Full-Scale**: Validates scale completeness and retains all 10 standard definitions for comprehensive comparison (`web_search="No"`).
+2. **Vector-Search Mode (`MMI_REFERENCE_MODE=vector_search`)**:
+   - Retrieves top-$k$ candidate definitions using Pinecone Serverless Integrated Embeddings (`llama-text-embed-v2`, 1024 dimensions) or inference embedding fallback.
+   - **Relevance Grading**: Evaluates whether retrieved definitions describe shaking effects or damage levels substantively relevant to characterizing the observed damage. Rejects unrelated definitions (e.g., MMI 1 "Not Felt" for severe structural collapse) rather than treating all references as automatically relevant.
+3. **Investigation of Negative Cosine Scores**:
+   - The `mmi-idx` Pinecone index uses the `cosine` distance metric ($u \cdot v \in [-1.0, 1.0]$).
+   - In 1024-dimensional semantic embedding space, query and passage vectors with angles slightly greater than $90^\circ$ produce small negative cosine dot products (e.g., $-0.0057$, $-0.0150$).
+   - Negative scores are mathematically valid cosine similarities, not an API error or index malfunction.
+4. **Data Immutability**:
+   - All retrieval operations are strictly read-only. No vectors or metadata in Pinecone are upserted, modified, or deleted.
 
 ---
 

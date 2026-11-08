@@ -16,6 +16,7 @@ from .rules import (
     check_mmi_estimation,
     check_damage_evidence,
     check_coordinate_agreement,
+    check_reference_retrieval,
     FLAG_INVALID_COORDINATES,
     FLAG_NULL_ISLAND,
     FLAG_INVALID_MMI_RANGE,
@@ -24,6 +25,7 @@ from .rules import (
     FLAG_LOW_CONFIDENCE,
     FLAG_COORDINATE_DISCREPANCY,
     FLAG_MODEL_LOCATION_UNAVAILABLE,
+    FLAG_REFERENCE_RETRIEVAL_FAILED,
 )
 
 
@@ -33,6 +35,7 @@ def evaluate_quality(
     damage: Optional[StructuralDamageAssessment] = None,
     confidence_threshold: float = 0.75,
     location: Optional[LocationContext] = None,
+    retrieval_status: Optional[str] = None,
 ) -> QualityControlRecord:
     """
     Run full QC evaluation on extracted parameters.
@@ -67,6 +70,10 @@ def evaluate_quality(
     damage_ok, damage_flags = check_damage_evidence(damage)
     all_flags.extend(damage_flags)
 
+    # 5. Reference retrieval check
+    retrieval_ok, retrieval_flags = check_reference_retrieval(retrieval_status)
+    all_flags.extend(retrieval_flags)
+
     # Score calculation (1.0 = perfect, deduct per flag)
     score = 1.0 - (0.25 * len(all_flags))
     score = max(0.0, min(1.0, score))
@@ -79,6 +86,7 @@ def evaluate_quality(
         or FLAG_LOW_CONFIDENCE in all_flags
         or FLAG_COORDINATE_DISCREPANCY in all_flags
         or FLAG_MODEL_LOCATION_UNAVAILABLE in all_flags
+        or FLAG_REFERENCE_RETRIEVAL_FAILED in all_flags
     ):
         status = "FLAGGED"
         is_valid = True

@@ -67,9 +67,13 @@ class GeneralSteerPipeline:
         allow_live_api: bool = False,
         min_text_threshold: int = 25,
         model_name: Optional[str] = None,
+        thinking_level: Optional[str] = None,
+        reference_mode: Optional[str] = None,
     ):
         self.mode = mode.lower()
         self.model_name = model_name
+        self.thinking_level = thinking_level
+        self.reference_mode = (reference_mode or os.environ.get("MMI_REFERENCE_MODE", "full_scale")).lower()
         self.fixtures_dir = fixtures_dir or DEFAULT_FIXTURES_DIR
         self.logger = logger or StructuredAgentLogger(name="mmigram.general_steer", console_output=True)
         self.review_queue = review_queue or HumanReviewQueue()
@@ -183,6 +187,12 @@ class GeneralSteerPipeline:
             # Unique cloud object name to prevent collisions
             unique_blob_name = f"steer_{uuid.uuid4().hex[:8]}_{file_name}"
 
+            # Set model and thinking level in environment for live invocation
+            active_model = self.model_name or os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
+            os.environ["GEMINI_MODEL"] = active_model
+            active_thinking = self.thinking_level or os.environ.get("GEMINI_THINKING_LEVEL", "HIGH")
+            os.environ["GEMINI_THINKING_LEVEL"] = active_thinking
+
             # Ensure server folder is in sys.path to access Clara's legacy services
             server_dir = Path(__file__).resolve().parents[3] / "server"
             if server_dir.exists() and str(server_dir) not in sys.path:
@@ -191,6 +201,7 @@ class GeneralSteerPipeline:
             # Import Clara's legacy utilities without modification
             from services.utilities import upload_to_gcs
             from services.crag import MultimodalEarthquakeCRAG
+            from services.manage_model import get_session_telemetry
 
             bucket = os.environ.get("GCS_BUCKET", "quakemap-media-data")
             signed_url = upload_to_gcs(str(path), bucketname=bucket, blob_name=unique_blob_name)
@@ -203,6 +214,13 @@ class GeneralSteerPipeline:
             )
 
             final_data = crag_result.get("final_analysis", {}) if isinstance(crag_result, dict) else {}
+            # Retrieve cumulative session telemetry tracking EVERY Gemini call made during the CRAG traversal
+            token_usage = (crag_result.get("token_usage") if isinstance(crag_result, dict) else None) or get_session_telemetry()
+            retrieval_status = crag_result.get("retrieval_status", "UNRETRIEVED") if isinstance(crag_result, dict) else "UNRETRIEVED"
+            retrieval_source = crag_result.get("retrieval_source", "none") if isinstance(crag_result, dict) else "none"
+            ref_mode = crag_result.get("reference_mode", self.reference_mode) if isinstance(crag_result, dict) else self.reference_mode
+            mmi_docs = crag_result.get("mmi_documents", []) if isinstance(crag_result, dict) else []
+            doc_count = len(mmi_docs) if mmi_docs else (crag_result.get("mmi_documents_count", 0) if isinstance(crag_result, dict) else 0)
             building_type = final_data.get("building_type", "Unspecified")
             building_materials = final_data.get("building_materials", "Unspecified")
             visual_obs = final_data.get("description", "")
@@ -211,6 +229,12 @@ class GeneralSteerPipeline:
 
         else:
             raise ValueError(f"Unknown mode '{self.mode}'. Use 'offline' or 'live'.")
+
+        if self.mode == "offline":
+            retrieval_status = "SUCCESS"
+            retrieval_source = "offline_fixture"
+            ref_mode = self.reference_mode
+            doc_count = 10 if self.reference_mode == "full_scale" else 3
 
         # ──────────────────────────────────────────────────────────────────────
         # Step 3b: Safe Extraction of MMI & Confidence (No Fabricated Fallbacks)
@@ -329,6 +353,7 @@ class GeneralSteerPipeline:
             estimation=estimation,
             damage=damage,
             location=location_context,
+            retrieval_status=retrieval_status if self.mode == "live" else None,
         )
 
         # ──────────────────────────────────────────────────────────────────────
@@ -340,6 +365,9 @@ class GeneralSteerPipeline:
         if qc.qc_status in ("FLAGGED", "REJECTED"):
             review_required = True
             triggers.append(f"Quality Control status is {qc.qc_status} (Flags: {qc.qc_flags})")
+        if self.mode == "live" and "REFERENCE_RETRIEVAL_FAILED" in qc.qc_flags:
+            review_required = True
+            triggers.append(f"Seismic reference retrieval incomplete or failed ({retrieval_status}); MMI estimate lacks empirical reference grounding.")
         if estimation.mmi_value is None:
             review_required = True
             triggers.append("Model output is missing, malformed, or outside valid MMI range (requires human expert estimation).")
@@ -374,7 +402,16 @@ class GeneralSteerPipeline:
             )
 
         duration_ms = round((time.time() - t0) * 1000.0, 2)
-        active_model = self.model_name or os.environ.get("GEMINI_MODEL", "gemini-2.5-flash") if self.mode == "live" else "offline-fixture"
+        active_model = (
+            self.model_name or os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
+            if self.mode == "live"
+            else "offline-fixture"
+        )
+        active_thinking = (
+            self.thinking_level or os.environ.get("GEMINI_THINKING_LEVEL", "HIGH")
+            if (self.mode == "live" and ("3.8" in active_model or "gemini-3" in active_model))
+            else None
+        )
 
         final_summary = {
             "pipeline_name": "MMI-Gram General-Purpose StEER Pipeline",
@@ -387,10 +424,29 @@ class GeneralSteerPipeline:
                 "baseline_type": baseline_type,
                 "is_authoritative_ground_truth": False,
                 "model_identifier": active_model,
+                "thinking_level": active_thinking,
                 "execution_mode": self.mode,
                 "source_sha256": extraction.sha256_hash,
                 "mmi_result": estimation.mmi_value,
                 "uncalibrated_confidence": estimation.confidence,
+                "token_usage": (
+                    token_usage
+                    if self.mode == "live"
+                    else {
+                        "calls": 0,
+                        "prompt_tokens": 0,
+                        "candidates_tokens": 0,
+                        "thoughts_tokens": 0,
+                        "total_tokens": 0,
+                    }
+                ),
+                "retrieval": {
+                    "status": retrieval_status,
+                    "source": retrieval_source,
+                    "reference_mode": ref_mode,
+                    "has_authoritative_reference": (retrieval_status == "SUCCESS"),
+                    "document_count": doc_count,
+                },
                 "execution_duration_ms": duration_ms,
             },
             "document_extraction": {

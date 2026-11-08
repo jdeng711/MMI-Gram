@@ -141,8 +141,11 @@ python3 -m mmigram.cli demo
 # Offline mode (default, strictly deterministic replay of recorded fixtures):
 python3 -m mmigram.cli analyze --pdf server/test_page1.pdf
 
-# Live mode (requires authorized GCP credentials and explicit user confirmation):
+# Live mode with full-scale reference calibration (Default & Recommended: all 10 MMI definitions):
 python3 -m mmigram.cli analyze --pdf server/test_page1.pdf --live --confirm-live-api
+
+# Live mode with vector similarity search (top-k candidate search):
+python3 -m mmigram.cli analyze --pdf server/test_page1.pdf --live --confirm-live-api --reference-mode vector_search
 ```
 
 #### Verified Live Empirical Run Results (`server/test_page1.pdf`):
@@ -218,22 +221,36 @@ MMI-Gram/
 
 ## 🧪 Testing & Verification
 
-The test suite covers unit logic, coordinate parsing, Haversine discrepancy detection, security redaction, QC edge cases, queue persistence, and end-to-end LangGraph workflows without making external network calls.
+The test suite covers unit logic, coordinate parsing, Haversine discrepancy detection, security redaction, QC edge cases, queue persistence, full-scale reference completeness validation, CRAG grading relevance, and end-to-end LangGraph workflows without making external network calls.
 
 ```bash
 # Run tests with unittest discovery:
 python3 -m unittest discover -v -s tests -p "test_*.py"
 ```
 
-**Results**: 73 tests (72 passed offline, 1 skipped for live API opt-in) running in ~0.03s.
+**Results**: 104 tests (103 passed offline, 1 skipped for live API opt-in) running in ~5.4s.
 
 ---
 
-## 📦 Dependencies & SDK Modernization Roadmap
+## 📚 MMI Reference Retrieval Modes (`full_scale` vs. `vector_search`)
 
-- **Current Architecture**: Live inference utilizes Vertex AI (`google-cloud-aiplatform>=2.7.0`) and LangChain Google GenAI (`langchain-google-genai<3.0`) via Clara's shared `MultimodalEarthquakeCRAG` service.
-- **SDK Deprecation Notice**: Google Cloud has officially deprecated `vertexai.generative_models` in favor of the new unified **Google Gen AI SDK** (`google-genai`, `from google import genai`).
-- **Migration Strategy**: To maintain research continuity and test stability, the working Vertex AI CRAG implementation is preserved in this milestone. A future milestone will migrate model invocations to the unified `google-genai` client while maintaining the existing LangGraph state schema and security redaction boundaries.
+MMI-Gram supports two scientifically distinct reference retrieval modes:
+- **`full_scale` (Default & Recommended)**: Deterministically supplies all 10 official Modified Mercalli Intensity scale definitions ($I$ through $X$) via read-only fetch from Pinecone, without arbitrary vector-ranking exclusions. Validates scale completeness (ensuring all 10 integer levels are present and non-empty) and routes incomplete scale definitions to human review.
+- **`vector_search`**: Retrieves top-$k$ candidate definitions via semantic similarity (`search_records` or inference embedding fallback). Relevance grading substantively verifies damage correlation rather than treating all references as automatically relevant just for mentioning "MMI".
+- **Cosine Metric Interpretation**: Explains that `mmi-idx` calculates cosine dot products ($[-1.0, 1.0]$). Slight negative cosine values represent vector angles $>90^\circ$ in 1024-dimensional semantic space, which is mathematically standard rather than an API error.
+
+---
+
+## 📦 Unified Google Gen AI SDK & Gemini 3.8 Flash Upgrade
+
+- **Unified SDK**: Modernized from deprecated `vertexai.generative_models` to the official **Google Gen AI SDK** (`google-genai>=2.30.0`, `from google import genai`), authenticated via Google Cloud Vertex AI using authorized Application Default Credentials.
+- **Default Live Model**: `gemini-3.8-flash` with explicit `thinking_level=HIGH` (`types.ThinkingConfig(thinking_level=types.ThinkingLevel.HIGH, include_thoughts=True)`). Supported thinking levels are `HIGH`, `MEDIUM`, and `LOW` (`MINIMAL` is not supported for Gemini 3.8 Flash).
+- **Parameter Adaptation**: Deprecated generation parameters (`temperature`, `top_p`, `top_k`, `candidate_count`) are automatically omitted when calling Gemini 3.8 Flash, in adherence to the Gemini 3 API specification.
+- **Comparative Benchmarking Support**: `gemini-2.5-flash` is preserved as a selectable option (`--model gemini-2.5-flash`) with legacy parameters maintained for scientific comparison with earlier baselines.
+- **No Silent Model Switching**: Invocations strictly enforce model identity. Rate limits trigger exponential backoff on the requested model; the pipeline never silently downgrades or switches models.
+- **Full Workflow Token Telemetry**: Aggregates token usage (`prompt_tokens`, `candidates_tokens`, `thoughts_tokens`, `total_tokens`) across **every** Gemini call made during the CRAG workflow (initial analysis, document grading, query transformation, and final analysis).
+
+*(Note: Any token usage values shown in documentation or test fixtures are **illustrative examples** of the output schema, not actual empirical measurements from Gemini 3.8 Flash.)*
 
 ---
 
