@@ -447,7 +447,7 @@ class MultimodalEarthquakeCRAG:
 
     
 from google.cloud import bigquery
-projectID = os.environ['projectID']
+projectID = os.environ.get('projectID') or os.environ.get('GCS_PROJECT_ID')
 
 if __name__ == "__main__":
     

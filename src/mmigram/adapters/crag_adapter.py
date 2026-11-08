@@ -10,6 +10,12 @@ import uuid
 from pathlib import Path
 from typing import Dict, Any, Optional, Tuple
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 
 def check_live_prerequisites() -> Tuple[bool, list[str]]:
     """

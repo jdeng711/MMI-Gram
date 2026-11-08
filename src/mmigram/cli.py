@@ -25,6 +25,12 @@ import argparse
 from pathlib import Path
 from typing import Optional, List
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 from mmigram.workflow.general_steer_pipeline import GeneralSteerPipeline
 from mmigram.workflow.steer_offline_pipeline import SteerOfflinePipeline
 from mmigram.review.queue import HumanReviewQueue, DEFAULT_PERSISTENCE_PATH
