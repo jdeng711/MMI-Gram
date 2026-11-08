@@ -1,0 +1,32 @@
+{
+  "_metadata": {
+    "is_synthetic": true,
+    "is_authoritative_ground_truth": false,
+    "baseline_type": "MOCKED_TEST_DATA",
+    "description": "Explicitly labeled synthetic software test fixture for second StEER report card (Mandalay locus)",
+    "disclaimer": "SYNTHETIC TEST FIXTURE. NOT an authentic StEER report and NOT authoritative ground truth."
+  },
+  "input": {
+    "file_name": "synthetic_steer_page2_mandalay.pdf",
+    "mime_type": "application/pdf",
+    "source_url": "https://x.com/synthetic_feed/status/1905999999999999999",
+    "raw_location_string": "Mandalay city, 21 58' 42.10\" N, 96 05' 20.30\" E",
+    "expected_parsed_coords": {
+      "latitude": 21.978361,
+      "longitude": 96.088972
+    }
+  },
+  "observed_mocked_output": {
+    "mmi_estimation": 8.0,
+    "confidence": 0.85,
+    "location": {
+      "address": "Mandalay city, Myanmar",
+      "coordinates": [21.97836111111111, 96.08897222222221]
+    },
+    "building_type": "Reinforced concrete frame with infill masonry",
+    "building_materials": "Reinforced concrete, rebar, clay brick",
+    "visual_observation": "Mid-rise reinforced concrete frame structure with soft-story ground floor collapse, extensive concrete spalling, exposed rebar, and infill masonry wall failure along 78th street in Mandalay.",
+    "reasoning": "Considerable damage in ordinary substantial buildings with partial collapse and ground story destruction consistent with MMI 8.0 (Severe shaking).",
+    "generation": "EARTHQUAKE ASSESSMENT REPORT (SYNTHETIC FIXTURE)\n================================================\nFile: synthetic_steer_page2_mandalay.pdf\nMMI Estimation: 8.0\nConfidence: 0.85\n\nDescription: RC frame soft-story failure\nLocation: Mandalay city [21.978361, 96.088972]\nBuilding Type: Reinforced concrete\nReasoning: Soft-story ground level collapse and spalled columns."
+  }
+}

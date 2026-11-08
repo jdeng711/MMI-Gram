@@ -1,0 +1,29 @@
+{
+  "_metadata": {
+    "is_synthetic": true,
+    "is_authoritative_ground_truth": false,
+    "baseline_type": "MOCKED_TEST_DATA",
+    "description": "Explicitly labeled synthetic software test fixture with NO coordinates present in text",
+    "disclaimer": "SYNTHETIC TEST FIXTURE. NOT an authentic StEER report and NOT authoritative ground truth."
+  },
+  "input": {
+    "file_name": "synthetic_steer_page3_no_coords.pdf",
+    "mime_type": "application/pdf",
+    "source_url": "https://x.com/synthetic_feed/status/1905988888888888888",
+    "raw_location_string": "Unknown locality (Coordinates not provided in report)",
+    "expected_parsed_coords": null
+  },
+  "observed_mocked_output": {
+    "mmi_estimation": 6.0,
+    "confidence": 0.70,
+    "location": {
+      "address": "Unknown locality",
+      "coordinates": null
+    },
+    "building_type": "Unreinforced brick residential",
+    "building_materials": "Brick and plaster",
+    "visual_observation": "Residential building with moderate perimeter cracks and fallen chimney. Ground shaking was felt strongly by residents indoors.",
+    "reasoning": "Damage slight to moderate in ordinary structures, fallen plaster and chimney cracks consistent with MMI 6.0 (Strong shaking).",
+    "generation": "EARTHQUAKE ASSESSMENT REPORT (SYNTHETIC FIXTURE)\n================================================\nFile: synthetic_steer_page3_no_coords.pdf\nMMI Estimation: 6.0\nConfidence: 0.70\n\nDescription: Moderate damage, no coordinates\nLocation: Unknown\nBuilding Type: Brick masonry\nReasoning: Cracked walls and fallen plaster."
+  }
+}

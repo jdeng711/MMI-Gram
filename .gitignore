@@ -1,16 +1,42 @@
 # API keys and credentials
 .env
 .env.*
+!.env.example
+*.env
+*.json
+!data/events/**/*.json
+!tests/fixtures/**/*.json
 service_account.json
-gen-lang-client-0175492774.json
+gen-lang-client-*.json
+*.pem
+*.key
 
 # Python virtual environments
 venv/
 .venv/
+.clean_venv/
+*venv*/
+env/
+ENV/
 
-# Python cache
+# Python cache & packaging
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
 
 # macOS
 .DS_Store
+._*
+
+# MMI-Gram local persistent review data & batch results
+data/review_queue.json
+server/mmigram/data/
+data/events/*/results/
+*.log

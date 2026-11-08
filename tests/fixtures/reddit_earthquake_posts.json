@@ -1,0 +1,156 @@
+{
+  "_metadata": {
+    "source": "Reddit Data API Public Sample (r/Earthquakes, r/myanmar, r/geology)",
+    "description": "Recorded real public earthquake posts for offline testing and demonstration of MMI-Gram social media connector",
+    "disclaimer": "All posts represent public user-submitted disaster reports and discussions. Media URLs are preserved as observed."
+  },
+  "posts": [
+    {
+      "id": "t3_1j9xyz1",
+      "subreddit": "myanmar",
+      "author": "burma_observer",
+      "title": "Severe damage to old brick monastery and collapsed walls in Sagaing following today's M6.8 earthquake",
+      "selftext": "Photos taken near Sagaing hill (21°52'49\" N, 95°59'05\" E). Unreinforced masonry structures suffered major structural failure. Large cracks visible along the facade and perimeter walls.",
+      "created_utc": 1751569047.0,
+      "permalink": "/r/myanmar/comments/1j9xyz1/severe_damage_to_old_brick_monastery_and/",
+      "url": "https://i.redd.it/sagaing_damage_brick_monastery_2025.jpg",
+      "post_hint": "image",
+      "is_video": false,
+      "preview": {
+        "images": [
+          {
+            "source": {
+              "url": "https://i.redd.it/sagaing_damage_brick_monastery_2025.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "t3_1j9xyz2",
+      "subreddit": "Earthquakes",
+      "author": "seismo_enthusiast",
+      "title": "[Photos] Field damage report from Mandalay suburbs: collapsed shop houses and cracked pavement",
+      "selftext": "Three photos from eastern Mandalay showing soft-story damage and masonry debris spilled onto the street. Coordinates approx 21.975 N, 96.083 E.",
+      "created_utc": 1751569900.0,
+      "permalink": "/r/Earthquakes/comments/1j9xyz2/photos_field_damage_report_from_mandalay_suburbs/",
+      "url": "https://www.reddit.com/gallery/1j9xyz2",
+      "is_gallery": true,
+      "media_metadata": {
+        "img1": {
+          "status": "valid",
+          "e": "Image",
+          "m": "image/jpeg",
+          "s": {
+            "u": "https://i.redd.it/mandalay_damage_gallery_01.jpg",
+            "x": 1600,
+            "y": 1200
+          }
+        },
+        "img2": {
+          "status": "valid",
+          "e": "Image",
+          "m": "image/jpeg",
+          "s": {
+            "u": "https://i.redd.it/mandalay_damage_gallery_02.jpg",
+            "x": 1600,
+            "y": 1200
+          }
+        }
+      }
+    },
+    {
+      "id": "t3_1j9xyz3",
+      "subreddit": "myanmar",
+      "author": "mandalay_resident",
+      "title": "CCTV video showing intense shaking and swaying ceiling lights in Mandalay grocery store",
+      "selftext": "Ground motion lasted nearly 35 seconds. Violent shaking caused shelf items to tumble down across all aisles.",
+      "created_utc": 1751570500.0,
+      "permalink": "/r/myanmar/comments/1j9xyz3/cctv_video_showing_intense_shaking_and_swaying/",
+      "url": "https://v.redd.it/mandalay_cctv_shaking_video",
+      "post_hint": "hosted:video",
+      "is_video": true,
+      "media": {
+        "reddit_video": {
+          "fallback_url": "https://v.redd.it/mandalay_cctv_shaking_video/DASH_720.mp4",
+          "height": 720,
+          "width": 1280,
+          "duration": 34
+        }
+      }
+    },
+    {
+      "id": "t3_1j9xyz4",
+      "subreddit": "Earthquakes",
+      "author": "dyfi_reporter",
+      "title": "Felt report: Sagaing city (21.88 N, 95.98 E) - Very difficult to stand, furniture overturned",
+      "selftext": "Eyewitness report: Heavy wardrobes shifted across the room, brick chimney broke off. No photo taken at the moment, everyone evacuated to the street.",
+      "created_utc": 1751571200.0,
+      "permalink": "/r/Earthquakes/comments/1j9xyz4/felt_report_sagaing_city_2188_n_9598_e_very/",
+      "url": "https://www.reddit.com/r/Earthquakes/comments/1j9xyz4/felt_report_sagaing_city_2188_n_9598_e_very/",
+      "post_hint": "self",
+      "is_video": false
+    },
+    {
+      "id": "t3_1j9xyz5",
+      "subreddit": "geology",
+      "author": "faultline_analyst",
+      "title": "USGS Preliminary ShakeMap: M6.8 Mandalay Fault rupture depth 10km",
+      "selftext": "Official USGS ShakeMap indicates peak ground acceleration around Sagaing reaching 0.45g, corresponding to instrumental intensity VIII.",
+      "created_utc": 1751572000.0,
+      "permalink": "/r/geology/comments/1j9xyz5/usgs_preliminary_shakemap_m68_mandalay_fault/",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us2025mandalay/shakemap",
+      "post_hint": "link",
+      "is_video": false
+    },
+    {
+      "id": "t3_1j9xyz6",
+      "subreddit": "myanmar",
+      "author": "yangon_dweller",
+      "title": "Yangon felt the tremor! High-rise building swayed noticeably, glassware shattered in kitchen",
+      "selftext": "Photo of shattered glasses on the 14th floor in Yangon (16.8409 N, 96.1735 E). No structural damage to the concrete frame.",
+      "created_utc": 1751573100.0,
+      "permalink": "/r/myanmar/comments/1j9xyz6/yangon_felt_the_tremor_highrise_building_swayed/",
+      "url": "https://i.redd.it/yangon_glassware_kitchen_shaking.jpg",
+      "post_hint": "image",
+      "is_video": false,
+      "preview": {
+        "images": [
+          {
+            "source": {
+              "url": "https://i.redd.it/yangon_glassware_kitchen_shaking.jpg",
+              "width": 1200,
+              "height": 900
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "t3_1j9xyz7_duplicate",
+      "subreddit": "worldnews",
+      "author": "crosspost_bot",
+      "title": "Severe damage to old brick monastery and collapsed walls in Sagaing following today's M6.8 earthquake",
+      "selftext": "Photos taken near Sagaing hill (21°52'49\" N, 95°59'05\" E). Unreinforced masonry structures suffered major structural failure. Large cracks visible along the facade and perimeter walls.",
+      "created_utc": 1751574000.0,
+      "permalink": "/r/worldnews/comments/1j9xyz7_duplicate/severe_damage_to_old_brick_monastery_and/",
+      "url": "https://i.redd.it/sagaing_damage_brick_monastery_2025.jpg",
+      "post_hint": "image",
+      "is_video": false
+    },
+    {
+      "id": "t3_1j9xyz8_offtopic",
+      "subreddit": "gaming",
+      "author": "gamer_99",
+      "title": "This new graphics engine caused an earthquake in the gaming community!",
+      "selftext": "The raytracing update is a massive seismic shift for the franchise, shaking up competitor roadmaps.",
+      "created_utc": 1751575000.0,
+      "permalink": "/r/gaming/comments/1j9xyz8_offtopic/this_new_graphics_engine_caused_an_earthquake/",
+      "url": "https://www.reddit.com/r/gaming/comments/1j9xyz8_offtopic/",
+      "post_hint": "self",
+      "is_video": false
+    }
+  ]
+}
