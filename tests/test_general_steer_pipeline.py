@@ -76,6 +76,18 @@ class TestGeneralSteerPipeline(unittest.TestCase):
         # Protocol: Text-extracted coordinates are candidate, not independently verified
         self.assertFalse(coords["is_authoritative"])
 
+        # 3b. Model coordinates vs Document coordinates verification
+        geo = result["geographic_resolution"]
+        self.assertIsNotNone(geo["document_coordinates"])
+        self.assertAlmostEqual(geo["document_coordinates"]["latitude"], 21.880353, places=4)
+        self.assertIsNotNone(geo["model_coordinates"])
+        self.assertEqual(geo["model_coordinates"]["latitude"], 0.0)
+        self.assertEqual(geo["model_coordinates"]["longitude"], 0.0)
+        self.assertFalse(geo["model_coordinates"]["is_valid"])
+        self.assertEqual(geo["comparison_status"], "COORDINATES_DISAGREE")
+        self.assertTrue(geo["coordinates_disagree"])
+        self.assertIn("Null Island", geo["discrepancy_details"])
+
         # 4. Model output check
         seis = result["seismic_intensity"]
         self.assertEqual(seis["mmi_estimation"], 9.0)

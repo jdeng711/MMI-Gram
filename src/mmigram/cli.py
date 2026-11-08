@@ -156,6 +156,9 @@ def cmd_analyze(args: argparse.Namespace) -> int:
         prov = result.get("provenance", {})
         prov_label = "SYNTHETIC TEST FIXTURE" if prov.get("is_synthetic") else "AUTHENTIC STEER REPORT"
         print(f"Artifact Provenance:   {prov_label} (Baseline: {prov.get('baseline_type')})")
+        sha_str = prov.get('source_sha256', 'N/A')
+        short_sha = sha_str[:12] + "..." if len(sha_str) > 12 else sha_str
+        print(f"Execution Provenance:  Mode: {prov.get('execution_mode', mode).upper()} | Model: {prov.get('model_identifier', 'N/A')} | SHA256: {short_sha}")
         print(f"Document Text Status:  {result.get('document_extraction', {}).get('extraction_status')}")
 
         seis = result.get("seismic_intensity", {})
@@ -174,10 +177,25 @@ def cmd_analyze(args: argparse.Namespace) -> int:
         else:
             print("Candidate Coords:      UNKNOWN (Coordinates could not be established)")
 
-        doc_str = f"Lat {doc_c.get('latitude'):.4f}, Lon {doc_c.get('longitude'):.4f}" if doc_c and doc_c.get("latitude") is not None else "None"
-        model_str = f"Lat {model_c.get('latitude'):.4f}, Lon {model_c.get('longitude'):.4f}" if model_c and model_c.get("latitude") is not None else "None"
+        if doc_c and doc_c.get("latitude") is not None:
+            if not doc_c.get("is_valid", True) and doc_c.get("validation_error"):
+                doc_str = f"Lat {doc_c.get('latitude'):.4f}, Lon {doc_c.get('longitude'):.4f} [INVALID: {doc_c.get('validation_error')}]"
+            else:
+                doc_str = f"Lat {doc_c.get('latitude'):.4f}, Lon {doc_c.get('longitude'):.4f}"
+        else:
+            doc_str = "None (No coordinates detected in document text)"
+
+        if model_c and model_c.get("latitude") is not None:
+            if not model_c.get("is_valid", True) and model_c.get("validation_error"):
+                model_str = f"Lat {model_c.get('latitude'):.4f}, Lon {model_c.get('longitude'):.4f} [INVALID: {model_c.get('validation_error')}]"
+            else:
+                model_str = f"Lat {model_c.get('latitude'):.4f}, Lon {model_c.get('longitude'):.4f}"
+        else:
+            model_str = "Unknown (Model provided no coordinates)"
+
         print(f"Document Coords:       {doc_str}")
         print(f"Model Coords:          {model_str}")
+        print(f"Location Status:       {geo.get('comparison_status', 'LOCATION_UNKNOWN')}")
 
         if geo.get("coordinates_disagree"):
             print(f"⚠️ Coordinate Conflict: {geo.get('discrepancy_details')}")

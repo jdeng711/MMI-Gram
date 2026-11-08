@@ -9,6 +9,7 @@ import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Any, Union
 from ..core.state import Coordinates, HumanReviewRecord, MMIGramState
+from ..telemetry.tracer import sanitize_payload, redact_sensitive_strings
 from ..qc.rules import (
     FLAG_HIGH_INTENSITY_ANOMALY,
     FLAG_LOW_CONFIDENCE,
@@ -39,8 +40,8 @@ class ReviewItem:
         overridden_coordinates: Optional[Dict[str, Any]] = None,
     ):
         self.item_id = item_id
-        self.data = data
-        self.triggers = triggers
+        self.data = sanitize_payload(data)
+        self.triggers = [redact_sensitive_strings(t) for t in triggers]
         self.status = status
         self.reviewer_id = reviewer_id
         self.reviewer_notes = reviewer_notes

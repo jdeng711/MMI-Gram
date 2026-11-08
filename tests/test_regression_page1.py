@@ -161,6 +161,32 @@ class TestScientificAccuracySeparation(unittest.TestCase):
         calibrated_result = MMIEstimationResult(mmi_value=8.0, confidence=0.95, is_calibrated=True)
         self.assertTrue(calibrated_result.is_calibrated)
 
+    def test_separation_of_legacy_and_live_baselines(self):
+        """
+        Verify that the historical legacy baseline (MMI 9.0, confidence 0.90) and the
+        new live Gemini 2.5 Flash empirical observation (MMI 10.0, confidence 0.95)
+        are stored as distinct sections in the fixture and neither overwrites the other.
+        """
+        with open(FIXTURE_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        self.assertIn("observed_legacy_baseline", data)
+        legacy = data["observed_legacy_baseline"]
+        self.assertEqual(legacy["mmi_estimation"], 9.0)
+        self.assertEqual(legacy["confidence"], 0.90)
+        self.assertEqual(legacy["location"]["coordinates"], [0.0, 0.0])
+
+        self.assertIn("observed_live_gemini_result", data)
+        live = data["observed_live_gemini_result"]
+        self.assertEqual(live["model_identifier"], "gemini-2.5-flash")
+        self.assertEqual(live["execution_mode"], "live")
+        self.assertEqual(live["mmi_estimation"], 10.0)
+        self.assertEqual(live["confidence"], 0.95)
+        self.assertFalse(live["is_calibrated"])
+        self.assertEqual(live["comparison_status"], "MODEL_LOCATION_UNAVAILABLE")
+        self.assertFalse(live["coordinates_disagree"])
+        self.assertEqual(live["human_review"]["review_status"], "UNREVIEWED")
+
 
 class TestPage1LiveIntegration(unittest.TestCase):
     """

@@ -76,12 +76,12 @@ MMI-Gram's batch interface matches Clara's event folder layout (`data/events/<ev
 ## 🔬 Scientific Integrity & Safety Principles
 
 1. **Strict Separation of Baselines vs. Ground Truth**:
-   - The observed legacy output for StEER Page 1 (`MMI 9.0`, `confidence 0.90`) is preserved as a software regression baseline, **not** certified as authoritative scientific ground truth.
+   - The observed legacy output for StEER Page 1 (`MMI 9.0`, `confidence 0.90`) is preserved as a software regression baseline, **not** certified as authoritative scientific ground truth. In this legacy baseline, the model returned invalid Null Island `(0.0, 0.0)` coordinates, which MMI-Gram flags as `COORDINATES_DISAGREE` against document coordinates.
    - High-intensity estimates (MMI $\ge$ 9.0) are automatically flagged for engineering audit.
 2. **Zero-Fabrication Policy**:
    - If model output is missing, malformed, or outside physical ranges, MMI-Gram records `mmi_estimation = None` and routes it to human review. It **never** defaults missing values to arbitrary fallbacks.
-3. **Dual Coordinate Preservation**:
-   - Document-parsed coordinates and model-generated coordinates are preserved separately in the output schema. MMI-Gram detects discrepancies (> 10 km) rather than silently overwriting either.
+3. **Dual Coordinate Preservation & Anti-Leakage Invariant**:
+   - Document-parsed coordinates and model-generated coordinates are preserved separately in the output schema. Model coordinates are **never** populated or backfilled from document coordinates. MMI-Gram detects discrepancies (> 10 km or invalid coords) rather than silently overwriting either. `COORDINATES_AGREE` is emitted only when both sources independently supply valid coordinates within the threshold.
 4. **Offline-First & Zero Unexpected Cloud Costs**:
    - All tests and development workflows execute 100% offline using deterministic fixtures. Live cloud API calls require explicit user authorization.
 5. **Unverified Status of Live Gemini Predictions**:
@@ -138,12 +138,24 @@ python3 -m mmigram.cli demo
 
 ### Analyze a Specific PDF Document
 ```bash
-# Offline mode (default, uses recorded fixtures):
+# Offline mode (default, strictly deterministic replay of recorded fixtures):
 python3 -m mmigram.cli analyze --pdf server/test_page1.pdf
 
-# Live mode (requires GCP credentials and user approval):
-python3 -m mmigram.cli analyze --pdf server/test_page1.pdf --live
+# Live mode (requires authorized GCP credentials and explicit user confirmation):
+python3 -m mmigram.cli analyze --pdf server/test_page1.pdf --live --confirm-live-api
 ```
+
+#### Verified Live Empirical Run Results (`server/test_page1.pdf`):
+- **Model Invocated**: `gemini-2.5-flash` via Vertex AI CRAG
+- **Observed MMI**: `10.0`
+- **Observed Confidence**: `0.95` (Uncalibrated AI estimate; strictly distinguished from ground truth)
+- **Document Coordinates**: `21.880353° N, 95.984881° E` (Sagaing City, extracted from DMS text)
+- **Model Coordinates**: `Unknown` / Not Provided
+- **Location Status**: `MODEL_LOCATION_UNAVAILABLE` (Candidate coords rely on document text; missing model coordinates are explicitly never interpreted as agreement)
+- **Quality Control**: `FLAGGED` (`HIGH_INTENSITY_MMI`, `MODEL_LOCATION_UNAVAILABLE`, `UNVERIFIED_ESTIMATE`)
+- **Human Review**: `UNREVIEWED` (Automatically enqueued into persistent review storage)
+- **Execution Time**: ~33 seconds
+- **Security & Privacy**: Zero credentials or raw signed URLs appear in logs, traces, or persistent records. Sensitive parameters are sanitized to `[REDACTED_SIGNATURE]`.
 
 ### Batch Inbound Directory Analysis (Compatible with Clara's `quake_agent`)
 Process an entire directory of incoming earthquake reconnaissance reports:
@@ -194,7 +206,7 @@ MMI-Gram/
 │       └── workflow/             # LangGraph state machine & pipeline graphs
 ├── tests/
 │   ├── fixtures/                 # Authentic & synthetic test fixtures
-│   ├── test_*.py                 # 53 offline unit & regression tests
+│   ├── test_*.py                 # 67 offline unit, security, & regression tests
 │   └── generate_fixtures.py      # Reproducible synthetic test PDF generator
 ├── pyproject.toml                # Standard PEP 517/518 build specification
 ├── setup.py                      # Package setup configuration
@@ -206,14 +218,22 @@ MMI-Gram/
 
 ## 🧪 Testing & Verification
 
-The test suite covers unit logic, coordinate parsing, QC edge cases, queue persistence, and end-to-end LangGraph workflows without making external network calls.
+The test suite covers unit logic, coordinate parsing, Haversine discrepancy detection, security redaction, QC edge cases, queue persistence, and end-to-end LangGraph workflows without making external network calls.
 
 ```bash
 # Run tests with unittest discovery:
 python3 -m unittest discover -v -s tests -p "test_*.py"
 ```
 
-**Results**: 53 tests (52 passed, 1 skipped for live API opt-in) running in ~0.02s.
+**Results**: 73 tests (72 passed offline, 1 skipped for live API opt-in) running in ~0.03s.
+
+---
+
+## 📦 Dependencies & SDK Modernization Roadmap
+
+- **Current Architecture**: Live inference utilizes Vertex AI (`google-cloud-aiplatform>=2.7.0`) and LangChain Google GenAI (`langchain-google-genai<3.0`) via Clara's shared `MultimodalEarthquakeCRAG` service.
+- **SDK Deprecation Notice**: Google Cloud has officially deprecated `vertexai.generative_models` in favor of the new unified **Google Gen AI SDK** (`google-genai`, `from google import genai`).
+- **Migration Strategy**: To maintain research continuity and test stability, the working Vertex AI CRAG implementation is preserved in this milestone. A future milestone will migrate model invocations to the unified `google-genai` client while maintaining the existing LangGraph state schema and security redaction boundaries.
 
 ---
 

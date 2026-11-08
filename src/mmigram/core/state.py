@@ -57,7 +57,8 @@ class LocationContext:
     coordinates: Optional[Coordinates] = None             # Resolved candidate coordinates (or None if unknown)
     document_coordinates: Optional[Coordinates] = None    # Coordinates parsed from source document text
     model_coordinates: Optional[Coordinates] = None       # Coordinates output by multimodal model
-    coordinates_disagree: bool = False                   # True if document & model coordinates conflict
+    comparison_status: str = "LOCATION_UNKNOWN"          # 'COORDINATES_AGREE', 'COORDINATES_DISAGREE', 'MODEL_LOCATION_UNAVAILABLE', 'DOCUMENT_LOCATION_UNAVAILABLE', 'BOTH_LOCATIONS_UNAVAILABLE'
+    coordinates_disagree: bool = False                   # True ONLY if document & model coordinates actively conflict (distance > threshold or invalid)
     discrepancy_details: Optional[str] = None
     discrepancy_distance_km: Optional[float] = None
 
@@ -69,6 +70,7 @@ class LocationContext:
             "coordinates": self.coordinates.to_dict() if self.coordinates else None,
             "document_coordinates": self.document_coordinates.to_dict() if self.document_coordinates else None,
             "model_coordinates": self.model_coordinates.to_dict() if self.model_coordinates else None,
+            "comparison_status": self.comparison_status,
             "coordinates_disagree": self.coordinates_disagree,
             "discrepancy_details": self.discrepancy_details,
             "discrepancy_distance_km": self.discrepancy_distance_km,
@@ -91,6 +93,7 @@ class LocationContext:
             coordinates=coords,
             document_coordinates=doc_coords,
             model_coordinates=model_coords,
+            comparison_status=data.get("comparison_status", "LOCATION_UNKNOWN"),
             coordinates_disagree=bool(data.get("coordinates_disagree", False)),
             discrepancy_details=data.get("discrepancy_details"),
             discrepancy_distance_km=data.get("discrepancy_distance_km"),

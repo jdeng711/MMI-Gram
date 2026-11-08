@@ -16,6 +16,8 @@ FLAG_LOW_CONFIDENCE = "LOW_CONFIDENCE"
 FLAG_SPARSE_EVIDENCE = "SPARSE_DAMAGE_EVIDENCE"
 FLAG_UNVERIFIED_ESTIMATE = "UNVERIFIED_ESTIMATE"
 FLAG_COORDINATE_DISCREPANCY = "COORDINATE_DISCREPANCY"
+FLAG_COORDINATES_DISAGREE = "COORDINATE_DISCREPANCY"
+FLAG_MODEL_LOCATION_UNAVAILABLE = "MODEL_LOCATION_UNAVAILABLE"
 
 
 def check_coordinates(coords: Optional[Coordinates]) -> Tuple[bool, List[str]]:
@@ -77,12 +79,15 @@ def check_mmi_estimation(
 
 
 def check_coordinate_agreement(location: Optional[LocationContext]) -> Tuple[bool, List[str]]:
-    """Check whether document-extracted and model-predicted coordinates disagree."""
+    """Check whether document-extracted and model-predicted coordinates disagree or are unavailable."""
     flags = []
-    if location and location.coordinates_disagree:
+    if not location:
+        return True, flags
+    if location.coordinates_disagree:
         flags.append(FLAG_COORDINATE_DISCREPANCY)
-        return False, flags
-    return True, flags
+    if location.comparison_status == FLAG_MODEL_LOCATION_UNAVAILABLE:
+        flags.append(FLAG_MODEL_LOCATION_UNAVAILABLE)
+    return len(flags) == 0, flags
 
 
 def check_damage_evidence(damage: Optional[StructuralDamageAssessment]) -> Tuple[bool, List[str]]:

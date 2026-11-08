@@ -23,6 +23,7 @@ from .rules import (
     FLAG_HIGH_INTENSITY_ANOMALY,
     FLAG_LOW_CONFIDENCE,
     FLAG_COORDINATE_DISCREPANCY,
+    FLAG_MODEL_LOCATION_UNAVAILABLE,
 )
 
 
@@ -77,6 +78,7 @@ def evaluate_quality(
         FLAG_HIGH_INTENSITY_ANOMALY in all_flags
         or FLAG_LOW_CONFIDENCE in all_flags
         or FLAG_COORDINATE_DISCREPANCY in all_flags
+        or FLAG_MODEL_LOCATION_UNAVAILABLE in all_flags
     ):
         status = "FLAGGED"
         is_valid = True

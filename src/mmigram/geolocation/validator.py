@@ -105,3 +105,73 @@ def validate_coordinates(
     if coords.confidence == 0.0:
         coords.confidence = 0.8
     return coords
+
+
+def compare_coordinates(
+    doc_coords: Optional[Coordinates],
+    model_coords: Optional[Coordinates],
+    threshold_km: float = 10.0,
+) -> Tuple[str, bool, Optional[float], Optional[str]]:
+    """
+    Compare document-parsed coordinates with model-predicted coordinates.
+    Distinguishes between COORDINATES_AGREE, COORDINATES_DISAGREE,
+    MODEL_LOCATION_UNAVAILABLE, DOCUMENT_LOCATION_UNAVAILABLE, and BOTH_LOCATIONS_UNAVAILABLE.
+
+    IMPORTANT: Missing model coordinates must NOT be interpreted as agreement with document coordinates.
+
+    Returns:
+        (comparison_status, coordinates_disagree, discrepancy_distance_km, discrepancy_details)
+    """
+    doc_valid = (
+        doc_coords is not None
+        and doc_coords.is_valid
+        and doc_coords.latitude is not None
+        and doc_coords.longitude is not None
+    )
+    model_valid = (
+        model_coords is not None
+        and model_coords.is_valid
+        and model_coords.latitude is not None
+        and model_coords.longitude is not None
+    )
+
+    if doc_valid and model_valid:
+        dist = haversine_distance_km(
+            doc_coords.latitude, doc_coords.longitude,
+            model_coords.latitude, model_coords.longitude
+        )
+        dist_round = round(dist, 2)
+        if dist > threshold_km:
+            details = (
+                f"Document coordinates ({doc_coords.latitude:.4f}, {doc_coords.longitude:.4f}) and "
+                f"model coordinates ({model_coords.latitude:.4f}, {model_coords.longitude:.4f}) "
+                f"disagree by {dist:.1f} km (threshold: {threshold_km:.1f} km)."
+            )
+            return ("COORDINATES_DISAGREE", True, dist_round, details)
+        else:
+            details = f"Document and model coordinates agree within {dist:.1f} km (threshold: {threshold_km:.1f} km)."
+            return ("COORDINATES_AGREE", False, dist_round, details)
+
+    elif doc_valid and not model_valid:
+        if model_coords is not None and model_coords.validation_error:
+            # Model explicitly produced invalid coordinates (e.g. Null Island or out of range)
+            details = (
+                f"Document text contains valid coordinates ({doc_coords.latitude:.4f}, {doc_coords.longitude:.4f}), "
+                f"but model returned invalid coordinates: {model_coords.validation_error}"
+            )
+            return ("COORDINATES_DISAGREE", True, None, details)
+        else:
+            # Model coordinates are null / Unknown / not provided
+            details = "Document text provided valid coordinates, but model location was unavailable (Unknown)."
+            return ("MODEL_LOCATION_UNAVAILABLE", False, None, details)
+
+    elif not doc_valid and model_valid:
+        details = (
+            f"Model predicted coordinates ({model_coords.latitude:.4f}, {model_coords.longitude:.4f}), "
+            "but no coordinates were detected in document text."
+        )
+        return ("DOCUMENT_LOCATION_UNAVAILABLE", False, None, details)
+
+    else:
+        details = "Neither document text nor multimodal model established geographic coordinates."
+        return ("BOTH_LOCATIONS_UNAVAILABLE", False, None, details)

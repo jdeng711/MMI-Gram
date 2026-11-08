@@ -6,7 +6,7 @@ Enables side-by-side comparison between MMI-Gram and Clara's quake_agent workflo
 from __future__ import annotations
 import csv
 import json
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, field
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 
@@ -27,12 +27,13 @@ class StandardObservationRecord:
     model_confidence: Optional[float]
     document_coordinates: Optional[Dict[str, Any]]
     model_coordinates: Optional[Dict[str, Any]]
-    coordinates_disagree: bool
-    qc_status: str                 # "PASSED", "FLAGGED", "REJECTED"
-    qc_flags: List[str]
-    human_review_required: bool
-    human_review_status: str       # "UNREVIEWED", "APPROVED", "OVERRIDDEN", "REJECTED"
-    execution_duration_ms: float
+    comparison_status: str = "LOCATION_UNKNOWN"
+    coordinates_disagree: bool = False
+    qc_status: str = "UNKNOWN"                 # "PASSED", "FLAGGED", "REJECTED"
+    qc_flags: List[str] = field(default_factory=list)
+    human_review_required: bool = False
+    human_review_status: str = "UNREVIEWED"    # "UNREVIEWED", "APPROVED", "OVERRIDDEN", "REJECTED"
+    execution_duration_ms: float = 0.0
     error_message: Optional[str] = None
     provenance_notes: Optional[str] = None
 
@@ -77,6 +78,7 @@ class BenchmarkComparator:
             model_confidence=seis.get("confidence"),
             document_coordinates=geo.get("document_coordinates"),
             model_coordinates=geo.get("model_coordinates"),
+            comparison_status=geo.get("comparison_status", "LOCATION_UNKNOWN"),
             coordinates_disagree=geo.get("coordinates_disagree", False),
             qc_status=qc.get("status", "UNKNOWN"),
             qc_flags=qc.get("flags", []),
@@ -115,6 +117,7 @@ class BenchmarkComparator:
             "doc_lon",
             "model_lat",
             "model_lon",
+            "comparison_status",
             "coordinates_disagree",
             "qc_status",
             "qc_flags",
@@ -141,6 +144,7 @@ class BenchmarkComparator:
                     "doc_lon": doc_c.get("longitude", ""),
                     "model_lat": model_c.get("latitude", ""),
                     "model_lon": model_c.get("longitude", ""),
+                    "comparison_status": r.comparison_status,
                     "coordinates_disagree": r.coordinates_disagree,
                     "qc_status": r.qc_status,
                     "qc_flags": ";".join(r.qc_flags),

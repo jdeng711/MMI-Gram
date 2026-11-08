@@ -15,6 +15,7 @@ Supports:
 from __future__ import annotations
 import os
 import sys
+import time
 import json
 import uuid
 from pathlib import Path
@@ -30,7 +31,7 @@ from ..core.state import (
 )
 from ..ingestion.pdf_extractor import PDFExtractor, PDFContentResult
 from ..geolocation.parser import extract_coordinates_from_text
-from ..geolocation.validator import validate_coordinates, haversine_distance_km, MYANMAR_BOUNDS
+from ..geolocation.validator import validate_coordinates, haversine_distance_km, compare_coordinates, MYANMAR_BOUNDS
 from ..qc.checker import evaluate_quality
 from ..review.queue import HumanReviewQueue
 from ..telemetry.tracer import StructuredAgentLogger
@@ -65,8 +66,10 @@ class GeneralSteerPipeline:
         review_queue: Optional[HumanReviewQueue] = None,
         allow_live_api: bool = False,
         min_text_threshold: int = 25,
+        model_name: Optional[str] = None,
     ):
         self.mode = mode.lower()
+        self.model_name = model_name
         self.fixtures_dir = fixtures_dir or DEFAULT_FIXTURES_DIR
         self.logger = logger or StructuredAgentLogger(name="mmigram.general_steer", console_output=True)
         self.review_queue = review_queue or HumanReviewQueue()
@@ -84,6 +87,7 @@ class GeneralSteerPipeline:
         """
         Execute the general-purpose StEER ingestion and analysis workflow on a target PDF.
         """
+        t0 = time.time()
         path = Path(file_path).resolve()
         file_name = path.name
 
@@ -266,30 +270,13 @@ class GeneralSteerPipeline:
             except (ValueError, TypeError):
                 model_coords = None
 
-        # Discrepancy analysis
-        coordinates_disagree = False
-        discrepancy_details: Optional[str] = None
-        discrepancy_distance_km: Optional[float] = None
-
-        if doc_coords and doc_coords.is_valid and model_coords and model_coords.is_valid:
-            dist = haversine_distance_km(doc_coords.latitude, doc_coords.longitude, model_coords.latitude, model_coords.longitude)
-            discrepancy_distance_km = round(dist, 2)
-            if dist > 10.0:  # Threshold > 10 km
-                coordinates_disagree = True
-                discrepancy_details = (
-                    f"Document coordinates ({doc_coords.latitude:.4f}, {doc_coords.longitude:.4f}) and "
-                    f"model coordinates ({model_coords.latitude:.4f}, {model_coords.longitude:.4f}) "
-                    f"disagree by {dist:.1f} km (threshold: 10.0 km)."
-                )
-        elif doc_coords and doc_coords.is_valid and model_coords and not model_coords.is_valid:
-            coordinates_disagree = True
-            discrepancy_details = (
-                f"Document text contains valid coordinates ({doc_coords.latitude:.4f}, {doc_coords.longitude:.4f}), "
-                f"but model returned invalid coordinates ({model_coords.validation_error or 'invalid'})."
-            )
-        elif model_coords and model_coords.is_valid and (not doc_coords or not doc_coords.is_valid):
-            coordinates_disagree = True
-            discrepancy_details = "Model predicted coordinates but no coordinates were detected in document text."
+        # Discrepancy & comparison analysis
+        (
+            comparison_status,
+            coordinates_disagree,
+            discrepancy_distance_km,
+            discrepancy_details,
+        ) = compare_coordinates(doc_coords, model_coords, threshold_km=10.0)
 
         # Candidate coordinate resolution: keep unknown as null, never invent!
         primary_coords: Optional[Coordinates] = None
@@ -305,6 +292,7 @@ class GeneralSteerPipeline:
             coordinates=primary_coords,
             document_coordinates=doc_coords,
             model_coordinates=model_coords,
+            comparison_status=comparison_status,
             coordinates_disagree=coordinates_disagree,
             discrepancy_details=discrepancy_details,
             discrepancy_distance_km=discrepancy_distance_km,
@@ -361,6 +349,9 @@ class GeneralSteerPipeline:
         if location_context.coordinates_disagree:
             review_required = True
             triggers.append(f"Coordinate discrepancy: {location_context.discrepancy_details}")
+        elif location_context.comparison_status == "MODEL_LOCATION_UNAVAILABLE":
+            review_required = True
+            triggers.append("Model location was unavailable (Unknown); candidate coordinates rely solely on unverified document text.")
         if primary_coords is None or not primary_coords.is_valid:
             review_required = True
             triggers.append("Geographic coordinates could not be established from document text or model.")
@@ -382,14 +373,25 @@ class GeneralSteerPipeline:
                 force=True,
             )
 
+        duration_ms = round((time.time() - t0) * 1000.0, 2)
+        active_model = self.model_name or os.environ.get("GEMINI_MODEL", "gemini-2.5-flash") if self.mode == "live" else "offline-fixture"
+
         final_summary = {
             "pipeline_name": "MMI-Gram General-Purpose StEER Pipeline",
             "file_name": file_name,
             "pipeline_mode": self.mode,
+            "model_identifier": active_model,
+            "execution_duration_ms": duration_ms,
             "provenance": {
                 "is_synthetic": is_synthetic,
                 "baseline_type": baseline_type,
                 "is_authoritative_ground_truth": False,
+                "model_identifier": active_model,
+                "execution_mode": self.mode,
+                "source_sha256": extraction.sha256_hash,
+                "mmi_result": estimation.mmi_value,
+                "uncalibrated_confidence": estimation.confidence,
+                "execution_duration_ms": duration_ms,
             },
             "document_extraction": {
                 "page_count": extraction.page_count,
@@ -408,6 +410,7 @@ class GeneralSteerPipeline:
                 "coordinates": primary_coords.to_dict() if primary_coords else None,
                 "document_coordinates": doc_coords.to_dict() if doc_coords else None,
                 "model_coordinates": model_coords.to_dict() if model_coords else None,
+                "comparison_status": comparison_status,
                 "coordinates_disagree": coordinates_disagree,
                 "discrepancy_details": discrepancy_details,
                 "discrepancy_distance_km": discrepancy_distance_km,
@@ -426,5 +429,5 @@ class GeneralSteerPipeline:
             },
         }
 
-        self.logger.log_node_exit("ingest_pdf", final_summary, duration_ms=1.2)
+        self.logger.log_node_exit("ingest_pdf", final_summary, duration_ms=duration_ms)
         return final_summary

@@ -95,6 +95,32 @@ SEISMIC_ANALYSIS_SCHEMA = {
 }
 
 
+import re
+
+_REDACT_GCS_URL = re.compile(r'https?://storage\.googleapis\.com/([^?#\s"\'<>]+)\?[^\s"\'<>]+', re.IGNORECASE)
+_REDACT_SENSITIVE_PARAM = re.compile(r'([?&](?:X-Goog-[A-Za-z0-9_-]+|Signature|sig|auth|token|key|api_key|password|secret)=)[^&\s"\'<>]+', re.IGNORECASE)
+
+def _sanitize_for_display(val: Any) -> Any:
+    if isinstance(val, dict):
+        clean = {}
+        for k, v in val.items():
+            if str(k).lower() == "signed_url" and isinstance(v, str):
+                clean[k] = _REDACT_GCS_URL.sub(r"https://storage.googleapis.com/\1?[REDACTED_SIGNATURE]", v)
+            elif isinstance(v, str):
+                s = _REDACT_GCS_URL.sub(r"https://storage.googleapis.com/\1?[REDACTED_SIGNATURE]", v)
+                clean[k] = _REDACT_SENSITIVE_PARAM.sub(r"\1[REDACTED]", s)
+            elif isinstance(v, dict):
+                clean[k] = _sanitize_for_display(v)
+            elif isinstance(v, list):
+                clean[k] = [_sanitize_for_display(x) for x in v]
+            else:
+                clean[k] = v
+        return clean
+    elif isinstance(val, str):
+        s = _REDACT_GCS_URL.sub(r"https://storage.googleapis.com/\1?[REDACTED_SIGNATURE]", val)
+        return _REDACT_SENSITIVE_PARAM.sub(r"\1[REDACTED]", s)
+    return val
+
 class MultimodalEarthquakeCRAG:
     def __init__(self):
         self.mmi_retriever = MMIRetriever()
@@ -162,8 +188,8 @@ class MultimodalEarthquakeCRAG:
             for key, value in output.items():
                 # Node
                 print(f"Node '{key}':")
-                # Optional: print full state at each node
-                print(value)
+                # Sanitize state snapshot to redact signed URLs and sensitive tokens
+                print(_sanitize_for_display(value))
             print("\n---\n")
        
         return value

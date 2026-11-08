@@ -9,6 +9,7 @@ from .parser import (
 from .validator import (
     validate_coordinates,
     haversine_distance_km,
+    compare_coordinates,
     MYANMAR_BOUNDS,
     CITY_CENTROIDS,
 )
@@ -20,6 +21,7 @@ __all__ = [
     "extract_coordinates_from_text",
     "validate_coordinates",
     "haversine_distance_km",
+    "compare_coordinates",
     "MYANMAR_BOUNDS",
     "CITY_CENTROIDS",
 ]

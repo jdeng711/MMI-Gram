@@ -21,13 +21,45 @@
     "confidence": 0.90,
     "location": {
       "address": "Sagaing city",
-      "coordinates": [21.880352777777777, 95.98488055555556]
+      "coordinates": [0.0, 0.0]
     },
     "building_type": "Masonry and framed residential structure",
     "building_materials": "Brick, mortar, timber framing",
     "visual_observation": "Severe structural cracks, collapse of unreinforced perimeter walls, debris in courtyard.",
     "reasoning": "Substantial failure of masonry and panel walls, fallen chimneys and cracks consistent with violent shaking.",
-    "generation": "EARTHQUAKE ASSESSMENT REPORT\n============================\nFile: test_page1.pdf\nMMI Estimation: 9.0\nConfidence: 0.90\n\nDescription: Severe structural damage in Sagaing city\nLocation: Sagaing city [21.880353, 95.984881]\nBuilding Type: Masonry\nReasoning: Panel walls thrown out of frame structures, partial collapse."
+    "generation": "EARTHQUAKE ASSESSMENT REPORT\n============================\nFile: test_page1.pdf\nMMI Estimation: 9.0\nConfidence: 0.90\n\nDescription: Severe structural damage in Sagaing city\nLocation: Sagaing city [0.0, 0.0]\nBuilding Type: Masonry\nReasoning: Panel walls thrown out of frame structures, partial collapse."
+  },
+  "observed_live_gemini_result": {
+    "recorded_at": "2026-11-07T21:40:00Z",
+    "model_identifier": "gemini-2.5-flash",
+    "execution_mode": "live",
+    "mmi_estimation": 10.0,
+    "confidence": 0.95,
+    "is_calibrated": false,
+    "calibration_note": "Uncalibrated AI raw estimation; requires seismological expert review",
+    "document_coordinates": {
+      "latitude": 21.880353,
+      "longitude": 95.984881,
+      "source": "document_extracted_dms"
+    },
+    "model_coordinates": null,
+    "comparison_status": "MODEL_LOCATION_UNAVAILABLE",
+    "coordinates_disagree": false,
+    "discrepancy_details": "Model location was unavailable or invalid; document coordinates remain unverified by model.",
+    "quality_control": {
+      "status": "FLAGGED",
+      "flags": [
+        "HIGH_INTENSITY_MMI",
+        "UNVERIFIED_COORDINATES",
+        "UNCALIBRATED_CONFIDENCE",
+        "MODEL_LOCATION_UNAVAILABLE"
+      ]
+    },
+    "human_review": {
+      "review_required": true,
+      "review_status": "UNREVIEWED"
+    },
+    "execution_duration_seconds": 33.0
   },
   "scientific_validation_status": {
     "is_authoritative_ground_truth": false,
