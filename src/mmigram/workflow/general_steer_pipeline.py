@@ -69,8 +69,10 @@ class GeneralSteerPipeline:
         model_name: Optional[str] = None,
         thinking_level: Optional[str] = None,
         reference_mode: Optional[str] = None,
+        provider: Optional[str] = None,
     ):
         self.mode = mode.lower()
+        self.provider = (provider or os.environ.get("GEMINI_PROVIDER", "ai_studio")).lower()
         self.model_name = model_name
         self.thinking_level = thinking_level
         self.reference_mode = (reference_mode or os.environ.get("MMI_REFERENCE_MODE", "full_scale")).lower()
@@ -184,8 +186,8 @@ class GeneralSteerPipeline:
             if not self.allow_live_api:
                 raise PermissionError("Live API execution requested without explicit approval.")
 
-            # Unique cloud object name to prevent collisions
-            unique_blob_name = f"steer_{uuid.uuid4().hex[:8]}_{file_name}"
+            from ..adapters.gemini_provider import set_active_provider
+            set_active_provider(self.provider)
 
             # Set model and thinking level in environment for live invocation
             active_model = self.model_name or os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
@@ -193,18 +195,25 @@ class GeneralSteerPipeline:
             active_thinking = self.thinking_level or os.environ.get("GEMINI_THINKING_LEVEL", "HIGH")
             os.environ["GEMINI_THINKING_LEVEL"] = active_thinking
 
-            # Ensure server folder is in sys.path to access Clara's legacy services
+            # Ensure server folder is in sys.path to access legacy services
             server_dir = Path(__file__).resolve().parents[3] / "server"
             if server_dir.exists() and str(server_dir) not in sys.path:
                 sys.path.insert(0, str(server_dir))
 
-            # Import Clara's legacy utilities without modification
-            from services.utilities import upload_to_gcs
             from services.crag import MultimodalEarthquakeCRAG
             from services.manage_model import get_session_telemetry
 
-            bucket = os.environ.get("GCS_BUCKET", "quakemap-media-data")
-            signed_url = upload_to_gcs(str(path), bucketname=bucket, blob_name=unique_blob_name)
+            if self.provider == "ai_studio":
+                # Local-first direct ingestion: stream local file bytes directly via types.Part.from_bytes()
+                # Completely eliminates GCS bucket upload and service account credentials
+                signed_url = str(path)
+                unique_blob_name = file_name
+            else:
+                # Vertex AI / GCP storage workflow
+                unique_blob_name = f"steer_{uuid.uuid4().hex[:8]}_{file_name}"
+                from services.utilities import upload_to_gcs
+                bucket = os.environ.get("GCS_BUCKET", "quakemap-media-data")
+                signed_url = upload_to_gcs(str(path), bucketname=bucket, blob_name=unique_blob_name)
 
             crag = MultimodalEarthquakeCRAG()
             crag_result = crag.analyze_media_and_traverse_states(
@@ -426,6 +435,7 @@ class GeneralSteerPipeline:
                 "model_identifier": active_model,
                 "thinking_level": active_thinking,
                 "execution_mode": self.mode,
+                "provider": self.provider if self.mode == "live" else "offline",
                 "source_sha256": extraction.sha256_hash,
                 "mmi_result": estimation.mmi_value,
                 "uncalibrated_confidence": estimation.confidence,

@@ -21,19 +21,61 @@ _session_telemetry: Dict[str, Any] = {
 }
 
 
+def get_genai_provider() -> str:
+    """Returns the active Gemini provider identifier ('ai_studio' or 'vertex_ai')."""
+    try:
+        from mmigram.adapters.gemini_provider import get_active_provider
+        return get_active_provider()
+    except ImportError:
+        return os.environ.get("GEMINI_PROVIDER", "ai_studio").strip().lower()
+
+
+def set_genai_provider(provider: str):
+    """Explicitly switches active Gemini provider and resets client instance."""
+    global _client
+    clean = provider.strip().lower()
+    if clean not in ("ai_studio", "vertex_ai"):
+        raise ValueError(f"Invalid Gemini provider '{provider}'. Must be 'ai_studio' or 'vertex_ai'")
+    try:
+        from mmigram.adapters.gemini_provider import set_active_provider
+        set_active_provider(clean)
+    except ImportError:
+        os.environ["GEMINI_PROVIDER"] = clean
+    _client = None
+
+
 def get_genai_client() -> genai.Client:
-    """Initializes and returns the Vertex AI google-genai Client."""
+    """
+    Initializes and returns the google-genai Client according to active provider.
+    Defaults to 'ai_studio' (Google AI Studio via GEMINI_API_KEY).
+    Optional: 'vertex_ai' (Google Cloud Vertex AI).
+    """
     global _client
     if _client is None:
-        project_id = os.environ.get("projectID") or os.environ.get("GCS_PROJECT_ID")
-        location = os.environ.get("GCS_REGION", "us-central1")
-        credentials = load_credentials()
-        _client = genai.Client(
-            vertexai=True,
-            project=project_id,
-            location=location,
-            credentials=credentials
-        )
+        provider = get_genai_provider()
+        if provider == "ai_studio":
+            api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+            if not api_key:
+                raise ValueError(
+                    "❌ GEMINI_API_KEY or GOOGLE_API_KEY is not set.\n"
+                    "To use Google AI Studio:\n"
+                    "1. Obtain an API key at https://aistudio.google.com/app/apikey\n"
+                    "2. Add it to your .env file: GEMINI_API_KEY=\"AIzaSy...\"\n"
+                    "To use Vertex AI instead, run with: --provider vertex_ai"
+                )
+            _client = genai.Client(api_key=api_key.strip().strip('"').strip("'"))
+        elif provider == "vertex_ai":
+            project_id = os.environ.get("projectID") or os.environ.get("GCS_PROJECT_ID")
+            location = os.environ.get("GCS_REGION", "us-central1")
+            credentials = load_credentials()
+            _client = genai.Client(
+                vertexai=True,
+                project=project_id,
+                location=location,
+                credentials=credentials
+            )
+        else:
+            raise ValueError(f"Unsupported Gemini provider '{provider}'. Must be 'ai_studio' or 'vertex_ai'")
     return _client
 
 
@@ -261,7 +303,8 @@ def get_response(
             )
             if is_rate_limit:
                 if attempt < max_retries:
-                    print(f"⚠️ Vertex AI rate limit hit ({e}). Waiting {backoff:.1f}s before retry ({attempt+1}/{max_retries}) on {current_model}...")
+                    provider_name = "Google AI Studio" if get_genai_provider() == "ai_studio" else "Vertex AI"
+                    print(f"⚠️ {provider_name} rate limit hit ({e}). Waiting {backoff:.1f}s before retry ({attempt+1}/{max_retries}) on {current_model}...")
                     time.sleep(backoff)
                     backoff *= 2.0
                     # CRITICAL SCIENTIFIC INTEGRITY REQUIREMENT:

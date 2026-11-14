@@ -6,6 +6,7 @@
 *.json
 !data/events/**/*.json
 !tests/fixtures/**/*.json
+!src/mmigram/assets/**/*.json
 service_account.json
 gen-lang-client-*.json
 *.pem

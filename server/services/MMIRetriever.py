@@ -116,6 +116,8 @@ class MMIRetriever:
         Validates completeness: exactly 10 unique, non-empty levels (I to X).
         """
         if not self.index:
+            if os.environ.get("MMI_LOCAL_FALLBACK", "0") == "1":
+                return self.retrieve_local_scale()
             logger.warning("Pinecone index not available for full-scale retrieval")
             self.last_retrieval_status = "UNAVAILABLE"
             return []
@@ -282,17 +284,41 @@ class MMIRetriever:
         self.last_retrieval_status = "FAILED" if not results else "SUCCESS"
         return results
 
+    def retrieve_local_scale(self, scale_version: str = "usgs_10level_v1") -> List[Document]:
+        """
+        Deterministically supplies official MMI definitions from local versioned asset.
+        Zero external cloud dependencies (no Pinecone required).
+        """
+        try:
+            from mmigram.seismology.mmi_reference import LocalMMIReference
+            ref = LocalMMIReference()
+            docs = ref.retrieve_full_scale(scale_version=scale_version)
+            self.last_retrieval_status = "SUCCESS"
+            self.last_retrieval_source = "local_versioned_asset"
+            return docs
+        except Exception as e:
+            logger.warning(f"Local MMI reference load notice: {e}")
+            self.last_retrieval_status = "FAILED"
+            self.last_retrieval_error = str(e)
+            return []
+
     def retrieveDocs(self, query: str = "", reference_mode: Optional[str] = None) -> List[Document]:
         """
         Retrieves MMI reference documents using configured reference mode:
-          - 'full_scale': (Default) Deterministically supplies all 10 MMI definitions.
+          - 'local': Deterministically supplies all 10 MMI definitions from local versioned asset (Zero Cloud).
+          - 'full_scale': (Default) Deterministically supplies all 10 MMI definitions from Pinecone.
           - 'vector_search': Retrieves top-k candidate definitions by semantic similarity.
         """
         mode = (reference_mode or os.environ.get("MMI_REFERENCE_MODE", "full_scale")).lower()
         self.last_retrieval_mode = mode
 
-        if mode == "full_scale":
-            return self.retrieve_full_scale()
+        if mode in ("local", "local_full_scale"):
+            return self.retrieve_local_scale()
+        elif mode == "full_scale":
+            docs = self.retrieve_full_scale()
+            if not docs and os.environ.get("MMI_LOCAL_FALLBACK", "0") == "1":
+                return self.retrieve_local_scale()
+            return docs
         elif mode == "vector_search":
             return self.retrieve_vector_search(query=query)
         else:

@@ -243,10 +243,23 @@ class MultimodalEarthquakeCRAG:
     
     def get_media_part(self, blob_name: str, signed_url: str, mime_type: str) -> Part:
         """
-        Builds a Part object for Vertex AI Gemini.
-        Vertex AI requires 'gs://bucket/blob' format or raw bytes via Part.from_data.
-        HTTPS signed URLs are NOT supported by Part.from_uri.
+        Builds a Part object for Gemini model inference.
+        Prioritizes direct local file bytes (zero GCS dependency).
+        Falls back to GCS storage or HTTP signed URLs if remote.
         """
+        # Method 0: Direct local file on disk (Preferred local path, zero GCS dependency)
+        from pathlib import Path
+        for cand in [signed_url, blob_name]:
+            if cand and isinstance(cand, str):
+                p_cand = Path(cand)
+                if p_cand.exists() and p_cand.is_file():
+                    try:
+                        data = p_cand.read_bytes()
+                        print(f"✅ Loaded {len(data)} bytes directly from local file '{p_cand}'")
+                        return Part.from_bytes(data=data, mime_type=mime_type)
+                    except Exception as e:
+                        print(f"Notice: Local file read notice: {e}")
+
         bucket = os.environ.get("GCS_BUCKET", "quakemap-media-data")
 
         # Method 1: Direct bytes via GCS storage client (most reliable)
@@ -320,13 +333,17 @@ class MultimodalEarthquakeCRAG:
         ref_mode = os.environ.get("MMI_REFERENCE_MODE", "full_scale").lower()
         print(f"---RETRIEVE MMI DOCUMENTS (Mode: {ref_mode.upper()})---")
         context = state["context_summary"]
-        
-        # Retrieve from Pinecone using configured reference mode
-        retrieved_docs = self.mmi_retriever.retrieveDocs(query=context, reference_mode=ref_mode)
-        print(f"retrieved from PC: {len(retrieved_docs)} documents")
+
+        # If Pinecone is not configured or unavailable, seamlessly use local versioned reference
+        mode_to_query = ref_mode
+        if ref_mode == "full_scale" and (not os.environ.get("PINECONE_API") or not getattr(self.mmi_retriever, "index", None)):
+            mode_to_query = "local"
+
+        retrieved_docs = self.mmi_retriever.retrieveDocs(query=context, reference_mode=mode_to_query)
+        print(f"retrieved documents: {len(retrieved_docs)}")
 
         retrieval_status = getattr(self.mmi_retriever, "last_retrieval_status", "SUCCESS" if retrieved_docs else "UNRETRIEVED")
-        retrieval_source = "pinecone_mmi_idx" if retrieved_docs else "none"
+        retrieval_source = getattr(self.mmi_retriever, "last_retrieval_source", "pinecone_mmi_idx" if retrieved_docs else "none")
 
         return {
             **state, 

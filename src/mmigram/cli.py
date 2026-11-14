@@ -36,6 +36,13 @@ from mmigram.workflow.steer_offline_pipeline import SteerOfflinePipeline
 from mmigram.review.queue import HumanReviewQueue, DEFAULT_PERSISTENCE_PATH
 from mmigram.telemetry.tracer import StructuredAgentLogger
 from mmigram.adapters.crag_adapter import check_live_prerequisites
+from mmigram.adapters.gemini_provider import (
+    SUPPORTED_PROVIDERS,
+    DEFAULT_PROVIDER,
+    get_active_provider,
+    set_active_provider,
+    validate_provider_configuration,
+)
 from mmigram.comparison.comparator import BenchmarkComparator
 
 # Standard verified Vertex AI / Gemini models
@@ -108,25 +115,31 @@ def cmd_analyze(args: argparse.Namespace) -> int:
     model = validate_model_identifier(args.model)
     thinking_level = getattr(args, "thinking_level", DEFAULT_THINKING_LEVEL)
     reference_mode = getattr(args, "reference_mode", DEFAULT_REFERENCE_MODE)
+    provider = getattr(args, "provider", DEFAULT_PROVIDER)
 
     if args.live and not args.confirm_live_api:
         print("\n❌ Live Execution Blocked: Running with '--live' requires explicit user authorization via '--confirm-live-api'.")
-        print("This prevents accidental paid cloud invocations (Google Cloud Storage / Vertex AI / Pinecone).")
+        print("This prevents accidental paid cloud invocations (Google AI Studio / Vertex AI).")
         return 1
 
     print("=" * 80)
     print("🌍 MMI-GRAM: STEER RECONNAISSANCE ANALYSIS")
     print(f"📄 Input File:  {args.pdf}")
     thinking_mode_str = f" [Thinking: {thinking_level}]" if ("3.8" in model or "gemini-3" in model) else ""
-    print(f"⚙️ Mode:        {mode.upper()} {'(Offline Fixtures Only)' if mode == 'offline' else f'(Live Vertex AI: {model}{thinking_mode_str})'}")
+    provider_str = provider.replace("_", " ").title()
+    print(f"⚙️ Mode:        {mode.upper()} {'(Offline Fixtures Only)' if mode == 'offline' else f'(Live {provider_str}: {model}{thinking_mode_str})'}")
     ref_desc = "All 10 MMI definitions without vector exclusions" if reference_mode == "full_scale" else "Top-k semantic similarity search"
     print(f"📚 Ref Mode:    {reference_mode.upper()} ({ref_desc})")
+    if mode == "live":
+        print(f"🔌 Provider:    {provider} (Distinguish offline development $0.00 from live API usage)")
     print("=" * 80)
 
     # Explicit CLI arguments strictly override .env configuration
     os.environ["GEMINI_MODEL"] = model
     os.environ["GEMINI_THINKING_LEVEL"] = thinking_level
     os.environ["MMI_REFERENCE_MODE"] = reference_mode
+    os.environ["GEMINI_PROVIDER"] = provider
+    set_active_provider(provider)
 
     logger = StructuredAgentLogger(name="mmigram.cli", console_output=not args.quiet)
     review_queue = HumanReviewQueue(persistence_file=args.review_db)
@@ -139,6 +152,7 @@ def cmd_analyze(args: argparse.Namespace) -> int:
         model_name=model,
         thinking_level=thinking_level,
         reference_mode=reference_mode,
+        provider=provider,
     )
 
     t0 = time.time()
@@ -267,6 +281,7 @@ def cmd_batch(args: argparse.Namespace) -> int:
     model = validate_model_identifier(args.model)
     thinking_level = getattr(args, "thinking_level", DEFAULT_THINKING_LEVEL)
     reference_mode = getattr(args, "reference_mode", DEFAULT_REFERENCE_MODE)
+    provider = getattr(args, "provider", DEFAULT_PROVIDER)
     pace = max(0.0, float(args.pace))
 
     if args.live and not args.confirm_live_api:
@@ -278,9 +293,12 @@ def cmd_batch(args: argparse.Namespace) -> int:
     print(f"📍 Event ID:       {args.event_id}")
     print(f"📁 Inbound Dir:    {inbound_dir} ({len(pdf_files)} documents found)")
     thinking_mode_str = f" [Thinking: {thinking_level}]" if ("3.8" in model or "gemini-3" in model) else ""
-    print(f"⚙️ Mode:           {mode.upper()} {'(Strict Offline Fixtures)' if mode == 'offline' else f'(Live Model: {model}{thinking_mode_str})'}")
+    provider_str = provider.replace("_", " ").title()
+    print(f"⚙️ Mode:           {mode.upper()} {'(Strict Offline Fixtures)' if mode == 'offline' else f'(Live {provider_str}: {model}{thinking_mode_str})'}")
     ref_desc = "All 10 MMI definitions without vector exclusions" if reference_mode == "full_scale" else "Top-k semantic similarity search"
     print(f"📚 Ref Mode:       {reference_mode.upper()} ({ref_desc})")
+    if mode == "live":
+        print(f"🔌 Provider:       {provider} (Distinguish offline development $0.00 from live API usage)")
     if pace > 0:
         print(f"⏱️ Request Pacing: {pace:.1f}s between documents")
     print("=" * 80)
@@ -289,6 +307,8 @@ def cmd_batch(args: argparse.Namespace) -> int:
     os.environ["GEMINI_MODEL"] = model
     os.environ["GEMINI_THINKING_LEVEL"] = thinking_level
     os.environ["MMI_REFERENCE_MODE"] = reference_mode
+    os.environ["GEMINI_PROVIDER"] = provider
+    set_active_provider(provider)
 
     comparator = BenchmarkComparator(event_id=args.event_id)
     review_queue = HumanReviewQueue(persistence_file=args.review_db)
@@ -302,6 +322,7 @@ def cmd_batch(args: argparse.Namespace) -> int:
         model_name=model,
         thinking_level=thinking_level,
         reference_mode=reference_mode,
+        provider=provider,
     )
 
     out_dir = Path(args.output_dir) if args.output_dir else inbound_dir.parent / "results"
@@ -366,15 +387,47 @@ def cmd_check_env(args: argparse.Namespace) -> int:
     except ImportError:
         print("❌ google-genai NOT installed — Run: pip install google-genai")
 
-    # Cloud live prerequisites
-    ready, missing = check_live_prerequisites()
-    print("\n☁️ Live Cloud Integration Status:")
-    if ready:
-        print("✅ All live cloud prerequisites are configured.")
+    # Provider configurations
+    active_p = get_active_provider()
+    print(f"\n🔌 Active Gemini Provider: {active_p.upper()}")
+
+    # 1. Google AI Studio check
+    ai_studio_ok, ai_studio_missing = validate_provider_configuration("ai_studio")
+    print("\n[Provider 1: Google AI Studio (Local Development Default)]")
+    if ai_studio_ok:
+        print("✅ Google AI Studio is configured (GEMINI_API_KEY detected).")
+        print("   Direct local media ingestion: Active (zero GCS / service account dependencies).")
     else:
-        print("⚠️  Live cloud prerequisites are NOT complete (Offline mode is fully operational):")
-        for m in missing:
+        print("⚠️  Google AI Studio is NOT configured:")
+        for m in ai_studio_missing:
             print(f"   - {m}")
+
+    # 2. Google Cloud Vertex AI check
+    vertex_ok, vertex_missing = validate_provider_configuration("vertex_ai")
+    print("\n[Provider 2: Google Cloud Vertex AI (Institutional / Cloud)]")
+    if vertex_ok:
+        print("✅ Vertex AI is configured (GCP Project ID and credentials detected).")
+    else:
+        print("⚠️  Vertex AI is NOT configured:")
+        for m in vertex_missing:
+            print(f"   - {m}")
+
+    # MMI Reference definitions check
+    from mmigram.seismology.mmi_reference import LocalMMIReference
+    local_mmi = LocalMMIReference()
+    scale_10 = local_mmi.retrieve_full_scale("usgs_10level_v1")
+    scale_12 = local_mmi.retrieve_full_scale("full_12level_v1")
+    print(f"\n📚 Local Seismic Reference Definitions:")
+    print(f"✅ USGS 10-level scale loaded ({len(scale_10)} levels: I–X)")
+    print(f"✅ Standard 12-level scale loaded ({len(scale_12)} levels: I–XII)")
+    print("   Local inference operates without Pinecone or external vector index dependency.")
+
+    # Billing Notice
+    print("\n💳 Billing and Cost Notice:")
+    print("   • Offline development mode: $0.00 (replays fixtures without API calls)")
+    print("   • Live Google AI Studio requests: Free tier available, or billed per token on paid tier")
+    print("   • Live Google Cloud Vertex AI: Billed per token via Google Cloud billing account")
+    print("   • Live Google Maps geocoding: Billed per request via Google Maps Platform API key")
 
     print("\n🤖 Supported Verified Gemini Models:")
     for m in VERIFIED_MODELS:
@@ -431,6 +484,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_mode.add_argument("--offline", action="store_true", default=True, help="Run in strict offline mode (default)")
     p_mode.add_argument("--live", action="store_true", default=False, help="Run in live cloud mode")
     p_analyze.add_argument("--confirm-live-api", action="store_true", default=False, help="Explicit confirmation for paid live cloud calls")
+    p_analyze.add_argument("--provider", type=str, default=DEFAULT_PROVIDER, choices=list(SUPPORTED_PROVIDERS), help=f"Gemini API provider backend (choices: {', '.join(SUPPORTED_PROVIDERS)}; default: {DEFAULT_PROVIDER})")
     p_analyze.add_argument("--model", type=str, default=DEFAULT_MODEL, help=f"Gemini model ID (default: {DEFAULT_MODEL})")
     p_analyze.add_argument("--thinking-level", type=str, default=DEFAULT_THINKING_LEVEL, choices=SUPPORTED_THINKING_LEVELS, help=f"Thinking level for Gemini 3.8 Flash (choices: {', '.join(SUPPORTED_THINKING_LEVELS)}; default: {DEFAULT_THINKING_LEVEL})")
     p_analyze.add_argument("--reference-mode", type=str, default=DEFAULT_REFERENCE_MODE, choices=SUPPORTED_REFERENCE_MODES, help=f"MMI reference retrieval mode (choices: {', '.join(SUPPORTED_REFERENCE_MODES)}; default: {DEFAULT_REFERENCE_MODE})")
@@ -447,6 +501,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_mode_b.add_argument("--offline", action="store_true", default=True, help="Run in strict offline mode (default)")
     p_mode_b.add_argument("--live", action="store_true", default=False, help="Run in live cloud mode")
     p_batch.add_argument("--confirm-live-api", action="store_true", default=False, help="Explicit confirmation for paid live cloud calls")
+    p_batch.add_argument("--provider", type=str, default=DEFAULT_PROVIDER, choices=list(SUPPORTED_PROVIDERS), help=f"Gemini API provider backend (choices: {', '.join(SUPPORTED_PROVIDERS)}; default: {DEFAULT_PROVIDER})")
     p_batch.add_argument("--model", type=str, default=DEFAULT_MODEL, help=f"Gemini model ID (default: {DEFAULT_MODEL})")
     p_batch.add_argument("--thinking-level", type=str, default=DEFAULT_THINKING_LEVEL, choices=SUPPORTED_THINKING_LEVELS, help=f"Thinking level for Gemini 3.8 Flash (choices: {', '.join(SUPPORTED_THINKING_LEVELS)}; default: {DEFAULT_THINKING_LEVEL})")
     p_batch.add_argument("--reference-mode", type=str, default=DEFAULT_REFERENCE_MODE, choices=SUPPORTED_REFERENCE_MODES, help=f"MMI reference retrieval mode (choices: {', '.join(SUPPORTED_REFERENCE_MODES)}; default: {DEFAULT_REFERENCE_MODE})")

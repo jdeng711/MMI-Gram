@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Versioned Modified Mercalli Intensity (MMI) Scale Definitions",
+  "description": "Standardized macroseismic intensity scale definitions for earthquake damage assessment in MMI-Gram.",
+  "scales": {
+    "usgs_10level_v1": {
+      "version": "1.0",
+      "authority": "USGS ShakeMap & DYFI Macroseismic Scale (Conventional 10-Level)",
+      "range": [1.0, 10.0],
+      "levels_count": 10,
+      "description": "Operational 10-level MMI scale conventionally used by USGS ShakeMap and DYFI systems, capping macroseismic structural damage indicators at intensity X.",
+      "definitions": [
+        {
+          "level": 1,
+          "mmi": 1.0,
+          "roman": "I",
+          "label": "I. Not Felt",
+          "description": "Not felt except by a very few people under especially favorable conditions. Tremors detected only by sensitive seismographs. No damage to structures.",
+          "structural_indicators": "No structural or non-structural damage.",
+          "ground_indicators": "No surface ground deformation."
+        },
+        {
+          "level": 2,
+          "mmi": 2.0,
+          "roman": "II",
+          "label": "II. Weak",
+          "description": "Felt only by a few persons at rest, especially on upper floors of buildings. Delicately suspended objects may swing slightly. No structural or content damage.",
+          "structural_indicators": "No structural damage; delicately hanging objects may sway.",
+          "ground_indicators": "No ground disturbance."
+        },
+        {
+          "level": 3,
+          "mmi": 3.0,
+          "roman": "III",
+          "label": "III. Slight",
+          "description": "Felt noticeably indoors, especially on upper floors of buildings, but many people do not recognize it as an earthquake. Standing motor cars may rock slightly. Vibrations similar to the passing of a light truck.",
+          "structural_indicators": "No structural damage; hanging objects swing noticeably.",
+          "ground_indicators": "No ground cracks or displacement."
+        },
+        {
+          "level": 4,
+          "mmi": 4.0,
+          "roman": "IV",
+          "label": "IV. Moderate",
+          "description": "Felt indoors by many, outdoors by few during the day. At night, some awakened. Dishes, windows, doors disturbed; walls make cracking sounds. Sensation like heavy truck striking building. Standing vehicles rocked noticeably.",
+          "structural_indicators": "Dishes, windows, and doors disturbed; walls make creaking sounds; unanchored light objects moved.",
+          "ground_indicators": "No ground cracking."
+        },
+        {
+          "level": 5,
+          "mmi": 5.0,
+          "roman": "V",
+          "label": "V. Rather Strong",
+          "description": "Felt by nearly everyone; many awakened. Some dishes, glassware, and windows broken; unanchored objects overturned. Plaster may crack or fall in small amounts. Pendulum clocks may stop. Small trees and poles swayed.",
+          "structural_indicators": "Some dishes, windows broken; cracked plaster; unstable objects overturned; pendulum clocks stop.",
+          "ground_indicators": "Small trees and utility poles sway noticeably."
+        },
+        {
+          "level": 6,
+          "mmi": 6.0,
+          "roman": "VI",
+          "label": "VI. Strong",
+          "description": "Felt by all, many frightened and run outdoors. Some heavy furniture moved or overturned; a few instances of fallen plaster or damaged chimneys. Damage slight to moderate in poorly constructed buildings.",
+          "structural_indicators": "Fallen plaster, cracked or broken chimneys; heavy furniture moved; slight damage to poorly built buildings.",
+          "ground_indicators": "Felt by all persons outdoors."
+        },
+        {
+          "level": 7,
+          "mmi": 7.0,
+          "roman": "VII",
+          "label": "VII. Very Strong",
+          "description": "Difficult to stand. Noticed by drivers of motor cars. Damage negligible in buildings of good design and construction; slight to moderate in well-built ordinary structures; considerable damage in poorly built or badly designed structures. Some chimneys broken.",
+          "structural_indicators": "Considerable damage in poorly built or badly designed structures; partial damage to ordinary substantial buildings; chimneys broken; plaster fallen.",
+          "ground_indicators": "Waves on ponds; water turbid with mud; small slides along sand/gravel banks."
+        },
+        {
+          "level": 8,
+          "mmi": 8.0,
+          "roman": "VIII",
+          "label": "VIII. Destructive",
+          "description": "Damage slight in specially designed structures; considerable damage in ordinary substantial buildings with partial collapse; great in poorly built structures. Panel walls thrown out of frame structures. Fall of chimneys, factory stacks, monuments, columns, and walls. Heavy furniture overturned.",
+          "structural_indicators": "Partial collapse in ordinary substantial buildings; heavy damage in poorly constructed masonry; panel walls thrown out of framed structures; fall of chimneys and monuments.",
+          "ground_indicators": "Conspicuous ground fractures; sand boils or mud ejected in small amounts; changes in well water levels."
+        },
+        {
+          "level": 9,
+          "mmi": 9.0,
+          "roman": "IX",
+          "label": "IX. Violent",
+          "description": "General panic. Damage considerable in specially designed structures, well-designed frame structures thrown out of plumb. Damage great in substantial buildings, with partial or complete collapse. Buildings shifted off foundations. Conspicuous ground cracking and pipe rupture.",
+          "structural_indicators": "Partial or complete collapse of substantial buildings; well-designed frame structures thrown out of plumb; buildings shifted off foundations; serious damage to reservoirs.",
+          "ground_indicators": "Conspicuous ground cracking; underground pipes broken; liquefaction and sand blows prominent."
+        },
+        {
+          "level": 10,
+          "mmi": 10.0,
+          "roman": "X",
+          "label": "X. Intense / Very Violent",
+          "description": "Some well-built wooden structures destroyed; most masonry and frame structures destroyed with foundations. Ground badly cracked and fissured. Rails bent. Landslides considerable along river banks and steep slopes. Shifted sand and mud.",
+          "structural_indicators": "Most masonry and frame structures destroyed with foundations; bridges destroyed; catastrophic structural failure widespread.",
+          "ground_indicators": "Extensive ground fissures; rails bent; massive landslides along river banks and steep slopes; water splashed over river banks."
+        }
+      ]
+    },
+    "full_12level_v1": {
+      "version": "1.0",
+      "authority": "Wood & Neumann (1931) / Richter (1958) Modified Mercalli Intensity Scale (Complete 12-Level)",
+      "range": [1.0, 12.0],
+      "levels_count": 12,
+      "description": "Complete classical 12-level Modified Mercalli scale definitions including extreme and cataclysmic damage levels (XI and XII).",
+      "definitions": [
+        {
+          "level": 1,
+          "mmi": 1.0,
+          "roman": "I",
+          "label": "I. Not Felt",
+          "description": "Not felt except by a very few under especially favorable conditions."
+        },
+        {
+          "level": 2,
+          "mmi": 2.0,
+          "roman": "II",
+          "label": "II. Weak",
+          "description": "Felt only by a few persons at rest, especially on upper floors of buildings. Delicately suspended objects may swing."
+        },
+        {
+          "level": 3,
+          "mmi": 3.0,
+          "roman": "III",
+          "label": "III. Slight",
+          "description": "Felt quite noticeably by persons indoors, especially on upper floors of buildings. Many people do not recognize it as an earthquake. Standing motor cars may rock slightly. Vibrations similar to the passing of a truck. Duration estimated."
+        },
+        {
+          "level": 4,
+          "mmi": 4.0,
+          "roman": "IV",
+          "label": "IV. Moderate",
+          "description": "Felt indoors by many, outdoors by few during the day. At night, some awakened. Dishes, windows, doors disturbed; walls make cracking sound. Sensation like heavy truck striking building. Standing motor cars rocked noticeably."
+        },
+        {
+          "level": 5,
+          "mmi": 5.0,
+          "roman": "V",
+          "label": "V. Rather Strong",
+          "description": "Felt by nearly everyone; many awakened. Some dishes, windows broken. Unstable objects overturned. Pendulum clocks may stop."
+        },
+        {
+          "level": 6,
+          "mmi": 6.0,
+          "roman": "VI",
+          "label": "VI. Strong",
+          "description": "Felt by all, many frightened. Some heavy furniture moved; a few instances of fallen plaster. Damage slight. Chimneys damaged."
+        },
+        {
+          "level": 7,
+          "mmi": 7.0,
+          "roman": "VII",
+          "label": "VII. Very Strong",
+          "description": "Damage negligible in buildings of good design and construction; slight to moderate in well-built ordinary structures; considerable damage in poorly built or badly designed structures; some chimneys broken."
+        },
+        {
+          "level": 8,
+          "mmi": 8.0,
+          "roman": "VIII",
+          "label": "VIII. Destructive",
+          "description": "Damage slight in specially designed structures; considerable damage in ordinary substantial buildings with partial collapse. Damage great in poorly built structures. Fall of chimneys, factory stacks, columns, monuments, walls. Heavy furniture overturned."
+        },
+        {
+          "level": 9,
+          "mmi": 9.0,
+          "roman": "IX",
+          "label": "IX. Violent",
+          "description": "Damage considerable in specially designed structures; well-designed frame structures thrown out of plumb. Damage great in substantial buildings, with partial or complete collapse. Buildings shifted off foundations. Liquefaction and ground cracking."
+        },
+        {
+          "level": 10,
+          "mmi": 10.0,
+          "roman": "X",
+          "label": "X. Intense",
+          "description": "Some well-built wooden structures destroyed; most masonry and frame structures destroyed with foundations. Rails bent. Landslides considerable from river banks and steep slopes."
+        },
+        {
+          "level": 11,
+          "mmi": 11.0,
+          "roman": "XI",
+          "label": "XI. Extreme",
+          "description": "Few, if any, (masonry) structures remain standing. Bridges destroyed. Broad fissures in ground. Underground pipe lines completely out of service. Earth slumps and land slips in soft ground."
+        },
+        {
+          "level": 12,
+          "mmi": 12.0,
+          "roman": "XII",
+          "label": "XII. Cataclysmic",
+          "description": "Damage total. Practically all works of construction are damaged greatly or destroyed. Lines of sight and level are distorted. Objects thrown into the air."
+        }
+      ]
+    }
+  }
+}
