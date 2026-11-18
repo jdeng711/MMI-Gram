@@ -1,0 +1,221 @@
+{
+  "pipeline_name": "MMI-Gram General-Purpose StEER Pipeline",
+  "file_name": "page-22.pdf",
+  "pipeline_mode": "live",
+  "pipeline_status": "REVIEW_REQUIRED",
+  "model_identifier": "none_pending_review",
+  "execution_duration_ms": 21.71,
+  "provenance": {
+    "is_synthetic": false,
+    "baseline_type": "DEFERRED_PENDING_REVIEW",
+    "is_authoritative_ground_truth": false,
+    "model_identifier": "none_pending_review",
+    "thinking_level": null,
+    "execution_mode": "live",
+    "provider": "ai_studio",
+    "source_sha256": "40c56f0cac93a03b9ee5967da1fde5c3105ae102701b2bda02f718c8f9968eee",
+    "mmi_result": null,
+    "uncalibrated_confidence": null,
+    "token_usage": {
+      "calls": 0,
+      "prompt_tokens": 0,
+      "candidates_tokens": 0,
+      "thoughts_tokens": 0,
+      "total_tokens": 0
+    },
+    "retrieval": {
+      "status": "DEFERRED_PENDING_REVIEW",
+      "source": "none",
+      "reference_mode": "full_scale",
+      "has_authoritative_reference": false,
+      "document_count": 0
+    },
+    "execution_duration_ms": 21.71
+  },
+  "document_extraction": {
+    "page_count": 1,
+    "extraction_status": "SUCCESS",
+    "has_extractable_text": true,
+    "sha256_hash": "40c56f0cac93a03b9ee5967da1fde5c3105ae102701b2bda02f718c8f9968eee"
+  },
+  "screening": {
+    "event_id": "us7000pn9s",
+    "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-22.pdf",
+    "file_name": "page-22.pdf",
+    "sha256_hash": "40c56f0cac93a03b9ee5967da1fde5c3105ae102701b2bda02f718c8f9968eee",
+    "relevance_decision": "REVIEW_REQUIRED",
+    "is_estimable": false,
+    "decision_reasons": [
+      "Document reports surface ground failure or fault rupture (fault\\s+rupture) without structural damage or felt shaking descriptions. Surface fault displacement alone cannot reliably constrain vibratory shaking intensity without expert geological review; deferred for human review."
+    ],
+    "evidence_types": [
+      "ground_failure_observation"
+    ],
+    "decision_mode": "deterministic_local",
+    "confidence": 0.7,
+    "duplicate": {
+      "status": "UNIQUE",
+      "is_unique": true,
+      "duplicate_of": null,
+      "sha256_hash": "40c56f0cac93a03b9ee5967da1fde5c3105ae102701b2bda02f718c8f9968eee",
+      "perceptual_hash": "8196476545676780",
+      "hamming_distance": null,
+      "reason": "Observation media is unique."
+    },
+    "temporal": {
+      "status": "VALID",
+      "is_valid": true,
+      "observed_timestamp_utc": "2025-09-19T17:38:02+00:00",
+      "timestamp_source": "pdf_creation",
+      "timestamp_reliability": "low",
+      "is_observation_time": false,
+      "reason": "Observation timestamp (2025-09-19T17:38:02+00:00, source: pdf_creation) post-dates earthquake origin.",
+      "clock_drift_minutes": 5.0
+    },
+    "spatial": {
+      "status": "WITHIN_BOUNDS",
+      "is_plausible": true,
+      "latitude": 20.882056,
+      "longitude": 96.035278,
+      "matched_townships": [
+        "Sagaing",
+        "Thazi"
+      ],
+      "reason": "Coordinates [20.8821, 96.0353] verified within regional bounds.",
+      "review_required": false
+    },
+    "authenticity": {
+      "status": "NO_INDICATORS_DETECTED",
+      "is_authentic_candidate": true,
+      "suspicion_level": "none",
+      "heuristic_score": 0.0,
+      "is_calibrated": false,
+      "reason": "No synthetic AI generation indicators detected in document text or metadata (uncalibrated heuristic).",
+      "indicators_detected": [],
+      "review_required": false
+    },
+    "review_required": true,
+    "review_triggers": [
+      "Relevance Gate: Document reports surface ground failure or fault rupture (fault\\s+rupture) without structural damage or felt shaking descriptions. Surface fault displacement alone cannot reliably constrain vibratory shaking intensity without expert geological review; deferred for human review."
+    ],
+    "token_usage": null
+  },
+  "seismic_intensity": {
+    "mmi_estimation": null,
+    "confidence": null,
+    "is_calibrated": false,
+    "reasoning": "Document reports surface ground failure or fault rupture (fault\\s+rupture) without structural damage or felt shaking descriptions. Surface fault displacement alone cannot reliably constrain vibratory shaking intensity without expert geological review; deferred for human review."
+  },
+  "geographic_resolution": {
+    "location": {
+      "address": "Source",
+      "city": null,
+      "country": null,
+      "coordinates": {
+        "latitude": 20.882056,
+        "longitude": 96.035278,
+        "source": "dms_parsed",
+        "is_valid": true,
+        "validation_error": null,
+        "confidence": 0.95,
+        "is_authoritative": false,
+        "precision_level": "exact_site_dms",
+        "is_within_regional_bounds": true
+      },
+      "document_coordinates": {
+        "latitude": 20.882056,
+        "longitude": 96.035278,
+        "source": "dms_parsed",
+        "is_valid": true,
+        "validation_error": null,
+        "confidence": 0.95,
+        "is_authoritative": false,
+        "precision_level": "exact_site_dms",
+        "is_within_regional_bounds": true
+      },
+      "mapping_link_coordinates": null,
+      "geocoded_coordinates": null,
+      "model_coordinates": null,
+      "comparison_status": "MODEL_LOCATION_UNAVAILABLE",
+      "coordinates_disagree": false,
+      "discrepancy_details": "Document text provided valid coordinates, but model location was unavailable (Unknown).",
+      "discrepancy_distance_km": null,
+      "precision_level": "exact_site_dms",
+      "coordinate_type": "dms_parsed",
+      "selection_rationale": "Priority 1: Site-specific coordinates (dms_parsed) parsed directly from document text.",
+      "has_exportable_site_coordinates": true,
+      "can_export_to_shakemap": true,
+      "is_within_regional_bounds": true,
+      "raw_source_text": "Geolocation \n(Address/Coordinates):\nSource:\nCreated by (VAST Member name):",
+      "place_name": null,
+      "rrup_km": null,
+      "repi_km": null,
+      "rupture_distance_source": "unavailable",
+      "surface_faulting_observed": false
+    },
+    "coordinates": {
+      "latitude": 20.882056,
+      "longitude": 96.035278,
+      "source": "dms_parsed",
+      "is_valid": true,
+      "validation_error": null,
+      "confidence": 0.95,
+      "is_authoritative": false,
+      "precision_level": "exact_site_dms",
+      "is_within_regional_bounds": true
+    },
+    "document_coordinates": {
+      "latitude": 20.882056,
+      "longitude": 96.035278,
+      "source": "dms_parsed",
+      "is_valid": true,
+      "validation_error": null,
+      "confidence": 0.95,
+      "is_authoritative": false,
+      "precision_level": "exact_site_dms",
+      "is_within_regional_bounds": true
+    },
+    "mapping_link_coordinates": null,
+    "geocoded_coordinates": null,
+    "model_coordinates": null,
+    "comparison_status": "NOT_EVALUATED",
+    "coordinates_disagree": false,
+    "discrepancy_details": "Deferred due to REVIEW_REQUIRED classification",
+    "discrepancy_distance_km": null,
+    "has_valid_coordinates": true,
+    "has_exportable_site_coordinates": true,
+    "precision_level": "exact_site_dms",
+    "selection_rationale": "Priority 1: Site-specific coordinates (dms_parsed) parsed directly from document text.",
+    "rrup_km": null,
+    "repi_km": null,
+    "rupture_distance_source": "unavailable",
+    "surface_faulting_observed": false,
+    "can_export_to_shakemap": false,
+    "is_authoritative": false
+  },
+  "seismological_assessment": {
+    "is_physically_plausible": true,
+    "rrup_km": null,
+    "repi_km": null,
+    "rhypo_km": null,
+    "rupture_distance_source": "unavailable",
+    "surface_faulting_observed": false,
+    "plausibility_flags": [],
+    "critic_notes": "Deferred due to REVIEW_REQUIRED classification",
+    "expected_mmi_range": null
+  },
+  "quality_control": {
+    "status": "FLAGGED",
+    "flags": [
+      "PRE_MMI_REVIEW_REQUIRED"
+    ],
+    "score": 0.5
+  },
+  "human_in_the_loop": {
+    "review_required": true,
+    "review_status": "UNREVIEWED",
+    "triggers": [
+      "Relevance Gate: Document reports surface ground failure or fault rupture (fault\\s+rupture) without structural damage or felt shaking descriptions. Surface fault displacement alone cannot reliably constrain vibratory shaking intensity without expert geological review; deferred for human review."
+    ]
+  }
+}

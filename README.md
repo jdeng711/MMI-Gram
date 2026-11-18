@@ -110,13 +110,38 @@ source .venv/bin/activate
 pip install -e .
 ```
 
-### 3. Environment Configuration (Optional for Live Execution)
+### 3. Environment Configuration (Google AI Studio & Live Inference)
 
-MMI-Gram runs completely offline out of the box. If you have authorized Google Cloud credentials and wish to test live Vertex AI / Gemini integration:
+MMI-Gram runs completely offline out of the box with zero credentials. When authorized to perform live multimodal Gemini inference:
+
+1. Copy the environment configuration template:
+   ```bash
+   cp .env.example .env
+   ```
+2. Configure your Google AI Studio API key in `.env`:
+   ```bash
+   GEMINI_PROVIDER="ai_studio"
+   GEMINI_API_KEY="AIzaSyYourActualKeyHere..."
+   GEMINI_MODEL="gemini-3.8-flash"
+   GEMINI_THINKING_LEVEL="HIGH"
+   ```
+   *Note: MMI-Gram uses local binary streaming. GCS bucket uploads, Google Maps Geocoding, Pinecone, and Tavily are **NOT** required for the core Google AI Studio inference pipeline.*
+
+3. Verify environment preflight:
+   ```bash
+   python3 -m mmigram.cli check-env
+   ```
+
+### 4. Running the Myanmar 5-Page Live Pilot
+
+To execute the controlled 5-PDF pilot (`page-76.pdf`, `page-22.pdf`, `page-47.pdf`, `page-26.pdf`, `page-8.pdf`) under the strict $3.00 budget limit:
 
 ```bash
-cp .env.example .env
-# Edit .env with your GCS_PROJECT_ID, GOOGLE_APPLICATION_CREDENTIALS, and PINECONE_API
+# A. Dry-run simulation (zero API calls, validates hashes, token accounting, and checkpoints):
+python3 scripts/run_gemini_pilot.py --dry-run
+
+# B. Live AI Studio execution (requires GEMINI_API_KEY, enforces $3.00 budget ceiling):
+python3 scripts/run_gemini_pilot.py --live --pilot
 ```
 
 ---

@@ -16,7 +16,9 @@ _session_telemetry: Dict[str, Any] = {
     "prompt_tokens": 0,
     "candidates_tokens": 0,
     "thoughts_tokens": 0,
+    "cached_tokens": 0,
     "total_tokens": 0,
+    "estimated_cost_usd": 0.0,
     "invocations": []
 }
 
@@ -215,7 +217,9 @@ def reset_session_telemetry():
         "prompt_tokens": 0,
         "candidates_tokens": 0,
         "thoughts_tokens": 0,
+        "cached_tokens": 0,
         "total_tokens": 0,
+        "estimated_cost_usd": 0.0,
         "invocations": []
     }
 
@@ -266,10 +270,29 @@ def get_response(
 
             # Extract token metrics safely from usage_metadata
             usage = getattr(response, "usage_metadata", None)
-            prompt_tokens = getattr(usage, "prompt_token_count", None) or 0
-            candidates_tokens = getattr(usage, "candidates_token_count", None) or 0
-            thoughts_tokens = getattr(usage, "thoughts_token_count", None) or 0
-            total_tokens = getattr(usage, "total_token_count", None) or (prompt_tokens + candidates_tokens)
+
+            def _to_int(v: Any) -> int:
+                if isinstance(v, (int, float)):
+                    return int(v)
+                return 0
+
+            prompt_tokens = _to_int(getattr(usage, "prompt_token_count", 0))
+            candidates_tokens = _to_int(getattr(usage, "candidates_token_count", 0))
+            thoughts_tokens = _to_int(getattr(usage, "thoughts_token_count", 0))
+            cached_tokens = _to_int(getattr(usage, "cached_content_token_count", 0))
+            total_tokens = _to_int(getattr(usage, "total_token_count", 0)) or (prompt_tokens + candidates_tokens)
+
+            # Accurate pricing calculation (candidates_token_count ALREADY includes thinking tokens)
+            price_prompt_m = 0.15
+            price_cached_m = 0.0375
+            price_candidates_m = 0.60
+            unpromoted_prompt = max(0, prompt_tokens - cached_tokens)
+            call_cost_usd = round(
+                (unpromoted_prompt / 1_000_000.0) * price_prompt_m
+                + (cached_tokens / 1_000_000.0) * price_cached_m
+                + (candidates_tokens / 1_000_000.0) * price_candidates_m,
+                6,
+            )
 
             telemetry = {
                 "model_identifier": current_model,
@@ -277,8 +300,13 @@ def get_response(
                 "prompt_tokens": prompt_tokens,
                 "candidates_tokens": candidates_tokens,
                 "thoughts_tokens": thoughts_tokens,
+                "cached_tokens": cached_tokens,
                 "total_tokens": total_tokens,
-                "duration_s": round(duration, 3)
+                "input_price_per_m": price_prompt_m,
+                "cached_price_per_m": price_cached_m,
+                "output_price_per_m": price_candidates_m,
+                "estimated_cost_usd": call_cost_usd,
+                "duration_s": round(duration, 3),
             }
             _last_telemetry = telemetry
 
@@ -287,7 +315,11 @@ def get_response(
             _session_telemetry["prompt_tokens"] += prompt_tokens
             _session_telemetry["candidates_tokens"] += candidates_tokens
             _session_telemetry["thoughts_tokens"] += thoughts_tokens
+            _session_telemetry["cached_tokens"] += cached_tokens
             _session_telemetry["total_tokens"] += total_tokens
+            _session_telemetry["estimated_cost_usd"] = round(
+                _session_telemetry.get("estimated_cost_usd", 0.0) + call_cost_usd, 6
+            )
             _session_telemetry["invocations"].append(telemetry)
 
             return response.text or ""

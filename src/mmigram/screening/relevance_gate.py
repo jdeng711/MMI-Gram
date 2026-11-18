@@ -80,11 +80,9 @@ MODEL_MAP_PATTERNS = [
 # Indicators of presentation title slides / TOC / team rosters (No field observations)
 TITLE_PRESENTATION_PATTERNS = [
     r"preliminary\s+virtual\s+reconnaissance\s+report",
-    r"virtual\s+reconnaissance",
     r"table\s+of\s+contents",
     r"author\s+list",
     r"team\s+organization",
-    r"vast\s+member\s+name",
     r"acknowledgment[s]?",
     r"executive\s+summary",
     r"presentation\s+overview",
@@ -237,7 +235,7 @@ class RelevanceGate:
         # Pattern 2: Title Slide / Table of Contents / Administrative Cover
         # ──────────────────────────────────────────────────────────────────────
         title_matches = [p for p in TITLE_PRESENTATION_PATTERNS if re.search(p, text_lower)]
-        if title_matches and not damage_matches and not shaking_matches:
+        if title_matches and not damage_matches and not shaking_matches and not ground_matches:
             evidence_types.append("title_presentation_slide")
             reasons.append(
                 f"Document is an overview, title slide, or table of contents "

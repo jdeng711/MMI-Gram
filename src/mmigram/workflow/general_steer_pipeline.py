@@ -83,6 +83,7 @@ class GeneralSteerPipeline:
         origin_time_utc: str = "2025-03-28T06:20:00Z",
         spatial_bounds: Optional[Dict[str, float]] = None,
         geocoding_adapter: Optional[GoogleMapsGeocodingAdapter] = None,
+        allow_live_geocoding: Optional[bool] = None,
     ):
         self.mode = mode.lower()
         self.provider = (provider or os.environ.get("GEMINI_PROVIDER", "ai_studio")).lower()
@@ -93,6 +94,12 @@ class GeneralSteerPipeline:
         self.logger = logger or StructuredAgentLogger(name="mmigram.general_steer", console_output=True)
         self.review_queue = review_queue or HumanReviewQueue()
         self.allow_live_api = allow_live_api
+        if allow_live_geocoding is None:
+            self.allow_live_geocoding = (
+                os.environ.get("ENABLE_LIVE_GEOCODING", "false").strip().lower() in ("true", "1", "yes")
+            )
+        else:
+            self.allow_live_geocoding = allow_live_geocoding
         self.pdf_extractor = PDFExtractor(min_text_threshold=min_text_threshold)
         self.event_id = event_id
         self.spatial_bounds = spatial_bounds or MYANMAR_BOUNDS
@@ -101,7 +108,7 @@ class GeneralSteerPipeline:
         self.unified_resolver = UnifiedGeolocationResolver(
             region_bounds=self.spatial_bounds,
             geocoding_adapter=geocoding_adapter,
-            allow_live_geocoding=allow_live_api,
+            allow_live_geocoding=self.allow_live_geocoding,
         )
 
         # Pre-MMI Composite Screening Pipeline (All 5 gates)

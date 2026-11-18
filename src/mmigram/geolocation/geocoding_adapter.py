@@ -64,12 +64,17 @@ class GoogleMapsGeocodingAdapter:
     def __init__(
         self,
         api_key: Optional[str] = None,
-        allow_live_geocoding: bool = False,
+        allow_live_geocoding: Optional[bool] = None,
         cache_path: Optional[Path] = None,
         custom_fetcher: Optional[Callable[[Dict[str, str]], Optional[Dict[str, Any]]]] = None,
     ):
         self._api_key = api_key
-        self.allow_live_geocoding = allow_live_geocoding
+        if allow_live_geocoding is None:
+            self.allow_live_geocoding = (
+                os.environ.get("ENABLE_LIVE_GEOCODING", "false").strip().lower() in ("true", "1", "yes")
+            )
+        else:
+            self.allow_live_geocoding = allow_live_geocoding
         self.cache_path = cache_path or DEFAULT_CACHE_PATH
         self.custom_fetcher = custom_fetcher
 
