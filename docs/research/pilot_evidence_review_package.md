@@ -39,17 +39,19 @@ Reviewers are requested to evaluate each observation against the following key c
 
 ## 3. Pilot Observation Overview Table
 
-| Pilot ID | Source File | Estimated MMI | Confidence | Lat (°N) | Lon (°E) | $R_{rup}$ (km) | Nearest DYFI (km) | Rupture Segment & Primary Phenomenon |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **P-01** | `page-022.pdf` | **9.5** | 0.90 | 20.88206 | 96.03528 | 0.36 | 1.74 | Central fault trace; dynamic CCTV of surface fault displacement at Thazi solar farm. |
-| **P-02** | `page-076.pdf` | **9.0** | 0.90 | 20.58968 | 96.05242 | 1.27 | 31.09 | South-central segment; pancake collapse of engineered RC bank building in Pyawbwe (DYFI gap). |
-| **P-03** | `page-047.pdf` | **8.5** | 0.85 | 19.73814 | 96.21157 | 4.22 | 0.48 | Southern segment; near-total collapse of masonry-infill residential homes in Pyinmana / Naypyidaw. |
-| **P-04** | `page-034.pdf` | **9.5** | 0.85 | 21.89019 | 96.08991 | 10.84 | 0.21 | Northern segment; severe masonry destruction coupled with localized slope subsidence in Mandalay. |
-| **P-05** | `page-026.pdf` | **9.5** | 0.95 | 21.88035 | 95.98488 | 0.02 | 0.09 | Epicentral/Sagaing city; 1-m lateral fault offset across street with adjacent building collapses. |
+| Pilot ID | Source File | Estimated MMI | Confidence | Lat (°N) | Lon (°E) | $R_{rup}$ (km) | Nearest DYFI (km) | Evidence Category & Shaking Suitability | Rupture Segment & Primary Phenomenon |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :--- |
+| **P-01** | `page-022.pdf` | **9.5** | 0.90 | 20.88206 | 96.03528 | 0.36 | 1.74 | **Fault-Displacement Dominated** (Low independent shaking evidence; CCTV offset) | Central fault trace; dynamic CCTV of surface fault displacement at Thazi solar farm. |
+| **P-02** | `page-076.pdf` | **9.0** | 0.90 | 20.58968 | 96.05242 | 1.27 | 31.09 | **Pure Structural Shaking** (High independent evidence; engineered RC soft-story collapse) | South-central segment; pancake collapse of engineered RC bank building in Pyawbwe (DYFI gap). |
+| **P-03** | `page-047.pdf` | **8.5** | 0.85 | 19.73814 | 96.21157 | 4.22 | 0.48 | **Structural Shaking** (High shaking evidence; Class A/B residential masonry fragility) | Southern segment; near-total collapse of masonry-infill residential homes in Pyinmana / Naypyidaw. |
+| **P-04** | `page-034.pdf` | **9.5** | 0.85 | 21.89019 | 96.08991 | 10.84 | 0.21 | **Mixed Shaking & Geotechnical Failure** (Requires review to isolate slope failure/subsidence) | Northern segment; severe masonry destruction coupled with localized slope subsidence in Mandalay. |
+| **P-05** | `page-026.pdf` | **9.5** | 0.95 | 21.88035 | 95.98488 | 0.02 | 0.09 | **Mixed Fault Rupture & Building Collapse** (Both 1 m street offset & multi-story collapse present) | Epicentral/Sagaing city; 1-m lateral fault offset across street with adjacent building collapses. |
 
 ---
 
 ## 4. Detailed Evidence Review Cards
+
+*All candidates are cataloged in [`agent_evaluations_myanmar.json`](file:///Users/jasondeng/Downloads/Files/Harvard/F26/EPS%2055/Final%20Project/MMI-Gram-Clean/tests/fixtures/usgs/agent_evaluations_myanmar.json) and registered in [`pilot_expert_review_manifest.json`](file:///Users/jasondeng/Downloads/Files/Harvard/F26/EPS%2055/Final%20Project/MMI-Gram-Clean/data/events/us7000pn9s/pilot_candidates/pilot_expert_review_manifest.json). All 5 candidates are strictly PRESERVED as PENDING_EXPERT_REVIEW.*
 
 ---
 
@@ -57,6 +59,7 @@ Reviewers are requested to evaluate each observation against the following key c
 - **Pilot ID:** `P-01`
 - **File Name:** `page-022.pdf`
 - **Content UUID:** `d6a18bd5-7223-43ef-8902-7222ebaf9604`
+- **Source Benchmark Reference:** [`agent_evaluations_myanmar.json` (Record 21)](file:///Users/jasondeng/Downloads/Files/Harvard/F26/EPS%2055/Final%20Project/MMI-Gram-Clean/tests/fixtures/usgs/agent_evaluations_myanmar.json)
 - **Model Assessor:** `gemini-3.8-flash`
 - **Assigned MMI:** **9.5** (Violent to Disastrous) | **Model Confidence:** 0.90
 - **Location Name:** GP Energy Myanmar Thapyawa Solar Farm, Thazi, Myanmar
@@ -67,6 +70,7 @@ Reviewers are requested to evaluate each observation against the following key c
   - Station Code: `UTM:(47Q 0192 2310 1000)`
   - Distance: **1.74 km**
   - Existing DYFI Representation: Distinct site; provides high-resolution near-fault ground truth.
+- **Evidence Category & Review Suitability:** **FAULT-DISPLACEMENT DOMINATED**. The observation records ~1–2 m surface fault offset across fence lines and gates. It possesses low independent structural shaking damage evidence and relies heavily on primary fault displacement. Reviewers must evaluate whether to discount MMI or treat this as a surface geology marker rather than shaking intensity.
 
 #### Building & Infrastructure Typology
 - **Facility Type:** Industrial renewable energy compound entrance and perimeter infrastructure.
@@ -98,6 +102,7 @@ _______________________________________________________________________________
 - **Pilot ID:** `P-02`
 - **File Name:** `page-076.pdf`
 - **Content UUID:** `b0eaab44-9e9b-40bc-94de-fe2d211e8fec`
+- **Source Benchmark Reference:** [`agent_evaluations_myanmar.json` (Record 75)](file:///Users/jasondeng/Downloads/Files/Harvard/F26/EPS%2055/Final%20Project/MMI-Gram-Clean/tests/fixtures/usgs/agent_evaluations_myanmar.json)
 - **Model Assessor:** `gemini-3.8-flash`
 - **Assigned MMI:** **9.0** (Violent) | **Model Confidence:** 0.90
 - **Location Name:** KBZ Bank branch, Pyawbwe Township, Mandalay Division
@@ -108,6 +113,7 @@ _______________________________________________________________________________
   - Station Code: `UTM:(47Q 0192 2310 1000)`
   - Distance: **31.09 km**
   - Existing DYFI Representation: **NONE (Critical DYFI Data Gap)**. This observation fills a major 31-km data void along the south-central fault rupture.
+- **Evidence Category & Review Suitability:** **PURE STRUCTURAL SHAKING (HIGHLY SUITABLE FOR SHAKEMAP)**. The observation documents pancake collapse and soft-story failure of an engineered reinforced concrete commercial structure with acute tilt of upper stories. Completely free of surface fault rupture offset; provides pure inertial shaking response evidence.
 
 #### Building & Infrastructure Typology
 - **Facility Type:** Multi-story commercial engineered building (commercial bank branch).
@@ -139,6 +145,7 @@ _______________________________________________________________________________
 - **Pilot ID:** `P-03`
 - **File Name:** `page-047.pdf`
 - **Content UUID:** `e026cd5c-9022-4c0f-9475-625bb05cb56d`
+- **Source Benchmark Reference:** [`agent_evaluations_myanmar.json` (Record 46)](file:///Users/jasondeng/Downloads/Files/Harvard/F26/EPS%2055/Final%20Project/MMI-Gram-Clean/tests/fixtures/usgs/agent_evaluations_myanmar.json)
 - **Model Assessor:** `gemini-3.8-flash`
 - **Assigned MMI:** **8.5** (Severe to Violent) | **Model Confidence:** 0.85
 - **Location Name:** Pyinmana Township residential quarter, Naypyidaw Union Territory
@@ -149,6 +156,7 @@ _______________________________________________________________________________
   - Station Code: `UTM:(47Q 0207 2184 1000)`
   - Distance: **0.48 km**
   - Existing DYFI Representation: Co-located near DYFI geocoded cell.
+- **Evidence Category & Review Suitability:** **STRUCTURAL SHAKING (HIGH SHAKING EVIDENCE, HIGH BUILDING VULNERABILITY)**. Shows complete failure of traditional brick-nogging/unreinforced masonry walls and roof collapse in single-family residences. Strong shaking evidence, but reviewer must determine whether destruction reflects MMI 8.5 ground motion or high building fragility (EMS-98 Class A/B).
 
 #### Building & Infrastructure Typology
 - **Facility Type:** Single-family residential dwellings.
@@ -180,6 +188,7 @@ _______________________________________________________________________________
 - **Pilot ID:** `P-04`
 - **File Name:** `page-034.pdf`
 - **Content UUID:** `4a24c5ae-6a58-421c-9bca-9a6a4749da4a`
+- **Source Benchmark Reference:** [`agent_evaluations_myanmar.json` (Record 33)](file:///Users/jasondeng/Downloads/Files/Harvard/F26/EPS%2055/Final%20Project/MMI-Gram-Clean/tests/fixtures/usgs/agent_evaluations_myanmar.json)
 - **Model Assessor:** `gemini-3.8-flash`
 - **Assigned MMI:** **9.5** (Violent to Disastrous) | **Model Confidence:** 0.85
 - **Location Name:** Satetaya Village, Mandalay perimeter
@@ -190,6 +199,7 @@ _______________________________________________________________________________
   - Station Code: `UTM:(47Q 0199 2423 1000)`
   - Distance: **0.21 km**
   - Existing DYFI Representation: Near DYFI cell in southern Mandalay urban fringe.
+- **Evidence Category & Review Suitability:** **MIXED STRUCTURAL SHAKING & GEOTECHNICAL SLOPE FAILURE**. Building damage is heavily compounded by riverbank/embankment foundation subsidence and slope slumping. Reviewers must assess whether MMI 9.5 is an artifact of geotechnical foundation failure at $R_{rup} = 10.8$ km and consider down-rating or assigning higher uncertainty ($\sigma = 0.65$).
 
 #### Building & Infrastructure Typology
 - **Facility Type:** Low-rise mixed residential dwellings and rural structures.
@@ -221,6 +231,7 @@ _______________________________________________________________________________
 - **Pilot ID:** `P-05`
 - **File Name:** `page-026.pdf`
 - **Content UUID:** `c78e534e-7b81-48e3-98fa-67d3d426f2f7`
+- **Source Benchmark Reference:** [`agent_evaluations_myanmar.json` (Record 25)](file:///Users/jasondeng/Downloads/Files/Harvard/F26/EPS%2055/Final%20Project/MMI-Gram-Clean/tests/fixtures/usgs/agent_evaluations_myanmar.json)
 - **Model Assessor:** `gemini-3.8-flash`
 - **Assigned MMI:** **9.5** (Violent to Disastrous) | **Model Confidence:** 0.95
 - **Location Name:** Sagaing city central urban thoroughfare
@@ -231,6 +242,7 @@ _______________________________________________________________________________
   - Station Code: `UTM:(46Q 0808 2422 1000)`
   - Distance: **0.09 km**
   - Existing DYFI Representation: Within high-density urban DYFI cluster (24 reports).
+- **Evidence Category & Review Suitability:** **MIXED SURFACE FAULT OFFSET & SEVERE STRUCTURAL COLLAPSE**. Depicts both ~1 m lateral strike-slip street shearing AND catastrophic collapse of substantial roadside commercial/residential structures. Unlike P-01, substantial building collapse is clearly visible alongside fault offset. Reviewer must calibrate whether MMI 9.5 reflects pure shaking ground motion or combined shaking + fault offset.
 
 #### Building & Infrastructure Typology
 - **Facility Type:** Multi-story commercial street corridor and mixed-use urban buildings.

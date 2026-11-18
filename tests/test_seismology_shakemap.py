@@ -1046,9 +1046,12 @@ def test_17_expert_approval_enforcement_for_scientific_datasets(tmp_path):
         strict_geo = json.load(f)
     assert strict_geo["metadata"]["dataset_type"] == "scientifically_validated_observation_dataset"
     assert strict_geo["metadata"]["expert_reviewed"] is True
+    assert strict_geo["metadata"]["human_review_status"] == "FULLY_EXPERT_APPROVED"
+    assert strict_geo["metadata"]["warning"] is None
     assert len(strict_geo["features"]) == 1
     assert strict_geo["features"][0]["properties"]["file_name"] == "page-076.pdf"
     assert strict_geo["features"][0]["properties"]["expert_approved"] is True
+    assert strict_geo["features"][0]["properties"]["scientific_use_allowed"] is True
 
     with open(strict_dir / "excluded_observations.json", "r", encoding="utf-8") as f:
         strict_audit = json.load(f)
@@ -1070,5 +1073,78 @@ def test_17_expert_approval_enforcement_for_scientific_datasets(tmp_path):
         compat_geo = json.load(f)
     assert compat_geo["metadata"]["dataset_type"] == "technical_compatibility_artifact"
     assert compat_geo["metadata"]["expert_reviewed"] is False
+    assert compat_geo["metadata"]["human_review_status"] == "INCOMPLETE_EXPERIMENTAL_TECHNICAL_ARTIFACT"
+    assert "EXPERIMENTAL TECHNICAL ARTIFACT ONLY" in compat_geo["metadata"]["warning"]
+    assert compat_geo["features"][0]["properties"]["scientific_use_allowed"] is False
+
+    # 3. Verify that none of the 184 reference Myanmar evaluations are automatically marked approved
+    fixture_evals_path = FIXTURES_DIR / "agent_evaluations_myanmar.json"
+    if fixture_evals_path.exists():
+        with open(fixture_evals_path, "r", encoding="utf-8") as f:
+            evals_data = json.load(f)
+        assert len(evals_data) == 184
+        for ev in evals_data:
+            hitl = ev.get("human_in_the_loop") or {}
+            assert hitl.get("review_status") != "APPROVED"
+            assert not ev.get("expert_approved", False)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 18. Earthquake Origin Time Consistency Across Metadata and Screening
+# ─────────────────────────────────────────────────────────────────────────────
+def test_18_earthquake_origin_time_consistency(tmp_path):
+    """
+    Verify that the authoritative USGS origin time for event us7000pn9s
+    (2025-03-28T06:20:52.715Z) is consistently maintained across USGS product
+    parsers, rupture metadata, baseline reconstruction summaries, and temporal gates.
+    """
+    # 1. Rupture metadata check
+    rupture_file = FIXTURES_DIR / "rupture.json"
+    assert rupture_file.exists()
+    with open(rupture_file, "r", encoding="utf-8") as f:
+        rup = json.load(f)
+    meta = rup.get("metadata", {})
+    assert meta.get("id") == "us7000pn9s"
+    assert meta.get("time") == "2025-03-28T06:20:52.715000Z"
+
+    # 2. Baseline summary check
+    summary_file = Path("data/events/us7000pn9s/baseline_recon/myanmar_baseline_summary.json")
+    if summary_file.exists():
+        with open(summary_file, "r", encoding="utf-8") as f:
+            summary = json.load(f)
+        assert summary["origin"]["origin_time_utc"] == "2025-03-28T06:20:52.715Z"
+
+    # 3. USGSProductProvider timestamp conversion check (epoch 1743142852715 ms -> UTC)
+    provider = USGSProductProvider(cache_dir=tmp_path, allow_live_download=False)
+    sample_meta = {
+        "id": "us7000pn9s",
+        "properties": {
+            "title": "M 7.7 - 2025 Mandalay, Burma (Myanmar) Earthquake",
+            "mag": 7.7,
+            "time": 1743142852715,
+            "place": "16 km NNW of Mandalay, Myanmar",
+        },
+        "geometry": {"coordinates": [95.9363, 22.011, 10.0]},
+    }
+    provider.register_mock_product("us7000pn9s", "event_summary", sample_meta)
+    event_meta = provider.get_event_metadata("us7000pn9s")
+    assert event_meta is not None
+    assert event_meta["origin_time_utc"] == "2025-03-28T06:20:52.715000+00:00"
+
+    # 4. Temporal gate interaction with authoritative origin time
+    from mmigram.screening.temporal_gate import TemporalGate
+    gate = TemporalGate(origin_time_utc="2025-03-28T06:20:00Z")
+    
+    # Observation after event is accepted
+    post_res = gate.check(explicit_timestamp="2025-03-28T06:25:00Z")
+    assert post_res.is_valid is True
+    assert post_res.status == "VALID"
+
+    # Observation predating event by > 5 min is flagged for review
+    pre_res = gate.check(explicit_timestamp="2025-03-28T05:00:00Z")
+    assert pre_res.is_valid is False
+    assert pre_res.status == "PREDATES_EVENT"
+    assert "predates earthquake origin" in pre_res.reason.lower()
+
 
 

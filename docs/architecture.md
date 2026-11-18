@@ -60,28 +60,59 @@ MMI-Gram is an agentic AI system for estimating Modified Mercalli Intensity (MMI
 
 ---
 
-## 2. Implemented LangGraph Workflow
+## 2. Implemented LangGraph Workflow & Governance Pipeline
 
-The operational pipeline is implemented using LangGraph and state dictionaries in `src/mmigram/workflow/`.
+The operational pipeline integrates Stage 1–4B capabilities, managing screening uncertainty, coordinate availability, and strict separation between technical export compatibility and scientific expert validation.
 
 ```mermaid
 flowchart TD
-    Start([Input PDF / Observation]) --> Ingest[ingest_pdf<br/>Text extraction & SHA-256]
-    Ingest --> MMI[extract_mmi<br/>Multimodal intensity estimation]
-    MMI --> Geo[parse_geolocation<br/>Coordinate parsing & discrepancy check]
-    Geo --> QC[quality_control<br/>Multi-rule automated validation]
-    QC --> Decision{QC Status}
-    Decision -- PASSED --> Approved([Auto-Approved Observation])
-    Decision -- FLAGGED / REJECTED --> HITL[human_review<br/>Persistent Review Queue]
-    HITL --> Final([Queued for Expert Audit])
+    Start([Input PDF / Observation / Media]) --> Ingest[ingest_pdf<br/>Text/Image extraction & SHA-256]
+    
+    subgraph Screening ["1. Pre-MMI Screening Gates"]
+        Ingest --> GateCheck{Screening Evaluation<br/>Relevance, Temporal, pHash, Authenticity}
+        GateCheck -- "Definitively Ineligible<br/>(e.g., pure map/hazard chart)" --> ScreenedOut[NOT_ESTIMABLE / SCREENED_OUT<br/>Audited in excluded_observations.json]
+        GateCheck -- "Plausible Evidence<br/>(Subject to Screening Uncertainty)" --> MMI[extract_mmi<br/>Multimodal Intensity Estimation]
+        GateCheck -- "Uncertain / Scanned Image" --> FlagScreen[REVIEW_REQUIRED<br/>Preserved with Audit Reason]
+        FlagScreen --> MMI
+    end
+
+    subgraph EstimationAndGeo ["2. Intensity Estimation & Geolocation"]
+        MMI --> GeoResolution{Geolocation Resolver}
+        GeoResolution -- "Site Coordinates Identified<br/>(DMS, decimal, marker URL)" --> GeoValid[Validate Coordinates & Bounding Box]
+        GeoResolution -- "Missing Coordinates<br/>(Coordinates: null)" --> MissingGeo[Non-Geographic Observation<br/>MMI Estimate Retained & Saved<br/>has_exportable_site_coordinates: False]
+        MissingGeo --> HITL_Geo[Enqueued for Manual Geocoding]
+        GeoValid --> GeoCompare[Compare Document vs. Model Coords]
+        GeoCompare --> RrupPhysics[Finite-Fault Rrup Calculation & Physics Critic]
+    end
+
+    subgraph QualityControl ["3. Quality Control & Dual-Track Export"]
+        RrupPhysics --> QC[Automated Multi-Rule QC<br/>Range, Attenuation, Conflict Check]
+        QC --> GateStatus{QC & Review Gate}
+        
+        GateStatus -- "Syntax & Bounds Valid<br/>Site Coordinates Present" --> TechEligible{"Export Mode"}
+        
+        TechEligible -- "Technical Compatibility Mode<br/>(require_expert_approval=False)" --> TechExport[Technical Compatibility Artifact<br/>agent_mmi_dat.json<br/>dataset_type: technical_compatibility_artifact<br/>scientific_use_allowed: False]
+        
+        GateStatus -- "Flagged / Near Fault /<br/>Unreviewed Observation" --> HITL[Human-in-the-Loop Review Queue<br/>review_status: PENDING_EXPERT_REVIEW]
+        
+        HITL --> Seismologist[Seismologist Expert Review<br/>Wood & Neumann 1931 / ShakeMap Standards]
+        
+        Seismologist -- "APPROVE / REVISE" --> ApprovedObs[Scientifically Validated Observation<br/>review_status: APPROVED]
+        Seismologist -- "REJECT / DEFER" --> ExcludedAudit[Excluded / Deferred Archive]
+        
+        ApprovedObs --> TechEligible
+        TechEligible -- "Scientific Validation Mode<br/>(require_expert_approval=True)" --> SciExport([Scientifically Validated Dataset<br/>agent_mmi_dat.json<br/>dataset_type: scientifically_validated_observation_dataset<br/>scientific_use_allowed: True<br/>Ready for USGS ShakeMap 4.5 Assimilation])
+    end
 
     classDef implemented fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
     classDef decision fill:#fff3e0,stroke:#f57c00,stroke-width:2px;
     classDef terminal fill:#e8f5e9,stroke:#388e3c,stroke-width:2px;
+    classDef warning fill:#fffde7,stroke:#fbc02d,stroke-width:2px;
 
-    class Ingest,MMI,Geo,QC,HITL implemented;
-    class Decision decision;
-    class Start,Approved,Final terminal;
+    class Ingest,MMI,GeoValid,GeoCompare,RrupPhysics,QC,Seismologist implemented;
+    class GateCheck,GeoResolution,GateStatus,TechEligible decision;
+    class TechExport,MissingGeo,FlagScreen warning;
+    class Start,SciExport,ApprovedObs terminal;
 ```
 
 ---

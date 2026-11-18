@@ -357,6 +357,8 @@ class ShakeMapExporter:
                 "cluster_flag": cluster_flag,
                 "cluster_id": matched_cluster_id,
                 "expert_approved": (review_status == "APPROVED"),
+                "review_status": review_status,
+                "scientific_use_allowed": (review_status == "APPROVED"),
             }
 
             accepted_records.append({
@@ -391,6 +393,20 @@ class ShakeMapExporter:
             if is_fully_approved_dataset
             else "technical_compatibility_artifact"
         )
+        human_review_status = (
+            "FULLY_EXPERT_APPROVED"
+            if is_fully_approved_dataset
+            else "INCOMPLETE_EXPERIMENTAL_TECHNICAL_ARTIFACT"
+        )
+        warning_msg = (
+            None
+            if is_fully_approved_dataset
+            else (
+                "EXPERIMENTAL TECHNICAL ARTIFACT ONLY: Contains unreviewed AI-derived observations. "
+                "This file has NOT been validated by human seismologists and must NOT be used as official "
+                "ground truth or for final scientific reporting."
+            )
+        )
 
         # Assemble ShakeMap GeoJSON document
         geojson_doc = {
@@ -402,6 +418,8 @@ class ShakeMapExporter:
                 "count": len(qualified_features),
                 "dataset_type": dataset_type,
                 "expert_reviewed": is_fully_approved_dataset,
+                "human_review_status": human_review_status,
+                "warning": warning_msg,
                 "uncertainty_policy": self.uncertainty_strategy.value,
                 "uncertainty_policy_description": self.get_uncertainty_policy_description(),
                 "default_stddev": self.default_stddev,

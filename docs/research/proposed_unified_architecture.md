@@ -19,13 +19,14 @@ flowchart TD
     end
 
     subgraph PreFilter ["2. Multi-Gate Screening & Relevance Gate"]
-        Extractor --> RelGate{Relevance Gate<br/>Observable damage photos?}
-        RelGate -- "No (e.g. page-8.pdf)" --> NotEstimable[NOT_ESTIMABLE<br/>Reason: Briefing Cover/Methodology Slide]
+        Extractor --> RelGate{Screening Gates<br/>Relevance, Temporal, pHash, Authenticity}
+        RelGate -- "Definitively Ineligible<br/>(e.g. pure hazard map)" --> NotEstimable[NOT_ESTIMABLE / SCREENED_OUT<br/>Reason: Cover / Methodology Slide]
         NotEstimable --> ExcludedLog[(Excluded Inputs Log<br/>Audit Record Preserved)]
         
-        RelGate -- "Yes" --> TempGate[Temporal Gate<br/>Timestamp vs Origin T0]
-        TempGate --> DupGate[Recycled Media Gate<br/>pHash & SHA-256 Duplicates]
-        DupGate --> AuthGate[Authenticity Gate<br/>Fallible AI-Synthetic Screening]
+        RelGate -- "Plausible Evidence<br/>(Subject to Screening Uncertainty)" --> PassPreFilter[Eligible for Assessment]
+        RelGate -- "Uncertain / Scanned Image" --> FlagReview[REVIEW_REQUIRED<br/>Preserved for Multimodal Audit]
+        PassPreFilter --> AuthGate[Pass to Seismologist Agent]
+        FlagReview --> AuthGate
     end
 
     subgraph Seismology ["3. LangGraph Multimodal Seismologist Agent"]
@@ -35,31 +36,38 @@ flowchart TD
     end
 
     subgraph Geolocation ["4. Dual Geolocation & Geocoding Engine"]
-        Stage2 --> GeoParser[Extract Geolocation<br/>DMS / Decimal / Google Maps URLs]
-        GeoParser --> Geocoder[Optional Google Geocoding API]
+        Stage2 --> GeoParser{Extract Geolocation<br/>DMS / Decimal / Google Maps URLs}
+        GeoParser -- "Site Coordinates Found" --> Geocoder[Optional Google Geocoding API]
         Geocoder --> GeoValidator[Validate Coordinates<br/>Null Island Check + Regional Bounding]
         GeoValidator --> GeoCompare[Compare Document vs Model<br/>Haversine Discrepancy Check]
+        GeoCompare --> RrupCalc[3D Point-to-Triangle Distance<br/>Ericson 2005 Mesh Calculation]
+        
+        GeoParser -- "Missing Coordinates" --> MissingCoords[Non-Geographic Observation<br/>MMI Estimate Retained & Preserved<br/>has_exportable_site_coordinates: False]
     end
 
     subgraph Physics ["5. Finite-Fault Rupture Physics ($R_{rup}$)"]
-        GeoCompare --> RrupCalc[3D Point-to-Triangle Distance<br/>Ericson 2005 Mesh Calculation]
         RrupCalc --> GMPECritic[Physics Critic<br/>Attenuation Curve Consistency Check]
     end
 
     subgraph Governance ["6. Quality Control & Human-in-the-Loop"]
         GMPECritic --> QCEngine[Automated Multi-Rule QC<br/>Null Island, Range, Conf, Discrepancy]
-        QCEngine --> QCDecision{QC Status}
-        QCDecision -- "PASSED" --> AutoApproved[Auto-Approved Observation]
-        QCDecision -- "FLAGGED / REJECTED" --> ReviewQueue[(Persistent Review Queue<br/>data/review_queue.json)]
+        MissingCoords --> QCEngine
+        QCEngine --> QCDecision{QC & Review Gate}
+        
+        QCDecision -- "Valid Format & Site Coords" --> TechMode[Technical Compatibility Artifact<br/>agent_mmi_dat.json<br/>dataset_type: technical_compatibility_artifact<br/>scientific_use_allowed: False]
+        QCDecision -- "Pending Review / Flagged / Near-Fault" --> ReviewQueue[(Persistent Review Queue<br/>review_status: PENDING_EXPERT_REVIEW)]
+        
         ReviewQueue --> ExpertReview[Expert Seismologist Audit / Override]
-        ExpertReview --> AutoApproved
+        ExpertReview -- "APPROVED" --> ScientificallyValidated[Scientifically Validated Observation]
+        ExpertReview -- "REJECTED / DEFERRED" --> ExcludedLog
     end
 
-    subgraph Export ["7. USGS ShakeMap v4 & Benchmark Export"]
-        AutoApproved --> ShakeMapExp[USGS ShakeMap v4 Exporter<br/>*_dat.json Observation File]
-        AutoApproved --> DuckDBRepo[(Embedded DuckDB / SQLite<br/>data/events/<id>/event.duckdb)]
-        AutoApproved --> BenchmarkComp[Benchmark Exporter<br/>Standardized JSON / CSV Tables]
-        ShakeMapExp --> ComCatComp[USGS ComCat Comparator<br/>Delta MMI vs Official DYFI/Ground Stations]
+    subgraph Export ["7. USGS ShakeMap 4.5 & Benchmark Export"]
+        ScientificallyValidated --> ShakeMapExp[USGS ShakeMap 4.5 Scientific Exporter<br/>*_dat.json Observation File<br/>dataset_type: scientifically_validated_observation_dataset<br/>scientific_use_allowed: True]
+        TechMode --> ShakeMapExp
+        ScientificallyValidated --> DuckDBRepo[(Embedded DuckDB / SQLite<br/>data/events/<id>/event.duckdb)]
+        ScientificallyValidated --> BenchmarkComp[Benchmark Exporter<br/>Standardized JSON / CSV Tables]
+        ShakeMapExp --> ComCatComp[USGS ComCat / ShakeMap Comparator<br/>Delta MMI vs Official Baseline]
     end
 
     classDef primary fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;

@@ -8,7 +8,8 @@
     "latitude": 22.011,
     "longitude": 95.9363,
     "depth_km": 10.0,
-    "mechanism": "SS"
+    "mechanism": "SS",
+    "origin_time_utc": "2025-03-28T06:20:52.715Z"
   },
   "fault_model": {
     "rupture_geometry": "MultiPolygon finite fault (Reitman et al. 2025, DOI: 10.5066/P1RYMWCK)",
