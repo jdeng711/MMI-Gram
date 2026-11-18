@@ -1,0 +1,49 @@
+{
+  "event_id": "us7000pn9s",
+  "model_type": "reconstructed_baseline",
+  "shakemap_version": "4.5.0",
+  "shakemap_profile": "myanmar_recon",
+  "origin": {
+    "magnitude": 7.7,
+    "latitude": 22.011,
+    "longitude": 95.9363,
+    "depth_km": 10.0,
+    "mechanism": "SS"
+  },
+  "fault_model": {
+    "rupture_geometry": "MultiPolygon finite fault (Reitman et al. 2025, DOI: 10.5066/P1RYMWCK)",
+    "rupture_length_km": 450.0
+  },
+  "gmpe_gmice": {
+    "gmpe": "active_crustal_nshmp2014",
+    "ipe": "VirtualIPE",
+    "gmice": "WGRW12",
+    "ccf": "LothBaker2013"
+  },
+  "site_conditions": {
+    "vs30_source": "Regional near-fault empirical station mean (130 Myanmar stations)",
+    "vs30default_mps": 290.0,
+    "site_correction": "GMPE native"
+  },
+  "assimilated_inputs": {
+    "intensity_observations": 516,
+    "seismic_stations": 5,
+    "stationlist_source": "stationlist.json (1,250 raw features, 521 active)"
+  },
+  "grid_specification": {
+    "nlon": 648,
+    "nlat": 773,
+    "total_cells": 500904,
+    "lon_min": 91.65,
+    "lon_max": 101.0963,
+    "lat_min": 15.0121,
+    "lat_max": 25.5833,
+    "dx_deg": 0.0146,
+    "dy_deg": 0.01369
+  },
+  "mmi_statistics": {
+    "mmi_min": 3.91,
+    "mmi_max": 10.0,
+    "mmi_mean": 5.43
+  }
+}

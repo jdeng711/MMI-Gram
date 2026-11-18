@@ -60,6 +60,48 @@ class ShakeMapGrid:
         if self.lat_min >= self.lat_max:
             raise ValueError(f"lat_min ({self.lat_min}) must be < lat_max ({self.lat_max})")
 
+    def save_plot(
+        self,
+        output_path: Union[Path, str],
+        title: Optional[str] = None,
+        dpi: int = 300,
+    ) -> Path:
+        """Generate a publication-quality standalone intensity map for this grid."""
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+
+        out_p = Path(output_path)
+        out_p.parent.mkdir(parents=True, exist_ok=True)
+
+        fig, ax = plt.subplots(figsize=(8, 9), constrained_layout=True)
+        extent = [self.lon_min, self.lon_max, self.lat_min, self.lat_max]
+
+        valid_mmi = self.mmi[~np.isnan(self.mmi)]
+        vmin = max(1.0, math.floor(valid_mmi.min())) if len(valid_mmi) > 0 else 1.0
+        vmax = min(12.0, math.ceil(valid_mmi.max())) if len(valid_mmi) > 0 else 10.0
+
+        im = ax.imshow(
+            self.mmi,
+            extent=extent,
+            origin="upper",
+            cmap="turbo",
+            vmin=vmin,
+            vmax=vmax,
+            aspect="auto",
+        )
+        cbar = fig.colorbar(im, ax=ax, orientation="horizontal", pad=0.06, shrink=0.85)
+        cbar.set_label("Modeled Instrumental Intensity (MMI)", fontsize=10)
+
+        ax.set_xlabel("Longitude (°E)", fontsize=11)
+        ax.set_ylabel("Latitude (°N)", fontsize=11)
+        ax.grid(True, linestyle="--", alpha=0.4, color="grey")
+        ax.set_title(title or f"ShakeMap MMI Grid: {self.event_id}", fontsize=13, fontweight="bold")
+
+        fig.savefig(out_p, dpi=dpi, bbox_inches="tight")
+        plt.close(fig)
+        return out_p
+
 
 @dataclass
 class GridComparisonResult:

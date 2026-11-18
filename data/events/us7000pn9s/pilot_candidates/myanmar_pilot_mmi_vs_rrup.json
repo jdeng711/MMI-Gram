@@ -1,0 +1,67 @@
+{
+  "event_id": "us7000pn9s_pilot",
+  "event_name": "2025 Mw 7.7 Mandalay, Myanmar Earthquake",
+  "counts": {
+    "total_observations": 5,
+    "accepted_qualified": 0,
+    "review_required": 5,
+    "usgs_dyfi_stations": 30
+  },
+  "observations": [
+    {
+      "file_name": "page-022.pdf",
+      "latitude": null,
+      "longitude": null,
+      "mmi_estimation": 9.5,
+      "confidence": null,
+      "rrup_km": 0.359,
+      "status": "REVIEW_REQUIRED",
+      "precision_level": "unknown",
+      "relevance_decision": "ESTIMABLE"
+    },
+    {
+      "file_name": "page-026.pdf",
+      "latitude": null,
+      "longitude": null,
+      "mmi_estimation": 9.5,
+      "confidence": null,
+      "rrup_km": 0.017,
+      "status": "REVIEW_REQUIRED",
+      "precision_level": "unknown",
+      "relevance_decision": "ESTIMABLE"
+    },
+    {
+      "file_name": "page-034.pdf",
+      "latitude": null,
+      "longitude": null,
+      "mmi_estimation": 9.5,
+      "confidence": null,
+      "rrup_km": 10.841,
+      "status": "REVIEW_REQUIRED",
+      "precision_level": "unknown",
+      "relevance_decision": "ESTIMABLE"
+    },
+    {
+      "file_name": "page-047.pdf",
+      "latitude": null,
+      "longitude": null,
+      "mmi_estimation": 8.5,
+      "confidence": null,
+      "rrup_km": 4.218,
+      "status": "REVIEW_REQUIRED",
+      "precision_level": "unknown",
+      "relevance_decision": "ESTIMABLE"
+    },
+    {
+      "file_name": "page-076.pdf",
+      "latitude": null,
+      "longitude": null,
+      "mmi_estimation": 9.0,
+      "confidence": null,
+      "rrup_km": 1.268,
+      "status": "REVIEW_REQUIRED",
+      "precision_level": "unknown",
+      "relevance_decision": "ESTIMABLE"
+    }
+  ]
+}

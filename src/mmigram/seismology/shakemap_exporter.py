@@ -147,6 +147,7 @@ class ShakeMapExporter:
         output_dir: Optional[Union[str, Path]] = None,
         filename: str = "agent_mmi_dat.json",
         allow_unreviewed_approved: bool = True,
+        require_expert_approval: bool = False,
     ) -> Dict[str, Any]:
         """
         Process observation records, export qualified records to *_dat.json,
@@ -156,6 +157,15 @@ class ShakeMapExporter:
         - Exact duplicate media (identical SHA-256)
         - Repeated evidence from the same observation site
         - Nearby but scientifically independent observations (preserved and clustered!)
+        - Technical compatibility export vs. scientifically validated expert-approved export
+
+        Args:
+            observations: List of observation dictionaries from MMI-Gram or QuakeAgent.
+            output_dir: Directory where GeoJSON and audit logs will be written.
+            filename: Target ShakeMap observation file name (*_dat.json).
+            allow_unreviewed_approved: If True, observations with review_status == 'APPROVED' clear review gate.
+            require_expert_approval: If True, STRICTLY requires review_status == 'APPROVED' for every exported
+                observation; any unreviewed or pending observation is rejected and logged.
 
         Returns:
             summary_stats dict containing exported_count, excluded_count, file paths.
@@ -219,9 +229,18 @@ class ShakeMapExporter:
             # 7. Check Human Review Status
             review_required = hitl.get("review_required", False)
             review_status = hitl.get("review_status", "NOT_ENQUEUED")
-            is_cleared = (not review_required) or (allow_unreviewed_approved and review_status == "APPROVED")
-            if not is_cleared:
-                rejection_reasons.append(f"Observation requires expert human review (Status: {review_status}, Triggers: {hitl.get('triggers')})")
+
+            if require_expert_approval:
+                if review_status != "APPROVED":
+                    rejection_reasons.append(
+                        f"Observation requires scientific expert approval before ShakeMap export (Status: '{review_status}')"
+                    )
+            else:
+                is_cleared = (not review_required) or (allow_unreviewed_approved and review_status == "APPROVED")
+                if not is_cleared:
+                    rejection_reasons.append(
+                        f"Observation requires expert human review (Status: {review_status}, Triggers: {hitl.get('triggers')})"
+                    )
 
             # 8. Discrimination between:
             #    (a) Exact duplicate media (identical SHA-256)
@@ -337,6 +356,7 @@ class ShakeMapExporter:
                 "precision_level": prec,
                 "cluster_flag": cluster_flag,
                 "cluster_id": matched_cluster_id,
+                "expert_approved": (review_status == "APPROVED"),
             }
 
             accepted_records.append({
@@ -361,6 +381,17 @@ class ShakeMapExporter:
             }
             qualified_features.append(feature)
 
+        # Determine dataset validation type
+        is_fully_approved_dataset = (
+            len(qualified_features) > 0
+            and all(f.get("properties", {}).get("expert_approved", False) for f in qualified_features)
+        )
+        dataset_type = (
+            "scientifically_validated_observation_dataset"
+            if is_fully_approved_dataset
+            else "technical_compatibility_artifact"
+        )
+
         # Assemble ShakeMap GeoJSON document
         geojson_doc = {
             "type": "FeatureCollection",
@@ -369,6 +400,8 @@ class ShakeMapExporter:
                 "source": f"{self.agency_name} ShakeMap Observation Exporter",
                 "created_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
                 "count": len(qualified_features),
+                "dataset_type": dataset_type,
+                "expert_reviewed": is_fully_approved_dataset,
                 "uncertainty_policy": self.uncertainty_strategy.value,
                 "uncertainty_policy_description": self.get_uncertainty_policy_description(),
                 "default_stddev": self.default_stddev,
@@ -452,3 +485,97 @@ class ShakeMapExporter:
 
 # Module-level convenience function
 validate_shakemap_geojson = ShakeMapExporter.validate_shakemap_geojson
+
+
+if __name__ == "__main__":
+    import argparse
+    import sys
+
+    parser = argparse.ArgumentParser(
+        description="MMI-Gram USGS ShakeMap 4.5 Observation Exporter (*_dat.json)"
+    )
+    parser.add_argument(
+        "--input",
+        "-i",
+        required=True,
+        type=Path,
+        help="Path to input observations JSON file",
+    )
+    parser.add_argument(
+        "--output-dir",
+        "-o",
+        required=True,
+        type=Path,
+        help="Directory to write agent_mmi_dat.json and audit log",
+    )
+    parser.add_argument(
+        "--event-id",
+        type=str,
+        default="us7000pn9s",
+        help="USGS earthquake event ID (default: us7000pn9s)",
+    )
+    parser.add_argument(
+        "--uncertainty-strategy",
+        type=str,
+        default="experimental_fixed_prior",
+        choices=["experimental_fixed_prior", "clara_experimental", "expert_specified"],
+        help="Observation uncertainty policy (default: experimental_fixed_prior)",
+    )
+    parser.add_argument(
+        "--default-stddev",
+        type=float,
+        default=0.50,
+        help="Default observation standard deviation (default: 0.50)",
+    )
+    parser.add_argument(
+        "--filename",
+        type=str,
+        default="agent_mmi_dat.json",
+        help="Output GeoJSON file name (default: agent_mmi_dat.json)",
+    )
+    parser.add_argument(
+        "--require-expert-approval",
+        action="store_true",
+        default=False,
+        help="Enforce that only human expert-approved observations (review_status == 'APPROVED') are exported",
+    )
+    parser.add_argument(
+        "--agency-name",
+        type=str,
+        default="MMI-Gram",
+        help="Reporting agency name (default: MMI-Gram)",
+    )
+
+    args = parser.parse_args()
+
+    if not args.input.exists():
+        print(f"Error: input file '{args.input}' does not exist.", file=sys.stderr)
+        sys.exit(1)
+
+    with open(args.input, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    # Allow either a list of observations or an object with an 'observations' list
+    obs_list = data if isinstance(data, list) else data.get("observations", [])
+
+    exporter = ShakeMapExporter(
+        event_id=args.event_id,
+        uncertainty_strategy=args.uncertainty_strategy,
+        default_stddev=args.default_stddev,
+        agency_name=args.agency_name,
+        output_dir=args.output_dir,
+    )
+
+    result = exporter.export_observations(
+        observations=obs_list,
+        output_dir=args.output_dir,
+        filename=args.filename,
+        require_expert_approval=args.require_expert_approval,
+    )
+
+    print(
+        f"Export completed: {result['exported_count']} exported, "
+        f"{result['excluded_count']} excluded. "
+        f"Output: {result['export_file']}"
+    )
+

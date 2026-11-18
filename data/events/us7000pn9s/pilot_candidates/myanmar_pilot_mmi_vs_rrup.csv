@@ -1,0 +1,6 @@
+file_name,latitude,longitude,mmi_estimation,confidence,rrup_km,status,precision_level,relevance_decision
+page-022.pdf,,,9.5,,0.359,REVIEW_REQUIRED,unknown,ESTIMABLE
+page-026.pdf,,,9.5,,0.017,REVIEW_REQUIRED,unknown,ESTIMABLE
+page-034.pdf,,,9.5,,10.841,REVIEW_REQUIRED,unknown,ESTIMABLE
+page-047.pdf,,,8.5,,4.218,REVIEW_REQUIRED,unknown,ESTIMABLE
+page-076.pdf,,,9.0,,1.268,REVIEW_REQUIRED,unknown,ESTIMABLE

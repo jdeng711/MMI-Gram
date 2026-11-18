@@ -978,3 +978,97 @@ def test_18_rrup_validation_against_reference_outputs():
     assert dists["repi_km"] == 0.0
     assert dists["distance_source"] == "hypocenter_alternative"
 
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 17. Scientific Expert Approval Enforcement vs. Technical Compatibility Export
+# ─────────────────────────────────────────────────────────────────────────────
+def test_17_expert_approval_enforcement_for_scientific_datasets(tmp_path):
+    """
+    Verify that ShakeMapExporter distinguishes technical compatibility artifacts
+    from scientifically validated datasets, and enforces that PENDING_EXPERT_REVIEW
+    records cannot be exported as a scientific dataset without explicit expert approval.
+    """
+    exporter = ShakeMapExporter(output_dir=tmp_path, event_id="us7000pn9s")
+
+    sample_pending_obs = {
+        "file_name": "page-022.pdf",
+        "seismic_intensity": {"mmi_estimation": 9.5, "confidence": 0.90},
+        "geographic_resolution": {
+            "coordinates": {"latitude": 20.882056, "longitude": 96.035278},
+            "has_valid_coordinates": True,
+            "has_exportable_site_coordinates": True,
+            "can_export_to_shakemap": True,
+            "coordinates_disagree": False,
+            "precision_level": "site_specific_address",
+            "place_name": "Thazi solar farm",
+        },
+        "screening": {"relevance_decision": "ESTIMABLE"},
+        "quality_control": {"status": "PASSED"},
+        "human_in_the_loop": {
+            "review_required": True,
+            "review_status": "PENDING_EXPERT_REVIEW",  # Awaiting expert review
+            "triggers": ["high_intensity_mmi_9"],
+        },
+    }
+
+    sample_approved_obs = {
+        "file_name": "page-076.pdf",
+        "seismic_intensity": {"mmi_estimation": 9.0, "confidence": 0.90},
+        "geographic_resolution": {
+            "coordinates": {"latitude": 20.589678, "longitude": 96.052420},
+            "has_valid_coordinates": True,
+            "has_exportable_site_coordinates": True,
+            "can_export_to_shakemap": True,
+            "coordinates_disagree": False,
+            "precision_level": "site_specific_address",
+            "place_name": "KBZ Bank Pyawbwe",
+        },
+        "screening": {"relevance_decision": "ESTIMABLE"},
+        "quality_control": {"status": "PASSED"},
+        "human_in_the_loop": {
+            "review_required": True,
+            "review_status": "APPROVED",  # Seismologist has reviewed & approved
+        },
+    }
+
+    # 1. Enforcement mode: require_expert_approval=True
+    strict_dir = tmp_path / "strict_export"
+    res_strict = exporter.export_observations(
+        [sample_pending_obs, sample_approved_obs],
+        output_dir=strict_dir,
+        require_expert_approval=True,
+    )
+
+    assert res_strict["exported_count"] == 1
+    assert res_strict["excluded_count"] == 1
+
+    with open(strict_dir / "agent_mmi_dat.json", "r", encoding="utf-8") as f:
+        strict_geo = json.load(f)
+    assert strict_geo["metadata"]["dataset_type"] == "scientifically_validated_observation_dataset"
+    assert strict_geo["metadata"]["expert_reviewed"] is True
+    assert len(strict_geo["features"]) == 1
+    assert strict_geo["features"][0]["properties"]["file_name"] == "page-076.pdf"
+    assert strict_geo["features"][0]["properties"]["expert_approved"] is True
+
+    with open(strict_dir / "excluded_observations.json", "r", encoding="utf-8") as f:
+        strict_audit = json.load(f)
+    assert len(strict_audit["excluded_observations"]) == 1
+    assert strict_audit["excluded_observations"][0]["file_name"] == "page-022.pdf"
+    assert "scientific expert approval" in strict_audit["excluded_observations"][0]["reason"]
+
+    # 2. Technical compatibility mode: require_expert_approval=False, review_required=False
+    compat_obs = dict(sample_pending_obs)
+    compat_obs["human_in_the_loop"] = {"review_required": False, "review_status": "NOT_ENQUEUED"}
+    compat_dir = tmp_path / "compat_export"
+    res_compat = exporter.export_observations(
+        [compat_obs],
+        output_dir=compat_dir,
+        require_expert_approval=False,
+    )
+    assert res_compat["exported_count"] == 1
+    with open(compat_dir / "agent_mmi_dat.json", "r", encoding="utf-8") as f:
+        compat_geo = json.load(f)
+    assert compat_geo["metadata"]["dataset_type"] == "technical_compatibility_artifact"
+    assert compat_geo["metadata"]["expert_reviewed"] is False
+
+
