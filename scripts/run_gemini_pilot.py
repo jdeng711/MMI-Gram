@@ -20,6 +20,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import sys
 from pathlib import Path
 from typing import Dict, Any, List
@@ -82,8 +83,15 @@ def resolve_pages_directory(custom_path: Optional[str] = None) -> Path:
 
 
 def enumerate_source_pdfs(pages_dir: Path) -> List[Dict[str, Any]]:
-    """Enumerate and hash all source PDF files in the target directory."""
-    pdf_files = sorted([p for p in pages_dir.iterdir() if p.is_file() and p.name.lower().endswith(".pdf")])
+    """Enumerate and hash all source PDF files in the target directory using natural page order."""
+    def natural_sort_key(p: Path):
+        m = re.search(r"(\d+)", p.name)
+        return (int(m.group(1)) if m else 0, p.name)
+
+    pdf_files = sorted(
+        [p for p in pages_dir.iterdir() if p.is_file() and p.name.lower().endswith(".pdf")],
+        key=natural_sort_key,
+    )
     inventory = []
     for p in pdf_files:
         inventory.append({

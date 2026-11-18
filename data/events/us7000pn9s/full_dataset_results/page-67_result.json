@@ -1,0 +1,218 @@
+{
+  "pipeline_name": "MMI-Gram General-Purpose StEER Pipeline",
+  "file_name": "page-67.pdf",
+  "pipeline_mode": "live",
+  "model_identifier": "gemini-3.8-flash",
+  "execution_duration_ms": 39990.9,
+  "provenance": {
+    "is_synthetic": false,
+    "baseline_type": "LIVE_CRAG_EXECUTION",
+    "is_authoritative_ground_truth": false,
+    "model_identifier": "gemini-3.8-flash",
+    "thinking_level": "HIGH",
+    "execution_mode": "live",
+    "provider": "ai_studio",
+    "source_sha256": "fefcbe98a15246403a3584526847820ccd40fea912eca938db7e72403ccf565e",
+    "mmi_result": 8.5,
+    "uncalibrated_confidence": 0.85,
+    "token_usage": {
+      "calls": 2,
+      "prompt_tokens": 2781,
+      "candidates_tokens": 1202,
+      "thoughts_tokens": 2289,
+      "cached_tokens": 0,
+      "total_tokens": 6272,
+      "estimated_cost_usd": 0.015177,
+      "invocations": [
+        {
+          "model_identifier": "gemini-3.8-flash",
+          "thinking_level": "HIGH",
+          "prompt_tokens": 744,
+          "candidates_tokens": 587,
+          "thoughts_tokens": 1153,
+          "cached_tokens": 0,
+          "total_tokens": 2484,
+          "input_price_per_m": 0.75,
+          "cached_price_per_m": 0.075,
+          "output_price_per_m": 3.75,
+          "estimated_cost_usd": 0.007083,
+          "duration_s": 21.692
+        },
+        {
+          "model_identifier": "gemini-3.8-flash",
+          "thinking_level": "HIGH",
+          "prompt_tokens": 2037,
+          "candidates_tokens": 615,
+          "thoughts_tokens": 1136,
+          "cached_tokens": 0,
+          "total_tokens": 3788,
+          "input_price_per_m": 0.75,
+          "cached_price_per_m": 0.075,
+          "output_price_per_m": 3.75,
+          "estimated_cost_usd": 0.008094,
+          "duration_s": 18.227
+        }
+      ]
+    },
+    "retrieval": {
+      "status": "SUCCESS",
+      "source": "local_versioned_asset",
+      "reference_mode": "full_scale",
+      "has_authoritative_reference": true,
+      "document_count": 10
+    },
+    "execution_duration_ms": 39990.9
+  },
+  "document_extraction": {
+    "page_count": 1,
+    "extraction_status": "SUCCESS",
+    "has_extractable_text": true,
+    "sha256_hash": "fefcbe98a15246403a3584526847820ccd40fea912eca938db7e72403ccf565e"
+  },
+  "screening": {
+    "event_id": "us7000pn9s",
+    "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-67.pdf",
+    "file_name": "page-67.pdf",
+    "sha256_hash": "fefcbe98a15246403a3584526847820ccd40fea912eca938db7e72403ccf565e",
+    "relevance_decision": "ESTIMABLE",
+    "is_estimable": true,
+    "decision_reasons": [
+      "Document contains documented physical structural damage observations (\\bcollapse[ds]?\\b) capable of supporting macroseismic scaling."
+    ],
+    "evidence_types": [
+      "structural_damage_observation"
+    ],
+    "decision_mode": "deterministic_local",
+    "confidence": 0.92,
+    "duplicate": {
+      "status": "NEAR_DUPLICATE",
+      "is_unique": false,
+      "duplicate_of": "page-1.pdf",
+      "sha256_hash": "fefcbe98a15246403a3584526847820ccd40fea912eca938db7e72403ccf565e",
+      "perceptual_hash": "8196476545676780",
+      "hamming_distance": 0,
+      "reason": "Visually near-duplicate photograph detected (dHash distance 0 <= 4 compared to 'page-1.pdf')."
+    },
+    "temporal": {
+      "status": "VALID",
+      "is_valid": true,
+      "observed_timestamp_utc": "2025-09-19T17:38:02+00:00",
+      "timestamp_source": "pdf_creation",
+      "timestamp_reliability": "low",
+      "is_observation_time": false,
+      "reason": "Observation timestamp (2025-09-19T17:38:02+00:00, source: pdf_creation) post-dates earthquake origin.",
+      "clock_drift_minutes": 5.0
+    },
+    "spatial": {
+      "status": "COORDINATES_UNKNOWN",
+      "is_plausible": true,
+      "latitude": null,
+      "longitude": null,
+      "matched_townships": [
+        "Mandalay",
+        "Yangon"
+      ],
+      "reason": "Observation coordinates unknown; not substituted with epicenter (Townships mentioned: Mandalay, Yangon).",
+      "review_required": true
+    },
+    "authenticity": {
+      "status": "NO_INDICATORS_DETECTED",
+      "is_authentic_candidate": true,
+      "suspicion_level": "none",
+      "heuristic_score": 0.0,
+      "is_calibrated": false,
+      "reason": "No synthetic AI generation indicators detected in document text or metadata (uncalibrated heuristic).",
+      "indicators_detected": [],
+      "review_required": false
+    },
+    "review_required": true,
+    "review_triggers": [
+      "Duplicate observation detected: NEAR_DUPLICATE of 'page-1.pdf'"
+    ],
+    "token_usage": null
+  },
+  "seismic_intensity": {
+    "mmi_estimation": 8.5,
+    "confidence": 0.85,
+    "is_calibrated": false,
+    "reasoning": "In accordance with MMI criteria, MMI VIII involves 'considerable damage in ordinary substantial buildings with partial collapse', while MMI IX involves 'damage great in substantial buildings, with partial or complete collapse' and 'well-designed frame structures thrown out of plumb'. The observed pancake collapse and extreme tilt of the reinforced concrete frame structure clearly meet the criteria for partial-to-complete collapse of substantial buildings, representing an intensity at the boundary of MMI VIII and MMI IX (MMI 8.5)."
+  },
+  "geographic_resolution": {
+    "location": {
+      "address": "Source",
+      "city": null,
+      "country": null,
+      "coordinates": null,
+      "document_coordinates": null,
+      "mapping_link_coordinates": null,
+      "geocoded_coordinates": null,
+      "model_coordinates": null,
+      "comparison_status": "BOTH_LOCATIONS_UNAVAILABLE",
+      "coordinates_disagree": false,
+      "discrepancy_details": "Neither document text nor multimodal model established geographic coordinates.",
+      "discrepancy_distance_km": null,
+      "precision_level": "unknown",
+      "coordinate_type": "none",
+      "selection_rationale": "Priority 5: No explicit coordinates, embedded mapping links, or geocodable observation site were detected in input evidence. Retained as coordinates: null for human review.",
+      "has_exportable_site_coordinates": false,
+      "can_export_to_shakemap": false,
+      "is_within_regional_bounds": true,
+      "raw_source_text": "Geolocation \n(Address/Coordinates):\nSource:\nCreated by (VAST Member name):",
+      "place_name": null,
+      "rrup_km": null,
+      "repi_km": null,
+      "rupture_distance_source": "unavailable",
+      "surface_faulting_observed": false
+    },
+    "coordinates": null,
+    "document_coordinates": null,
+    "mapping_link_coordinates": null,
+    "geocoded_coordinates": null,
+    "model_coordinates": null,
+    "comparison_status": "BOTH_LOCATIONS_UNAVAILABLE",
+    "coordinates_disagree": false,
+    "discrepancy_details": "Neither document text nor multimodal model established geographic coordinates.",
+    "discrepancy_distance_km": null,
+    "has_valid_coordinates": false,
+    "has_exportable_site_coordinates": false,
+    "precision_level": "unknown",
+    "selection_rationale": "Priority 5: No explicit coordinates, embedded mapping links, or geocodable observation site were detected in input evidence. Retained as coordinates: null for human review.",
+    "rrup_km": null,
+    "repi_km": null,
+    "rupture_distance_source": "unavailable",
+    "surface_faulting_observed": false,
+    "can_export_to_shakemap": false,
+    "is_authoritative": false
+  },
+  "seismological_assessment": {
+    "is_physically_plausible": true,
+    "rrup_km": null,
+    "repi_km": null,
+    "rhypo_km": null,
+    "rupture_distance_source": "unavailable",
+    "surface_faulting_observed": false,
+    "geological_evidence_type": "undetermined",
+    "requires_expert_review": false,
+    "plausibility_flags": [],
+    "critic_notes": "Observation coordinates are null; distance-based physical critique skipped.",
+    "expected_mmi_range": null,
+    "mmi_estimate": null
+  },
+  "quality_control": {
+    "status": "REJECTED",
+    "flags": [
+      "INVALID_COORDINATES",
+      "UNVERIFIED_ESTIMATE"
+    ],
+    "score": 0.5
+  },
+  "human_in_the_loop": {
+    "review_required": true,
+    "review_status": "UNREVIEWED",
+    "triggers": [
+      "Quality Control status is REJECTED (Flags: ['INVALID_COORDINATES', 'UNVERIFIED_ESTIMATE'])",
+      "Geographic coordinates could not be established from document text or model.",
+      "Duplicate observation detected: NEAR_DUPLICATE of 'page-1.pdf'"
+    ]
+  }
+}

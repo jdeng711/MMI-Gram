@@ -1,0 +1,15 @@
+{
+  "file_name": "page-47.pdf",
+  "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-47.pdf",
+  "file_size_bytes": 265275,
+  "sha256": "23455524d9440d62107dd735a2bd88fe5001fbd5ee17dc44d2d20404b66d0191",
+  "status": "SIMULATED_SUCCESS",
+  "dry_run": true,
+  "simulated_token_usage": {
+    "prompt_tokens": 2400,
+    "candidates_tokens": 450,
+    "thoughts_tokens": 250,
+    "total_tokens": 2850
+  },
+  "estimated_cost_usd": 0.00063
+}

@@ -227,8 +227,17 @@ class BatchRunner:
 
             # 1. Idempotency Check: Skip already completed documents
             if self.is_page_completed(file_name):
+                cached_res = self.completed_pages[file_name]
+                if isinstance(cached_res, dict):
+                    out_page_path = self.config.output_dir / f"{path.stem}_result.json"
+                    if not out_page_path.exists():
+                        try:
+                            with open(out_page_path, "w", encoding="utf-8") as f:
+                                json.dump(cached_res, f, indent=2)
+                        except Exception:
+                            pass
                 print(f"[CACHED / RESUMED] (Previously analyzed, skipping duplicate call)")
-                results[file_name] = self.completed_pages[file_name]
+                results[file_name] = cached_res
                 continue
 
             # 2. Budget Safety Gate

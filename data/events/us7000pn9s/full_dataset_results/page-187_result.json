@@ -1,0 +1,275 @@
+{
+  "pipeline_name": "MMI-Gram General-Purpose StEER Pipeline",
+  "file_name": "page-187.pdf",
+  "pipeline_mode": "live",
+  "model_identifier": "gemini-3.8-flash",
+  "execution_duration_ms": 40478.88,
+  "provenance": {
+    "is_synthetic": false,
+    "baseline_type": "LIVE_CRAG_EXECUTION",
+    "is_authoritative_ground_truth": false,
+    "model_identifier": "gemini-3.8-flash",
+    "thinking_level": "HIGH",
+    "execution_mode": "live",
+    "provider": "ai_studio",
+    "source_sha256": "f820f47df19d0ed9824f76289354f1d77cce9c8f2be79bac43ec595830be6ea3",
+    "mmi_result": 7.0,
+    "uncalibrated_confidence": 0.85,
+    "token_usage": {
+      "calls": 2,
+      "prompt_tokens": 2758,
+      "candidates_tokens": 1152,
+      "thoughts_tokens": 2404,
+      "cached_tokens": 0,
+      "total_tokens": 6314,
+      "estimated_cost_usd": 0.015403,
+      "invocations": [
+        {
+          "model_identifier": "gemini-3.8-flash",
+          "thinking_level": "HIGH",
+          "prompt_tokens": 744,
+          "candidates_tokens": 563,
+          "thoughts_tokens": 945,
+          "cached_tokens": 0,
+          "total_tokens": 2252,
+          "input_price_per_m": 0.75,
+          "cached_price_per_m": 0.075,
+          "output_price_per_m": 3.75,
+          "estimated_cost_usd": 0.006213,
+          "duration_s": 19.112
+        },
+        {
+          "model_identifier": "gemini-3.8-flash",
+          "thinking_level": "HIGH",
+          "prompt_tokens": 2014,
+          "candidates_tokens": 589,
+          "thoughts_tokens": 1459,
+          "cached_tokens": 0,
+          "total_tokens": 4062,
+          "input_price_per_m": 0.75,
+          "cached_price_per_m": 0.075,
+          "output_price_per_m": 3.75,
+          "estimated_cost_usd": 0.00919,
+          "duration_s": 21.291
+        }
+      ]
+    },
+    "retrieval": {
+      "status": "SUCCESS",
+      "source": "local_versioned_asset",
+      "reference_mode": "full_scale",
+      "has_authoritative_reference": true,
+      "document_count": 10
+    },
+    "execution_duration_ms": 40478.88
+  },
+  "document_extraction": {
+    "page_count": 1,
+    "extraction_status": "SUCCESS",
+    "has_extractable_text": true,
+    "sha256_hash": "f820f47df19d0ed9824f76289354f1d77cce9c8f2be79bac43ec595830be6ea3"
+  },
+  "screening": {
+    "event_id": "us7000pn9s",
+    "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-187.pdf",
+    "file_name": "page-187.pdf",
+    "sha256_hash": "f820f47df19d0ed9824f76289354f1d77cce9c8f2be79bac43ec595830be6ea3",
+    "relevance_decision": "ESTIMABLE",
+    "is_estimable": true,
+    "decision_reasons": [
+      "Document contains documented physical structural damage observations (\\bcollapse[ds]?\\b, \\bdebris\\b, structural\\s+damage) capable of supporting macroseismic scaling."
+    ],
+    "evidence_types": [
+      "structural_damage_observation"
+    ],
+    "decision_mode": "deterministic_local",
+    "confidence": 0.92,
+    "duplicate": {
+      "status": "NEAR_DUPLICATE",
+      "is_unique": false,
+      "duplicate_of": "page-1.pdf",
+      "sha256_hash": "f820f47df19d0ed9824f76289354f1d77cce9c8f2be79bac43ec595830be6ea3",
+      "perceptual_hash": "8196476545676780",
+      "hamming_distance": 0,
+      "reason": "Visually near-duplicate photograph detected (dHash distance 0 <= 4 compared to 'page-1.pdf')."
+    },
+    "temporal": {
+      "status": "VALID",
+      "is_valid": true,
+      "observed_timestamp_utc": "2025-09-19T17:38:02+00:00",
+      "timestamp_source": "pdf_creation",
+      "timestamp_reliability": "low",
+      "is_observation_time": false,
+      "reason": "Observation timestamp (2025-09-19T17:38:02+00:00, source: pdf_creation) post-dates earthquake origin.",
+      "clock_drift_minutes": 5.0
+    },
+    "spatial": {
+      "status": "WITHIN_BOUNDS",
+      "is_plausible": true,
+      "latitude": 21.7056,
+      "longitude": 95.9697,
+      "matched_townships": [
+        "Mandalay"
+      ],
+      "reason": "Coordinates [21.7056, 95.9697] verified within regional bounds.",
+      "review_required": false
+    },
+    "authenticity": {
+      "status": "NO_INDICATORS_DETECTED",
+      "is_authentic_candidate": true,
+      "suspicion_level": "none",
+      "heuristic_score": 0.0,
+      "is_calibrated": false,
+      "reason": "No synthetic AI generation indicators detected in document text or metadata (uncalibrated heuristic).",
+      "indicators_detected": [],
+      "review_required": false
+    },
+    "review_required": true,
+    "review_triggers": [
+      "Duplicate observation detected: NEAR_DUPLICATE of 'page-1.pdf'"
+    ],
+    "token_usage": null
+  },
+  "seismic_intensity": {
+    "mmi_estimation": 7.0,
+    "confidence": 0.85,
+    "is_calibrated": false,
+    "reasoning": "Under the Modified Mercalli Intensity scale, MMI VII is characterized by negligible damage in buildings of good design and construction, but can cause notable damage to unbraced non-structural elements and loose architectural finishes. The extensive detachment of the suspended ceiling system, fallen fixtures, widespread debris, and occupant evacuation behavior in a modern, well-built facility firmly align with an intensity of MMI VII."
+  },
+  "geographic_resolution": {
+    "location": {
+      "address": "Source",
+      "city": null,
+      "country": null,
+      "coordinates": {
+        "latitude": 21.7056,
+        "longitude": 95.9697,
+        "source": "decimal_parsed",
+        "is_valid": true,
+        "validation_error": null,
+        "confidence": 0.9,
+        "is_authoritative": false,
+        "precision_level": "exact_site_dd",
+        "is_within_regional_bounds": true
+      },
+      "document_coordinates": {
+        "latitude": 21.7056,
+        "longitude": 95.9697,
+        "source": "decimal_parsed",
+        "is_valid": true,
+        "validation_error": null,
+        "confidence": 0.9,
+        "is_authoritative": false,
+        "precision_level": "exact_site_dd",
+        "is_within_regional_bounds": true
+      },
+      "mapping_link_coordinates": null,
+      "geocoded_coordinates": null,
+      "model_coordinates": {
+        "latitude": 21.7056,
+        "longitude": 95.9697,
+        "source": "model_predicted",
+        "is_valid": true,
+        "validation_error": null,
+        "confidence": 0.8,
+        "is_authoritative": false,
+        "precision_level": "unknown",
+        "is_within_regional_bounds": true
+      },
+      "comparison_status": "DOCUMENT_VS_MODEL_AGREE",
+      "coordinates_disagree": false,
+      "discrepancy_details": "Document coordinates (21.7056, 95.9697) and model coordinates (21.7056, 95.9697) agree within 0.0 km (threshold: 10.0 km). Note: model coordinates and document coordinates were derived from the same source document input and do not constitute independent authoritative GIS validation.",
+      "discrepancy_distance_km": 0.0,
+      "precision_level": "exact_site_dd",
+      "coordinate_type": "decimal_parsed",
+      "selection_rationale": "Priority 1: Site-specific coordinates (decimal_parsed) parsed directly from document text.",
+      "has_exportable_site_coordinates": true,
+      "can_export_to_shakemap": false,
+      "is_within_regional_bounds": true,
+      "raw_source_text": "Geolocation \n(Address/Coordinates):\nSource:\nCreated by (VAST Member name):",
+      "place_name": null,
+      "rrup_km": 1.947,
+      "repi_km": 34.133,
+      "rupture_distance_source": "finite_fault_mesh",
+      "surface_faulting_observed": false
+    },
+    "coordinates": {
+      "latitude": 21.7056,
+      "longitude": 95.9697,
+      "source": "decimal_parsed",
+      "is_valid": true,
+      "validation_error": null,
+      "confidence": 0.9,
+      "is_authoritative": false,
+      "precision_level": "exact_site_dd",
+      "is_within_regional_bounds": true
+    },
+    "document_coordinates": {
+      "latitude": 21.7056,
+      "longitude": 95.9697,
+      "source": "decimal_parsed",
+      "is_valid": true,
+      "validation_error": null,
+      "confidence": 0.9,
+      "is_authoritative": false,
+      "precision_level": "exact_site_dd",
+      "is_within_regional_bounds": true
+    },
+    "mapping_link_coordinates": null,
+    "geocoded_coordinates": null,
+    "model_coordinates": {
+      "latitude": 21.7056,
+      "longitude": 95.9697,
+      "source": "model_predicted",
+      "is_valid": true,
+      "validation_error": null,
+      "confidence": 0.8,
+      "is_authoritative": false,
+      "precision_level": "unknown",
+      "is_within_regional_bounds": true
+    },
+    "comparison_status": "DOCUMENT_VS_MODEL_AGREE",
+    "coordinates_disagree": false,
+    "discrepancy_details": "Document coordinates (21.7056, 95.9697) and model coordinates (21.7056, 95.9697) agree within 0.0 km (threshold: 10.0 km). Note: model coordinates and document coordinates were derived from the same source document input and do not constitute independent authoritative GIS validation.",
+    "discrepancy_distance_km": 0.0,
+    "has_valid_coordinates": true,
+    "has_exportable_site_coordinates": true,
+    "precision_level": "exact_site_dd",
+    "selection_rationale": "Priority 1: Site-specific coordinates (decimal_parsed) parsed directly from document text.",
+    "rrup_km": 1.947,
+    "repi_km": 34.133,
+    "rupture_distance_source": "finite_fault_mesh",
+    "surface_faulting_observed": false,
+    "can_export_to_shakemap": false,
+    "is_authoritative": false
+  },
+  "seismological_assessment": {
+    "is_physically_plausible": true,
+    "rrup_km": 1.947,
+    "repi_km": 34.133,
+    "rhypo_km": 35.568,
+    "rupture_distance_source": "finite_fault_mesh",
+    "surface_faulting_observed": false,
+    "geological_evidence_type": "shaking_induced_damage",
+    "requires_expert_review": false,
+    "plausibility_flags": [],
+    "critic_notes": "Finite-fault rupture distance Rrup = 1.95 km (distance predictor only, not proof of intensity); Consistent with physical attenuation expectations (Rrup = 1.95 km).",
+    "expected_mmi_range": null,
+    "mmi_estimate": 7.0
+  },
+  "quality_control": {
+    "status": "PASSED",
+    "flags": [
+      "UNVERIFIED_ESTIMATE"
+    ],
+    "score": 0.75
+  },
+  "human_in_the_loop": {
+    "review_required": true,
+    "review_status": "UNREVIEWED",
+    "triggers": [
+      "Candidate coordinates require expert validation against epicentral maps.",
+      "Duplicate observation detected: NEAR_DUPLICATE of 'page-1.pdf'"
+    ]
+  }
+}

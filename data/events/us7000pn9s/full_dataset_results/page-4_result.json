@@ -1,0 +1,148 @@
+{
+  "pipeline_name": "MMI-Gram General-Purpose StEER Pipeline",
+  "file_name": "page-4.pdf",
+  "pipeline_mode": "live",
+  "pipeline_status": "NOT_ESTIMABLE",
+  "model_identifier": "none_screened_out",
+  "execution_duration_ms": 26.19,
+  "provenance": {
+    "is_synthetic": false,
+    "baseline_type": "SCREENED_NOT_ESTIMABLE",
+    "is_authoritative_ground_truth": false,
+    "model_identifier": "none_screened_out",
+    "thinking_level": null,
+    "execution_mode": "live",
+    "provider": "ai_studio",
+    "source_sha256": "431dc73abaaa18cfd00f4989f400c98cb9c16784b616b144cb4416dec1ed9a5e",
+    "mmi_result": null,
+    "uncalibrated_confidence": null,
+    "token_usage": {
+      "calls": 0,
+      "prompt_tokens": 0,
+      "candidates_tokens": 0,
+      "thoughts_tokens": 0,
+      "total_tokens": 0
+    },
+    "retrieval": {
+      "status": "SKIPPED_NOT_ESTIMABLE",
+      "source": "none",
+      "reference_mode": "full_scale",
+      "has_authoritative_reference": false,
+      "document_count": 0
+    },
+    "execution_duration_ms": 26.19
+  },
+  "document_extraction": {
+    "page_count": 1,
+    "extraction_status": "SUCCESS",
+    "has_extractable_text": true,
+    "sha256_hash": "431dc73abaaa18cfd00f4989f400c98cb9c16784b616b144cb4416dec1ed9a5e"
+  },
+  "screening": {
+    "event_id": "us7000pn9s",
+    "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-4.pdf",
+    "file_name": "page-4.pdf",
+    "sha256_hash": "431dc73abaaa18cfd00f4989f400c98cb9c16784b616b144cb4416dec1ed9a5e",
+    "relevance_decision": "NOT_ESTIMABLE",
+    "is_estimable": false,
+    "decision_reasons": [
+      "Document contains regional hazard model or contour map (shakemap) rather than site-specific structural damage or physical shaking observations."
+    ],
+    "evidence_types": [
+      "regional_hazard_model_map"
+    ],
+    "decision_mode": "deterministic_local",
+    "confidence": 0.98,
+    "duplicate": {
+      "status": "NEAR_DUPLICATE",
+      "is_unique": false,
+      "duplicate_of": "page-1.pdf",
+      "sha256_hash": "431dc73abaaa18cfd00f4989f400c98cb9c16784b616b144cb4416dec1ed9a5e",
+      "perceptual_hash": "8196476545676780",
+      "hamming_distance": 0,
+      "reason": "Visually near-duplicate photograph detected (dHash distance 0 <= 4 compared to 'page-1.pdf')."
+    },
+    "temporal": null,
+    "spatial": null,
+    "authenticity": null,
+    "review_required": false,
+    "review_triggers": [],
+    "token_usage": null
+  },
+  "seismic_intensity": {
+    "mmi_estimation": null,
+    "confidence": null,
+    "is_calibrated": false,
+    "reasoning": "Document contains regional hazard model or contour map (shakemap) rather than site-specific structural damage or physical shaking observations."
+  },
+  "geographic_resolution": {
+    "location": {
+      "address": "Source",
+      "city": null,
+      "country": null,
+      "coordinates": null,
+      "document_coordinates": null,
+      "mapping_link_coordinates": null,
+      "geocoded_coordinates": null,
+      "model_coordinates": null,
+      "comparison_status": "BOTH_LOCATIONS_UNAVAILABLE",
+      "coordinates_disagree": false,
+      "discrepancy_details": "Neither document text nor multimodal model established geographic coordinates.",
+      "discrepancy_distance_km": null,
+      "precision_level": "unknown",
+      "coordinate_type": "none",
+      "selection_rationale": "Priority 5: No explicit coordinates, embedded mapping links, or geocodable observation site were detected in input evidence. Retained as coordinates: null for human review.",
+      "has_exportable_site_coordinates": false,
+      "can_export_to_shakemap": false,
+      "is_within_regional_bounds": true,
+      "raw_source_text": "Geolocation \n(Address/Coordinates):\nSource:\nCreated by (VAST Member name):",
+      "place_name": null,
+      "rrup_km": null,
+      "repi_km": null,
+      "rupture_distance_source": "unavailable",
+      "surface_faulting_observed": false
+    },
+    "coordinates": null,
+    "document_coordinates": null,
+    "mapping_link_coordinates": null,
+    "geocoded_coordinates": null,
+    "model_coordinates": null,
+    "comparison_status": "NOT_EVALUATED",
+    "coordinates_disagree": false,
+    "discrepancy_details": "Skipped due to NOT_ESTIMABLE classification",
+    "discrepancy_distance_km": null,
+    "has_valid_coordinates": false,
+    "has_exportable_site_coordinates": false,
+    "precision_level": "unknown",
+    "selection_rationale": "Priority 5: No explicit coordinates, embedded mapping links, or geocodable observation site were detected in input evidence. Retained as coordinates: null for human review.",
+    "rrup_km": null,
+    "repi_km": null,
+    "rupture_distance_source": "unavailable",
+    "surface_faulting_observed": false,
+    "can_export_to_shakemap": false,
+    "is_authoritative": false
+  },
+  "seismological_assessment": {
+    "is_physically_plausible": true,
+    "rrup_km": null,
+    "repi_km": null,
+    "rhypo_km": null,
+    "rupture_distance_source": "unavailable",
+    "surface_faulting_observed": false,
+    "plausibility_flags": [],
+    "critic_notes": "Skipped due to NOT_ESTIMABLE classification",
+    "expected_mmi_range": null
+  },
+  "quality_control": {
+    "status": "SCREENED_OUT",
+    "flags": [
+      "PRE_MMI_NOT_ESTIMABLE"
+    ],
+    "score": 0.0
+  },
+  "human_in_the_loop": {
+    "review_required": false,
+    "review_status": "SCREENED_OUT",
+    "triggers": []
+  }
+}
