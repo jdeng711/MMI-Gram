@@ -1,0 +1,4 @@
+scenario_key,input_mmi,sigma,baseline_site_mmi,augmented_site_mmi,delta_site_mmi,max_positive_delta,max_negative_delta,mean_abs_delta,area_ge_01_km2,area_ge_02_km2,area_ge_05_km2,area_ge_10_km2,event_bias_delta
+mmi80,8.0,0.5,9.9492,8.8164,-1.1328,5e-05,-1.14943,0.04452,10876.0,3823.6,568.6,23.1,-0.058
+mmi85,8.5,0.5,9.9492,9.1066,-0.8426,3e-05,-0.85536,0.03314,7009.8,2309.3,217.3,0.0,-0.043
+mmi90,9.0,0.5,9.9492,9.3968,-0.5524,2e-05,-0.5613,0.02175,3684.9,966.2,16.2,0.0,-0.029

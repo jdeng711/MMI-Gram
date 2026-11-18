@@ -1,0 +1,80 @@
+{
+  "event_id": "us7000pn9s",
+  "origin_time": "2025-03-28T06:20:52.715Z",
+  "shakemap_version": "4.5.0",
+  "profile": "myanmar_recon",
+  "vs30_default": 290.0,
+  "vs30_label": "uniform regional modeling simplification",
+  "observed_dyfi_count": 91,
+  "instrumental_seismic_count": 5,
+  "total_regional_features": 521,
+  "map_information": {
+    "grid_points": {
+      "longitude": "648",
+      "latitude": "773",
+      "units": ""
+    },
+    "grid_spacing": {
+      "longitude": "0.0146002",
+      "latitude": "0.0136933",
+      "units": "degrees"
+    },
+    "grid_span": {
+      "longitude": "9.446",
+      "latitude": "10.571",
+      "units": "degrees"
+    },
+    "min": {
+      "longitude": "91.65",
+      "latitude": "15.012",
+      "units": "degrees"
+    },
+    "max": {
+      "longitude": "101.096",
+      "latitude": "25.583",
+      "units": "degrees"
+    }
+  },
+  "checksums": {
+    "event.xml": {
+      "path": "/Users/jasondeng/shakemap_profiles/myanmar_recon/data/us7000pn9s/current/event.xml",
+      "size_bytes": 572,
+      "sha256": "196e70494746c2bdcab0ca3d553615514b45e8f39d86d584a61392b11978b648"
+    },
+    "model.conf": {
+      "path": "/Users/jasondeng/shakemap_profiles/myanmar_recon/data/us7000pn9s/current/model.conf",
+      "size_bytes": 162,
+      "sha256": "240942c8ebb0f6589f98aaa9ca834a539c51d38e282261bcd742e38e2b81b114"
+    },
+    "rupture.json": {
+      "path": "/Users/jasondeng/shakemap_profiles/myanmar_recon/data/us7000pn9s/current/rupture.json",
+      "size_bytes": 1681,
+      "sha256": "6e256168653aa263821e227d40e70ef00df73a8a26767c2e7f9c485d7ada6dcb"
+    },
+    "stationlist.json": {
+      "path": "/Users/jasondeng/shakemap_profiles/myanmar_recon/data/us7000pn9s/current/stationlist.json",
+      "size_bytes": 3499574,
+      "sha256": "059dbd803fad41b086ea51f53b4865fd8e1d7ec0cf997067f816b31279f00b87"
+    },
+    "shake_data.hdf": {
+      "path": "/Users/jasondeng/shakemap_profiles/myanmar_recon/data/us7000pn9s/current/shake_data.hdf",
+      "size_bytes": 360176,
+      "sha256": "146765846fa2afaa5c85529180736c510f11ff0e35eb6b771fc06b527c19020f"
+    },
+    "grid.xml": {
+      "path": "/Users/jasondeng/shakemap_profiles/myanmar_recon/data/us7000pn9s/current/products/grid.xml",
+      "size_bytes": 31868126,
+      "sha256": "87abe80e6b7a83da26885b3e2f7836cb47ecb4df6ec0bc11c7a73a6ce84660c4"
+    },
+    "shake_result.hdf": {
+      "path": "/Users/jasondeng/shakemap_profiles/myanmar_recon/data/us7000pn9s/current/products/shake_result.hdf",
+      "size_bytes": 63811982,
+      "sha256": "f64ddb2faa65ed089d3b7bdee01944e9b97a66cae8ad793e5946867aae12734b"
+    },
+    "uncertainty.xml": {
+      "path": "/Users/jasondeng/shakemap_profiles/myanmar_recon/data/us7000pn9s/current/products/uncertainty.xml",
+      "size_bytes": 31302329,
+      "sha256": "f95555d615b241b02466a7329675e4476a08a34ed76d70e2ceac7270ed28e3a9"
+    }
+  }
+}

@@ -342,7 +342,11 @@ class ShakeMapExporter:
                 "netid": "MMI",
                 "station_type": "macroseismic",
                 "channels": [],
-                "nresp": 1,
+                # For single reconnaissance observations (non-DYFI crowdsourced), nresp is None (null).
+                # In ShakeMap 4.5 and esi_shakelib, null nresp defaults to -1 in SQLite amp table,
+                # satisfying the qualification clause (a.nresp < 0 OR a.nresp >= min_nresp) natively
+                # without fabricating questionnaire counts or altering global min_nresp.
+                "nresp": None,
                 "source": f"{self.agency_name} Agentic Reconnaissance",
                 "intensity": round(float(mmi), 1),
                 "intensity_stddev": stddev,
