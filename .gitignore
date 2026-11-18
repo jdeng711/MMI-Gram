@@ -5,6 +5,7 @@
 *.env
 *.json
 !data/events/**/*.json
+!data/synthetic_smoketest/**/*.json
 !tests/fixtures/**/*.json
 !src/mmigram/assets/**/*.json
 service_account.json
@@ -46,3 +47,17 @@ data/events/*/results/
 data/events/*/inbound/
 data/events/**/inbound/*
 tests/fixtures/page-8.pdf
+
+# ShakeMap large generated grids, binary products, and local profile caches
+*.hdf
+*.h5
+*.grd
+data/synthetic_smoketest/**/products/
+data/synthetic_smoketest/**/pdl/
+data/synthetic_smoketest/**/*.png
+data/synthetic_smoketest/**/*.pdf
+data/synthetic_smoketest/**/*.csv
+data/events/**/products/
+shakemap_profiles/
+*shakemap_profiles*
+

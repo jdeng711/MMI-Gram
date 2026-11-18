@@ -1,0 +1,34 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "event_id": "synth_smoke_augmented",
+    "source": "MMI-Gram-Agent"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "MMI.agent_site_01",
+      "properties": {
+        "code": "agent_site_01",
+        "name": "MMI-Gram Reconnaissance: Extreme Shaking Site",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.35,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0,
+          34.0
+        ]
+      }
+    }
+  ]
+}

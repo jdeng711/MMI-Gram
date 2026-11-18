@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "event_id": "synth_smoke_baseline"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "MMI.base_01",
+      "properties": {
+        "network": "MMI",
+        "code": "base_01",
+        "name": "Baseline Station SouthWest",
+        "intensity": 4.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "nresp": 5,
+        "station_type": "macroseismic"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.3,
+          33.7
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.base_02",
+      "properties": {
+        "network": "MMI",
+        "code": "base_02",
+        "name": "Baseline Station NorthEast",
+        "intensity": 4.2,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "nresp": 5,
+        "station_type": "macroseismic"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.7,
+          34.3
+        ]
+      }
+    }
+  ]
+}

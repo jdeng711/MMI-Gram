@@ -1,0 +1,42 @@
+{
+  "comparison_type": "baseline_vs_augmented",
+  "formula": "delta_mmi = mmi_augmented - mmi_baseline",
+  "baseline_event_id": "synth_smoke_baseline",
+  "augmented_event_id": "synth_smoke_augmented",
+  "bounds": {
+    "lon_min": -118.5,
+    "lon_max": -117.5,
+    "lat_min": 33.5,
+    "lat_max": 34.5
+  },
+  "resolution": {
+    "dx": 0.02,
+    "dy": 0.02
+  },
+  "dimensions": {
+    "nlon": 51,
+    "nlat": 51
+  },
+  "metrics": {
+    "mean_difference": -0.01164,
+    "mean_absolute_difference": 0.01746,
+    "max_increase": 0.11526,
+    "max_decrease": -0.04863,
+    "cell_count_total": 2601,
+    "cell_count_ge_05": 0,
+    "cell_count_ge_10": 0,
+    "pct_cells_ge_05": 0.0,
+    "pct_cells_ge_10": 0.0,
+    "total_area_km2": 10652.39,
+    "area_abs_ge_05_km2": 0.0,
+    "area_abs_ge_10_km2": 0.0,
+    "quantiles_abs_delta": {
+      "p10": 0.00924,
+      "p25": 0.01097,
+      "p50": 0.01697,
+      "p75": 0.019,
+      "p90": 0.02131,
+      "p99": 0.0785
+    }
+  }
+}

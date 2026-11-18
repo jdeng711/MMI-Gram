@@ -7,6 +7,11 @@ from .usgs_products import USGSProductProvider
 from .rrup_calculator import RrupCalculator
 from .physics_critic import PhysicsCritic, SeismologicalConsistencyResult
 from .shakemap_exporter import ShakeMapExporter, UncertaintyStrategy
+from .shakemap_comparator import (
+    ShakeMapGrid,
+    GridComparisonResult,
+    ShakeMapGridComparator,
+)
 
 __all__ = [
     "LocalMMIReference",
@@ -17,4 +22,7 @@ __all__ = [
     "SeismologicalConsistencyResult",
     "ShakeMapExporter",
     "UncertaintyStrategy",
+    "ShakeMapGrid",
+    "GridComparisonResult",
+    "ShakeMapGridComparator",
 ]

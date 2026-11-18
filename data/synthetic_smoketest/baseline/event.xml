@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="US-ASCII" standalone="yes"?>
+<!DOCTYPE earthquake [
+<!ELEMENT earthquake EMPTY>
+<!ATTLIST earthquake
+  id CDATA #REQUIRED
+  lat CDATA #REQUIRED
+  lon CDATA #REQUIRED
+  mag CDATA #REQUIRED
+  time CDATA #REQUIRED
+  depth CDATA #REQUIRED
+  locstring CDATA #REQUIRED
+  mech CDATA #REQUIRED
+  netid CDATA #REQUIRED
+  network CDATA #REQUIRED
+>
+]>
+<earthquake id="synth_smoke_baseline" lat="34.000" lon="-118.000" mag="6.0" time="2026-01-01T12:00:00Z" depth="10.0" locstring="Synthetic San Gabriel Fault" mech="SS" netid="ci" network="CI" />
