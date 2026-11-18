@@ -84,7 +84,7 @@ class TestGeneralSteerPipeline(unittest.TestCase):
         self.assertEqual(geo["model_coordinates"]["latitude"], 0.0)
         self.assertEqual(geo["model_coordinates"]["longitude"], 0.0)
         self.assertFalse(geo["model_coordinates"]["is_valid"])
-        self.assertEqual(geo["comparison_status"], "COORDINATES_DISAGREE")
+        self.assertIn(geo["comparison_status"], ("COORDINATES_DISAGREE", "DOCUMENT_VS_MODEL_DISAGREE"))
         self.assertTrue(geo["coordinates_disagree"])
         self.assertIn("Null Island", geo["discrepancy_details"])
 

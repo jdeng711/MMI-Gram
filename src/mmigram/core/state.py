@@ -20,11 +20,13 @@ class Coordinates:
     """Geographic coordinate representation with provenance and validation status."""
     latitude: Optional[float] = None
     longitude: Optional[float] = None
-    source: str = "unknown"  # 'dms_parsed', 'exif', 'report_text', 'manual_override', 'unknown'
+    source: str = "unknown"  # 'dms_parsed', 'decimal_parsed', 'url_embedded', 'geocoded', 'model_predicted', 'exif', 'manual_override', 'unknown'
     is_valid: bool = False
     validation_error: Optional[str] = None
     confidence: float = 0.0
     is_authoritative: bool = False  # False until independently verified by ground truth / GIS consensus
+    precision_level: str = "unknown"  # 'exact_site_dms', 'exact_site_dd', 'url_poi_marker', 'url_query_pin', 'url_viewport_approximate', 'geocoded_rooftop', 'geocoded_interpolated', 'city_centroid_approximate', 'unknown'
+    is_within_regional_bounds: bool = True  # True if inside event study domain; False if distant observation
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -41,26 +43,38 @@ class Coordinates:
             validation_error=data.get("validation_error"),
             confidence=float(data.get("confidence", 0.0)),
             is_authoritative=bool(data.get("is_authoritative", False)),
+            precision_level=data.get("precision_level", "unknown"),
+            is_within_regional_bounds=bool(data.get("is_within_regional_bounds", True)),
         )
 
 
 @dataclass
 class LocationContext:
     """
-    Location information extracted from media, text, or coordinates.
-    Maintains document-extracted and model-predicted coordinates separately to prevent
-    treating either as verified ground truth without authoritative validation.
+    Location information extracted from media, text, mapping URLs, geocoding, or coordinates.
+    Maintains document-extracted, mapping-link, geocoded, and model-predicted coordinates
+    separately to preserve full provenance and prevent treating uncalibrated sources as ground truth.
     """
     address: Optional[str] = None
     city: Optional[str] = None
     country: Optional[str] = None
-    coordinates: Optional[Coordinates] = None             # Resolved candidate coordinates (or None if unknown)
-    document_coordinates: Optional[Coordinates] = None    # Coordinates parsed from source document text
+    coordinates: Optional[Coordinates] = None             # Primary resolved candidate coordinates (or None if unknown)
+    document_coordinates: Optional[Coordinates] = None    # Coordinates parsed from source document text (DMS or decimal)
+    mapping_link_coordinates: Optional[Coordinates] = None # Coordinates extracted from embedded map URLs
+    geocoded_coordinates: Optional[Coordinates] = None    # Coordinates resolved via geocoding lookup
     model_coordinates: Optional[Coordinates] = None       # Coordinates output by multimodal model
-    comparison_status: str = "LOCATION_UNKNOWN"          # 'COORDINATES_AGREE', 'COORDINATES_DISAGREE', 'MODEL_LOCATION_UNAVAILABLE', 'DOCUMENT_LOCATION_UNAVAILABLE', 'BOTH_LOCATIONS_UNAVAILABLE'
+    comparison_status: str = "LOCATION_UNKNOWN"          # 'DOCUMENT_VS_MODEL_AGREE', 'GEOCODED_VS_MODEL_AGREE', 'MAP_LINK_VS_MODEL_AGREE', 'COORDINATES_DISAGREE', 'MODEL_LOCATION_UNAVAILABLE', etc.
     coordinates_disagree: bool = False                   # True ONLY if document & model coordinates actively conflict (distance > threshold or invalid)
     discrepancy_details: Optional[str] = None
     discrepancy_distance_km: Optional[float] = None
+    precision_level: str = "unknown"                     # 'exact_site_dms', 'exact_site_dd', 'url_poi_marker', 'url_query_pin', 'url_viewport_approximate', 'geocoded_rooftop', 'geocoded_interpolated', 'city_centroid_approximate', 'unknown'
+    coordinate_type: Optional[str] = None                # 'text_dms', 'text_dd', 'url_poi_marker', 'url_query_pin', 'url_viewport_center', 'geocoded', 'unknown'
+    selection_rationale: Optional[str] = None            # Detailed scientific reason for primary coordinate selection
+    has_exportable_site_coordinates: bool = False        # Spatial eligibility: True ONLY if valid site-specific coordinates exist (not viewport center, not city centroid)
+    can_export_to_shakemap: bool = False                 # Preliminary export flag (final observation eligibility determined in GeneralSteerPipeline)
+    is_within_regional_bounds: bool = True               # Flag indicating whether observation lies within configured event bounds
+    raw_source_text: Optional[str] = None                # Extracted text snippet containing location/coordinate information
+    place_name: Optional[str] = None                     # Identified place/building name
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -69,11 +83,21 @@ class LocationContext:
             "country": self.country,
             "coordinates": self.coordinates.to_dict() if self.coordinates else None,
             "document_coordinates": self.document_coordinates.to_dict() if self.document_coordinates else None,
+            "mapping_link_coordinates": self.mapping_link_coordinates.to_dict() if self.mapping_link_coordinates else None,
+            "geocoded_coordinates": self.geocoded_coordinates.to_dict() if self.geocoded_coordinates else None,
             "model_coordinates": self.model_coordinates.to_dict() if self.model_coordinates else None,
             "comparison_status": self.comparison_status,
             "coordinates_disagree": self.coordinates_disagree,
             "discrepancy_details": self.discrepancy_details,
             "discrepancy_distance_km": self.discrepancy_distance_km,
+            "precision_level": self.precision_level,
+            "coordinate_type": self.coordinate_type,
+            "selection_rationale": self.selection_rationale,
+            "has_exportable_site_coordinates": self.has_exportable_site_coordinates,
+            "can_export_to_shakemap": self.can_export_to_shakemap,
+            "is_within_regional_bounds": self.is_within_regional_bounds,
+            "raw_source_text": self.raw_source_text,
+            "place_name": self.place_name,
         }
 
     @classmethod
@@ -84,6 +108,10 @@ class LocationContext:
         coords = Coordinates.from_dict(coords_raw) if isinstance(coords_raw, dict) else None
         doc_raw = data.get("document_coordinates")
         doc_coords = Coordinates.from_dict(doc_raw) if isinstance(doc_raw, dict) else None
+        map_raw = data.get("mapping_link_coordinates")
+        map_coords = Coordinates.from_dict(map_raw) if isinstance(map_raw, dict) else None
+        geo_raw = data.get("geocoded_coordinates")
+        geo_coords = Coordinates.from_dict(geo_raw) if isinstance(geo_raw, dict) else None
         model_raw = data.get("model_coordinates")
         model_coords = Coordinates.from_dict(model_raw) if isinstance(model_raw, dict) else None
         return cls(
@@ -92,11 +120,21 @@ class LocationContext:
             country=data.get("country"),
             coordinates=coords,
             document_coordinates=doc_coords,
+            mapping_link_coordinates=map_coords,
+            geocoded_coordinates=geo_coords,
             model_coordinates=model_coords,
             comparison_status=data.get("comparison_status", "LOCATION_UNKNOWN"),
             coordinates_disagree=bool(data.get("coordinates_disagree", False)),
             discrepancy_details=data.get("discrepancy_details"),
             discrepancy_distance_km=data.get("discrepancy_distance_km"),
+            precision_level=data.get("precision_level", "unknown"),
+            coordinate_type=data.get("coordinate_type"),
+            selection_rationale=data.get("selection_rationale"),
+            has_exportable_site_coordinates=bool(data.get("has_exportable_site_coordinates", False)),
+            can_export_to_shakemap=bool(data.get("can_export_to_shakemap", False)),
+            is_within_regional_bounds=bool(data.get("is_within_regional_bounds", True)),
+            raw_source_text=data.get("raw_source_text"),
+            place_name=data.get("place_name"),
         )
 
 

@@ -33,6 +33,8 @@ from ..core.state import (
 from ..ingestion.pdf_extractor import PDFExtractor, PDFContentResult
 from ..geolocation.parser import extract_coordinates_from_text
 from ..geolocation.validator import validate_coordinates, haversine_distance_km, compare_coordinates, MYANMAR_BOUNDS
+from ..geolocation.unified_resolver import UnifiedGeolocationResolver
+from ..geolocation.geocoding_adapter import GoogleMapsGeocodingAdapter
 from ..qc.checker import evaluate_quality
 from ..review.queue import HumanReviewQueue
 from ..telemetry.tracer import StructuredAgentLogger
@@ -75,6 +77,7 @@ class GeneralSteerPipeline:
         event_id: str = "us7000pn9s",
         origin_time_utc: str = "2025-03-28T06:20:00Z",
         spatial_bounds: Optional[Dict[str, float]] = None,
+        geocoding_adapter: Optional[GoogleMapsGeocodingAdapter] = None,
     ):
         self.mode = mode.lower()
         self.provider = (provider or os.environ.get("GEMINI_PROVIDER", "ai_studio")).lower()
@@ -87,12 +90,20 @@ class GeneralSteerPipeline:
         self.allow_live_api = allow_live_api
         self.pdf_extractor = PDFExtractor(min_text_threshold=min_text_threshold)
         self.event_id = event_id
+        self.spatial_bounds = spatial_bounds or MYANMAR_BOUNDS
+
+        # Unified Geolocation Engine
+        self.unified_resolver = UnifiedGeolocationResolver(
+            region_bounds=self.spatial_bounds,
+            geocoding_adapter=geocoding_adapter,
+            allow_live_geocoding=allow_live_api,
+        )
 
         # Pre-MMI Composite Screening Pipeline (All 5 gates)
         self.composite_screener = CompositeScreener(
             event_id=event_id,
             origin_time_utc=origin_time_utc,
-            spatial_bounds=spatial_bounds,
+            spatial_bounds=self.spatial_bounds,
             allow_live_api=allow_live_api,
             provider=self.provider,
         )
@@ -135,38 +146,20 @@ class GeneralSteerPipeline:
             return error_result
 
         # ──────────────────────────────────────────────────────────────────────
-        # Step 2: Dynamic Geolocation Parsing (from PDF text)
+        # Step 2: Dynamic Geolocation Parsing via Unified Resolver
         # ──────────────────────────────────────────────────────────────────────
-        coords = None
-        if extraction.has_extractable_text:
-            parsed = extract_coordinates_from_text(extraction.extracted_text)
-            if parsed.is_valid:
-                coords = validate_coordinates(parsed, region_bounds=MYANMAR_BOUNDS)
-                coords.is_authoritative = False  # Text-extracted candidate, not verified ground truth
-            else:
-                coords = Coordinates(
-                    latitude=None,
-                    longitude=None,
-                    source="not_found_in_text",
-                    is_valid=False,
-                    validation_error="No geographic coordinates detected in document text",
-                    is_authoritative=False,
-                )
-        else:
-            coords = Coordinates(
-                latitude=None,
-                longitude=None,
-                source="image_based_pdf",
-                is_valid=False,
-                validation_error="Document is image-based without an embedded text layer",
-                is_authoritative=False,
-            )
+        preliminary_loc = self.unified_resolver.resolve(
+            text=extraction.extracted_text if extraction.has_extractable_text else None,
+            file_path=path,
+            region_bounds=self.spatial_bounds,
+        )
+        coords = preliminary_loc.coordinates
 
         # ──────────────────────────────────────────────────────────────────────
         # Step 2b: Pre-MMI Relevance & Evidence Screening (CompositeScreener)
         # ──────────────────────────────────────────────────────────────────────
-        raw_coords_str = None
-        if extraction.has_extractable_text and extraction.extracted_text:
+        raw_coords_str = preliminary_loc.raw_source_text
+        if not raw_coords_str and extraction.has_extractable_text and extraction.extracted_text:
             m_geo = re.search(r"geolocation\s*\(address/coordinates\):\s*([^\n\r]+)", extraction.extracted_text, re.IGNORECASE)
             if m_geo:
                 raw_coords_str = m_geo.group(1).strip()
@@ -232,15 +225,21 @@ class GeneralSteerPipeline:
                     "reasoning": "; ".join(screening_res.decision_reasons) if screening_res.decision_reasons else "Insufficient physical damage evidence for MMI estimation.",
                 },
                 "geographic_resolution": {
-                    "location": None,
+                    "location": preliminary_loc.to_dict(),
                     "coordinates": coords.to_dict() if coords else None,
-                    "document_coordinates": coords.to_dict() if coords else None,
+                    "document_coordinates": preliminary_loc.document_coordinates.to_dict() if preliminary_loc.document_coordinates else None,
+                    "mapping_link_coordinates": preliminary_loc.mapping_link_coordinates.to_dict() if preliminary_loc.mapping_link_coordinates else None,
+                    "geocoded_coordinates": preliminary_loc.geocoded_coordinates.to_dict() if preliminary_loc.geocoded_coordinates else None,
                     "model_coordinates": None,
                     "comparison_status": "NOT_EVALUATED",
                     "coordinates_disagree": False,
                     "discrepancy_details": "Skipped due to NOT_ESTIMABLE classification",
                     "discrepancy_distance_km": None,
                     "has_valid_coordinates": coords.is_valid if coords else False,
+                    "has_exportable_site_coordinates": preliminary_loc.has_exportable_site_coordinates,
+                    "precision_level": preliminary_loc.precision_level,
+                    "selection_rationale": preliminary_loc.selection_rationale,
+                    "can_export_to_shakemap": False,
                     "is_authoritative": False,
                 },
                 "quality_control": {
@@ -340,15 +339,21 @@ class GeneralSteerPipeline:
                     "reasoning": "; ".join(screening_res.decision_reasons) if screening_res.decision_reasons else "Relevance is uncertain; deferred pending expert review.",
                 },
                 "geographic_resolution": {
-                    "location": None,
+                    "location": preliminary_loc.to_dict(),
                     "coordinates": coords.to_dict() if coords else None,
-                    "document_coordinates": coords.to_dict() if coords else None,
+                    "document_coordinates": preliminary_loc.document_coordinates.to_dict() if preliminary_loc.document_coordinates else None,
+                    "mapping_link_coordinates": preliminary_loc.mapping_link_coordinates.to_dict() if preliminary_loc.mapping_link_coordinates else None,
+                    "geocoded_coordinates": preliminary_loc.geocoded_coordinates.to_dict() if preliminary_loc.geocoded_coordinates else None,
                     "model_coordinates": None,
                     "comparison_status": "NOT_EVALUATED",
                     "coordinates_disagree": False,
                     "discrepancy_details": "Deferred due to REVIEW_REQUIRED classification",
                     "discrepancy_distance_km": None,
                     "has_valid_coordinates": coords.is_valid if coords else False,
+                    "has_exportable_site_coordinates": preliminary_loc.has_exportable_site_coordinates,
+                    "precision_level": preliminary_loc.precision_level,
+                    "selection_rationale": preliminary_loc.selection_rationale,
+                    "can_export_to_shakemap": False,
                     "is_authoritative": False,
                 },
                 "quality_control": {
@@ -502,54 +507,26 @@ class GeneralSteerPipeline:
         # ──────────────────────────────────────────────────────────────────────
         # Step 3c: Separate Extraction of Model Coordinates & Discrepancy Detection
         # ──────────────────────────────────────────────────────────────────────
-        doc_coords = coords  # Coordinates extracted from document text in Step 2
-
-        model_coords_raw = None
-        if isinstance(final_data.get("location"), dict):
-            model_coords_raw = final_data["location"].get("coordinates")
-
-        model_coords: Optional[Coordinates] = None
-        if isinstance(model_coords_raw, (list, tuple)) and len(model_coords_raw) == 2:
-            try:
-                m_lat = float(model_coords_raw[0])
-                m_lon = float(model_coords_raw[1])
-                model_coords = Coordinates(
-                    latitude=m_lat,
-                    longitude=m_lon,
-                    source="model_predicted",
-                    is_authoritative=False,
-                )
-                model_coords = validate_coordinates(model_coords)
-            except (ValueError, TypeError):
-                model_coords = None
-
-        # Discrepancy & comparison analysis
-        (
-            comparison_status,
-            coordinates_disagree,
-            discrepancy_distance_km,
-            discrepancy_details,
-        ) = compare_coordinates(doc_coords, model_coords, threshold_km=10.0)
-
-        # Candidate coordinate resolution: keep unknown as null, never invent!
-        primary_coords: Optional[Coordinates] = None
-        if doc_coords and doc_coords.is_valid:
-            primary_coords = doc_coords
-        elif model_coords and model_coords.is_valid:
-            primary_coords = model_coords
-        else:
-            primary_coords = None
-
-        location_context = LocationContext(
-            address=final_data.get("location", {}).get("address") if isinstance(final_data.get("location"), dict) else None,
-            coordinates=primary_coords,
-            document_coordinates=doc_coords,
-            model_coordinates=model_coords,
-            comparison_status=comparison_status,
-            coordinates_disagree=coordinates_disagree,
-            discrepancy_details=discrepancy_details,
-            discrepancy_distance_km=discrepancy_distance_km,
+        location_context = self.unified_resolver.resolve(
+            text=extraction.extracted_text if extraction.has_extractable_text else None,
+            file_path=path,
+            model_location=final_data.get("location") if isinstance(final_data.get("location"), dict) else None,
+            region_bounds=self.spatial_bounds,
         )
+
+        # Retain model's address text if document didn't specify one
+        if not location_context.address and isinstance(final_data.get("location"), dict):
+            location_context.address = final_data["location"].get("address")
+
+        doc_coords = location_context.document_coordinates
+        mapping_link_coords = location_context.mapping_link_coordinates
+        geocoded_coords = location_context.geocoded_coordinates
+        model_coords = location_context.model_coordinates
+        primary_coords = location_context.coordinates
+        comparison_status = location_context.comparison_status
+        coordinates_disagree = location_context.coordinates_disagree
+        discrepancy_details = location_context.discrepancy_details
+        discrepancy_distance_km = location_context.discrepancy_distance_km
 
         # ──────────────────────────────────────────────────────────────────────
         # Step 4: Normalization into MMI-Gram Structured State Schema
@@ -612,9 +589,19 @@ class GeneralSteerPipeline:
         if primary_coords is None or not primary_coords.is_valid:
             review_required = True
             triggers.append("Geographic coordinates could not be established from document text or model.")
-        elif not primary_coords.is_authoritative:
-            review_required = True
-            triggers.append("Candidate coordinates require expert validation against epicentral maps.")
+        else:
+            if not location_context.is_within_regional_bounds:
+                review_required = True
+                triggers.append(
+                    f"Observation coordinates ({primary_coords.latitude:.4f}, {primary_coords.longitude:.4f}) "
+                    "are outside configured regional bounds; requires geographic verification."
+                )
+            if not location_context.has_exportable_site_coordinates:
+                review_required = True
+                triggers.append(f"Observation lacks ShakeMap exportable site coordinates (precision: {location_context.precision_level}).")
+            if not primary_coords.is_authoritative:
+                review_required = True
+                triggers.append("Candidate coordinates require expert validation against epicentral maps.")
 
         # Incorporate screening-stage review triggers if any
         if screening_res.review_required:
@@ -636,6 +623,35 @@ class GeneralSteerPipeline:
                 },
                 force=True,
             )
+
+        # ──────────────────────────────────────────────────────────────────────
+        # Observation-Level ShakeMap Export Eligibility (Stage 3 Evaluation)
+        # ──────────────────────────────────────────────────────────────────────
+        # Distinguish spatial coordinate eligibility from observation-level ShakeMap eligibility.
+        # Export requires:
+        #   1. Valid site-specific coordinates (has_exportable_site_coordinates == True)
+        #   2. Valid numeric MMI (1.0 <= MMI <= 12.0)
+        #   3. ESTIMABLE screening decision (not NOT_ESTIMABLE or REVIEW_REQUIRED)
+        #   4. No coordinate conflicts (coordinates_disagree == False)
+        #   5. QC status is not REJECTED or SCREENED_OUT
+        #   6. No unresolved human review (automatic export blocked while review is required)
+        # Note: Stage 4 owns final XML packaging and ingestion after human review clearance.
+        has_site_coords = bool(location_context.has_exportable_site_coordinates)
+        has_numeric_mmi = bool(estimation.mmi_value is not None and 1.0 <= estimation.mmi_value <= 12.0)
+        is_estimable = bool(screening_res.relevance_decision == "ESTIMABLE")
+        no_conflicts = bool(not location_context.coordinates_disagree)
+        qc_acceptable = bool(qc.qc_status not in ("REJECTED", "SCREENED_OUT"))
+        no_blocking_review = not review_required
+
+        final_can_export = (
+            has_site_coords
+            and has_numeric_mmi
+            and is_estimable
+            and no_conflicts
+            and qc_acceptable
+            and no_blocking_review
+        )
+        location_context.can_export_to_shakemap = final_can_export
 
         duration_ms = round((time.time() - t0) * 1000.0, 2)
         active_model = (
@@ -703,12 +719,18 @@ class GeneralSteerPipeline:
                 "location": location_context.to_dict(),
                 "coordinates": primary_coords.to_dict() if primary_coords else None,
                 "document_coordinates": doc_coords.to_dict() if doc_coords else None,
+                "mapping_link_coordinates": mapping_link_coords.to_dict() if mapping_link_coords else None,
+                "geocoded_coordinates": geocoded_coords.to_dict() if geocoded_coords else None,
                 "model_coordinates": model_coords.to_dict() if model_coords else None,
                 "comparison_status": comparison_status,
                 "coordinates_disagree": coordinates_disagree,
                 "discrepancy_details": discrepancy_details,
                 "discrepancy_distance_km": discrepancy_distance_km,
                 "has_valid_coordinates": primary_coords.is_valid if primary_coords else False,
+                "has_exportable_site_coordinates": location_context.has_exportable_site_coordinates,
+                "precision_level": location_context.precision_level,
+                "selection_rationale": location_context.selection_rationale,
+                "can_export_to_shakemap": final_can_export,
                 "is_authoritative": False,
             },
             "quality_control": {
