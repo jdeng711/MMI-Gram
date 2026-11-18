@@ -2,5 +2,6 @@
 
 from .base import MapRendererInterface
 from .gmt_adapter import GMTMapRenderer
+from .mmi_rrup_plotter import MMIRrupPlotter
 
-__all__ = ["MapRendererInterface", "GMTMapRenderer"]
+__all__ = ["MapRendererInterface", "GMTMapRenderer", "MMIRrupPlotter"]

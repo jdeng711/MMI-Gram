@@ -75,6 +75,10 @@ class LocationContext:
     is_within_regional_bounds: bool = True               # Flag indicating whether observation lies within configured event bounds
     raw_source_text: Optional[str] = None                # Extracted text snippet containing location/coordinate information
     place_name: Optional[str] = None                     # Identified place/building name
+    rrup_km: Optional[float] = None                      # Closest 3D distance to finite-fault rupture surface (km)
+    repi_km: Optional[float] = None                      # Epicentral distance (km)
+    rupture_distance_source: str = "unavailable"         # 'finite_fault_mesh', 'hypocenter_alternative', 'unavailable'
+    surface_faulting_observed: bool = False              # Flag indicating primary surface fault rupture displacement
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -98,6 +102,10 @@ class LocationContext:
             "is_within_regional_bounds": self.is_within_regional_bounds,
             "raw_source_text": self.raw_source_text,
             "place_name": self.place_name,
+            "rrup_km": self.rrup_km,
+            "repi_km": self.repi_km,
+            "rupture_distance_source": self.rupture_distance_source,
+            "surface_faulting_observed": self.surface_faulting_observed,
         }
 
     @classmethod
@@ -135,6 +143,10 @@ class LocationContext:
             is_within_regional_bounds=bool(data.get("is_within_regional_bounds", True)),
             raw_source_text=data.get("raw_source_text"),
             place_name=data.get("place_name"),
+            rrup_km=data.get("rrup_km"),
+            repi_km=data.get("repi_km"),
+            rupture_distance_source=data.get("rupture_distance_source", "unavailable"),
+            surface_faulting_observed=bool(data.get("surface_faulting_observed", False)),
         )
 
 

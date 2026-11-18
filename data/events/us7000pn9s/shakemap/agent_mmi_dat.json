@@ -1,0 +1,5303 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "event_id": "us7000pn9s",
+    "source": "MMI-Gram-Agent ShakeMap Observation Exporter",
+    "created_at": "2026-11-18T06:28:05.735078+00:00",
+    "count": 157,
+    "uncertainty_policy": "experimental_fixed_prior",
+    "uncertainty_policy_description": "Configurable experimental fixed prior (sigma = 0.50). Note: No calibrated AI observation uncertainty distribution is currently established; this is a working experimental prior, not an empirical consensus.",
+    "default_stddev": 0.5,
+    "spatial_clusters": {
+      "cluster_001": [
+        "5827dc36",
+        "16ef53ef",
+        "af31f625",
+        "9a6d0f06"
+      ],
+      "cluster_002": [
+        "458bfe9e",
+        "325dd618",
+        "2bdf04dc",
+        "1e996de2"
+      ],
+      "cluster_003": [
+        "821988c3",
+        "100849ac"
+      ],
+      "cluster_004": [
+        "cad2e953",
+        "3fa88d0e"
+      ],
+      "cluster_005": [
+        "c9874e9b",
+        "26af0235"
+      ],
+      "cluster_006": [
+        "5b26dce3",
+        "29489177"
+      ],
+      "cluster_007": [
+        "9def1cf4",
+        "aa51b06d",
+        "07187abd",
+        "468f4a29"
+      ],
+      "cluster_008": [
+        "17cc525d",
+        "671b74b4"
+      ],
+      "cluster_009": [
+        "04605241",
+        "a79085fa",
+        "13acf3e6",
+        "aaebacff"
+      ],
+      "cluster_010": [
+        "b3961540",
+        "e5c91989",
+        "b3c9365a"
+      ],
+      "cluster_011": [
+        "c1b2d8da",
+        "8da4d471"
+      ],
+      "cluster_012": [
+        "f3cea677",
+        "a87c87c4"
+      ],
+      "cluster_013": [
+        "c9a4bf73",
+        "c83c2e88",
+        "6f73ec2c"
+      ],
+      "cluster_014": [
+        "df2d5646",
+        "5939fb79",
+        "517c1001",
+        "5f7f27a8"
+      ],
+      "cluster_015": [
+        "3d580840",
+        "e0057400"
+      ],
+      "cluster_016": [
+        "701aa939",
+        "00e1fdc3",
+        "f1d9b7b2"
+      ],
+      "cluster_017": [
+        "348932af",
+        "8261080c",
+        "08c2c48e",
+        "eda55c30"
+      ],
+      "cluster_018": [
+        "b61899ea",
+        "563a2f83"
+      ],
+      "cluster_019": [
+        "fe2924df",
+        "caafe437"
+      ],
+      "cluster_020": [
+        "58e31fcc",
+        "04187424",
+        "dd94d4a8",
+        "832f5fce"
+      ],
+      "cluster_021": [
+        "ca0fc3a8",
+        "0b3d0040",
+        "1aa89e95"
+      ],
+      "cluster_022": [
+        "6def7dc8",
+        "44d7d863"
+      ]
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "MMI.f169b6b5",
+      "properties": {
+        "code": "f169b6b5",
+        "name": "Thazi, Myanmar (Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-022.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.36,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.035278,
+          20.882056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.458bfe9e",
+      "properties": {
+        "code": "458bfe9e",
+        "name": "Sagaing city",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-026.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.95,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.02,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_002"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.984881,
+          21.880353
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.f7d03122",
+      "properties": {
+        "code": "f7d03122",
+        "name": "22.0456029, 96.0393802 OR \u201cnear Yega In\u201d which is",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-029.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.26,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.982778,
+          21.974722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.19cde13e",
+      "properties": {
+        "code": "19cde13e",
+        "name": "Sagaing township, no exact location, likely near",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-030.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.02,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.985093,
+          21.87295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.fadfffa8",
+      "properties": {
+        "code": "fadfffa8",
+        "name": "Sagaing township",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-031.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.3,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 1821.95,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.984881,
+          1.880353
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.0afd6f59",
+      "properties": {
+        "code": "0afd6f59",
+        "name": "Heung Min Son @heungburma",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-032.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.03,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.984709,
+          21.882222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.9def1cf4",
+      "properties": {
+        "code": "9def1cf4",
+        "name": "Sagaing Township, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-033.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.56,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_007"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.9797,
+          21.8787
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.316fd814",
+      "properties": {
+        "code": "316fd814",
+        "name": "Satetaya Village in Plague city, Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-034.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 10.84,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.089906,
+          21.890191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.7d5fbea0",
+      "properties": {
+        "code": "7d5fbea0",
+        "name": "Sittara village, Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-035.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 5.45,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.039505,
+          21.838393
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.1a115225",
+      "properties": {
+        "code": "1a115225",
+        "name": "Thayetpin, Nay Pyi Taw",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-036.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.11,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.179028,
+          19.684639
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.5827dc36",
+      "properties": {
+        "code": "5827dc36",
+        "name": "Satellite imagery from Maxar Technologies, reported by CNN",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-038.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 7.93,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_001"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.061456,
+          21.956169
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.16ef53ef",
+      "properties": {
+        "code": "16ef53ef",
+        "name": "96\u00b0 3'41.24\"E (general area of fire",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 6.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-039.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 7.93,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_001"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.061456,
+          21.956169
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.af31f625",
+      "properties": {
+        "code": "af31f625",
+        "name": "On ground video of settlement with apparent fire following earthquake from Thu Thu Aung",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-040.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 7.93,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_001"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.061456,
+          21.956169
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.9a6d0f06",
+      "properties": {
+        "code": "9a6d0f06",
+        "name": "On ground video of settlement with fire following earthquake from TM Media on YouTube",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 6.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-041.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.65,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 7.93,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_001"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.061456,
+          21.956169
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.c9a4bf73",
+      "properties": {
+        "code": "c9a4bf73",
+        "name": "Mandalay University, Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-042.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 11.31,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_013"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.094344,
+          21.956953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.325dd618",
+      "properties": {
+        "code": "325dd618",
+        "name": "Sagaing city",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-044.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.01,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_002"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.984942,
+          21.880886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.948387ba",
+      "properties": {
+        "code": "948387ba",
+        "name": "Amarapura, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-045.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 6.46,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.0469,
+          21.9028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.fe2924df",
+      "properties": {
+        "code": "fe2924df",
+        "name": "Mandalay, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-046.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 10.06,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_019"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.083,
+          21.975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.3f97f5ae",
+      "properties": {
+        "code": "3f97f5ae",
+        "name": "Facebook Pyinmana Update News Page",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-047.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 4.22,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.21157,
+          19.73814
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.7306a359",
+      "properties": {
+        "code": "7306a359",
+        "name": "Tada-U, Kyaukse District, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-048.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 1.41,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.973611,
+          21.818889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.0f9e2589",
+      "properties": {
+        "code": "0f9e2589",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.3,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-049.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 22.43,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613359,
+          18.156258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.4fc71aa3",
+      "properties": {
+        "code": "4fc71aa3",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-050.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 86.86,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.915449,
+          20.551299
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.609f073b",
+      "properties": {
+        "code": "609f073b",
+        "name": "Phyu Township, Taungoo District, Bago Region, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-051.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 13.14,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.4361,
+          18.9056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.821988c3",
+      "properties": {
+        "code": "821988c3",
+        "name": "Chatuchak Building, Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-053.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.55,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 652.82,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_003"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.547,
+          13.802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.100849ac",
+      "properties": {
+        "code": "100849ac",
+        "name": "Thailand, Bangkok, Chatuchak Building, Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-054.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.55,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 652.82,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_003"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.547,
+          13.802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.cad2e953",
+      "properties": {
+        "code": "cad2e953",
+        "name": "High-rise condominium buildings in Bangkok, Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 5.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-056.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 661.28,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_004"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.585,
+          13.732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.3fa88d0e",
+      "properties": {
+        "code": "3fa88d0e",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 6.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-058.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 661.28,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_004"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.585,
+          13.732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.c9874e9b",
+      "properties": {
+        "code": "c9874e9b",
+        "name": "Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-059.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.95,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 13.5,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_005"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.115989,
+          21.985678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.26af0235",
+      "properties": {
+        "code": "26af0235",
+        "name": "Sky Villa",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.2,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-060.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.92,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 13.51,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_005"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.116119,
+          21.98574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.9ad8e642",
+      "properties": {
+        "code": "9ad8e642",
+        "name": "Sky Villa Condo (Mandalay), Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-061.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.88,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 13.28,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.1139,
+          21.9855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.2fd5f85f",
+      "properties": {
+        "code": "2fd5f85f",
+        "name": "Mandalay, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-066.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 10.76,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.0891,
+          21.9588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.4b60f29c",
+      "properties": {
+        "code": "4b60f29c",
+        "name": "Hnin Si Condominium, Mandalay. Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.8,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-068.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 10.99,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.092,
+          21.978
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.5b26dce3",
+      "properties": {
+        "code": "5b26dce3",
+        "name": "same complex (see next slides), possible coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-069.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 8.64,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_006"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.08175,
+          19.76651
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.29489177",
+      "properties": {
+        "code": "29489177",
+        "name": "Facebook (Wathan Aung",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-070.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 8.64,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_006"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.08175,
+          19.76651
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.aa51b06d",
+      "properties": {
+        "code": "aa51b06d",
+        "name": "Sagaing, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-072.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.56,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_007"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.9797,
+          21.8787
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.74e3692c",
+      "properties": {
+        "code": "74e3692c",
+        "name": "Meiktila, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-074.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 17.93,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.8647,
+          20.8789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.71be4246",
+      "properties": {
+        "code": "71be4246",
+        "name": "KBZ Bank branch at Pyawbwe",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-076.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 1.27,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.05242,
+          20.589678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.8f0d7b17",
+      "properties": {
+        "code": "8f0d7b17",
+        "name": "Myanmar Citizen Bank (MCB), Mandalay, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-077.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 9.26,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.07498,
+          21.98387
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.9fa2c624",
+      "properties": {
+        "code": "9fa2c624",
+        "name": "UAB, United Amara Bank, Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-078.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 10.56,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.08634,
+          22.00409
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.5aea61e6",
+      "properties": {
+        "code": "5aea61e6",
+        "name": "Facebook Kwee Linn",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-079.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 8.41,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.20108,
+          20.13202
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.6def7dc8",
+      "properties": {
+        "code": "6def7dc8",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-080.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 8.32,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_022"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.19993,
+          20.13393
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.4dc064ca",
+      "properties": {
+        "code": "4dc064ca",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-081.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 5.26,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.11874,
+          19.73909
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.17cc525d",
+      "properties": {
+        "code": "17cc525d",
+        "name": "MJ5M+9X5, Aungpan (",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.8,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-082.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 59.0,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_008"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.632617,
+          20.657944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.671b74b4",
+      "properties": {
+        "code": "671b74b4",
+        "name": "Google Maps (before) and Na/Ku (Aungban), published by The",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-083.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 58.94,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_008"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.632,
+          20.658
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.d8d6d0ca",
+      "properties": {
+        "code": "d8d6d0ca",
+        "name": "Shan State, Aungpan 11221",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-084.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.95,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 59.05,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.63293,
+          20.65952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.a505fb97",
+      "properties": {
+        "code": "a505fb97",
+        "name": "Great Wall Hotel, Mandalay, Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-085.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 10.66,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.088,
+          21.955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.935becc4",
+      "properties": {
+        "code": "935becc4",
+        "name": "Hotel Ye Myanmar, Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-086.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 12.01,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.101,
+          21.954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.2bdf04dc",
+      "properties": {
+        "code": "2bdf04dc",
+        "name": "Sagaing city",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-088.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.75,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.07,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_002"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.984315,
+          21.880548
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.1e996de2",
+      "properties": {
+        "code": "1e996de2",
+        "name": "Sagaing city",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-089.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.12,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_002"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.983927,
+          21.880359
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.04605241",
+      "properties": {
+        "code": "04605241",
+        "name": "Sagaing city",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-090.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.23,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_009"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.982803,
+          21.880053
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.a79085fa",
+      "properties": {
+        "code": "a79085fa",
+        "name": "Sagaing city",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 6.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-091.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.26,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_009"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.982583,
+          21.879926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.b3961540",
+      "properties": {
+        "code": "b3961540",
+        "name": "Sagaing city",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-093.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.38,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_010"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.981388,
+          21.880058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.e5c91989",
+      "properties": {
+        "code": "e5c91989",
+        "name": "Sagaing city",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-094.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.34,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_010"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.981716,
+          21.880251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.b3c9365a",
+      "properties": {
+        "code": "b3c9365a",
+        "name": "Sagaing city",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-095.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.35,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_010"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.981671,
+          21.880692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.e3b83e9e",
+      "properties": {
+        "code": "e3b83e9e",
+        "name": "Pyinmana township, Naypyidaw region, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-096.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 4.7,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.2164,
+          19.7375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.97818981",
+      "properties": {
+        "code": "97818981",
+        "name": "Mahaaungmyae Township, Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-097.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.95,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 9.62,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.078014,
+          21.95997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.0a971f8b",
+      "properties": {
+        "code": "0a971f8b",
+        "name": "Shwe Kyi Moe Cafe",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-098.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 9.8,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.079856,
+          21.96155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.94f3f789",
+      "properties": {
+        "code": "94f3f789",
+        "name": "Tain Phyu Hotel (Silver Cloud), 73rd St Street, 29th St, Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-099.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 11.37,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.09572,
+          21.97782
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.7986b5ac",
+      "properties": {
+        "code": "7986b5ac",
+        "name": "Corner of 73x37 Street, Mandalay, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-100.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 11.3,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.09465,
+          21.965558
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.f3cea677",
+      "properties": {
+        "code": "f3cea677",
+        "name": "Myintsone Hotel, Mandalay, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-101.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 13.16,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_012"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.11298,
+          21.98089
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.c1b2d8da",
+      "properties": {
+        "code": "c1b2d8da",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-102.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.88,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 1.45,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_011"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.97313,
+          21.82183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.8da4d471",
+      "properties": {
+        "code": "8da4d471",
+        "name": "26 Leo Hotel, Mandalay, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-103.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 1.45,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_011"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.97313,
+          21.82183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.b60f21a1",
+      "properties": {
+        "code": "b60f21a1",
+        "name": "Jade City Hotel, Naypyidaw, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-104.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.04,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.15184,
+          19.88025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.3d6de892",
+      "properties": {
+        "code": "3d6de892",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-105.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.71,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.15132,
+          19.81816
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.b3f5777d",
+      "properties": {
+        "code": "b3f5777d",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-106.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 11.21,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.09274,
+          21.94162
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.2ad66dc7",
+      "properties": {
+        "code": "2ad66dc7",
+        "name": "Facebook Kaung Htet Paing Oo",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-107.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 6.42,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.11088,
+          19.71466
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.7eeabfd6",
+      "properties": {
+        "code": "7eeabfd6",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-108.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.2,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.156029,
+          19.820116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.a0718934",
+      "properties": {
+        "code": "a0718934",
+        "name": "Facebook Kaung Htet Paing Oo",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-109.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.76,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.151168,
+          19.816302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.e138b012",
+      "properties": {
+        "code": "e138b012",
+        "name": "Ritz Grand Hotel, Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-110.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 13.33,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.113886,
+          21.954856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.a87c87c4",
+      "properties": {
+        "code": "a87c87c4",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-111.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 13.16,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_012"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.11298,
+          21.98089
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.d3345d06",
+      "properties": {
+        "code": "d3345d06",
+        "name": "Thailand, Bangkok",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 5.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-112.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 661.32,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.58058,
+          13.728076
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.e0ccd810",
+      "properties": {
+        "code": "e0ccd810",
+        "name": "Ward (",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-115.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 14.39,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.12934,
+          21.60193
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.07187abd",
+      "properties": {
+        "code": "07187abd",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-116.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.5,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_007"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.980284,
+          21.878951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.13acf3e6",
+      "properties": {
+        "code": "13acf3e6",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-118.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.16,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_009"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.9835,
+          21.8797
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.c83c2e88",
+      "properties": {
+        "code": "c83c2e88",
+        "name": "Mandalay University",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-119.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.75,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 11.36,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_013"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.0948,
+          21.9564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.6f73ec2c",
+      "properties": {
+        "code": "6f73ec2c",
+        "name": "University of Mandalay, Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-120.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 11.36,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_013"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.0948,
+          21.9564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.fb36795c",
+      "properties": {
+        "code": "fb36795c",
+        "name": "Facebook Baby World Private School Page",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-122.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 6.51,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.04731,
+          21.90512
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.468f4a29",
+      "properties": {
+        "code": "468f4a29",
+        "name": "Chin Su Ward, Sagaing city, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-123.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.56,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_007"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.9797,
+          21.8787
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.ad599d6d",
+      "properties": {
+        "code": "ad599d6d",
+        "name": "Zaykwat Thit Ward, Paleik, Mandalay Region, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.2,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-124.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.49,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.9922,
+          21.8025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.48e4e0b9",
+      "properties": {
+        "code": "48e4e0b9",
+        "name": "Facebook Posted at Facebook Group of TU and CU\u2019s Student",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-125.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 14.04,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.12592,
+          21.60465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.9dee09a1",
+      "properties": {
+        "code": "9dee09a1",
+        "name": "Technological University Sagaing, Sagaing, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-126.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 3.02,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.954212,
+          21.923161
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.cc436d01",
+      "properties": {
+        "code": "cc436d01",
+        "name": "Shwe Win Women\u2019s Dormitory (\u1021\u1019\u103b\u102d\u102f\u1038\u101e\u1019\u102e\u1038\u1006\u1031\u102c\u1004\u103a), 38 St. 72x73 St. Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-127.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 11.48,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.096276,
+          21.964141
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.ddf89250",
+      "properties": {
+        "code": "ddf89250",
+        "name": "Mandalay General Hospital",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 6.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-129.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.65,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 10.82,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.090383,
+          21.977436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.df2d5646",
+      "properties": {
+        "code": "df2d5646",
+        "name": "Naypyidaw",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-130.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.4,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_014"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.157256,
+          19.847239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.5939fb79",
+      "properties": {
+        "code": "5939fb79",
+        "name": "Ottara Thiri Private Hospital",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-132.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.88,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.31,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_014"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.156472,
+          19.84679
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.7b2cca4b",
+      "properties": {
+        "code": "7b2cca4b",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-133.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.92,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.34,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.15651,
+          19.84786
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.517c1001",
+      "properties": {
+        "code": "517c1001",
+        "name": "Ottara Thiri Private Hospital, Naypyidaw, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-134.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.4,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_014"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.157256,
+          19.847239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.5f7f27a8",
+      "properties": {
+        "code": "5f7f27a8",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-135.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.88,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.4,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_014"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.157256,
+          19.847239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.3d580840",
+      "properties": {
+        "code": "3d580840",
+        "name": "Sagaing General Hospital",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 6.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-136.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.75,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 1.01,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_015"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.9755,
+          21.87314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.e0057400",
+      "properties": {
+        "code": "e0057400",
+        "name": "Sagaing General Hospital, Sagaing",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 6.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-137.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.75,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 1.01,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_015"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.9755,
+          21.87314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.bbae6ce8",
+      "properties": {
+        "code": "bbae6ce8",
+        "name": "(Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 6.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-139.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 1.84,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.001606,
+          21.915215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.701aa939",
+      "properties": {
+        "code": "701aa939",
+        "name": "Facebook Sai Aung Main/AFP (Left Photo), Facebook Ko Kyi Kyaw (Right",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-140.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 6.76,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_016"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.10324,
+          19.74473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.00e1fdc3",
+      "properties": {
+        "code": "00e1fdc3",
+        "name": "Naypyidaw General Hospital",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-141.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 6.76,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_016"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.10324,
+          19.74473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.f1d9b7b2",
+      "properties": {
+        "code": "f1d9b7b2",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-142.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 6.76,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_016"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.10324,
+          19.74473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.380d2972",
+      "properties": {
+        "code": "380d2972",
+        "name": "(Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 4.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-145.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.75,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 654.87,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.534365,
+          13.767729
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.404dae80",
+      "properties": {
+        "code": "404dae80",
+        "name": "(Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 5.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-146.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.75,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 655.31,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.536826,
+          13.76451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.c850362d",
+      "properties": {
+        "code": "c850362d",
+        "name": "Sagaing Township Fire Station, Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-148.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.29,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.98793,
+          21.87885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.348932af",
+      "properties": {
+        "code": "348932af",
+        "name": "Mahamuni Pagoda, Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-151.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 9.7,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_017"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.07846,
+          21.95199
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.8261080c",
+      "properties": {
+        "code": "8261080c",
+        "name": "Mahamuni Pagoda",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-152.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 9.7,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_017"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.07846,
+          21.95199
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.08c2c48e",
+      "properties": {
+        "code": "08c2c48e",
+        "name": "Facebook Living Myanmar Media Group",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-153.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 9.7,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_017"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.07846,
+          21.95199
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.eda55c30",
+      "properties": {
+        "code": "eda55c30",
+        "name": "Mahamuni Buddha Temple in Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-154.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 9.7,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_017"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.07846,
+          21.95199
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.91e62b57",
+      "properties": {
+        "code": "91e62b57",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-155.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 6.9,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.051139,
+          21.904417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.ccd32a26",
+      "properties": {
+        "code": "ccd32a26",
+        "name": "Ananda Pagoda, Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-156.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.75,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 9.91,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.08049,
+          21.95
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.aef7edb2",
+      "properties": {
+        "code": "aef7edb2",
+        "name": "West of Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-158.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 8.43,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.066689,
+          21.964477
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.5a4a94ef",
+      "properties": {
+        "code": "5a4a94ef",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-161.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 3.47,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.01598,
+          22.02631
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.e6f3b6f8",
+      "properties": {
+        "code": "e6f3b6f8",
+        "name": "Sagaing city",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-163.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.38,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.988933,
+          21.876117
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.28ee60fd",
+      "properties": {
+        "code": "28ee60fd",
+        "name": "Kyaukse",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-164.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 15.02,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.135406,
+          21.603348
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.eacd7e13",
+      "properties": {
+        "code": "eacd7e13",
+        "name": "Thone Pan Hla, Pyay (",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-165.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 102.9,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.316111,
+          18.786667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.0d86d327",
+      "properties": {
+        "code": "0d86d327",
+        "name": "Myat Saw Nyi Naung, Taungoo, Bago region",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 6.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-166.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 20.92,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.510833,
+          18.915278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.6d0ae419",
+      "properties": {
+        "code": "6d0ae419",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-167.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.03,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.984632,
+          21.884005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.86200ca9",
+      "properties": {
+        "code": "86200ca9",
+        "name": "Kandaw Mosque, Taungoo, Bago region (",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-168.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 12.57,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.425,
+          18.935278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.eb552fa3",
+      "properties": {
+        "code": "eb552fa3",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-169.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.14,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.98448,
+          21.858356
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.ccbddd48",
+      "properties": {
+        "code": "ccbddd48",
+        "name": "Lay Htat Gyi Temple",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-170.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.95,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.977297,
+          21.840298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.c0624de0",
+      "properties": {
+        "code": "c0624de0",
+        "name": "Masoeyein Monastery, 87th St. Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-171.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 8.69,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.069353,
+          21.967762
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.9bae7beb",
+      "properties": {
+        "code": "9bae7beb",
+        "name": "Sagaing",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-172.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 3.71,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.016449,
+          22.055776
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.9df1578b",
+      "properties": {
+        "code": "9df1578b",
+        "name": "Royal Palace Eastern Gate, Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-173.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 12.51,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.105995,
+          21.99233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.0b8f091d",
+      "properties": {
+        "code": "0b8f091d",
+        "name": "Tsp, Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-174.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 9.49,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.076577,
+          21.954767
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.b61899ea",
+      "properties": {
+        "code": "b61899ea",
+        "name": "Zay Kone Monastery, Pyae Sone Street, Pyinmana",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-175.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 3.68,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_018"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.204927,
+          19.748083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.563a2f83",
+      "properties": {
+        "code": "563a2f83",
+        "name": "Zay Kone Monastery, Pyae Sone Street, Pyinmana",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-176.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 3.69,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_018"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.205024,
+          19.747813
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.032e8d07",
+      "properties": {
+        "code": "032e8d07",
+        "name": "MyoMa Mosque in Sagaing",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-177.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.09,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.984349,
+          21.876043
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.bcc37950",
+      "properties": {
+        "code": "bcc37950",
+        "name": "Presidential Palace (Naypyidaw), Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 6.7,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-179.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 6.15,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.1057,
+          19.7695
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.7450a07a",
+      "properties": {
+        "code": "7450a07a",
+        "name": "Bagan Ancient Cultural",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-180.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 117.13,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          94.881358,
+          21.165164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.a09e5f5f",
+      "properties": {
+        "code": "a09e5f5f",
+        "name": "Nan Myint Tower, Inwa, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-181.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.54,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.980721,
+          21.856136
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.aaebacff",
+      "properties": {
+        "code": "aaebacff",
+        "name": "Sagaing city",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-183.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.09,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_009"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.984195,
+          21.880004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.caafe437",
+      "properties": {
+        "code": "caafe437",
+        "name": "Along 26th St., Mandalay, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-184.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 10.12,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_019"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.0836,
+          21.9753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.c84b7aa8",
+      "properties": {
+        "code": "c84b7aa8",
+        "name": "Heung Min Son @heungburma; Before photo from Google Maps, Maxar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-186.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.95,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 2.14,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.208118,
+          19.6262
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.9ded6732",
+      "properties": {
+        "code": "9ded6732",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 6.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-187.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 1.95,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.9697,
+          21.7056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.cb4bd3b6",
+      "properties": {
+        "code": "cb4bd3b6",
+        "name": "Thayetkon Railway Station, Pyinmana, Nay Pyi Taw",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-188.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.13,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.175958,
+          19.689271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.2d480e17",
+      "properties": {
+        "code": "2d480e17",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-189.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 384.3,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.979625,
+          19.498086
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.58e31fcc",
+      "properties": {
+        "code": "58e31fcc",
+        "name": "Bridge called Sagaing, Ava, or Inwa Bridge Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-191.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.78,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_020"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.993,
+          21.871
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.04187424",
+      "properties": {
+        "code": "04187424",
+        "name": "Sagaing Bridge (The Ava Bridge)",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-192.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.88,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.75,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_020"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.992639,
+          21.871216
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.dd94d4a8",
+      "properties": {
+        "code": "dd94d4a8",
+        "name": "Puente Ava",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-193.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.88,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.75,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_020"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.992639,
+          21.871216
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.832f5fce",
+      "properties": {
+        "code": "832f5fce",
+        "name": "Sagaing Bridge (The Ava Bridge); Coordinates",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-194.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.78,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_020"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.993,
+          21.871
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.ca0fc3a8",
+      "properties": {
+        "code": "ca0fc3a8",
+        "name": "Duthawaddy Bridge just south of Mandalay on AH1",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-195.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.38,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_021"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.990537,
+          21.831334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.0b3d0040",
+      "properties": {
+        "code": "0b3d0040",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-196.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.9,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.38,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_021"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.990537,
+          21.831334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.1aa89e95",
+      "properties": {
+        "code": "1aa89e95",
+        "name": "Screengrab from video posted by Aung San Linn @augsl1 Tiktok",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-198.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.38,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_021"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.990537,
+          21.831334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.defcd3d8",
+      "properties": {
+        "code": "defcd3d8",
+        "name": "Yangon-Mandalay Expressway Bridge crossing Myitnge River",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-199.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.28,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.9844,
+          21.8248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.bb3cd9e1",
+      "properties": {
+        "code": "bb3cd9e1",
+        "name": "U- Bein Bridge, Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 6.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-200.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 6.97,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.052217,
+          21.893358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.1de7a414",
+      "properties": {
+        "code": "1de7a414",
+        "name": "Sagaing-Mandalay (Myo Patt Road)",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-201.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 6.31,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.04496,
+          21.916589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.884aab1e",
+      "properties": {
+        "code": "884aab1e",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-203.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.31,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.155165,
+          19.818859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.dab00af8",
+      "properties": {
+        "code": "dab00af8",
+        "name": "Myittha\u2013Pyinsi Road, Myittha, Mandalay Region, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-204.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 12.72,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.1264,
+          21.4174
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.d8122a62",
+      "properties": {
+        "code": "d8122a62",
+        "name": "Oktwin township, 132 mile marker, Yangon\u2013Mandalay Expressway, Bago Region, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-205.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 19.13,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.1167,
+          18.9167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.267be7a3",
+      "properties": {
+        "code": "267be7a3",
+        "name": "Yangon-Mandalay Highway, 163 mile, Yedashe township, Bago region, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-206.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 4.33,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.225,
+          19.1417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.6491539d",
+      "properties": {
+        "code": "6491539d",
+        "name": "Facebook Khin Maung Zaw",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-207.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 5.5,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.22224,
+          19.75132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.b7624514",
+      "properties": {
+        "code": "b7624514",
+        "name": "Myo Patt Road, Mandalay, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-208.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.02,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.9833,
+          21.9333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.361c9237",
+      "properties": {
+        "code": "361c9237",
+        "name": "Naypyidaw, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-209.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 9.02,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.0785,
+          19.7633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.f9103d75",
+      "properties": {
+        "code": "f9103d75",
+        "name": "Kyaukse, Kyaukse District, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-211.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 2.26,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.9678,
+          21.6047
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.a305bd02",
+      "properties": {
+        "code": "a305bd02",
+        "name": "Kyaukse, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-212.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 14.79,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.1332,
+          21.6044
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.fe81fd61",
+      "properties": {
+        "code": "fe81fd61",
+        "name": "Yangon-Mandalay Road",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-214.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 17.92,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.865016,
+          20.876109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.2ee9753a",
+      "properties": {
+        "code": "2ee9753a",
+        "name": "Thaminchan south village, northwest of Mandalay",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-215.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.8,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 7.89,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.0589,
+          22.026716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.7e513165",
+      "properties": {
+        "code": "7e513165",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-216.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.74,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.993406,
+          21.849187
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.609def84",
+      "properties": {
+        "code": "609def84",
+        "name": "Demoso Township, Loikaw District, Kayah State, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-217.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.65,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 98.19,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          97.1667,
+          19.5333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.e12d1872",
+      "properties": {
+        "code": "e12d1872",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 8.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-218.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.14,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.98824,
+          21.831397
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.c4ea8cab",
+      "properties": {
+        "code": "c4ea8cab",
+        "name": "Source",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-219.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 13.04,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.1288,
+          21.4279
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.86835b1c",
+      "properties": {
+        "code": "86835b1c",
+        "name": "TikTok @heinwaisoe073 (left and middle panels); Heung Min Son",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 9.0,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-220.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 0.66,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.121426,
+          20.159054
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.44d7d863",
+      "properties": {
+        "code": "44d7d863",
+        "name": "May Zali Kyin Village, Tatkone Township, Nay Pyi Taw Union Territory, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-221.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 8.32,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "PROXIMAL_INDEPENDENT_CLUSTER",
+        "cluster_id": "cluster_022"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.2,
+          20.1333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "MMI.2f17c15e",
+      "properties": {
+        "code": "2f17c15e",
+        "name": "Sin Thay Diversion Weir, May Zali Kyin Village, Tatkone Township, Nay Pyi Taw Union Territory, Myanmar",
+        "network": "MMI",
+        "netid": "MMI",
+        "station_type": "macroseismic",
+        "channels": [],
+        "nresp": 1,
+        "source": "MMI-Gram-Agent Agentic Reconnaissance",
+        "intensity": 7.5,
+        "intensity_stddev": 0.5,
+        "intensity_flag": "0",
+        "agency": "MMI-Gram-Agent",
+        "file_name": "page-222.pdf",
+        "model_name": "gemini-3.8-flash",
+        "raw_model_confidence": 0.85,
+        "uncertainty_policy": "experimental_fixed_prior",
+        "rrup_km": 10.31,
+        "precision_level": "site_specific_address",
+        "cluster_flag": "SINGLE",
+        "cluster_id": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.22,
+          20.13
+        ]
+      }
+    }
+  ]
+}

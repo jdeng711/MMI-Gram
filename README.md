@@ -198,18 +198,20 @@ MMI-Gram/
 │       ├── __init__.py           # Package version (0.2.0)
 │       ├── cli.py                # Unified CLI (demo, analyze, batch, test, check-env)
 │       ├── adapters/             # CRAGAdapter & live prerequisite checks
-│       ├── cartography/          # Mapping interface (GMT / GIS integration)
+│       ├── cartography/          # MMIRrupPlotter (USGS ShakeMap MMI vs. Rrup publication engine)
 │       ├── comparison/           # BenchmarkComparator & standardized schemas
 │       ├── core/                 # Immutable Pydantic models & observation records
-│       ├── geolocation/          # DMS/DD regex parser & Haversine discrepancy detector
+│       ├── geolocation/          # Unified 5-priority resolver, DMS parser, & geocoding cache
 │       ├── ingestion/            # PDF ingestion, SHA-256 integrity, social connectors
 │       ├── qc/                   # Multi-rule Quality Control engine
 │       ├── review/               # Persistent Human-in-the-Loop review queue
+│       ├── screening/            # Pre-MMI 5-gate composite evidence & relevance screener
+│       ├── seismology/           # USGSProductProvider, RrupCalculator (3D mesh), PhysicsCritic, ShakeMapExporter
 │       ├── telemetry/            # StructuredAgentLogger & latency tracers
-│       └── workflow/             # LangGraph state machine & pipeline graphs
+│       └── workflow/             # GeneralSteerPipeline, LangGraph state machine & pipeline graphs
 ├── tests/
-│   ├── fixtures/                 # Authentic & synthetic test fixtures
-│   ├── test_*.py                 # 67 offline unit, security, & regression tests
+│   ├── fixtures/                 # Authentic, synthetic, & USGS earthquake test fixtures
+│   ├── test_*.py                 # 194 offline unit, seismology, ShakeMap, & regression tests
 │   └── generate_fixtures.py      # Reproducible synthetic test PDF generator
 ├── pyproject.toml                # Standard PEP 517/518 build specification
 ├── setup.py                      # Package setup configuration
@@ -221,14 +223,14 @@ MMI-Gram/
 
 ## 🧪 Testing & Verification
 
-The test suite covers unit logic, coordinate parsing, Haversine discrepancy detection, security redaction, QC edge cases, queue persistence, full-scale reference completeness validation, CRAG grading relevance, and end-to-end LangGraph workflows without making external network calls.
+The test suite covers unit logic, coordinate parsing, Haversine discrepancy detection, security redaction, QC edge cases, queue persistence, full-scale reference completeness validation, 3D finite-fault $R_{rup}$ calculations, seismological consistency critique, ShakeMap 4.5 GeoJSON observation export, and publication-quality MMI vs. $R_{rup}$ plotting without making external network calls.
 
 ```bash
-# Run tests with unittest discovery:
-python3 -m unittest discover -v -s tests -p "test_*.py"
+# Run tests with pytest:
+pytest tests -v
 ```
 
-**Results**: 104 tests (103 passed offline, 1 skipped for live API opt-in) running in ~5.4s.
+**Results**: 194 tests (193 passed offline, 1 skipped for live API opt-in) running in ~7.0s.
 
 ---
 

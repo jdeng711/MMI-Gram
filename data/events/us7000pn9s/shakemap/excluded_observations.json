@@ -1,0 +1,1168 @@
+{
+  "event_id": "us7000pn9s",
+  "created_at": "2026-11-18T06:28:05.737492+00:00",
+  "excluded_count": 27,
+  "excluded_observations": [
+    {
+      "file_name": "page-027.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Sagaing city' at distance 0.0 m from 458bfe9e",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Sagaing city' at distance 0.0 m from 458bfe9e"
+      ],
+      "observation_data": {
+        "file_name": "page-027.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 9.5,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.880352777777777,
+            "longitude": 95.98488055555556
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Sagaing city",
+          "rrup_km": 0.017
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "StEER reconnaissance slide containing annotated satellite imagery of Sagaing city, Myanmar, detailing an active trace of the Sagaing fault, an approximate surface rupture zone crossing a primary road and settlement, and explicitly mapped collapsed buildings adjacent to the surface rupture zone.",
+        "reasoning": "The evidence documents conspicuous active surface fault rupture cutting across an urban corridor coupled with total/partial collapses of adjacent buildings. According to standard MMI definitions, conspicuous ground ruptures, cracked ground, and partial to complete collapse of substantial buildings correspond to MMI IX to X."
+      },
+      "duplicate_of": "458bfe9e"
+    },
+    {
+      "file_name": "page-028.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Sagaing city' at distance 0.0 m from 458bfe9e",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Sagaing city' at distance 0.0 m from 458bfe9e"
+      ],
+      "observation_data": {
+        "file_name": "page-028.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 8.5,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.880352777777777,
+            "longitude": 95.98488055555556
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Sagaing city",
+          "rrup_km": 0.017
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Satellite imagery analysis comparing pre-event Google Maps imagery with post-event Maxar satellite images (31/03/2025 and 03/04/2025) in Sagaing city, Myanmar. Multiple structures within an outlined polygon south of the main road show near-total to complete structural collapse into rubble and debris fields, with neighboring buildings displaying severe structural distress.",
+        "reasoning": "According to the reference scales, MMI VIII involves considerable damage in ordinary substantial buildings with partial collapse, while MMI IX involves substantial buildings suffering partial or complete collapse and well-designed frame structures thrown out of plumb. The complete leveling of several buildings in the delineated area alongside severe surrounding structural damage corresponds to an intensity of MMI VIII to IX (8.5)."
+      },
+      "duplicate_of": "458bfe9e"
+    },
+    {
+      "file_name": "page-055.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Chatuchak Building, Coordinates' at distance 0.0 m from 821988c3",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Chatuchak Building, Coordinates' at distance 0.0 m from 821988c3"
+      ],
+      "observation_data": {
+        "file_name": "page-055.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 8.5,
+          "confidence": 0.5
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 13.802,
+            "longitude": 100.547
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Chatuchak Building, Coordinates",
+          "rrup_km": 652.815
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Annotated photographic sequence documenting failure initiation and progressive collapse on the upper levels of a high-rise reinforced concrete building under construction in the Chatuchak district of Bangkok.",
+        "reasoning": "The collapse and major failure initiation within an engineered reinforced concrete building frame under construction corresponds to destructive to violent shaking effects (MMI VIII to IX). MMI IX features partial or complete collapse of substantial buildings and frame structures thrown out of plumb/failing catastrophically. [Physics Critic: Physically improbable: MMI 8.5 (violent destruction) reported at Rrup = 652.8 km without severe basin amplification]"
+      },
+      "duplicate_of": "821988c3"
+    },
+    {
+      "file_name": "page-057.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'High-rise condominium buildings in Bangkok, Coordinates' at distance 0.0 m from cad2e953",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'High-rise condominium buildings in Bangkok, Coordinates' at distance 0.0 m from cad2e953"
+      ],
+      "observation_data": {
+        "file_name": "page-057.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 5.5,
+          "confidence": 0.8
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 13.732,
+            "longitude": 100.585
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "High-rise condominium buildings in Bangkok, Coordinates",
+          "rrup_km": 661.278
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "High-rise modern condominium towers in Bangkok swaying asynchronously, causing water to slosh from rooftop pools and resulting in inter-building structural pounding and dislodged falling non-structural facade fragments.",
+        "reasoning": "Resonant swaying of tall high-rise buildings and noticeable water sloshing from elevated/rooftop pools are typical of long-period motion at MMI V to VI. Collision/pounding occurred due to tight structural proximity rather than catastrophic ground shaking intensity. Thus, an intensity rating of MMI 5.5 is assigned."
+      },
+      "duplicate_of": "cad2e953"
+    },
+    {
+      "file_name": "page-062.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Sky Villa' at distance 0.0 m from 26af0235",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Sky Villa' at distance 0.0 m from 26af0235"
+      ],
+      "observation_data": {
+        "file_name": "page-062.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 9.0,
+          "confidence": 0.9
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.9857396,
+            "longitude": 96.11611909999999
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Sky Villa",
+          "rrup_km": 13.51
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Reconnaissance documentation of catastrophic progressive pancake collapse of reinforced concrete residential structures at Sky Villa Condominium in Aung Myay Thar Zan Township, Mandalay, Myanmar.",
+        "reasoning": "According to the MMI scale definitions, MMI 9 (Violent) is characterized by 'damage great in substantial buildings, with partial or complete collapse' and 'well-designed frame structures thrown out of plumb/damaged considerably.' The complete progressive collapse of engineered multi-story condominium units into a debris heap meets the criteria for MMI IX (Violent)."
+      },
+      "duplicate_of": "26af0235"
+    },
+    {
+      "file_name": "page-063.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Sky Villa Condo (Mandalay), Coordinates' at distance 0.0 m from 9ad8e642",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Sky Villa Condo (Mandalay), Coordinates' at distance 0.0 m from 9ad8e642"
+      ],
+      "observation_data": {
+        "file_name": "page-063.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 9.5,
+          "confidence": 0.9
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.9855,
+            "longitude": 96.1139
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Sky Villa Condo (Mandalay), Coordinates",
+          "rrup_km": 13.28
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Post-earthquake reconnaissance image documenting catastrophic structural failure and total pancake collapse of three multi-story reinforced concrete residential buildings at Sky Villa Condo in Mandalay, Myanmar. Enormous mounds of crushed concrete, exposed rebar, and floor slabs flattened on top of one another dominate the area, while an adjacent multi-story structure remains standing but is immediately beside extensive debris.",
+        "reasoning": "Observed evidence demonstrates complete collapse of substantial engineered multi-story reinforced concrete frame buildings (Sky Villa Condo), which matches the criteria for MMI IX (damage great in substantial buildings, with partial or complete collapse) transitioning to MMI X (most masonry and frame structures destroyed). Therefore, an MMI intensity of 9.5 is assigned."
+      },
+      "duplicate_of": "9ad8e642"
+    },
+    {
+      "file_name": "page-064.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Sky Villa' at distance 0.0 m from 26af0235",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Sky Villa' at distance 0.0 m from 26af0235"
+      ],
+      "observation_data": {
+        "file_name": "page-064.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 9.5,
+          "confidence": 0.9
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.9857396,
+            "longitude": 96.11611909999999
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Sky Villa",
+          "rrup_km": 13.51
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Complete catastrophic structural failure and pancake collapse of a multi-story engineered residential building identified as Sky Villa Condominium in Mandalay, Myanmar. The structure is flattened into a compacted pile of concrete slabs, fractured structural beams, masonry debris, and exposed rebar, with broken household contents and damaged foliage visible.",
+        "reasoning": "The complete pancake collapse of a modern, multi-story reinforced concrete condominium represents extreme structural failure. MMI 9 is defined by partial or complete collapse of substantial buildings, while MMI 10 involves the destruction of most masonry and frame structures. A rating of 9.5 accurately captures this catastrophic structural destruction."
+      },
+      "duplicate_of": "26af0235"
+    },
+    {
+      "file_name": "page-065.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Sky Villa' at distance 0.0 m from 26af0235",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Sky Villa' at distance 0.0 m from 26af0235"
+      ],
+      "observation_data": {
+        "file_name": "page-065.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 9.5,
+          "confidence": 0.88
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.9857396,
+            "longitude": 96.11611909999999
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Sky Villa",
+          "rrup_km": 13.51
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Catastrophic structural failure showing complete pancake collapse of the multi-story Sky Villa Condominium complex. Floor slabs have completely compressed onto each other with shattered concrete, exposed and bent steel rebar, disintegrated fenestration, and detached infrastructure. Search and rescue personnel and crowds of onlookers surround the dense debris field.",
+        "reasoning": "MMI IX is characterized by 'Damage great in substantial buildings, with partial or complete collapse; well-designed frame structures thrown out of plumb', while MMI X involves 'most masonry and frame structures destroyed with foundations'. Given the complete pancake collapse of an engineered modern multi-story condominium, an intensity of MMI 9.5 (MMI IX-X) is justified."
+      },
+      "duplicate_of": "26af0235"
+    },
+    {
+      "file_name": "page-067.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Mandalay, Myanmar' at distance 0.0 m from 2fd5f85f",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Mandalay, Myanmar' at distance 0.0 m from 2fd5f85f"
+      ],
+      "observation_data": {
+        "file_name": "page-067.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 8.5,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.9588,
+            "longitude": 96.0891
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Mandalay, Myanmar",
+          "rrup_km": 10.762
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Complete pancaking and collapse of the lower floors of a multi-story reinforced concrete building with masonry infill. Upper floors have collapsed downward and tilted into the street, leaving exposed rebar, shattered masonry, and fallen utility cables. An adjacent building shows visible distress, cracking, and fallen facade debris.",
+        "reasoning": "In accordance with MMI criteria, substantial damage with partial to complete structural collapse of ordinary substantial buildings and reinforced concrete framed structures aligns squarely between MMI VIII (considerable damage in ordinary substantial buildings with partial collapse) and MMI IX (damage great in substantial buildings with partial or complete collapse). Hence, an intermediate MMI of 8.5 is assigned."
+      },
+      "duplicate_of": "2fd5f85f"
+    },
+    {
+      "file_name": "page-071.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Mandalay, Myanmar' at distance 0.0 m from 2fd5f85f",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Mandalay, Myanmar' at distance 0.0 m from 2fd5f85f"
+      ],
+      "observation_data": {
+        "file_name": "page-071.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 8.5,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.9588,
+            "longitude": 96.0891
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Mandalay, Myanmar",
+          "rrup_km": 10.762
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Post-earthquake reconnaissance image documenting catastrophic structural failure in Mandalay, Myanmar. A multi-story reinforced concrete frame building has suffered a soft-story collapse at the ground level, pancaking down onto parked vehicles and shedding concrete and masonry debris across the street.",
+        "reasoning": "The observed damage fits between MMI VIII (Severe) and MMI IX (Violent). Criteria for MMI IX include 'damage great in substantial buildings, with partial or complete collapse' and 'well-designed frame structures thrown out of plumb'. The complete pancaking of the ground story of a substantial RC building and tilting of upper levels corresponds directly to MMI 8.5."
+      },
+      "duplicate_of": "2fd5f85f"
+    },
+    {
+      "file_name": "page-073.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Sagaing, Myanmar' at distance 0.0 m from aa51b06d",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Sagaing, Myanmar' at distance 0.0 m from aa51b06d"
+      ],
+      "observation_data": {
+        "file_name": "page-073.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 8.0,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.8787,
+            "longitude": 95.9797
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Sagaing, Myanmar",
+          "rrup_km": 0.557
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Multi-story brick-nogging structure showing out-of-plane detachment and partial collapse of brick infill masonry walls, severe diagonal shear cracks, and scattered debris around window frames and perimeter.",
+        "reasoning": "The description highlights panel walls thrown outward/detached from the framing and partial collapse of unreinforced masonry infill along with extensive diagonal cracking. According to the MMI scale reference, MMI VIII is characterized by 'panel walls thrown out of frame structures' and 'considerable [damage] in ordinary substantial buildings with partial collapse', matching the visual findings."
+      },
+      "duplicate_of": "aa51b06d"
+    },
+    {
+      "file_name": "page-092.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Sagaing city' at distance 10.5 m from 04605241",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Sagaing city' at distance 10.5 m from 04605241"
+      ],
+      "observation_data": {
+        "file_name": "page-092.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 8.0,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.880128,
+            "longitude": 95.982742
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Sagaing city",
+          "rrup_km": 0.238
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Partial to near-total collapse of a low-rise unreinforced brick masonry commercial building identified as 'GPS Spare Parts and Phone Service' across from Eleven Mobile shop in Sagaing city, Myanmar. Extensive piles of brick rubble, collapsed roofing materials, corrugated sheeting, and sagging structural frames spill onto the roadway and walkway.",
+        "reasoning": "Unreinforced masonry suffered severe destruction and partial collapse with extensive brick debris spilled into the roadway, matching the MMI VIII descriptor: 'damage considerable in ordinary substantial buildings with partial collapse; great in poorly built structures.' The fact that adjacent multi-story buildings and utility poles remain upright supports an intensity of MMI 8.0 rather than widespread MMI 9."
+      },
+      "duplicate_of": "04605241"
+    },
+    {
+      "file_name": "page-113.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Thailand, Bangkok' at distance 0.0 m from d3345d06",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Thailand, Bangkok' at distance 0.0 m from d3345d06"
+      ],
+      "observation_data": {
+        "file_name": "page-113.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 5.5,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 13.728076,
+            "longitude": 100.58058
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Thailand, Bangkok",
+          "rrup_km": 661.315
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Seismic damage inspection of a modern high-rise structure showing minor cosmetic and non-structural damage. In the parking ramp area, diagonal shear and settlement cracking is visible along the corner plaster/stucco finishes. In the interior hallway (around units 1709 and 1717 on the 17th floor), distinct diagonal cracks are observed propagating from door frames across upper wall finishes. No primary structural members exhibit catastrophic failure.",
+        "reasoning": "The observed damage consists of minor to moderate cracking of non-structural plaster and interior drywall partitions, particularly amplified on the upper floors of a modern high-rise. This corresponds well with the boundary between MMI V (Felt by nearly everyone, cracked plaster) and MMI VI (Felt by all, slight damage to plaster/finishes). Given the amplification on floor 17 with minimal structural damage, an MMI of 5.5 is estimated."
+      },
+      "duplicate_of": "d3345d06"
+    },
+    {
+      "file_name": "page-117.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Source' at distance 0.0 m from 07187abd",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Source' at distance 0.0 m from 07187abd"
+      ],
+      "observation_data": {
+        "file_name": "page-117.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 8.5,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.878951,
+            "longitude": 95.980284
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Source",
+          "rrup_km": 0.496
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Satellite before-and-after imagery analysis of Basic Education High School 1 (BEHS 1) in Sagaing, Myanmar, showing the total roof and structural collapse of the Chemistry Lab building while adjacent structures remained standing.",
+        "reasoning": "The observed damage shows complete collapse of an ordinary substantial masonry/institutional building (Chemistry Lab). According to the MMI scale, MMI VIII involves partial collapse in ordinary substantial buildings and great damage in poorly built structures, whereas MMI IX involves great damage with partial or complete collapse in substantial buildings. The total collapse of this structural unit aligns well with an intensity between VIII and IX (MMI 8.5)."
+      },
+      "duplicate_of": "07187abd"
+    },
+    {
+      "file_name": "page-121.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'University of Mandalay, Coordinates' at distance 0.0 m from 6f73ec2c",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'University of Mandalay, Coordinates' at distance 0.0 m from 6f73ec2c"
+      ],
+      "observation_data": {
+        "file_name": "page-121.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 8.5,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.9564,
+            "longitude": 96.0948
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "University of Mandalay, Coordinates",
+          "rrup_km": 11.36
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Seismic damage assessment at University of Mandalay showing severe upper floor/roof collapse, masonry wall cracking, interior destruction with debris piles, and post-earthquake fire soot/charring.",
+        "reasoning": "Observed damage aligns well with MMI VIII to IX criteria. MMI VIII entails considerable damage in ordinary substantial buildings with partial collapse, and panel walls thrown out of frame structures. MMI IX features great damage in substantial buildings with partial or complete collapse. With partial upper collapse, extensive interior debris, and severe structural compromise, an intensity of 8.5 is assigned."
+      },
+      "duplicate_of": "6f73ec2c"
+    },
+    {
+      "file_name": "page-138.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Sagaing General Hospital' at distance 0.0 m from 3d580840",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Sagaing General Hospital' at distance 0.0 m from 3d580840"
+      ],
+      "observation_data": {
+        "file_name": "page-138.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 5.5,
+          "confidence": 0.8
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.87314,
+            "longitude": 95.9755
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Sagaing General Hospital",
+          "rrup_km": 1.011
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Assessment of Sagaing General Hospital compound. Visuals show patients, staff, and civilians gathered outside under canopies and walkways. The engineered concrete/masonry hospital structures are completely standing without visible structural failure, collapse, or major cracking. Minor non-structural disruptions and operational strains due to power outages were reported.",
+        "reasoning": "The hospital building of good design and reinforced construction exhibits negligible to no structural damage. People gathered outside and power supply was impacted. According to the MMI definitions, strong shaking felt by all where buildings of good construction sustain negligible damage corresponds to MMI V to VI (evaluated at 5.5)."
+      },
+      "duplicate_of": "3d580840"
+    },
+    {
+      "file_name": "page-143.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Source' at distance 0.0 m from f1d9b7b2",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Source' at distance 0.0 m from f1d9b7b2"
+      ],
+      "observation_data": {
+        "file_name": "page-143.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 7.5,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 19.74473,
+            "longitude": 96.10324
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Source",
+          "rrup_km": 6.758
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Seismic damage assessment at Naypyidaw General Hospital showing a completely collapsed entrance portico/canopy with buckled support columns, while the adjacent primary hospital building remains standing.",
+        "reasoning": "Under MMI criteria, MMI VII produces slight to moderate damage in well-built ordinary structures and considerable damage in poorly built or detached appendages. MMI VIII entails partial collapse in substantial buildings and fall of columns, monuments, and porticos. The total collapse of a massive engineered entrance canopy alongside structural survival of the main building places this shaking intensity solidly between MMI VII and VIII (MMI 7.5)."
+      },
+      "duplicate_of": "f1d9b7b2"
+    },
+    {
+      "file_name": "page-144.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Source' at distance 0.0 m from f1d9b7b2",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Source' at distance 0.0 m from f1d9b7b2"
+      ],
+      "observation_data": {
+        "file_name": "page-144.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 8.0,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 19.74473,
+            "longitude": 96.10324
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Source",
+          "rrup_km": 6.758
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Total downward structural collapse of a heavy reinforced concrete entrance canopy attached to the Emergency Department building at Nay Pyi Taw General Hospital, crushing an automobile beneath the structural slab.",
+        "reasoning": "The observed damage aligns with MMI VIII (Severe), where ordinary substantial buildings suffer partial structural failure, detachment, or collapse of appendages, heavy columns, and attached canopy structures, while the main frame remains largely standing. MMI IX is ruled out for a single point estimate because the main reinforced concrete hospital building did not sustain widespread complete structural collapse."
+      },
+      "duplicate_of": "f1d9b7b2"
+    },
+    {
+      "file_name": "page-149.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Sagaing Township Fire Station, Coordinates' at distance 0.0 m from c850362d",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Sagaing Township Fire Station, Coordinates' at distance 0.0 m from c850362d"
+      ],
+      "observation_data": {
+        "file_name": "page-149.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 8.5,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.87885,
+            "longitude": 95.98793
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Sagaing Township Fire Station, Coordinates",
+          "rrup_km": 0.291
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Severe ground-level soft-story lateral collapse at the Sagaing Township Fire Station. Reinforced concrete support columns of the ground-floor apparatus bays suffered catastrophic shear failure and bent over, causing the upper level to drop directly onto parked emergency vehicles including fire engines and an ambulance.",
+        "reasoning": "The collapse features considerable damage to a substantial reinforced concrete building with partial/soft-story collapse and structural displacement. In accordance with MMI VIII ('Damage considerable in ordinary substantial buildings with partial collapse') and bridging to MMI IX ('Damage great in substantial buildings, with partial or complete collapse'), an intensity of 8.5 is assigned given the structural vulnerability of the soft-story design."
+      },
+      "duplicate_of": "c850362d"
+    },
+    {
+      "file_name": "page-157.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Ananda Pagoda, Mandalay' at distance 0.0 m from ccd32a26",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Ananda Pagoda, Mandalay' at distance 0.0 m from ccd32a26"
+      ],
+      "observation_data": {
+        "file_name": "page-157.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 7.5,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.95,
+            "longitude": 96.08049
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Ananda Pagoda, Mandalay",
+          "rrup_km": 9.914
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Seismic damage assessment of Ananda Pagoda entrance in Mandalay, Myanmar, following earthquake shaking. The site suffered structural failure of decorative spires, pediments, and upper masonry parapets, producing heavy debris falls around the arched entrance.",
+        "reasoning": "The observed damage aligns with MMI VII to VIII. Under MMI VII, damage is considerable in poorly built or unreinforced structures, with plaster fall and broken chimneys/ornaments. MMI VIII entails the fall of monuments, columns, and partial collapse of vulnerable masonry elements. The collapse of upper decorative masonry parapets, pinnacles, and significant accumulation of masonry rubble while the main load-bearing lower walls stay intact warrants an intermediate rating of MMI 7.5."
+      },
+      "duplicate_of": "ccd32a26"
+    },
+    {
+      "file_name": "page-159.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'West of Mandalay' at distance 0.0 m from aef7edb2",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'West of Mandalay' at distance 0.0 m from aef7edb2"
+      ],
+      "observation_data": {
+        "file_name": "page-159.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 9.5,
+          "confidence": 0.9
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.964477,
+            "longitude": 96.066689
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "West of Mandalay",
+          "rrup_km": 8.428
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Total progressive pancake collapse of a multi-story reinforced concrete frame building (monk's quarters) at the New Masoeyein Monastery in Mandalay, Myanmar. A decorative concrete and masonry clock tower is toppled and fragmented on the ground, producing massive dust plumes as bystanders and monks observe in shock.",
+        "reasoning": "The observed damage features complete progressive pancake collapse of a multi-story reinforced concrete frame building and total destruction of an adjacent masonry/concrete clock tower. This degree of severe destruction aligns with MMI IX (Violent: damage great in substantial buildings with partial or complete collapse) to MMI X (Disastrous: reinforced masonry/frame structures destroyed). Thus, an intensity of 9.5 is assigned."
+      },
+      "duplicate_of": "aef7edb2"
+    },
+    {
+      "file_name": "page-160.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'West of Mandalay' at distance 0.0 m from aef7edb2",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'West of Mandalay' at distance 0.0 m from aef7edb2"
+      ],
+      "observation_data": {
+        "file_name": "page-160.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 9.0,
+          "confidence": 0.9
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.964477,
+            "longitude": 96.066689
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "West of Mandalay",
+          "rrup_km": 8.428
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Progressive collapse of a multi-story reinforced concrete building (monks' quarters at New Masoeyein Monastery) exhibiting critical shear and beam-column joint failure at the lower levels, crushing into an adjacent structure.",
+        "reasoning": "According to the MMI scale, MMI 9 (Violent) is characterized by damage great in substantial buildings, with partial or complete collapse, and well-designed or engineered frame structures thrown out of plumb. The complete failure of lower-level reinforced concrete columns and collapse of this multi-story monastery building aligns with MMI 9."
+      },
+      "duplicate_of": "aef7edb2"
+    },
+    {
+      "file_name": "page-162.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Source' at distance 0.0 m from 5a4a94ef",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Source' at distance 0.0 m from 5a4a94ef"
+      ],
+      "observation_data": {
+        "file_name": "page-162.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 9.5,
+          "confidence": 0.95
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 22.02631,
+            "longitude": 96.01598
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Source",
+          "rrup_km": 3.469
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Severe structural collapse of the Golden Jubilee Hall at the Tipitaka Nikaya Monastery in Min Kun, Myanmar. The lower three stories of this multi-story reinforced concrete frame structure experienced total pancake collapse, with upper levels severely tilted and fragmented on top of compacted rubble.",
+        "reasoning": "The severe pancake collapse of three stories in a substantial reinforced concrete frame building aligns directly with criteria for MMI IX to MMI X. According to the MMI definitions, MMI IX involves great damage in substantial buildings with partial or complete collapse and structures thrown out of plumb, while MMI X involves destruction of well-built masonry and frame structures. A score of 9.5 accurately captures this catastrophic damage state."
+      },
+      "duplicate_of": "5a4a94ef"
+    },
+    {
+      "file_name": "page-197.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Source' at distance 0.0 m from 0b3d0040",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Source' at distance 0.0 m from 0b3d0040"
+      ],
+      "observation_data": {
+        "file_name": "page-197.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 9.5,
+          "confidence": 0.95
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.831334,
+            "longitude": 95.990537
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Source",
+          "rrup_km": 0.38
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Severe failure and collapse of bridge deck spans into the Myitnge River at the Duthawaddy Bridge on AH1 just south of Mandalay. Reinforced concrete piers experienced catastrophic shearing failure, abutments show lateral displacement and fracture, and the approach roadway displays major fissuring, differential settlement, and lateral spreading.",
+        "reasoning": "The collapse of bridge spans, destruction of reinforced concrete piers, widespread cracking and severe displacement of approach roadways, and severe abutment displacement are hallmark diagnostic indicators of MMI IX (Violent) to MMI X (Very Violent / Extreme). An intensity of 9.5 aligns accurately with severe destruction of major bridge infrastructure accompanied by substantial ground deformation and cracking along riverbanks."
+      },
+      "duplicate_of": "0b3d0040"
+    },
+    {
+      "file_name": "page-202.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Sagaing-Mandalay (Myo Patt Road)' at distance 0.0 m from 1de7a414",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Sagaing-Mandalay (Myo Patt Road)' at distance 0.0 m from 1de7a414"
+      ],
+      "observation_data": {
+        "file_name": "page-202.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 8.5,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.916589,
+            "longitude": 96.04496
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Sagaing-Mandalay (Myo Patt Road)",
+          "rrup_km": 6.31
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Comparative satellite imagery (before and after) showing surface fault rupture traversing agricultural fields and intersecting the Sagaing-Mandalay (Myo Patt Road), resulting in roadway offset/disruption and vehicle queues.",
+        "reasoning": "MMI IX includes criteria where ground is cracked conspicuously, underground utilities or roadways are broken/shifted, and structural deformation occurs along surface fault traces. The visible ground rupture traversing farmland and severely offsetting/disrupting a major paved road aligns closely with MMI VIII-IX effects (assigned MMI 8.5)."
+      },
+      "duplicate_of": "1de7a414"
+    },
+    {
+      "file_name": "page-210.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Naypyidaw, Myanmar' at distance 0.0 m from 361c9237",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Naypyidaw, Myanmar' at distance 0.0 m from 361c9237"
+      ],
+      "observation_data": {
+        "file_name": "page-210.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 8.5,
+          "confidence": 0.85
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 19.7633,
+            "longitude": 96.0785
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Naypyidaw, Myanmar",
+          "rrup_km": 9.017
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Severe ground rupture, fissuring, and pavement displacement observed along a multi-lane roadway in Naypyidaw, Myanmar. Prominent longitudinal and diagonal fault cracking has opened deep trenches along the road edge and median divider, exposing subgrade soil layers with vertical and lateral offsets.",
+        "reasoning": "Diagnostic criteria indicate conspicuous ground cracking, significant opening of deep fissures in paved roadways, and lateral/vertical offset of subgrade fill, matching the boundary criteria of MMI VIII (severe damage to civil infrastructure, cracks in wet ground and steep slopes) and MMI IX (ground cracked conspicuously, underground pipes and road subgrades ruptured). Thus, MMI 8.5 is assigned."
+      },
+      "duplicate_of": "361c9237"
+    },
+    {
+      "file_name": "test_page1.pdf",
+      "reason": "DUPLICATE_SITE: Repeated observation of site 'Sagaing city' at distance 0.0 m from 458bfe9e",
+      "exclusion_reasons": [
+        "DUPLICATE_SITE: Repeated observation of site 'Sagaing city' at distance 0.0 m from 458bfe9e"
+      ],
+      "observation_data": {
+        "file_name": "test_page1.pdf",
+        "model_identifier": "gemini-3.8-flash",
+        "seismic_intensity": {
+          "mmi_estimation": 9.5,
+          "confidence": 0.92
+        },
+        "geographic_resolution": {
+          "coordinates": {
+            "latitude": 21.880352777777777,
+            "longitude": 95.98488055555556
+          },
+          "has_valid_coordinates": true,
+          "has_exportable_site_coordinates": true,
+          "can_export_to_shakemap": true,
+          "precision_level": "site_specific_address",
+          "place_name": "Sagaing city",
+          "rrup_km": 0.017
+        },
+        "screening": {
+          "relevance_decision": "ESTIMABLE"
+        },
+        "quality_control": {
+          "status": "PASSED"
+        },
+        "human_in_the_loop": {
+          "review_required": false
+        },
+        "damage_description": "Earthquake damage assessment in Sagaing city displaying primary tectonic surface rupture with an approximate 1-meter right-lateral offset of the central road median curb, extensive asphalt buckling and ground fissures, complete structural collapse of roadside buildings, and heavy distress to adjacent multi-story structures.",
+        "reasoning": "Consistent with MMI IX (Violent) to MMI X (Very Disastrous). Conspicuous ground cracking, complete collapse of vulnerable roadside structures, heavy damage to substantial buildings, and primary surface fault displacement (~1 m offset of the road median curb) clearly satisfy MMI IX criteria ('ground cracked conspicuously', 'partial or complete collapse of substantial buildings') progressing into MMI X characteristics due to direct surface rupture and fault displacement through infrastructure."
+      },
+      "duplicate_of": "458bfe9e"
+    }
+  ],
+  "spatial_clusters": {
+    "cluster_001": [
+      "5827dc36",
+      "16ef53ef",
+      "af31f625",
+      "9a6d0f06"
+    ],
+    "cluster_002": [
+      "458bfe9e",
+      "325dd618",
+      "2bdf04dc",
+      "1e996de2"
+    ],
+    "cluster_003": [
+      "821988c3",
+      "100849ac"
+    ],
+    "cluster_004": [
+      "cad2e953",
+      "3fa88d0e"
+    ],
+    "cluster_005": [
+      "c9874e9b",
+      "26af0235"
+    ],
+    "cluster_006": [
+      "5b26dce3",
+      "29489177"
+    ],
+    "cluster_007": [
+      "9def1cf4",
+      "aa51b06d",
+      "07187abd",
+      "468f4a29"
+    ],
+    "cluster_008": [
+      "17cc525d",
+      "671b74b4"
+    ],
+    "cluster_009": [
+      "04605241",
+      "a79085fa",
+      "13acf3e6",
+      "aaebacff"
+    ],
+    "cluster_010": [
+      "b3961540",
+      "e5c91989",
+      "b3c9365a"
+    ],
+    "cluster_011": [
+      "c1b2d8da",
+      "8da4d471"
+    ],
+    "cluster_012": [
+      "f3cea677",
+      "a87c87c4"
+    ],
+    "cluster_013": [
+      "c9a4bf73",
+      "c83c2e88",
+      "6f73ec2c"
+    ],
+    "cluster_014": [
+      "df2d5646",
+      "5939fb79",
+      "517c1001",
+      "5f7f27a8"
+    ],
+    "cluster_015": [
+      "3d580840",
+      "e0057400"
+    ],
+    "cluster_016": [
+      "701aa939",
+      "00e1fdc3",
+      "f1d9b7b2"
+    ],
+    "cluster_017": [
+      "348932af",
+      "8261080c",
+      "08c2c48e",
+      "eda55c30"
+    ],
+    "cluster_018": [
+      "b61899ea",
+      "563a2f83"
+    ],
+    "cluster_019": [
+      "fe2924df",
+      "caafe437"
+    ],
+    "cluster_020": [
+      "58e31fcc",
+      "04187424",
+      "dd94d4a8",
+      "832f5fce"
+    ],
+    "cluster_021": [
+      "ca0fc3a8",
+      "0b3d0040",
+      "1aa89e95"
+    ],
+    "cluster_022": [
+      "6def7dc8",
+      "44d7d863"
+    ]
+  }
+}

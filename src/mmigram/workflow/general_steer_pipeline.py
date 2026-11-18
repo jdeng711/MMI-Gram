@@ -39,6 +39,11 @@ from ..qc.checker import evaluate_quality
 from ..review.queue import HumanReviewQueue
 from ..telemetry.tracer import StructuredAgentLogger
 from ..screening.composite_screener import CompositeScreener, ScreeningResult
+from ..seismology.usgs_products import USGSProductProvider
+from ..seismology.rrup_calculator import RrupCalculator
+from ..seismology.physics_critic import PhysicsCritic, SeismologicalConsistencyResult
+from ..seismology.shakemap_exporter import ShakeMapExporter, UncertaintyStrategy
+from ..cartography.mmi_rrup_plotter import MMIRrupPlotter
 
 
 def find_fixtures_dir() -> Path:
@@ -114,6 +119,30 @@ class GeneralSteerPipeline:
             "synthetic_steer_page2_mandalay.pdf": "synthetic_steer_page2_mandalay.json",
             "synthetic_steer_page3_no_coords.pdf": "synthetic_steer_page3_no_coords.json",
         }
+
+        # USGS Seismology & Finite-Fault Rupture Engine (Stage 4A)
+        self.usgs_provider = USGSProductProvider(allow_live_download=self.allow_live_api)
+        rupture_data = self.usgs_provider.get_rupture(self.event_id)
+        if not rupture_data:
+            cand_paths = [
+                Path(f"data/events/{self.event_id}/usgs/rupture.json"),
+                self.fixtures_dir / "usgs" / "rupture.json",
+                self.fixtures_dir / "rupture.json",
+            ]
+            for cp in cand_paths:
+                if cp.exists():
+                    try:
+                        with open(cp, "r", encoding="utf-8") as f:
+                            rupture_data = json.load(f)
+                            break
+                    except Exception:
+                        pass
+
+        self.rrup_calculator = RrupCalculator(rupture_geojson=rupture_data)
+        self.physics_critic = PhysicsCritic(
+            rrup_calculator=self.rrup_calculator,
+            rupture_geojson=rupture_data,
+        )
 
     def reset_screener(self):
         """Reset screener state (e.g. duplicate media cache)."""
@@ -239,8 +268,23 @@ class GeneralSteerPipeline:
                     "has_exportable_site_coordinates": preliminary_loc.has_exportable_site_coordinates,
                     "precision_level": preliminary_loc.precision_level,
                     "selection_rationale": preliminary_loc.selection_rationale,
+                    "rrup_km": None,
+                    "repi_km": None,
+                    "rupture_distance_source": "unavailable",
+                    "surface_faulting_observed": False,
                     "can_export_to_shakemap": False,
                     "is_authoritative": False,
+                },
+                "seismological_assessment": {
+                    "is_physically_plausible": True,
+                    "rrup_km": None,
+                    "repi_km": None,
+                    "rhypo_km": None,
+                    "rupture_distance_source": "unavailable",
+                    "surface_faulting_observed": False,
+                    "plausibility_flags": [],
+                    "critic_notes": "Skipped due to NOT_ESTIMABLE classification",
+                    "expected_mmi_range": None,
                 },
                 "quality_control": {
                     "status": "SCREENED_OUT",
@@ -353,8 +397,23 @@ class GeneralSteerPipeline:
                     "has_exportable_site_coordinates": preliminary_loc.has_exportable_site_coordinates,
                     "precision_level": preliminary_loc.precision_level,
                     "selection_rationale": preliminary_loc.selection_rationale,
+                    "rrup_km": None,
+                    "repi_km": None,
+                    "rupture_distance_source": "unavailable",
+                    "surface_faulting_observed": False,
                     "can_export_to_shakemap": False,
                     "is_authoritative": False,
+                },
+                "seismological_assessment": {
+                    "is_physically_plausible": True,
+                    "rrup_km": None,
+                    "repi_km": None,
+                    "rhypo_km": None,
+                    "rupture_distance_source": "unavailable",
+                    "surface_faulting_observed": False,
+                    "plausibility_flags": [],
+                    "critic_notes": "Deferred due to REVIEW_REQUIRED classification",
+                    "expected_mmi_range": None,
                 },
                 "quality_control": {
                     "status": "FLAGGED",
@@ -529,6 +588,25 @@ class GeneralSteerPipeline:
         discrepancy_distance_km = location_context.discrepancy_distance_km
 
         # ──────────────────────────────────────────────────────────────────────
+        # Step 3d: Finite-Fault Rupture Distance & Seismological Plausibility (Stage 4A)
+        # ──────────────────────────────────────────────────────────────────────
+        lat = primary_coords.latitude if primary_coords and primary_coords.is_valid else None
+        lon = primary_coords.longitude if primary_coords and primary_coords.is_valid else None
+        evidence_text = f"{extraction.extracted_text or ''} {visual_obs or ''}"
+
+        physics_eval = self.physics_critic.evaluate_observation(
+            mmi=mmi_val,
+            latitude=lat,
+            longitude=lon,
+            evidence_text=evidence_text,
+        )
+
+        location_context.rrup_km = physics_eval.rrup_km
+        location_context.repi_km = physics_eval.repi_km
+        location_context.rupture_distance_source = physics_eval.rupture_distance_source
+        location_context.surface_faulting_observed = physics_eval.surface_faulting_observed
+
+        # ──────────────────────────────────────────────────────────────────────
         # Step 4: Normalization into MMI-Gram Structured State Schema
         # ──────────────────────────────────────────────────────────────────────
         estimation = MMIEstimationResult(
@@ -602,6 +680,12 @@ class GeneralSteerPipeline:
             if not primary_coords.is_authoritative:
                 review_required = True
                 triggers.append("Candidate coordinates require expert validation against epicentral maps.")
+
+        # Incorporate seismological and finite-fault physics consistency triggers (Stage 4A)
+        if not physics_eval.is_physically_plausible:
+            review_required = True
+            for pflag in physics_eval.plausibility_flags:
+                triggers.append(f"Seismological consistency flag: {pflag} ({physics_eval.critic_notes})")
 
         # Incorporate screening-stage review triggers if any
         if screening_res.review_required:
@@ -730,9 +814,14 @@ class GeneralSteerPipeline:
                 "has_exportable_site_coordinates": location_context.has_exportable_site_coordinates,
                 "precision_level": location_context.precision_level,
                 "selection_rationale": location_context.selection_rationale,
+                "rrup_km": physics_eval.rrup_km,
+                "repi_km": physics_eval.repi_km,
+                "rupture_distance_source": physics_eval.rupture_distance_source,
+                "surface_faulting_observed": physics_eval.surface_faulting_observed,
                 "can_export_to_shakemap": final_can_export,
                 "is_authoritative": False,
             },
+            "seismological_assessment": physics_eval.to_dict(),
             "quality_control": {
                 "status": qc.qc_status,
                 "flags": qc.qc_flags,
@@ -747,3 +836,66 @@ class GeneralSteerPipeline:
 
         self.logger.log_node_exit("ingest_pdf", final_summary, duration_ms=duration_ms)
         return final_summary
+
+    def export_shakemap_observations(
+        self,
+        results: List[Dict[str, Any]],
+        output_dir: Union[str, Path],
+        event_id: Optional[str] = None,
+        uncertainty_strategy: str = "standard_consensus",
+        expert_uncertainty: float = 0.50,
+        output_filename: str = "agent_mmi_dat.json",
+    ) -> Dict[str, Any]:
+        """
+        Export pipeline analysis results to official USGS ShakeMap 4.5 GeoJSON observation file.
+        """
+        exporter = ShakeMapExporter(
+            output_dir=output_dir,
+            event_id=event_id or self.event_id,
+            uncertainty_strategy=uncertainty_strategy,
+            expert_uncertainty=expert_uncertainty,
+        )
+        return exporter.export_observations(results, output_filename=output_filename)
+
+    def plot_mmi_vs_rrup(
+        self,
+        results: List[Dict[str, Any]],
+        output_dir: Union[str, Path],
+        event_id: Optional[str] = None,
+        dyfi_stationlist: Optional[Union[str, Path, Dict[str, Any]]] = None,
+        attenuation_curves: Optional[Union[str, Path, Dict[str, Any]]] = None,
+        base_filename: str = "mmi_vs_rrup",
+    ) -> Dict[str, str]:
+        """
+        Generate publication-ready MMI vs Rrup plots with ShakeMap color scheme.
+        """
+        eid = event_id or self.event_id
+        if dyfi_stationlist is None:
+            dyfi_stationlist = self.usgs_provider.get_stationlist(eid)
+            if not dyfi_stationlist:
+                cand = self.fixtures_dir / "usgs" / "stationlist_compact.json"
+                if cand.exists():
+                    try:
+                        with open(cand, "r", encoding="utf-8") as f:
+                            dyfi_stationlist = json.load(f)
+                    except Exception:
+                        pass
+
+        if attenuation_curves is None:
+            attenuation_curves = self.usgs_provider.get_attenuation_curves(eid)
+            if not attenuation_curves:
+                cand = self.fixtures_dir / "usgs" / "attenuation_curves.json"
+                if cand.exists():
+                    try:
+                        with open(cand, "r", encoding="utf-8") as f:
+                            attenuation_curves = json.load(f)
+                    except Exception:
+                        pass
+
+        plotter = MMIRrupPlotter(output_dir=output_dir, event_id=eid)
+        return plotter.plot(
+            observations=results,
+            dyfi_stationlist=dyfi_stationlist,
+            attenuation_curves=attenuation_curves,
+            base_filename=base_filename,
+        )
