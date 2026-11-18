@@ -149,3 +149,19 @@ Save this exact prompt and your actual response in the Antigravity research arch
 - **Command:** `PYTHONPATH="src:server:.clean_venv/lib/python3.13/site-packages" /opt/anaconda3/bin/pytest tests`
 - **Result:** **207 passed, 1 skipped** (100% offline, zero network requests, $0.00 API expenditure).
 - **Git Commit:** Committed to `feature/quake-agent-integration` and pushed to `origin/feature/quake-agent-integration`.
+- **Remote Branch URL:** `https://github.com/jdeng711/MMI-Gram/tree/feature/quake-agent-integration`
+
+---
+
+## 4. Next Experimental Milestone & Recommendations (Stage 4B Part 2B)
+
+### 4.1 Controlled Pilot Augmentation Design
+For the upcoming Stage 4B Part 2B experiment:
+1. **Zero Automated Promotion:** No unreviewed candidates from `agent_evaluations_myanmar.json` will be ingested into the augmented ShakeMap without explicit human expert review recorded in `pilot_expert_review_manifest.json`.
+2. **Prioritized Pilot Order for Review:**
+   - **Top Priority (Pure Inertial Shaking):** Candidate **P-02** (`page-076.pdf`, KBZ Bank Pyawbwe, MMI 9.0). This site is in an engineered RC building, free of surface rupture, and fills an otherwise completely unobserved 31-km void between USGS DYFI stations.
+   - **High Priority (Rural/Residential Fragility):** Candidate **P-03** (`page-047.pdf`, Pyinmana residential, MMI 8.5). Reviewer should evaluate whether damage reflects ground motion or high vulnerability of Class A/B brick-nogging structures.
+   - **Caution / Split-Phenomenon Sites:** Candidates **P-01** (Thazi solar farm, fault displacement dominated), **P-04** (Mandalay Satetaya, slope failure subsidence), and **P-05** (Sagaing street, mixed 1-m fault displacement and building collapse) require careful differentiation between shaking intensity and tectonic/geotechnical displacement.
+3. **Reproducible Execution Pipeline:**
+   Once review decisions are recorded, run the strict exporter with `--require-expert-approval` into `/Users/jasondeng/shakemap_profiles/myanmar_recon/data/us7000pn9s_augmented/current/`, execute `shake assemble model gridxml`, and run `ShakeMapGridComparator` to compute $\Delta\text{MMI}$, spatial impact footprint ($km^2$), and correlation with fault distance.
+
