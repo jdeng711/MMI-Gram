@@ -1,0 +1,3353 @@
+{
+  "execution_metadata": {
+    "generated_at": "2026-11-18T19:49:14.513752+00:00",
+    "run_mode": "full",
+    "dry_run": true,
+    "budget_limit_usd": 25.0,
+    "total_documents_targeted": 222,
+    "total_completed": 222,
+    "total_failed": 0,
+    "token_accounting": {
+      "api_calls": 222,
+      "prompt_tokens": 532800,
+      "candidates_tokens": 99900,
+      "thoughts_tokens": 55500,
+      "cached_tokens": 0,
+      "total_tokens": 686950,
+      "estimated_cost_usd": 0.98235
+    },
+    "pricing_version": "2026-11-pricing-standard-paid"
+  },
+  "documents": {
+    "page-1.pdf": {
+      "file_name": "page-1.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-1.pdf",
+      "file_size_bytes": 249933,
+      "sha256": "d9749954caa95bc1c92abf4ae89b3075000027fb0be974384761d777a55446ff",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-10.pdf": {
+      "file_name": "page-10.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-10.pdf",
+      "file_size_bytes": 328983,
+      "sha256": "138b02c1313253a2bda95ef53ddfaabc34488b5d3152eda86958e986a2c73a75",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-100.pdf": {
+      "file_name": "page-100.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-100.pdf",
+      "file_size_bytes": 563936,
+      "sha256": "303cfac28126f934a4bbbeba2a0eff9f44da2b26e6ac96f842a08f66a402ae3d",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-101.pdf": {
+      "file_name": "page-101.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-101.pdf",
+      "file_size_bytes": 331857,
+      "sha256": "3b646d2f1397e95d46c516c517825dde9a6297465cb9fb9769201432dd73f317",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-102.pdf": {
+      "file_name": "page-102.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-102.pdf",
+      "file_size_bytes": 430416,
+      "sha256": "43a00a7e7ac0c3c86d7a644f5c3ae4b6c3a76db4459d32cf1a0f786cffd0272e",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-103.pdf": {
+      "file_name": "page-103.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-103.pdf",
+      "file_size_bytes": 289169,
+      "sha256": "f052f49251c2484abac21ad4cf364f48e636e5e2295dc310a675c333c8ea3ebe",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-104.pdf": {
+      "file_name": "page-104.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-104.pdf",
+      "file_size_bytes": 425441,
+      "sha256": "67466873efc3a265a5a64a8599f0177ff3d93913080b6b66accaa97eda06dfbc",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-105.pdf": {
+      "file_name": "page-105.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-105.pdf",
+      "file_size_bytes": 891138,
+      "sha256": "16c4efd3be4dc6d5f40282e4439a69f0cb90ffe15d3509adce0251ce8d35ed1e",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-106.pdf": {
+      "file_name": "page-106.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-106.pdf",
+      "file_size_bytes": 534299,
+      "sha256": "2de9b9d975658db7acdf0a0b5d94ffbba0621c0e621756d4a39be383b1dfbf31",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-107.pdf": {
+      "file_name": "page-107.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-107.pdf",
+      "file_size_bytes": 400501,
+      "sha256": "5010cda4651dcac79db01cad8e91a5735fd987e685c378c2569e92243d9296b1",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-108.pdf": {
+      "file_name": "page-108.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-108.pdf",
+      "file_size_bytes": 734717,
+      "sha256": "8fb41262bcd2ebb87dd58821901f9ff16c7fbc6352f4d194d0c9f1f8a42c02c6",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-109.pdf": {
+      "file_name": "page-109.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-109.pdf",
+      "file_size_bytes": 358810,
+      "sha256": "e9a0a3ddb58c0c2245e3e229389054c9029183cad67f6e284d8d444ecdcb5c74",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-11.pdf": {
+      "file_name": "page-11.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-11.pdf",
+      "file_size_bytes": 301215,
+      "sha256": "b4eb64cd22b5fc442d55c9540c9d343a7414132f23b50828d90a34183b321128",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-110.pdf": {
+      "file_name": "page-110.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-110.pdf",
+      "file_size_bytes": 424746,
+      "sha256": "010bbbac2dc41ac197caeae42cc05f190b740923f67bf54a9f99d93beea4bd16",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-111.pdf": {
+      "file_name": "page-111.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-111.pdf",
+      "file_size_bytes": 247546,
+      "sha256": "0f8d0e30fe654cf4b4d8ee0dcda0e7f30c2f783230d8943c48dd9bc5ac1bafc4",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-112.pdf": {
+      "file_name": "page-112.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-112.pdf",
+      "file_size_bytes": 204748,
+      "sha256": "74870eaf2bc2456df0940fff3d2fb6d1c977fd2c04b88acafbd0c1203f563e0a",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-113.pdf": {
+      "file_name": "page-113.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-113.pdf",
+      "file_size_bytes": 316650,
+      "sha256": "d40a181a0a01778a2a5ebf0632332e2be94bd21012ca1e6ff3b722bdf00deaac",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-114.pdf": {
+      "file_name": "page-114.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-114.pdf",
+      "file_size_bytes": 122630,
+      "sha256": "e5cc9471821a1525508d13ca6d2cccfe51b460417e7f8d59b6e294a74b044d95",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-115.pdf": {
+      "file_name": "page-115.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-115.pdf",
+      "file_size_bytes": 801460,
+      "sha256": "c1e4e8b204204fde172a678c48d2cea69c396cc7af0bf749c3e017a683586a1c",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-116.pdf": {
+      "file_name": "page-116.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-116.pdf",
+      "file_size_bytes": 593465,
+      "sha256": "86d39a1f9162d0f197a367b1bf5f9b540662e68c90c59783d4c71dcadad33f0d",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-117.pdf": {
+      "file_name": "page-117.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-117.pdf",
+      "file_size_bytes": 302024,
+      "sha256": "dad5adaf82780fe631a85f6d09cca7cf08b3d62512fe8ed0a9b281884b843f25",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-118.pdf": {
+      "file_name": "page-118.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-118.pdf",
+      "file_size_bytes": 297498,
+      "sha256": "9471bb106b8e47053fe0453e8ab1856457b03aca875ce280d3a3bcc4d2104fac",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-119.pdf": {
+      "file_name": "page-119.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-119.pdf",
+      "file_size_bytes": 390045,
+      "sha256": "f0bec7b55bc2605ba0fe506c62d3020ec298491eaa7ad4f5e88357d4bd0c9c18",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-12.pdf": {
+      "file_name": "page-12.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-12.pdf",
+      "file_size_bytes": 839524,
+      "sha256": "8b718f4fff7a9f26a0a9e8d061e5e4f8cf00ba6bc9be967d23a20a8ebfbab384",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-120.pdf": {
+      "file_name": "page-120.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-120.pdf",
+      "file_size_bytes": 261515,
+      "sha256": "3a3a3dc7d405277ea087c2ba2de196d130761519820b83ecf25986a64779889b",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-121.pdf": {
+      "file_name": "page-121.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-121.pdf",
+      "file_size_bytes": 379470,
+      "sha256": "be38c9ed26fc1366ac32a803e7a073f0d4158dfb8bc8d47db071b765c442fd30",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-122.pdf": {
+      "file_name": "page-122.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-122.pdf",
+      "file_size_bytes": 486938,
+      "sha256": "9befd751ecb533ed2897ea2d0b6aa216f84ccad7d331f5bcdc28dc564562e779",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-123.pdf": {
+      "file_name": "page-123.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-123.pdf",
+      "file_size_bytes": 855323,
+      "sha256": "106b1284cee58322f54c2c227ce896ecfed745f3bcb3349876a811d1cfd5359c",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-124.pdf": {
+      "file_name": "page-124.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-124.pdf",
+      "file_size_bytes": 710875,
+      "sha256": "fceb44d6a2524308441b1f6f26c62e623b840ccb4d03413c4142331867a1fb99",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-125.pdf": {
+      "file_name": "page-125.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-125.pdf",
+      "file_size_bytes": 879535,
+      "sha256": "1ef83e62d49fd58ce50c592e44e04aa5adb9a4fe8275a7d28d174853755c506a",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-126.pdf": {
+      "file_name": "page-126.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-126.pdf",
+      "file_size_bytes": 354847,
+      "sha256": "a5c0636c500308b95c805ea60917c9aff31013167b63ae2170eddc7208853305",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-127.pdf": {
+      "file_name": "page-127.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-127.pdf",
+      "file_size_bytes": 702274,
+      "sha256": "58108e15593d684ce9048e61882c5281a82c5b151d2600757abb1692e2dd2b5d",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-128.pdf": {
+      "file_name": "page-128.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-128.pdf",
+      "file_size_bytes": 122650,
+      "sha256": "4412f7e1509ec3acdecb06034b07f2c444932ed040e07a2ec7b0f0cf2c215584",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-129.pdf": {
+      "file_name": "page-129.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-129.pdf",
+      "file_size_bytes": 361975,
+      "sha256": "8eacc7b6db65b80572eef11e64cc5093dab65c3852af7398d6704836787df079",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-13.pdf": {
+      "file_name": "page-13.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-13.pdf",
+      "file_size_bytes": 294411,
+      "sha256": "6a38b9c1cc46721b9c868af3a8838ac78f8281fb9e1ff882e65b3125ed2ab24a",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-130.pdf": {
+      "file_name": "page-130.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-130.pdf",
+      "file_size_bytes": 389552,
+      "sha256": "ab157beb322b0f54cbb34e1ccc43b402e98e853ee3392ed30c7811e09d52c05c",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-131.pdf": {
+      "file_name": "page-131.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-131.pdf",
+      "file_size_bytes": 525247,
+      "sha256": "44241139e5cc6a75040356f5750df40c446a01ef525721e5c2da0d457eff51ce",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-132.pdf": {
+      "file_name": "page-132.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-132.pdf",
+      "file_size_bytes": 361883,
+      "sha256": "6bf5902c17956976bbc8edeb37f25616f2b8f7f8e37bc4b854337e5254808772",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-133.pdf": {
+      "file_name": "page-133.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-133.pdf",
+      "file_size_bytes": 313944,
+      "sha256": "51dfc0c421a342834d92dc83a64218a6412afa8c9e42ab15707acc63c59afbb5",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-134.pdf": {
+      "file_name": "page-134.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-134.pdf",
+      "file_size_bytes": 263143,
+      "sha256": "32b3b459a758d9d91236e858096322ba62682f55e41532813a22da11fbc7a098",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-135.pdf": {
+      "file_name": "page-135.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-135.pdf",
+      "file_size_bytes": 217016,
+      "sha256": "e085147ef33b2025af279910cd1ac7afdc2d9bbe1618cbd153cdaffb0282923e",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-136.pdf": {
+      "file_name": "page-136.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-136.pdf",
+      "file_size_bytes": 337059,
+      "sha256": "23839e121302184858cfc3bbc2fbac7725014b96f36e29ab2949fecab0230cd9",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-137.pdf": {
+      "file_name": "page-137.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-137.pdf",
+      "file_size_bytes": 357389,
+      "sha256": "6c55e08e54c4fd8d8dedde0d49f404584b33c481550a054c811cc48af8619768",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-138.pdf": {
+      "file_name": "page-138.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-138.pdf",
+      "file_size_bytes": 318804,
+      "sha256": "33933adfbb1c67156341312704ec0ecb0e6593696a1095f700ae5113ef69cf4c",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-139.pdf": {
+      "file_name": "page-139.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-139.pdf",
+      "file_size_bytes": 213498,
+      "sha256": "4696b6ac11405206aaeb4dac4feaa6096294283d5ed56bda73f840d02f540bcf",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-14.pdf": {
+      "file_name": "page-14.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-14.pdf",
+      "file_size_bytes": 199808,
+      "sha256": "317090f7795f91720ef5c599b39f18f9d6bfd7b53d268a9e60b08303b9f995ee",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-140.pdf": {
+      "file_name": "page-140.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-140.pdf",
+      "file_size_bytes": 752957,
+      "sha256": "878be3dc3cbcc81acfad0cc8d49295d0fd060a0bc06b51d46bdba43b1163501e",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-141.pdf": {
+      "file_name": "page-141.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-141.pdf",
+      "file_size_bytes": 791487,
+      "sha256": "2d43fdbca37843c81e327c0b7972f05fa3dfef44cbbc19ba9cca430db5f6c491",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-142.pdf": {
+      "file_name": "page-142.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-142.pdf",
+      "file_size_bytes": 539314,
+      "sha256": "653ada6f91b7abbac5c73a8609cca962574e6ea33bc057087dacbaada9e966d1",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-143.pdf": {
+      "file_name": "page-143.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-143.pdf",
+      "file_size_bytes": 260284,
+      "sha256": "b554db9ed5089b071523a49267b30b6d7ebe6abf17e47cdfd0035184945a8610",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-144.pdf": {
+      "file_name": "page-144.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-144.pdf",
+      "file_size_bytes": 287360,
+      "sha256": "836f349caa49da08505f928ed2bec108c0ca598a3c48c9c650c9726bfa3022b4",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-145.pdf": {
+      "file_name": "page-145.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-145.pdf",
+      "file_size_bytes": 272890,
+      "sha256": "d22f34325998c0b2cd20c12844012a99b934cd33b6e759d9ecee68895fba3281",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-146.pdf": {
+      "file_name": "page-146.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-146.pdf",
+      "file_size_bytes": 350933,
+      "sha256": "e92023b0ebc90b2fae83d5c50fe34a428496b0e42d15befa6d71bdf9e18eb2f5",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-147.pdf": {
+      "file_name": "page-147.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-147.pdf",
+      "file_size_bytes": 122645,
+      "sha256": "12ec99a1a51a8f28d6a90460843da2bd8e821b21d6cfe1e801c8bc915b1ffebc",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-148.pdf": {
+      "file_name": "page-148.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-148.pdf",
+      "file_size_bytes": 243668,
+      "sha256": "e1de1ac4d3808f0551ce8e5aa370dada556faf8bcffbd407427aac4d98c64879",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-149.pdf": {
+      "file_name": "page-149.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-149.pdf",
+      "file_size_bytes": 322460,
+      "sha256": "f2395440c88d03822c6d53b0b972592e8ee2a4dbf1b069fd1acaaee05d759031",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-15.pdf": {
+      "file_name": "page-15.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-15.pdf",
+      "file_size_bytes": 420697,
+      "sha256": "0075899fad773fe84978bab0fd4742cee5f1c0d36de30b3c5aa3f2db6f0557f5",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-150.pdf": {
+      "file_name": "page-150.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-150.pdf",
+      "file_size_bytes": 122651,
+      "sha256": "f55a5412b23cd5d3169bcbb309e4d32b4e377d1983897251ed9ce571823d4e93",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-151.pdf": {
+      "file_name": "page-151.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-151.pdf",
+      "file_size_bytes": 418518,
+      "sha256": "7a239846d0bcb4dc44f190cdd20c467a0c0509924ecbd9b24b2b88200d96c6b7",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-152.pdf": {
+      "file_name": "page-152.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-152.pdf",
+      "file_size_bytes": 506330,
+      "sha256": "9f1fec488d702c9d3894e3fc262fd20b56379c7bca3bd5c11d419fcc395750ca",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-153.pdf": {
+      "file_name": "page-153.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-153.pdf",
+      "file_size_bytes": 649905,
+      "sha256": "1a5e533dfa82e5fdb687131c6c230e9cd4bb23cccf6c2c37e584e35c6de215e4",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-154.pdf": {
+      "file_name": "page-154.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-154.pdf",
+      "file_size_bytes": 1069407,
+      "sha256": "73c31b2988f86d2a3e8894a3699091d1faafd9817a094391ff0024b1203af0da",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-155.pdf": {
+      "file_name": "page-155.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-155.pdf",
+      "file_size_bytes": 800873,
+      "sha256": "0a601eedbd15851656e5f6eac3c6103998816c14d7077e26c22aa0aad4d88784",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-156.pdf": {
+      "file_name": "page-156.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-156.pdf",
+      "file_size_bytes": 406730,
+      "sha256": "0addcb516999672cd54f6c126ea6d2843d736dcba66e63884420a2fc54ab424c",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-157.pdf": {
+      "file_name": "page-157.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-157.pdf",
+      "file_size_bytes": 411521,
+      "sha256": "364e1bbecc6f0a1d55ecb37bf431c388521672f2e378098808417ba056de8a87",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-158.pdf": {
+      "file_name": "page-158.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-158.pdf",
+      "file_size_bytes": 236006,
+      "sha256": "ffea5f8ee294f87797150fc20d0eaf9b529e2e1f6b488cfabe02af99d02835a3",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-159.pdf": {
+      "file_name": "page-159.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-159.pdf",
+      "file_size_bytes": 472074,
+      "sha256": "b8786d0daa2b038d4830106dcaabdff09d53702f50cc2351d7fb1e89cc22e870",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-16.pdf": {
+      "file_name": "page-16.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-16.pdf",
+      "file_size_bytes": 151898,
+      "sha256": "0baf2bb43c736e319a20794b532684751445c4ad59da1f4f09b565ad6c511f64",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-160.pdf": {
+      "file_name": "page-160.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-160.pdf",
+      "file_size_bytes": 293017,
+      "sha256": "1035bb19ca6ef10a941688217c96471b18e13ff8f6e2c43272a1ae12c29363a4",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-161.pdf": {
+      "file_name": "page-161.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-161.pdf",
+      "file_size_bytes": 358337,
+      "sha256": "8521bf4f51574388dccd648c29fd564714d29436ee694538062a2e9e2da11b34",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-162.pdf": {
+      "file_name": "page-162.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-162.pdf",
+      "file_size_bytes": 556447,
+      "sha256": "8794ae8f0f63f1cfbee290a7b50649267ca21d29d724d63a4270cfecb37d08b7",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-163.pdf": {
+      "file_name": "page-163.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-163.pdf",
+      "file_size_bytes": 255937,
+      "sha256": "1595e91b78fe1cc29887dc44b6090fb046282c12a77875af6d62ee5808f28e7b",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-164.pdf": {
+      "file_name": "page-164.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-164.pdf",
+      "file_size_bytes": 588816,
+      "sha256": "c5d06c24b2fc9341e709d9e92a91c2b35798377a6ffa88b0ab1278ecf8562e74",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-165.pdf": {
+      "file_name": "page-165.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-165.pdf",
+      "file_size_bytes": 721331,
+      "sha256": "02c23cf5766bc8d2931f5be5fb8a12ac725c65523889e53e38ce073568e0ab48",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-166.pdf": {
+      "file_name": "page-166.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-166.pdf",
+      "file_size_bytes": 688978,
+      "sha256": "ca24a8daddfa3d44fe1b7ee0e3c30c9a81e08756d3bedc6c7c421584b9882c37",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-167.pdf": {
+      "file_name": "page-167.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-167.pdf",
+      "file_size_bytes": 365335,
+      "sha256": "e9007f0dea636bddbd5ad4f6a4a47c9f4941a1872d882587f79eb550fd354ea2",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-168.pdf": {
+      "file_name": "page-168.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-168.pdf",
+      "file_size_bytes": 344788,
+      "sha256": "65ddcd8617dd8d06a76ce6d68dec8e71716194d192adc51e81692c2825cb037c",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-169.pdf": {
+      "file_name": "page-169.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-169.pdf",
+      "file_size_bytes": 379773,
+      "sha256": "3d9ed564bbdf9fef5d0d920f5123696ce993498d7abaff8ffc50ba563e8ca583",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-17.pdf": {
+      "file_name": "page-17.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-17.pdf",
+      "file_size_bytes": 1224306,
+      "sha256": "2cfa32a78fff739386fe3c50b5b07fc104ce0a8546e01b01ab69b41feadc4d85",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-170.pdf": {
+      "file_name": "page-170.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-170.pdf",
+      "file_size_bytes": 249174,
+      "sha256": "07dc8eea16380cdf0aaa0343121beba581b39d1c909c414b470f07dab7045584",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-171.pdf": {
+      "file_name": "page-171.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-171.pdf",
+      "file_size_bytes": 586670,
+      "sha256": "b6bbc8bb2681647ff734bbe9775cd6272037e80bd7e9c39b0bd4e2984905149e",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-172.pdf": {
+      "file_name": "page-172.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-172.pdf",
+      "file_size_bytes": 438637,
+      "sha256": "4006354c1140d4010baad387d8b72852c2b9434bea9d50fd13e61c2879494edd",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-173.pdf": {
+      "file_name": "page-173.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-173.pdf",
+      "file_size_bytes": 340732,
+      "sha256": "dcdc0fe44b77f0585f920920b3ff15fa3a3f41a678407469e37209131d25169a",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-174.pdf": {
+      "file_name": "page-174.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-174.pdf",
+      "file_size_bytes": 390699,
+      "sha256": "9b2860248bd5efcb1c79ffcd4ada47b4190fcb094d4ae9ad48ba33542705cec9",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-175.pdf": {
+      "file_name": "page-175.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-175.pdf",
+      "file_size_bytes": 678347,
+      "sha256": "ca16f9fdda588180d892b30a4dfcb4a3ae0bc70b920bffdfdd28c36182116914",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-176.pdf": {
+      "file_name": "page-176.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-176.pdf",
+      "file_size_bytes": 665667,
+      "sha256": "dbd53d549a8f46b31bd704a1552756aea1dfac03946b65bc6c6410390aa25a11",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-177.pdf": {
+      "file_name": "page-177.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-177.pdf",
+      "file_size_bytes": 278177,
+      "sha256": "4feef775bdd5ee737d1bf74414a331dc2614b63bed5e10ad61b8799a3e74adf6",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-178.pdf": {
+      "file_name": "page-178.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-178.pdf",
+      "file_size_bytes": 122636,
+      "sha256": "06e4291d950ddf9b211ea9971a2d5cf86f221f4728d8a3c816e96bb1bd9fc5f6",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-179.pdf": {
+      "file_name": "page-179.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-179.pdf",
+      "file_size_bytes": 228092,
+      "sha256": "41785796aca6a42daa0e7cad9ed4b426976b8ed2997e6c809c76894c1dfb773f",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-18.pdf": {
+      "file_name": "page-18.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-18.pdf",
+      "file_size_bytes": 359554,
+      "sha256": "8001ed1ff47dd470a195004ee02db5030b205f653d43537643c1f732f45f4336",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-180.pdf": {
+      "file_name": "page-180.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-180.pdf",
+      "file_size_bytes": 435902,
+      "sha256": "ce34d7829dec8031e463ca5c0130ec56ec659c8f7f4294112dbc40e954aab0ce",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-181.pdf": {
+      "file_name": "page-181.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-181.pdf",
+      "file_size_bytes": 372649,
+      "sha256": "cfa4a21c1e31b1c59b31e5b5acdb51994cf1a1c6519fcac66f1caf08ce644737",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-182.pdf": {
+      "file_name": "page-182.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-182.pdf",
+      "file_size_bytes": 122621,
+      "sha256": "6af0341108c5b8aa684512e667337ca303bf18b96dfb60962d2fc28b46ed1fd1",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-183.pdf": {
+      "file_name": "page-183.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-183.pdf",
+      "file_size_bytes": 411062,
+      "sha256": "313cc11a413121c32c7553904f19f9891e993d73b974dfb854c7cb95a0f6ba0a",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-184.pdf": {
+      "file_name": "page-184.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-184.pdf",
+      "file_size_bytes": 276329,
+      "sha256": "5cac0d27ca3542b14b92940abe4b24e341189cf8e2c7429ee3bb3810283c5db3",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-185.pdf": {
+      "file_name": "page-185.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-185.pdf",
+      "file_size_bytes": 122649,
+      "sha256": "646e6364a242a630a6d46a618b8ccce1b5489c00982bf21a6d97430117840305",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-186.pdf": {
+      "file_name": "page-186.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-186.pdf",
+      "file_size_bytes": 364760,
+      "sha256": "50619d8441bd6d7c739fbbc13cc47f4d1980089e6db5be24396b9f90985b89d6",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-187.pdf": {
+      "file_name": "page-187.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-187.pdf",
+      "file_size_bytes": 222231,
+      "sha256": "f820f47df19d0ed9824f76289354f1d77cce9c8f2be79bac43ec595830be6ea3",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-188.pdf": {
+      "file_name": "page-188.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-188.pdf",
+      "file_size_bytes": 306572,
+      "sha256": "788ffb938a05d36b193a2c1267395e2a7b131ec852d04d8ca2ae529783186a44",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-189.pdf": {
+      "file_name": "page-189.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-189.pdf",
+      "file_size_bytes": 275829,
+      "sha256": "ed392a37ddc682a8e067f967bf3a654573fd7878ab6b26f8020e6d231cd4b7b5",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-19.pdf": {
+      "file_name": "page-19.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-19.pdf",
+      "file_size_bytes": 197832,
+      "sha256": "651f9af2d011ee3baab872cc535c7ddf9e7486256c8490ff664b6fa44b21c93b",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-190.pdf": {
+      "file_name": "page-190.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-190.pdf",
+      "file_size_bytes": 122647,
+      "sha256": "8f235435d10f3d9ee1d15a9bf61879caf17522c997b7ef987b911b93c9e40eac",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-191.pdf": {
+      "file_name": "page-191.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-191.pdf",
+      "file_size_bytes": 526795,
+      "sha256": "19859b11f03e06aac3a22d05cd23c6441562d295cc6f199cba762dd2b8a1def1",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-192.pdf": {
+      "file_name": "page-192.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-192.pdf",
+      "file_size_bytes": 322808,
+      "sha256": "d44f3e1ce0572454b322e3ab49e4622db0ef29c67e6f73a3d164a1da83e9eb40",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-193.pdf": {
+      "file_name": "page-193.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-193.pdf",
+      "file_size_bytes": 227729,
+      "sha256": "b07da90e594d86d968abe63905b2765ec58973f8885f4c668cc83d1293168a5b",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-194.pdf": {
+      "file_name": "page-194.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-194.pdf",
+      "file_size_bytes": 190229,
+      "sha256": "c5ac7ff262271f8bc51c6e373678dcd624825df2c25b0606c4184c81fe10902c",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-195.pdf": {
+      "file_name": "page-195.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-195.pdf",
+      "file_size_bytes": 647050,
+      "sha256": "a83eaa3e289f221634d20cbed07c11bb8ea11f261a282e6fbbc397e555837484",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-196.pdf": {
+      "file_name": "page-196.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-196.pdf",
+      "file_size_bytes": 367562,
+      "sha256": "24423c4ad60e5f8830baf5d7b964aa6d5e2666455c3515dad578f9dbca56c60d",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-197.pdf": {
+      "file_name": "page-197.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-197.pdf",
+      "file_size_bytes": 289634,
+      "sha256": "3b33f1dd7905df169b605ea896f4aee0c705c4ca3199c960e6c61f7abf7d9024",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-198.pdf": {
+      "file_name": "page-198.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-198.pdf",
+      "file_size_bytes": 597645,
+      "sha256": "abfb053ec0c7a49f03a0372ee5c7ff210cb42c87ab92929d7ddf5887f151e611",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-199.pdf": {
+      "file_name": "page-199.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-199.pdf",
+      "file_size_bytes": 933370,
+      "sha256": "683abf3b82e27de7103b7185b85611542a1a96280a93afd777e5140ac6848fed",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-2.pdf": {
+      "file_name": "page-2.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-2.pdf",
+      "file_size_bytes": 134854,
+      "sha256": "7ff454a31c00e7caaf551f05adc18a05b6120ec1bdcf37ea1ee72b0829b07f23",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-20.pdf": {
+      "file_name": "page-20.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-20.pdf",
+      "file_size_bytes": 235303,
+      "sha256": "035a7b4fc2d049c0198a0b7688242c395fa1e3e274da75de83825927124664f7",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-200.pdf": {
+      "file_name": "page-200.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-200.pdf",
+      "file_size_bytes": 327666,
+      "sha256": "715ffaa0d73b98ff65d161415cf51ed41d1c18f0f41e4f5bedd8b80939e09eb2",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-201.pdf": {
+      "file_name": "page-201.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-201.pdf",
+      "file_size_bytes": 786025,
+      "sha256": "7bd020eb3dceff8895e3eb889d06cb91b99e4753a78b4482423f240b351687f4",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-202.pdf": {
+      "file_name": "page-202.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-202.pdf",
+      "file_size_bytes": 319732,
+      "sha256": "3ed5420e34f7df94ebf9d72727430f3a924dbfe5be051ae00aff22559434b0d8",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-203.pdf": {
+      "file_name": "page-203.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-203.pdf",
+      "file_size_bytes": 440892,
+      "sha256": "8c473db710fa1e9b917c806f2bff810db5ade741f578962d9c675aa5c4421ce0",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-204.pdf": {
+      "file_name": "page-204.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-204.pdf",
+      "file_size_bytes": 329809,
+      "sha256": "ccdd56caf5b131af0049c7910e6228e396490e914476efafe750fc7a2353dbdf",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-205.pdf": {
+      "file_name": "page-205.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-205.pdf",
+      "file_size_bytes": 254808,
+      "sha256": "77ec6f2907a7a59c64c35bb6ed5fc8fdbb24b2c2cc39fa6b0fa83fc834ee9b66",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-206.pdf": {
+      "file_name": "page-206.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-206.pdf",
+      "file_size_bytes": 275443,
+      "sha256": "67edfa18112bf587b65c91a8f277ba7abf6304a91276204bb7bd7f55bbbda5a6",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-207.pdf": {
+      "file_name": "page-207.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-207.pdf",
+      "file_size_bytes": 353883,
+      "sha256": "6d45216bf1ce1ea1aedde53ae37f7b0bb87bb1ce917bd0d596a43ec45d5702e6",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-208.pdf": {
+      "file_name": "page-208.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-208.pdf",
+      "file_size_bytes": 250982,
+      "sha256": "9102e3795b014535dde4347e7d444af84cbe8594a863e0b3b0fa3d53c2fe4acb",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-209.pdf": {
+      "file_name": "page-209.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-209.pdf",
+      "file_size_bytes": 360061,
+      "sha256": "e7834ecbffdf544df3dc16c70e445d2a70a303eace0e1bf107688b006e423758",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-21.pdf": {
+      "file_name": "page-21.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-21.pdf",
+      "file_size_bytes": 385058,
+      "sha256": "7d128d4fffda747467cf51e59dc29b43d4e3c64938bf0387fe729a98361122a2",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-210.pdf": {
+      "file_name": "page-210.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-210.pdf",
+      "file_size_bytes": 396053,
+      "sha256": "af8f9ac22bdb4ce89411a8565f0fd94d8d5f050ae32d68de3e8153b93c1b2997",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-211.pdf": {
+      "file_name": "page-211.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-211.pdf",
+      "file_size_bytes": 241294,
+      "sha256": "d0e2c277983b5dd30dcae9474ed0c18bb96dd53358eb80e6f8efac2b1b4506f7",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-212.pdf": {
+      "file_name": "page-212.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-212.pdf",
+      "file_size_bytes": 211573,
+      "sha256": "b69ba0e867a5615c190442f6b56093c75f26ec8a60bec2631af6a1a1d2b1ff76",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-213.pdf": {
+      "file_name": "page-213.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-213.pdf",
+      "file_size_bytes": 122633,
+      "sha256": "841ebc90bbe557bade2638eb99e6c6d8292df420e8aaa61f2e6ffefcf66ba994",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-214.pdf": {
+      "file_name": "page-214.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-214.pdf",
+      "file_size_bytes": 321590,
+      "sha256": "4ad0a1f606e9669d3de2a8c170acc5d3dc940e794272d642f1ebe13497a3081b",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-215.pdf": {
+      "file_name": "page-215.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-215.pdf",
+      "file_size_bytes": 391157,
+      "sha256": "67ff12b0043a49289caa92d0368cda3f347d824724651d07b85a98bd5ca01fa4",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-216.pdf": {
+      "file_name": "page-216.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-216.pdf",
+      "file_size_bytes": 1270987,
+      "sha256": "dcc4d4067de513c439b999592d39fab791c3d0675094b49241e08f49b1dc61ed",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-217.pdf": {
+      "file_name": "page-217.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-217.pdf",
+      "file_size_bytes": 393766,
+      "sha256": "5c00b7407420dba8144dc9ede6073a9f1d04b61c8d1b0481e33cb5f922518c00",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-218.pdf": {
+      "file_name": "page-218.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-218.pdf",
+      "file_size_bytes": 273525,
+      "sha256": "d1f69289c8f82fb738984310bff023a683eda8d84a6dbb1512ff5743242a7955",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-219.pdf": {
+      "file_name": "page-219.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-219.pdf",
+      "file_size_bytes": 221730,
+      "sha256": "0d7a7f0ef4241753d1a3b4c980828d6711316fa038f9071f5a4afd9718618b45",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-22.pdf": {
+      "file_name": "page-22.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-22.pdf",
+      "file_size_bytes": 225572,
+      "sha256": "40c56f0cac93a03b9ee5967da1fde5c3105ae102701b2bda02f718c8f9968eee",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 2850
+      },
+      "estimated_cost_usd": 0.00063
+    },
+    "page-220.pdf": {
+      "file_name": "page-220.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-220.pdf",
+      "file_size_bytes": 315835,
+      "sha256": "ce823818ba6d8d2b79c8f50c9ac1123dd51f06908dc31fd4caa26b61361cc0a8",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-221.pdf": {
+      "file_name": "page-221.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-221.pdf",
+      "file_size_bytes": 200034,
+      "sha256": "471ee769ba97915477839fabc1f4ffb6f713558ee608ea84a51e75ed34b12697",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-222.pdf": {
+      "file_name": "page-222.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-222.pdf",
+      "file_size_bytes": 204516,
+      "sha256": "d52742ca64aad78bcabd54ea7bb67b96c7b5a0b38aaef995213c4326fb8d3342",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-223.pdf": {
+      "file_name": "page-223.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-223.pdf",
+      "file_size_bytes": 184187,
+      "sha256": "9b984174f2b08f6fc318c9f82fcf3a3ca3fdf5c3e178b49cd2ce8aacf8779d37",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-23.pdf": {
+      "file_name": "page-23.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-23.pdf",
+      "file_size_bytes": 122652,
+      "sha256": "da2463dd8dbf98eff4fc27da333d85cca75fb67d77c3718402bc18a56fe4f830",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-24.pdf": {
+      "file_name": "page-24.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-24.pdf",
+      "file_size_bytes": 381176,
+      "sha256": "9523720c15bc429640c07e5e7417d5b2a15d44e27a7f8daa2a2f63c492213658",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-25.pdf": {
+      "file_name": "page-25.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-25.pdf",
+      "file_size_bytes": 258124,
+      "sha256": "ee35746167a48ddf40de42fbbff8b17aed29162834026f823c564aded0adf6db",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-26.pdf": {
+      "file_name": "page-26.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-26.pdf",
+      "file_size_bytes": 353993,
+      "sha256": "b8dbbdb173a2a75898875d66b776b90ae580cab3db88be758768e2996046545c",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 2850
+      },
+      "estimated_cost_usd": 0.00063
+    },
+    "page-27.pdf": {
+      "file_name": "page-27.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-27.pdf",
+      "file_size_bytes": 775454,
+      "sha256": "9dcd987317b8ac00dc4d3539399251e8748114c26efc5345af6ade8f7525381b",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-28.pdf": {
+      "file_name": "page-28.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-28.pdf",
+      "file_size_bytes": 339764,
+      "sha256": "7e5202dfc341bf3c01b8154ce57277ac25b04cb133effb4b8bfdc47ed21d4d22",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-29.pdf": {
+      "file_name": "page-29.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-29.pdf",
+      "file_size_bytes": 458678,
+      "sha256": "6ad8ba81d6b26af81d13e832b71fc901dcbb8b46bc93e82a61b6d33ed206a448",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-3.pdf": {
+      "file_name": "page-3.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-3.pdf",
+      "file_size_bytes": 122656,
+      "sha256": "ce6ca03624996a97bc0e2a8e27db0e0babf336cc4a45b9f12ef920cda42681ce",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-30.pdf": {
+      "file_name": "page-30.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-30.pdf",
+      "file_size_bytes": 580471,
+      "sha256": "6cfd201b3fd6ab7ce558d0ed59050743d0b20842828bf8118b42988c33899d03",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-31.pdf": {
+      "file_name": "page-31.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-31.pdf",
+      "file_size_bytes": 595086,
+      "sha256": "522ceb3f837e0eb52177ebc062d76e5c24bdd16b0e47af27fad7fe121bad968f",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-32.pdf": {
+      "file_name": "page-32.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-32.pdf",
+      "file_size_bytes": 597481,
+      "sha256": "cc7f4376922efd04ca6b7cd7eab0dba1fd5acad4480a803ad9a769815099f1ac",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-33.pdf": {
+      "file_name": "page-33.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-33.pdf",
+      "file_size_bytes": 573707,
+      "sha256": "f94bb3775d6a4253c4642344d69a13b8f52a32d9bef7aa2ae18c40fa8636bcea",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-34.pdf": {
+      "file_name": "page-34.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-34.pdf",
+      "file_size_bytes": 564358,
+      "sha256": "49a90ce73ab8c874a763c2e7dda600fa1caa57d024108f61a3baf0e89a6ef311",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-35.pdf": {
+      "file_name": "page-35.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-35.pdf",
+      "file_size_bytes": 487068,
+      "sha256": "304a9395fa9fde63e76d069b91ac55c558a839cbb2ac9c1e89c65d5210a604b4",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-36.pdf": {
+      "file_name": "page-36.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-36.pdf",
+      "file_size_bytes": 642211,
+      "sha256": "e284545bf127e8be8563d7b535903189522a9a5d693cbcb8a7c92928558b78a0",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-37.pdf": {
+      "file_name": "page-37.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-37.pdf",
+      "file_size_bytes": 122725,
+      "sha256": "b35005950b8e3d4be0ce43f7769211c665c3c78c4416befc40f9d21081334b1c",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-38.pdf": {
+      "file_name": "page-38.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-38.pdf",
+      "file_size_bytes": 515169,
+      "sha256": "a652dd2a1ddf21a965b3dc6c27642ee55345cb87f68d47127635fe3373ec543f",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-39.pdf": {
+      "file_name": "page-39.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-39.pdf",
+      "file_size_bytes": 230430,
+      "sha256": "474681acfbadf610aabc59dc170e6d38c009181fbe0006a9cb4c6c2f757e9c79",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-4.pdf": {
+      "file_name": "page-4.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-4.pdf",
+      "file_size_bytes": 534415,
+      "sha256": "431dc73abaaa18cfd00f4989f400c98cb9c16784b616b144cb4416dec1ed9a5e",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-40.pdf": {
+      "file_name": "page-40.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-40.pdf",
+      "file_size_bytes": 237904,
+      "sha256": "f2c5460fe98f9a57a3ef8bfa67482954c658de7157597343a42e52c2bb618f23",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-41.pdf": {
+      "file_name": "page-41.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-41.pdf",
+      "file_size_bytes": 220724,
+      "sha256": "8504eb83e16154ae760dd61300f0bc537c9eda2ac1ff36fa05ce8e9d553a0b5b",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-42.pdf": {
+      "file_name": "page-42.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-42.pdf",
+      "file_size_bytes": 364825,
+      "sha256": "f4109911a859e4c0488b98a522114c0025df61e7f2dc86c1f918ffe7511e1001",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-43.pdf": {
+      "file_name": "page-43.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-43.pdf",
+      "file_size_bytes": 122670,
+      "sha256": "aed656ff15cf3ab6a2deb4da59e55d5a87c464934cc59a7d4b41446cd14b9d0f",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-44.pdf": {
+      "file_name": "page-44.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-44.pdf",
+      "file_size_bytes": 756646,
+      "sha256": "5a12c5d3cc4ad44f146a1c238ae8fe52f94db2acbe8cfb3b73fa217e3fb6570c",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-45.pdf": {
+      "file_name": "page-45.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-45.pdf",
+      "file_size_bytes": 369232,
+      "sha256": "4ba21a90d1744ee1c7a584fe83649e9a033e3d74020a521b85b7a266bf855574",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-46.pdf": {
+      "file_name": "page-46.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-46.pdf",
+      "file_size_bytes": 174528,
+      "sha256": "bce9ed5b6f3a9fc1d6a0ef849f2654d922461bdc9f4fcae0f483f52758d37283",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-47.pdf": {
+      "file_name": "page-47.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-47.pdf",
+      "file_size_bytes": 265275,
+      "sha256": "23455524d9440d62107dd735a2bd88fe5001fbd5ee17dc44d2d20404b66d0191",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 2850
+      },
+      "estimated_cost_usd": 0.00063
+    },
+    "page-48.pdf": {
+      "file_name": "page-48.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-48.pdf",
+      "file_size_bytes": 707750,
+      "sha256": "40ddbf8dd9c8c610b471020d890eefdfb3501f901d4d0304ad9608798bc0f37c",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-49.pdf": {
+      "file_name": "page-49.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-49.pdf",
+      "file_size_bytes": 257937,
+      "sha256": "b506b6fe867ce96a4332150929abf0bb796c54812c1903d08d1ccaec1e8fb1f6",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-5.pdf": {
+      "file_name": "page-5.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-5.pdf",
+      "file_size_bytes": 268335,
+      "sha256": "f74ce1f415fa9d6fb4866720bb539f8e7ee8a266637007835d620b8d26159959",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-50.pdf": {
+      "file_name": "page-50.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-50.pdf",
+      "file_size_bytes": 401465,
+      "sha256": "dbe3945ad821660056a97a9966f686b2d17aa081637a0a4f15e439d7706f8618",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-51.pdf": {
+      "file_name": "page-51.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-51.pdf",
+      "file_size_bytes": 226976,
+      "sha256": "22f7f57ab30b58a1f204ee5e37e9a7e66f68c6141fe6f72913ffefbacc024f84",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-52.pdf": {
+      "file_name": "page-52.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-52.pdf",
+      "file_size_bytes": 122697,
+      "sha256": "3ba6029f5577c614c74ba5a8f00499c46b5e67e5892beb122822b6c92be9a9d5",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-53.pdf": {
+      "file_name": "page-53.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-53.pdf",
+      "file_size_bytes": 252164,
+      "sha256": "87065b56c9e1b743431a91d59e01a2da823f24fb8114f096c6ccc7ab3581351b",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-54.pdf": {
+      "file_name": "page-54.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-54.pdf",
+      "file_size_bytes": 250736,
+      "sha256": "2cac3bb0cc3032ff9bc9adf1667ba614ce417c68439e1796dfc3bc2d6e2ff253",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-55.pdf": {
+      "file_name": "page-55.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-55.pdf",
+      "file_size_bytes": 182120,
+      "sha256": "8527ba444215f87517cad16c642909ce87188e1875ebf00cb2c5ff8c74c833cf",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-56.pdf": {
+      "file_name": "page-56.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-56.pdf",
+      "file_size_bytes": 219871,
+      "sha256": "64452599c89273a3b8ef7d37eaa2a5a6b3c1f8aa341a0ec3bc4dd0879ccbc9de",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-57.pdf": {
+      "file_name": "page-57.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-57.pdf",
+      "file_size_bytes": 188046,
+      "sha256": "e50462bf1df5dbd63e02880d2c7618953592c8b7aebcffd6206bd831dd92c241",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-58.pdf": {
+      "file_name": "page-58.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-58.pdf",
+      "file_size_bytes": 185684,
+      "sha256": "c7418515d38a1dc87dc3008ce9e7bbb9217225837b944523821b00af187e71e2",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-59.pdf": {
+      "file_name": "page-59.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-59.pdf",
+      "file_size_bytes": 270158,
+      "sha256": "7390eb26c2d018168f70b431c1a0654b4857376910062974d5d446be25a1a9cf",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-6.pdf": {
+      "file_name": "page-6.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-6.pdf",
+      "file_size_bytes": 238031,
+      "sha256": "2941a549e9c3845f895d5a49059ddec5fc64728617b00be0d2de1dc124262525",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-60.pdf": {
+      "file_name": "page-60.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-60.pdf",
+      "file_size_bytes": 485180,
+      "sha256": "3bc204744c51a8da48b32e8cb889dc13fb6bbceb43dab46b9a400d652d2ac37d",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-61.pdf": {
+      "file_name": "page-61.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-61.pdf",
+      "file_size_bytes": 400368,
+      "sha256": "e14e19d189edee043700e7b597b059326e6e3c0f99c7d5c0e4f12abf2468634b",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-62.pdf": {
+      "file_name": "page-62.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-62.pdf",
+      "file_size_bytes": 224164,
+      "sha256": "3563d922b8c3191ad61853f042860c101a9c4b0408cba558b9dd18763a19c33d",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-63.pdf": {
+      "file_name": "page-63.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-63.pdf",
+      "file_size_bytes": 221306,
+      "sha256": "871e2d315bedb14e5dfd7d2435efe148d34129a530c6bd3798d87cb16f6bb1ea",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-64.pdf": {
+      "file_name": "page-64.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-64.pdf",
+      "file_size_bytes": 546413,
+      "sha256": "d3c1cdc232dade985a0fe62b98429ccb024acec9b326472382d24b3e6c22c526",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-65.pdf": {
+      "file_name": "page-65.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-65.pdf",
+      "file_size_bytes": 710638,
+      "sha256": "90a2f4cc779ac388d8feded91b30f9dd11fc54fe9900f3de5d5278c703291be0",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-66.pdf": {
+      "file_name": "page-66.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-66.pdf",
+      "file_size_bytes": 230784,
+      "sha256": "e212f3ac57d722ee7d72838fb034b684cf6ed3f5f33adbae37049a3fe0ab616c",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-67.pdf": {
+      "file_name": "page-67.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-67.pdf",
+      "file_size_bytes": 301331,
+      "sha256": "fefcbe98a15246403a3584526847820ccd40fea912eca938db7e72403ccf565e",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-68.pdf": {
+      "file_name": "page-68.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-68.pdf",
+      "file_size_bytes": 415306,
+      "sha256": "5ccd1cb96c5b6d6bfe4b137b5b179ac226c4df80777b0639f54fc3cfc34d4b60",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-69.pdf": {
+      "file_name": "page-69.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-69.pdf",
+      "file_size_bytes": 513018,
+      "sha256": "5b886cd359d5f7d6abce5847f731bb5a927d36c228a16ee81e8bd7f445551a30",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-7.pdf": {
+      "file_name": "page-7.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-7.pdf",
+      "file_size_bytes": 201745,
+      "sha256": "de76e3123317a130d9b67d94d6fa1979b907df5df266e792882b0cc0f33c435b",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-70.pdf": {
+      "file_name": "page-70.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-70.pdf",
+      "file_size_bytes": 980478,
+      "sha256": "aa927738a1c9629cf08264743704254b2c163ab38173c7416858ba5f068dd1d7",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-71.pdf": {
+      "file_name": "page-71.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-71.pdf",
+      "file_size_bytes": 226684,
+      "sha256": "b63b095b132c3ee6bd0e87643ab329caa1d1b6e6c4d8720a1f4e66e97e23b7d4",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-72.pdf": {
+      "file_name": "page-72.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-72.pdf",
+      "file_size_bytes": 678491,
+      "sha256": "b71f74d1b5d3a895bd2f498631a1dfe06c74c706c2fcfde58e4f95b0884640b9",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-73.pdf": {
+      "file_name": "page-73.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-73.pdf",
+      "file_size_bytes": 511424,
+      "sha256": "c0db69a59bc344fd8bb9c7d4de2eb103dcb54ac72024d83115688e7492b3bb2d",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-74.pdf": {
+      "file_name": "page-74.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-74.pdf",
+      "file_size_bytes": 488332,
+      "sha256": "fae670750d49813864a9b73db6297d9ceb7fdccb4cd25171c091b4fdebb88c87",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-75.pdf": {
+      "file_name": "page-75.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-75.pdf",
+      "file_size_bytes": 122629,
+      "sha256": "6f102f7c648e8b9bbed7c6863c30ed64b4132b890c78d99b04a75e19b92bd260",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-76.pdf": {
+      "file_name": "page-76.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-76.pdf",
+      "file_size_bytes": 693215,
+      "sha256": "91ee03ca569fe929444f575282e2147169eec8a7eebd7d6e750a71c0594fc4ea",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 2850
+      },
+      "estimated_cost_usd": 0.00063
+    },
+    "page-77.pdf": {
+      "file_name": "page-77.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-77.pdf",
+      "file_size_bytes": 465449,
+      "sha256": "f6d28bad20e5ce06e350b3424d102adaa9ed38616475c191742e04d9b15fd026",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-78.pdf": {
+      "file_name": "page-78.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-78.pdf",
+      "file_size_bytes": 353836,
+      "sha256": "4b29a5dafb89047bfc11f0bdbd67f40fd5d829e0bdb057c36d84071d7a4adada",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-79.pdf": {
+      "file_name": "page-79.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-79.pdf",
+      "file_size_bytes": 295025,
+      "sha256": "f9e725c8a2ebb5c2faefd52ae3c92b66a5fcf1180bf556502dfd8449bfd2e156",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-8.pdf": {
+      "file_name": "page-8.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-8.pdf",
+      "file_size_bytes": 236743,
+      "sha256": "0477e0daf7e08f35ff16a7ff6e0f83cc22f4e4d0607412d3d5a0e1219f823269",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 2850
+      },
+      "estimated_cost_usd": 0.00063
+    },
+    "page-80.pdf": {
+      "file_name": "page-80.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-80.pdf",
+      "file_size_bytes": 208700,
+      "sha256": "1edbfc64025e4a343c4828b02ed1f94efbd95ca159755fd8eddce84137b4051c",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-81.pdf": {
+      "file_name": "page-81.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-81.pdf",
+      "file_size_bytes": 568100,
+      "sha256": "9b25749a89c1af0b981abf3d7e40bff12a211c573b1dcaf1116e33a484309cce",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-82.pdf": {
+      "file_name": "page-82.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-82.pdf",
+      "file_size_bytes": 458108,
+      "sha256": "63fd5c91b2df1f99f8a633c2b4af2a5194d79309687edc636dcc42d9aec3777a",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-83.pdf": {
+      "file_name": "page-83.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-83.pdf",
+      "file_size_bytes": 319247,
+      "sha256": "2172bb274ebae4144b2b81f1120b0379317fbcf946871b4cb8ffe5a26bd68519",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-84.pdf": {
+      "file_name": "page-84.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-84.pdf",
+      "file_size_bytes": 533962,
+      "sha256": "d4738dae3c866466858e3943c2f487632ecdd74d0c3d7c958bbf799f3fb3ae40",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-85.pdf": {
+      "file_name": "page-85.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-85.pdf",
+      "file_size_bytes": 289419,
+      "sha256": "dc6e7339a2caa8fc08e091c2966e0848a57e8a92a5cb4eef3853f63e96c3d741",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-86.pdf": {
+      "file_name": "page-86.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-86.pdf",
+      "file_size_bytes": 317456,
+      "sha256": "4df3c58954cdb0ad63852c5af27190106f9e1429993c190898669424f6987c2f",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-87.pdf": {
+      "file_name": "page-87.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-87.pdf",
+      "file_size_bytes": 611861,
+      "sha256": "1b86cf90b1dedbf7b61895428252e5d80a4faf3d7540293a7ca46c3c6a92605b",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-88.pdf": {
+      "file_name": "page-88.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-88.pdf",
+      "file_size_bytes": 626038,
+      "sha256": "e1c067881f70768cebe612d4c8d6cf7060b9e7fb5c5f9ae9b43241385bc22d1e",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-89.pdf": {
+      "file_name": "page-89.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-89.pdf",
+      "file_size_bytes": 245112,
+      "sha256": "b862eb1d94b5172fd9d479a964d7b03904ca39e7e8ef352d4f670792cdcaa85a",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-9.pdf": {
+      "file_name": "page-9.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-9.pdf",
+      "file_size_bytes": 213763,
+      "sha256": "df0f2f4e3c03d8ce71e5e72d1656e2a422532d38f66fd76c152fc2d22ade112f",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-90.pdf": {
+      "file_name": "page-90.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-90.pdf",
+      "file_size_bytes": 357303,
+      "sha256": "c900b940c964adcbfaff2b1da1033084d3819941292fa0815bff8cdfccd0d1aa",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-91.pdf": {
+      "file_name": "page-91.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-91.pdf",
+      "file_size_bytes": 264691,
+      "sha256": "d57b0d74a248fb7929234c61a6f34e58757fe52cb45bd5eefbcc20596f1dc615",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-93.pdf": {
+      "file_name": "page-93.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-93.pdf",
+      "file_size_bytes": 250131,
+      "sha256": "a1c6d3bbe9d2aaf50c0b9a48d10c6886ddcd2bc51cd86fb92717277eeb9083e4",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-94.pdf": {
+      "file_name": "page-94.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-94.pdf",
+      "file_size_bytes": 418890,
+      "sha256": "827f5571375050285ecef8134dce35ec56d3a3f0cc9c5f0bdef9d577e42c259a",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-95.pdf": {
+      "file_name": "page-95.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-95.pdf",
+      "file_size_bytes": 288188,
+      "sha256": "9977732d3aee53977bbc7341c81305fe5918d3444189776f5ac2e3e352a54811",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-96.pdf": {
+      "file_name": "page-96.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-96.pdf",
+      "file_size_bytes": 1380937,
+      "sha256": "3d4b0da56b7d9aaa88446a196ddc5ef2c53ad891caaacafd91fb7405d1eae2b3",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-97.pdf": {
+      "file_name": "page-97.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-97.pdf",
+      "file_size_bytes": 596301,
+      "sha256": "708f840f931e50c932f135f347f3b154c8b0fee19b0cd7c15e8d1b2bcc754e1b",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-98.pdf": {
+      "file_name": "page-98.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-98.pdf",
+      "file_size_bytes": 500444,
+      "sha256": "3dd3d1bd9ca2acd0096e93fdda0e56b253a44de311e4134b9d671f3aa75c92c6",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    },
+    "page-99.pdf": {
+      "file_name": "page-99.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-99.pdf",
+      "file_size_bytes": 651595,
+      "sha256": "7fd0d087f82c1f5d8adce979019f1734c4c0c7f3e40c1eef51d4da7b074112f6",
+      "status": "SIMULATED_SUCCESS",
+      "dry_run": true,
+      "simulated_token_usage": {
+        "prompt_tokens": 2400,
+        "candidates_tokens": 450,
+        "thoughts_tokens": 250,
+        "total_tokens": 3100
+      },
+      "estimated_cost_usd": 0.004425
+    }
+  }
+}

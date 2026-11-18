@@ -1,0 +1,70 @@
+{
+  "manifest_name": "MMI-Gram Five-PDF Live Pilot Manifest",
+  "created_at": "2026-11-18T19:00:00Z",
+  "event_id": "us7000pn9s",
+  "earthquake_magnitude": 7.7,
+  "earthquake_origin_time": "2025-03-28T06:20:52.715Z",
+  "target_model": "gemini-3.8-flash",
+  "target_provider": "ai_studio",
+  "thinking_level": "HIGH",
+  "pilot_budget_limit_usd": 3.0,
+  "geocoding_policy": "DISABLED (zero paid Google Maps API calls)",
+  "total_pilot_files": 5,
+  "files": [
+    {
+      "file_name": "page-76.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-76.pdf",
+      "file_size_bytes": 693215,
+      "sha256": "91ee03ca569fe929444f575282e2147169eec8a7eebd7d6e750a71c0594fc4ea",
+      "phenomenon_type": "commercial_structural_damage",
+      "scientific_description": "Pyawbwe KBZ Bank branch: Commercial RC frame shaking damage; investigation of potential soft-story collapse mechanism.",
+      "confounding_factors": "Potential soft-story vulnerability; single-structure commercial site.",
+      "coordinate_notes": "Site-associated coordinates (20.601, 96.050) located ~38 km from nearest baseline DYFI station.",
+      "expected_screening_gate": "PASSED (ESTIMABLE)"
+    },
+    {
+      "file_name": "page-22.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-22.pdf",
+      "file_size_bytes": 225572,
+      "sha256": "40c56f0cac93a03b9ee5967da1fde5c3105ae102701b2bda02f718c8f9968eee",
+      "phenomenon_type": "surface_fault_displacement",
+      "scientific_description": "Thapyawa solar plant: Surface fault rupture and ground displacement offsetting fence lines and racking.",
+      "confounding_factors": "Primary fault displacement confounding pure inertial shaking; MMI scale measures ground shaking rather than surface rupture.",
+      "coordinate_notes": "Site-specific coordinates at solar farm rupture trace.",
+      "expected_screening_gate": "PASSED (ESTIMABLE with surface faulting flag)"
+    },
+    {
+      "file_name": "page-47.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-47.pdf",
+      "file_size_bytes": 265275,
+      "sha256": "23455524d9440d62107dd735a2bd88fe5001fbd5ee17dc44d2d20404b66d0191",
+      "phenomenon_type": "residential_structural_damage",
+      "scientific_description": "Pyinmana: Brick-nogging residential building collapse.",
+      "confounding_factors": "High unreinforced masonry/brick-nogging vulnerability; township-level centroid coordinate ambiguity.",
+      "coordinate_notes": "Township centroid coordinates; requires precision qualification.",
+      "expected_screening_gate": "PASSED (ESTIMABLE)"
+    },
+    {
+      "file_name": "page-26.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-26.pdf",
+      "file_size_bytes": 353993,
+      "sha256": "b8dbbdb173a2a75898875d66b776b90ae580cab3db88be758768e2996046545c",
+      "phenomenon_type": "mixed_shaking_and_rupture",
+      "scientific_description": "Sagaing Ava Bridge / road-median area: Mixed ground rupture offset and adjacent structural collapse.",
+      "confounding_factors": "Co-located strike-slip displacement and severe ground motion.",
+      "coordinate_notes": "Near Ava Bridge fault trace.",
+      "expected_screening_gate": "PASSED (ESTIMABLE)"
+    },
+    {
+      "file_name": "page-8.pdf",
+      "file_path": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/2026_Macroseismic_AI_Myanmar/pages/page-8.pdf",
+      "file_size_bytes": 236743,
+      "sha256": "0477e0daf7e08f35ff16a7ff6e0f83cc22f4e4d0607412d3d5a0e1219f823269",
+      "phenomenon_type": "regional_hazard_model_map_negative_control",
+      "scientific_description": "USGS PAGER regional macroseismic hazard model map. Contains no observable physical building damage or field reconnaissance photos.",
+      "confounding_factors": "Non-reconnaissance overview map; must be screened out prior to MMI estimation.",
+      "coordinate_notes": "Regional map view with no point-source field site.",
+      "expected_screening_gate": "NOT_ESTIMABLE (Gate 1/2 screening, $0.00 API spend)"
+    }
+  ]
+}

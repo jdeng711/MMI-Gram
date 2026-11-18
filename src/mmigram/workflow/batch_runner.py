@@ -23,13 +23,17 @@ from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple, Union
 
 # Official versioned pricing for Gemini 3.8 Flash (USD per 1M tokens)
-# Reflects standard Google AI Studio pricing tiers with conservative upper bound
+# Reflects Google's published standard paid-tier pricing through December 31, 2026:
+# https://ai.google.dev/gemini-api/docs/pricing
+# Output and thinking tokens are reported separately and billed together at the output rate:
+# https://ai.google.dev/gemini-api/docs/generate-content/tokens
 GEMINI_38_FLASH_PRICING = {
     "model": "gemini-3.8-flash",
-    "version": "2026-03-pricing-v2",
-    "prompt_per_million": 0.15,          # $0.15 per 1,000,000 unpromoted input tokens
-    "cached_prompt_per_million": 0.0375, # $0.0375 per 1,000,000 cached input tokens
-    "candidates_per_million": 0.60,      # $0.60 per 1,000,000 response tokens (inclusive of thinking tokens)
+    "version": "2026-11-pricing-standard-paid",
+    "prompt_per_million": 0.75,          # $0.75 per 1,000,000 unpromoted input tokens
+    "cached_prompt_per_million": 0.075,  # $0.075 per 1,000,000 cached input tokens
+    "candidates_per_million": 3.75,      # $3.75 per 1,000,000 candidate output tokens
+    "thoughts_per_million": 3.75,        # $3.75 per 1,000,000 thinking tokens
 }
 
 
@@ -56,34 +60,40 @@ class TokenAccounting:
         self.candidates_tokens += candidates
         self.thoughts_tokens += thoughts
         self.cached_tokens += cached
-        # In Gemini usage_metadata, candidates_tokens already includes thoughts_tokens
-        self.total_tokens += (prompt + candidates)
+        # In Google GenAI API, total_tokens = prompt + candidates + thoughts
+        self.total_tokens += (prompt + candidates + thoughts)
         self.estimated_cost_usd = calculate_cost_usd(
-            self.prompt_tokens, self.candidates_tokens, self.cached_tokens
+            prompt_tokens=self.prompt_tokens,
+            candidates_tokens=self.candidates_tokens,
+            thoughts_tokens=self.thoughts_tokens,
+            cached_tokens=self.cached_tokens,
         )
 
 
 def calculate_cost_usd(
     prompt_tokens: int,
     candidates_tokens: int,
+    thoughts_tokens: int = 0,
     cached_tokens: int = 0,
     pricing: Optional[Dict[str, Any]] = None,
 ) -> float:
     """
     Calculate estimated API cost in USD based on official versioned Gemini 3.8 Flash pricing.
 
-    CRITICAL BILLING RECONCILIATION:
-    In the Google GenAI SDK usage_metadata, candidates_token_count ALREADY includes
-    thoughts_token_count (thinking tokens). Therefore, candidates_tokens is billed
-    at candidates_per_million ($0.60/1M). thoughts_tokens is collected for telemetry
-    and observation transparency, but is NOT added as a separate billing term,
-    preventing double-counting.
+    Google's token-counting documentation reports candidate output and thinking separately,
+    and bills generated output as the sum of candidate output tokens plus thinking tokens.
+    Reference: https://ai.google.dev/gemini-api/docs/generate-content/tokens
+    Standard Paid Tier: https://ai.google.dev/gemini-api/docs/pricing
+      - Input: $0.75 / 1M tokens
+      - Cached input: $0.075 / 1M tokens
+      - Output (candidates + thoughts): $3.75 / 1M tokens
     """
     p_info = pricing or GEMINI_38_FLASH_PRICING
     unpromoted_prompt = max(0, prompt_tokens - cached_tokens)
     p_cost = (unpromoted_prompt / 1_000_000.0) * p_info["prompt_per_million"]
-    cached_cost = (cached_tokens / 1_000_000.0) * p_info.get("cached_prompt_per_million", 0.0375)
-    out_cost = (candidates_tokens / 1_000_000.0) * p_info["candidates_per_million"]
+    cached_cost = (cached_tokens / 1_000_000.0) * p_info.get("cached_prompt_per_million", 0.075)
+    billable_output = candidates_tokens + thoughts_tokens
+    out_cost = (billable_output / 1_000_000.0) * p_info.get("candidates_per_million", 3.75)
     return round(p_cost + cached_cost + out_cost, 6)
 
 
@@ -91,8 +101,8 @@ def calculate_cost_usd(
 class BatchRunnerConfig:
     run_mode: str = "pilot"                       # 'pilot' or 'full'
     budget_limit_usd: float = 3.00                # Hard limit ($3 for pilot, $25 for full)
-    budget_safety_buffer_usd: float = 0.20        # Stop if remaining budget < safety buffer
-    request_reservation_usd: float = 0.05         # Conservative reservation for single in-flight call
+    budget_safety_buffer_usd: float = 0.50        # Stop if remaining budget < safety buffer
+    request_reservation_usd: float = 0.08         # Conservative reservation for single in-flight call
     batch_pace_seconds: float = 2.0               # Delay between sequential calls
     max_retries: int = 3                          # Maximum retry attempts
     backoff_factor: float = 2.0                   # Multiplier for exponential backoff
@@ -241,6 +251,7 @@ class BatchRunner:
                 sim_cost = calculate_cost_usd(
                     prompt_tokens=sim_prompt_tokens,
                     candidates_tokens=sim_output_tokens,
+                    thoughts_tokens=sim_thought_tokens,
                     cached_tokens=0,
                 )
 
@@ -255,7 +266,7 @@ class BatchRunner:
                         "prompt_tokens": sim_prompt_tokens,
                         "candidates_tokens": sim_output_tokens,
                         "thoughts_tokens": sim_thought_tokens,
-                        "total_tokens": sim_prompt_tokens + sim_output_tokens,
+                        "total_tokens": sim_prompt_tokens + sim_output_tokens + sim_thought_tokens,
                     },
                     "estimated_cost_usd": sim_cost,
                 }
@@ -329,6 +340,7 @@ class BatchRunner:
                 except Exception as e:
                     last_err = str(e)
                     retries += 1
+                    self.accounting.api_calls += 1
                     if retries <= self.config.max_retries:
                         delay = self.config.backoff_factor ** retries
                         print(f"[RETRY {retries}/{self.config.max_retries} in {delay:.1f}s] Error: {e}")

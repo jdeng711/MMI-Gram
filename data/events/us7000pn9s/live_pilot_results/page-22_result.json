@@ -21,7 +21,8 @@
       "prompt_tokens": 0,
       "candidates_tokens": 0,
       "thoughts_tokens": 0,
-      "total_tokens": 0
+      "total_tokens": 0,
+      "estimated_cost_usd": 0.0
     },
     "retrieval": {
       "status": "DEFERRED_PENDING_REVIEW",

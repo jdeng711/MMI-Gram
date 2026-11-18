@@ -94,6 +94,93 @@ def enumerate_source_pdfs(pages_dir: Path) -> List[Dict[str, Any]]:
     return inventory
 
 
+def generate_full_manifest(
+    pages_dir: Path,
+    output_dir: Path,
+    all_pdfs: List[Dict[str, Any]],
+) -> Path:
+    """Generate and write the full 222-document inventory manifest with exact checksums."""
+    manifest_items = []
+    for item in all_pdfs:
+        fpath = Path(item["file_path"])
+        content_bytes = fpath.read_bytes()
+        sha256 = hashlib.sha256(content_bytes).hexdigest()
+        manifest_items.append({
+            "file_name": item["file_name"],
+            "file_path": str(fpath),
+            "file_size_bytes": len(content_bytes),
+            "sha256": sha256,
+            "is_pilot_target": item["file_name"] in PILOT_TARGET_PAGES,
+        })
+
+    manifest_doc = {
+        "manifest_name": "MMI-Gram Full 222-PDF Dataset Manifest",
+        "created_at": "2026-11-18T19:48:00Z",
+        "event_id": "us7000pn9s",
+        "earthquake_magnitude": 7.7,
+        "earthquake_origin_time": "2025-03-28T06:20:52.715Z",
+        "target_model": "gemini-3.8-flash",
+        "target_provider": "ai_studio",
+        "thinking_level": "HIGH",
+        "full_run_budget_limit_usd": 25.00,
+        "geocoding_policy": "DISABLED (zero paid Google Maps API calls)",
+        "total_source_files": len(manifest_items),
+        "files": manifest_items,
+    }
+
+    manifest_path = output_dir / "full_manifest.json"
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        json.dump(manifest_doc, f, indent=2)
+    return manifest_path
+
+
+def seed_full_checkpoint_from_pilot(
+    full_checkpoint_path: Path,
+    pilot_checkpoint_path: Path,
+) -> int:
+    """
+    Seed full-run checkpoint with verified 5-page pilot outputs to prevent duplicate API spend.
+    Returns the count of seeded documents.
+    """
+    if full_checkpoint_path.exists():
+        return 0
+
+    if not pilot_checkpoint_path.exists():
+        return 0
+
+    try:
+        with open(pilot_checkpoint_path, "r", encoding="utf-8") as f:
+            pilot_data = json.load(f)
+
+        completed = pilot_data.get("completed_pages", {})
+        if not completed:
+            return 0
+
+        acc = pilot_data.get("token_accounting", {})
+        seed_data = {
+            "checkpoint_updated_at": "2026-11-18T19:48:00Z",
+            "dry_run": False,
+            "run_mode": "full",
+            "budget_limit_usd": 25.00,
+            "token_accounting": acc,
+            "completed_count": len(completed),
+            "failed_count": 0,
+            "skipped_count": 0,
+            "completed_pages": completed,
+            "failed_pages": {},
+            "skipped_pages": {},
+        }
+        full_checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(full_checkpoint_path, "w", encoding="utf-8") as f:
+            json.dump(seed_data, f, indent=2)
+        print(f"[Checkpoint Seed] Successfully seeded {len(completed)} verified pilot documents into {full_checkpoint_path.name}")
+        return len(completed)
+    except Exception as e:
+        print(f"[Warning] Could not seed full checkpoint from pilot: {e}")
+        return 0
+
+
 def generate_pilot_manifest(
     pages_dir: Path,
     output_dir: Path,
@@ -241,6 +328,11 @@ def main():
         action="store_true",
         help="Discard previous checkpoint file and restart from scratch",
     )
+    parser.add_argument(
+        "--authorize-full-run",
+        action="store_true",
+        help="Explicit user authorization required to execute the full 222-document paid run",
+    )
 
     args = parser.parse_args()
 
@@ -253,16 +345,21 @@ def main():
     all_pdfs = enumerate_source_pdfs(pages_dir)
     total_available_pdfs = len(all_pdfs)
 
-    output_dir = Path(args.output_dir).resolve()
-    output_dir.mkdir(parents=True, exist_ok=True)
-
     # Determine target list
     is_full = bool(args.full)
     run_mode = "full" if is_full else "pilot"
 
+    if args.output_dir == "data/events/us7000pn9s/live_pilot_results" and is_full:
+        output_dir = (REPO_ROOT / "data" / "events" / "us7000pn9s" / "full_dataset_results").resolve()
+    else:
+        output_dir = Path(args.output_dir).resolve()
+    output_dir.mkdir(parents=True, exist_ok=True)
+
     if is_full:
         target_paths = [Path(p["file_path"]) for p in all_pdfs]
         default_budget = 25.00
+        full_manifest_path = generate_full_manifest(pages_dir, output_dir, all_pdfs)
+        print(f"Generated full 222-PDF manifest at: {full_manifest_path}")
     else:
         # 5-page pilot
         target_paths = [pages_dir / f for f in PILOT_TARGET_PAGES]
@@ -276,10 +373,15 @@ def main():
     print(f"Total source PDFs available in '{pages_dir}': {total_available_pdfs}")
 
     # Safety confirmation for live full run
-    if is_live and is_full:
-        print("\n[SAFETY GUARD] Full dataset live execution was requested.")
+    if is_live and is_full and not args.authorize_full_run:
+        print("\n================================================================================")
+        print("[SAFETY GUARD] Full dataset live execution was requested.")
         print(f"Target count: {len(target_paths)} documents. Spending ceiling: ${budget_limit:.2f} USD.")
-        print("To protect against unintended spend, full execution is blocked unless confirmed by user.")
+        print("To protect against unintended spend, full execution is blocked until explicitly authorized.")
+        print("Run with '--authorize-full-run' once approved by the researcher.")
+        print("To run a 100% cost-free dry run across all 222 documents, run:")
+        print("  python scripts/run_gemini_pilot.py --dry-run --full")
+        print("================================================================================\n")
         sys.exit(0)
 
     # Configure checkpoint with strict separation between live and dry-run files
@@ -288,6 +390,13 @@ def main():
     if args.reset_checkpoint and checkpoint_file.exists():
         checkpoint_file.unlink()
         print(f"Reset checkpoint file: {checkpoint_file}")
+
+    # For full runs, automatically seed completed pages from pilot checkpoint if available
+    if is_full and not checkpoint_file.exists():
+        pilot_chk = (
+            REPO_ROOT / "data" / "events" / "us7000pn9s" / "live_pilot_results" / f"batch_checkpoint_pilot_{mode_suffix}.json"
+        )
+        seed_full_checkpoint_from_pilot(checkpoint_file, pilot_chk)
 
     # Build runner configuration
     config = BatchRunnerConfig(

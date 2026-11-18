@@ -280,17 +280,27 @@ def get_response(
             candidates_tokens = _to_int(getattr(usage, "candidates_token_count", 0))
             thoughts_tokens = _to_int(getattr(usage, "thoughts_token_count", 0))
             cached_tokens = _to_int(getattr(usage, "cached_content_token_count", 0))
-            total_tokens = _to_int(getattr(usage, "total_token_count", 0)) or (prompt_tokens + candidates_tokens)
+            total_tokens = _to_int(getattr(usage, "total_token_count", 0)) or (prompt_tokens + candidates_tokens + thoughts_tokens)
 
-            # Accurate pricing calculation (candidates_token_count ALREADY includes thinking tokens)
-            price_prompt_m = 0.15
-            price_cached_m = 0.0375
-            price_candidates_m = 0.60
+            # Conservative fallback imputation for missing or corrupted usage metadata
+            if total_tokens == 0 and response.text:
+                prompt_tokens = 2500
+                candidates_tokens = 600
+                thoughts_tokens = 1400
+                total_tokens = prompt_tokens + candidates_tokens + thoughts_tokens
+
+            # Accurate pricing calculation (Google standard paid tier through Dec 31, 2026)
+            # Reference: https://ai.google.dev/gemini-api/docs/pricing
+            # Billable output = candidates_token_count + thoughts_token_count
+            price_prompt_m = 0.75
+            price_cached_m = 0.075
+            price_output_m = 3.75
             unpromoted_prompt = max(0, prompt_tokens - cached_tokens)
+            billable_output = candidates_tokens + thoughts_tokens
             call_cost_usd = round(
                 (unpromoted_prompt / 1_000_000.0) * price_prompt_m
                 + (cached_tokens / 1_000_000.0) * price_cached_m
-                + (candidates_tokens / 1_000_000.0) * price_candidates_m,
+                + (billable_output / 1_000_000.0) * price_output_m,
                 6,
             )
 
@@ -304,7 +314,7 @@ def get_response(
                 "total_tokens": total_tokens,
                 "input_price_per_m": price_prompt_m,
                 "cached_price_per_m": price_cached_m,
-                "output_price_per_m": price_candidates_m,
+                "output_price_per_m": price_output_m,
                 "estimated_cost_usd": call_cost_usd,
                 "duration_s": round(duration, 3),
             }
@@ -325,6 +335,7 @@ def get_response(
             return response.text or ""
 
         except Exception as e:
+            _session_telemetry["calls"] += 1
             err_str = str(e).lower()
             is_rate_limit = (
                 "resource_exhausted" in err_str or 

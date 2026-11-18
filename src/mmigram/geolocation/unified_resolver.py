@@ -398,13 +398,21 @@ class UnifiedGeolocationResolver:
                 dec_dir_res = self.parse_directional_decimal(text)
                 if dec_dir_res:
                     lat, lon, match_str = dec_dir_res
+                    is_township_centroid = bool(
+                        re.search(r"township\s+coordinate", text, re.IGNORECASE)
+                        or re.search(r"not\s+accurate\s+location", text, re.IGNORECASE)
+                        or re.search(r"only\s+mentioned\s+township", text, re.IGNORECASE)
+                        or re.search(r"township\s+centroid", text, re.IGNORECASE)
+                        or re.search(r"approximate\s+(?:township|city|location)", text, re.IGNORECASE)
+                    )
+                    prec_level = "township_centroid_approximate" if is_township_centroid else "exact_site_dd"
                     cand = Coordinates(
                         latitude=lat,
                         longitude=lon,
                         source="decimal_parsed",
                         is_valid=True,
-                        confidence=0.90,
-                        precision_level="exact_site_dd",
+                        confidence=0.50 if is_township_centroid else 0.90,
+                        precision_level=prec_level,
                     )
                     cand = validate_coordinates(cand, region_bounds=None)
                     if cand.is_valid:
@@ -428,13 +436,21 @@ class UnifiedGeolocationResolver:
                 dec_pair_res = self.parse_explicit_coordinate_pairs(text)
                 if dec_pair_res:
                     lat, lon, match_str = dec_pair_res
+                    is_township_centroid = bool(
+                        re.search(r"township\s+coordinate", text, re.IGNORECASE)
+                        or re.search(r"not\s+accurate\s+location", text, re.IGNORECASE)
+                        or re.search(r"only\s+mentioned\s+township", text, re.IGNORECASE)
+                        or re.search(r"township\s+centroid", text, re.IGNORECASE)
+                        or re.search(r"approximate\s+(?:township|city|location)", text, re.IGNORECASE)
+                    )
+                    prec_level = "township_centroid_approximate" if is_township_centroid else "exact_site_dd"
                     cand = Coordinates(
                         latitude=lat,
                         longitude=lon,
                         source="decimal_parsed",
                         is_valid=True,
-                        confidence=0.85,
-                        precision_level="exact_site_dd",
+                        confidence=0.50 if is_township_centroid else 0.85,
+                        precision_level=prec_level,
                     )
                     cand = validate_coordinates(cand, region_bounds=None)
                     if cand.is_valid:
@@ -473,9 +489,15 @@ class UnifiedGeolocationResolver:
             else:
                 primary_coords = doc_coords
                 precision_level = doc_coords.precision_level
-                selection_rationale = (
-                    f"Priority 1: Site-specific coordinates ({doc_coords.source}) parsed directly from document text."
-                )
+                if doc_coords.precision_level == "township_centroid_approximate":
+                    selection_rationale = (
+                        f"Priority 1b: Township-level centroid coordinates ({doc_coords.source}) parsed from document text; "
+                        "actual building footprint / site location is not known (explicit StEER caveat: 'Only mentioned township coordinate, not accurate location')."
+                    )
+                else:
+                    selection_rationale = (
+                        f"Priority 1: Site-specific coordinates ({doc_coords.source}) parsed directly from document text."
+                    )
 
         # ──────────────────────────────────────────────────────────────────────
         # Priority 2: Coordinates embedded directly in mapping URLs

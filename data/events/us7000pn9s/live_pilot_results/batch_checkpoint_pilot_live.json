@@ -1,5 +1,5 @@
 {
-  "checkpoint_updated_at": "2026-11-18T19:31:22.965991+00:00",
+  "checkpoint_updated_at": "2026-11-18T19:46:00Z",
   "dry_run": false,
   "run_mode": "pilot",
   "budget_limit_usd": 3.0,
@@ -9,8 +9,8 @@
     "candidates_tokens": 3576,
     "thoughts_tokens": 7038,
     "cached_tokens": 0,
-    "total_tokens": 12049,
-    "estimated_cost_usd": 0.003417
+    "total_tokens": 19087,
+    "estimated_cost_usd": 0.046157
   },
   "completed_count": 5,
   "failed_count": 0,
@@ -40,7 +40,7 @@
           "thoughts_tokens": 2452,
           "cached_tokens": 0,
           "total_tokens": 6375,
-          "estimated_cost_usd": 0.001117,
+          "estimated_cost_usd": 0.015659,
           "invocations": [
             {
               "model_identifier": "gemini-3.8-flash",
@@ -50,10 +50,10 @@
               "thoughts_tokens": 1065,
               "cached_tokens": 0,
               "total_tokens": 2364,
-              "input_price_per_m": 0.15,
-              "cached_price_per_m": 0.0375,
-              "output_price_per_m": 0.6,
-              "estimated_cost_usd": 0.000445,
+              "input_price_per_m": 0.75,
+              "cached_price_per_m": 0.075,
+              "output_price_per_m": 3.75,
+              "estimated_cost_usd": 0.006633,
               "duration_s": 20.168
             },
             {
@@ -64,10 +64,10 @@
               "thoughts_tokens": 1387,
               "cached_tokens": 0,
               "total_tokens": 4011,
-              "input_price_per_m": 0.15,
-              "cached_price_per_m": 0.0375,
-              "output_price_per_m": 0.6,
-              "estimated_cost_usd": 0.000672,
+              "input_price_per_m": 0.75,
+              "cached_price_per_m": 0.075,
+              "output_price_per_m": 3.75,
+              "estimated_cost_usd": 0.009026,
               "duration_s": 20.5
             }
           ]
@@ -289,8 +289,7 @@
           "High seismic intensity (MMI >= 9.0) requires authoritative verification.",
           "Candidate coordinates require expert validation against epicentral maps."
         ]
-      },
-      "result_file": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/MMI-Gram-Clean/data/events/us7000pn9s/live_pilot_results/page-76_result.json"
+      }
     },
     "page-22.pdf": {
       "pipeline_name": "MMI-Gram General-Purpose StEER Pipeline",
@@ -315,7 +314,8 @@
           "prompt_tokens": 0,
           "candidates_tokens": 0,
           "thoughts_tokens": 0,
-          "total_tokens": 0
+          "total_tokens": 0,
+          "estimated_cost_usd": 0.0
         },
         "retrieval": {
           "status": "DEFERRED_PENDING_REVIEW",
@@ -537,7 +537,7 @@
           "thoughts_tokens": 2389,
           "cached_tokens": 0,
           "total_tokens": 6432,
-          "estimated_cost_usd": 0.001144,
+          "estimated_cost_usd": 0.015579,
           "invocations": [
             {
               "model_identifier": "gemini-3.8-flash",
@@ -547,10 +547,10 @@
               "thoughts_tokens": 1116,
               "cached_tokens": 0,
               "total_tokens": 2513,
-              "input_price_per_m": 0.15,
-              "cached_price_per_m": 0.0375,
-              "output_price_per_m": 0.6,
-              "estimated_cost_usd": 0.000503,
+              "input_price_per_m": 0.75,
+              "cached_price_per_m": 0.075,
+              "output_price_per_m": 3.75,
+              "estimated_cost_usd": 0.007192,
               "duration_s": 21.9
             },
             {
@@ -561,10 +561,10 @@
               "thoughts_tokens": 1273,
               "cached_tokens": 0,
               "total_tokens": 3919,
-              "input_price_per_m": 0.15,
-              "cached_price_per_m": 0.0375,
-              "output_price_per_m": 0.6,
-              "estimated_cost_usd": 0.000641,
+              "input_price_per_m": 0.75,
+              "cached_price_per_m": 0.075,
+              "output_price_per_m": 3.75,
+              "estimated_cost_usd": 0.008387,
               "duration_s": 18.018
             }
           ]
@@ -695,10 +695,10 @@
           "coordinates_disagree": false,
           "discrepancy_details": "Document coordinates (19.7381, 96.2116) and model coordinates (19.7381, 96.2116) agree within 0.0 km (threshold: 10.0 km). Note: model coordinates and document coordinates were derived from the same source document input and do not constitute independent authoritative GIS validation.",
           "discrepancy_distance_km": 0.0,
-          "precision_level": "exact_site_dd",
+          "precision_level": "township_centroid_approximate",
           "coordinate_type": "decimal_parsed",
-          "selection_rationale": "Priority 1: Site-specific coordinates (decimal_parsed) parsed directly from document text.",
-          "has_exportable_site_coordinates": true,
+          "selection_rationale": "Priority 1b: Township-level centroid coordinates (decimal_parsed) parsed from document text; actual building footprint / site location is not known (explicit StEER caveat: 'Only mentioned township coordinate, not accurate location').",
+          "has_exportable_site_coordinates": false,
           "can_export_to_shakemap": false,
           "is_within_regional_bounds": true,
           "raw_source_text": "Geolocation \n(Address/Coordinates):\nSource:\nCreated by (VAST Member name):",
@@ -714,9 +714,9 @@
           "source": "decimal_parsed",
           "is_valid": true,
           "validation_error": null,
-          "confidence": 0.85,
+          "confidence": 0.5,
           "is_authoritative": false,
-          "precision_level": "exact_site_dd",
+          "precision_level": "township_centroid_approximate",
           "is_within_regional_bounds": true
         },
         "document_coordinates": {
@@ -725,9 +725,9 @@
           "source": "decimal_parsed",
           "is_valid": true,
           "validation_error": null,
-          "confidence": 0.85,
+          "confidence": 0.5,
           "is_authoritative": false,
-          "precision_level": "exact_site_dd",
+          "precision_level": "township_centroid_approximate",
           "is_within_regional_bounds": true
         },
         "mapping_link_coordinates": null,
@@ -748,9 +748,9 @@
         "discrepancy_details": "Document coordinates (19.7381, 96.2116) and model coordinates (19.7381, 96.2116) agree within 0.0 km (threshold: 10.0 km). Note: model coordinates and document coordinates were derived from the same source document input and do not constitute independent authoritative GIS validation.",
         "discrepancy_distance_km": 0.0,
         "has_valid_coordinates": true,
-        "has_exportable_site_coordinates": true,
-        "precision_level": "exact_site_dd",
-        "selection_rationale": "Priority 1: Site-specific coordinates (decimal_parsed) parsed directly from document text.",
+        "has_exportable_site_coordinates": false,
+        "precision_level": "township_centroid_approximate",
+        "selection_rationale": "Priority 1b: Township-level centroid coordinates (decimal_parsed) parsed from document text; actual building footprint / site location is not known (explicit StEER caveat: 'Only mentioned township coordinate, not accurate location').",
         "rrup_km": 4.218,
         "repi_km": 254.344,
         "rupture_distance_source": "finite_fault_mesh",
@@ -784,10 +784,10 @@
         "review_status": "UNREVIEWED",
         "triggers": [
           "Candidate coordinates require expert validation against epicentral maps.",
-          "Duplicate observation detected: NEAR_DUPLICATE of 'page-76.pdf'"
+          "Duplicate observation detected: NEAR_DUPLICATE of 'page-76.pdf'",
+          "Observation lacks ShakeMap exportable site coordinates (precision: township_centroid_approximate)."
         ]
-      },
-      "result_file": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/MMI-Gram-Clean/data/events/us7000pn9s/live_pilot_results/page-47_result.json"
+      }
     },
     "page-26.pdf": {
       "pipeline_name": "MMI-Gram General-Purpose StEER Pipeline",
@@ -813,7 +813,7 @@
           "thoughts_tokens": 2197,
           "cached_tokens": 0,
           "total_tokens": 6280,
-          "estimated_cost_usd": 0.001155,
+          "estimated_cost_usd": 0.014919,
           "invocations": [
             {
               "model_identifier": "gemini-3.8-flash",
@@ -823,10 +823,10 @@
               "thoughts_tokens": 899,
               "cached_tokens": 0,
               "total_tokens": 2326,
-              "input_price_per_m": 0.15,
-              "cached_price_per_m": 0.0375,
-              "output_price_per_m": 0.6,
-              "estimated_cost_usd": 0.000521,
+              "input_price_per_m": 0.75,
+              "cached_price_per_m": 0.075,
+              "output_price_per_m": 3.75,
+              "estimated_cost_usd": 0.006491,
               "duration_s": 20.34
             },
             {
@@ -837,10 +837,10 @@
               "thoughts_tokens": 1298,
               "cached_tokens": 0,
               "total_tokens": 3954,
-              "input_price_per_m": 0.15,
-              "cached_price_per_m": 0.0375,
-              "output_price_per_m": 0.6,
-              "estimated_cost_usd": 0.000634,
+              "input_price_per_m": 0.75,
+              "cached_price_per_m": 0.075,
+              "output_price_per_m": 3.75,
+              "estimated_cost_usd": 0.008429,
               "duration_s": 17.907
             }
           ]
@@ -1069,8 +1069,7 @@
           "Candidate coordinates require expert validation against epicentral maps.",
           "Duplicate observation detected: NEAR_DUPLICATE of 'page-76.pdf'"
         ]
-      },
-      "result_file": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/MMI-Gram-Clean/data/events/us7000pn9s/live_pilot_results/page-26_result.json"
+      }
     },
     "page-8.pdf": {
       "pipeline_name": "MMI-Gram General-Purpose StEER Pipeline",
@@ -1095,7 +1094,8 @@
           "prompt_tokens": 0,
           "candidates_tokens": 0,
           "thoughts_tokens": 0,
-          "total_tokens": 0
+          "total_tokens": 0,
+          "estimated_cost_usd": 0.0
         },
         "retrieval": {
           "status": "SKIPPED_NOT_ESTIMABLE",
@@ -1218,8 +1218,7 @@
         "review_required": false,
         "review_status": "SCREENED_OUT",
         "triggers": []
-      },
-      "result_file": "/Users/jasondeng/Downloads/Files/Harvard/F26/EPS 55/Final Project/MMI-Gram-Clean/data/events/us7000pn9s/live_pilot_results/page-8_result.json"
+      }
     }
   },
   "failed_pages": {},

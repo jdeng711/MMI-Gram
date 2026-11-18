@@ -22,7 +22,7 @@
       "thoughts_tokens": 2197,
       "cached_tokens": 0,
       "total_tokens": 6280,
-      "estimated_cost_usd": 0.001155,
+      "estimated_cost_usd": 0.014919,
       "invocations": [
         {
           "model_identifier": "gemini-3.8-flash",
@@ -32,10 +32,10 @@
           "thoughts_tokens": 899,
           "cached_tokens": 0,
           "total_tokens": 2326,
-          "input_price_per_m": 0.15,
-          "cached_price_per_m": 0.0375,
-          "output_price_per_m": 0.6,
-          "estimated_cost_usd": 0.000521,
+          "input_price_per_m": 0.75,
+          "cached_price_per_m": 0.075,
+          "output_price_per_m": 3.75,
+          "estimated_cost_usd": 0.006491,
           "duration_s": 20.34
         },
         {
@@ -46,10 +46,10 @@
           "thoughts_tokens": 1298,
           "cached_tokens": 0,
           "total_tokens": 3954,
-          "input_price_per_m": 0.15,
-          "cached_price_per_m": 0.0375,
-          "output_price_per_m": 0.6,
-          "estimated_cost_usd": 0.000634,
+          "input_price_per_m": 0.75,
+          "cached_price_per_m": 0.075,
+          "output_price_per_m": 3.75,
+          "estimated_cost_usd": 0.008429,
           "duration_s": 17.907
         }
       ]

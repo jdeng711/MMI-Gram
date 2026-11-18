@@ -200,3 +200,108 @@ PYTHONPATH="src:server:.clean_venv/lib/python3.13/site-packages" /opt/anaconda3/
 ### Warning Inspection:
 1. `LangChainPendingDeprecationWarning` in `langgraph.cache.base`: Default `allowed_objects` parameter change in future LangChain versions. Does not affect runtime behavior.
 2. `LangChainDeprecationWarning` in `server/services/crag.py:133`: `TavilySearchResults` deprecation notice. Unused in local Google AI Studio direct inference.
+
+---
+
+## 4. Official Standard Paid-Tier Pricing Correction & Usage Accounting
+
+### 4.1 Authoritative Pricing Specification
+Google's published standard paid-tier pricing through December 31, 2026:
+- **Reference:** [https://ai.google.dev/gemini-api/docs/pricing](https://ai.google.dev/gemini-api/docs/pricing)
+- **Token Reference:** [https://ai.google.dev/gemini-api/docs/generate-content/tokens](https://ai.google.dev/gemini-api/docs/generate-content/tokens)
+- **Rates for `gemini-3.8-flash`:**
+  - Input tokens: **$0.75 per 1,000,000 tokens**
+  - Cached input tokens: **$0.075 per 1,000,000 tokens**
+  - Output tokens (candidates + thinking): **$3.75 per 1,000,000 tokens**
+
+### 4.2 Raw Per-Call Token Usage Audit
+In the Google Generate Content API usage metadata:
+$$\text{total\_token\_count} = \text{prompt\_token\_count} + \text{candidates\_token\_count} + \text{thoughts\_token\_count}$$
+Candidate output tokens and thinking tokens are reported as separate streams, and billable output is their sum.
+
+**Deterministic Reference Example:**
+- 2,400 uncached input tokens: $2,400 \times \$0.75 / 10^6 = \$0.001800$
+- 450 candidate output tokens + 250 thinking tokens: $(450 + 250) \times \$3.75 / 10^6 = 700 \times \$3.75 / 10^6 = \$0.002625$
+- **Total estimated paid-tier cost:** $\$0.001800 + \$0.002625 = \mathbf{\$0.004425 \text{ USD}}$
+
+### 4.3 Recomputed Five-Page Pilot Token & Cost Breakdown
+| Document | Calls | Prompt Tokens | Candidate Tokens | Thinking Tokens | Total Tokens | Estimated Paid-Tier Cost (USD) | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **`page-76.pdf`** | 2 | 2,749 | 1,174 | 2,452 | 6,375 | **$0.015659** | `ESTIMABLE` (MMI 9.0) |
+| **`page-22.pdf`** | 0 | 0 | 0 | 0 | 0 | **$0.000000** | `REVIEW_REQUIRED` (Ground failure) |
+| **`page-47.pdf`** | 2 | 2,847 | 1,196 | 2,389 | 6,432 | **$0.015579** | `ESTIMABLE` (MMI 8.5) |
+| **`page-26.pdf`** | 2 | 2,877 | 1,206 | 2,197 | 6,280 | **$0.014919** | `ESTIMABLE` (MMI 9.5) |
+| **`page-8.pdf`** | 0 | 0 | 0 | 0 | 0 | **$0.000000** | `NOT_ESTIMABLE` (Negative control) |
+| **Total / Avg** | **6** | **8,473** | **3,576** | **7,038** | **19,087** | **$0.046157** | **Avg: $0.015386/estimable doc** |
+
+*(Note: These figures represent estimated standard paid-tier API charges calculated from token counts, distinct from final invoiced Google Cloud billing or free-tier promotional allowances.)*
+
+---
+
+## 5. Scientific Provenance & Precision Corrections
+
+### 5.1 `page-47.pdf`: Geolocation Precision Fixed to `township_centroid_approximate`
+- **Issue:** Previously labeled `exact_site_dd` because decimal coordinates `(19.73814, 96.21157)` were matched by the decimal regex.
+- **Correction:** The StEER source document explicitly contains the caveat:
+  `Pyinmana Township, Naypyidaw, Myanmar (19.73814,96.21157) (Only mentioned township coordinate, not accurate location)`
+- **Implementation:** `UnifiedGeolocationResolver` now detects township coordinate / approximate location caveats, setting `precision_level = "township_centroid_approximate"`, `confidence = 0.50`, `has_exportable_site_coordinates = False`, and `can_export_to_shakemap = False`.
+- **Review Trigger Added:** `Observation lacks ShakeMap exportable site coordinates (precision: township_centroid_approximate).`
+- **Result:** The numerical coordinates are preserved without false precision, and automated ShakeMap station assimilation is safely blocked.
+
+### 5.2 `page-22.pdf`: Post-Run Relevance-Gate Correction Audit Trail
+- **Initial Run:** Screened out as `NOT_ESTIMABLE` due to `vast\s+member\s+name` pattern matching.
+- **Audit:** `vast\s+member\s+name` is the standard author attribution prompt present on every single StEER reconnaissance sheet and was removed from `TITLE_PRESENTATION_PATTERNS`.
+- **Deterministic Re-evaluation:** `page-22.pdf` was re-evaluated under current deterministic rules to `REVIEW_REQUIRED` (`ground_failure_observation`). Surface fault displacement alone without building structural damage cannot constrain vibratory shaking intensity.
+- **Audit Trail:** Both the initial and corrected screening runs made 0 API calls and cost \$0.00. No model responses were altered.
+
+### 5.3 `page-26.pdf`: Coupling Between Surface Faulting and Ground Shaking
+- Located 17 meters from the primary fault trace ($R_{\text{rup}} = 0.017\ \text{km}$).
+- Preserves the distinction between the ~1 m strike-slip road-median shear and the structural pancake collapse of adjacent roadside RC buildings.
+- Physics Critic actively set `surface_faulting_observed: True` and flagged for human review.
+
+---
+
+## 6. Verification of Independent Gemini Inference
+
+An exhaustive audit of prompts and responses confirmed:
+1. **Raw PDF Input:** Binary PDF bytes were passed directly to Gemini 3.8 Flash via `types.Part.from_bytes()`, ensuring Gemini directly inspected the embedded field photos, captions, and structural damage evidence.
+2. **Zero Prior Baseline Leakage:** Clara Yoon's earlier baseline file (`agent_evaluations_myanmar.json`) is never imported, referenced, or accessed in `src/mmigram/workflow/`, `src/mmigram/screening/`, or `server/services/crag.py`.
+3. **Uncalibrated Confidence:** All confidence metrics are explicitly recorded as `uncalibrated_confidence` (`is_calibrated: false`).
+4. **Separate Identity:** Gemini 3.8 Flash live outputs are stored independently from historical records.
+
+---
+
+## 7. Full 222-Document Execution Plan & Resource Projection
+
+- **Source PDF Inventory:** Exactly **222** unique PDFs verified in `2026_Macroseismic_AI_Myanmar/pages`.
+- **Projected Costs under Standard Paid-Tier Pricing ($0.75/$3.75):**
+  - Average cost per estimable document (2 calls): **$0.015386 USD**
+  - Average cost across pilot set (including screened): **$0.009231 USD**
+  - Realistic full run cost (assuming 60% estimable, 40% screened/deferred): **$2.05 USD**
+  - Conservative upper bound (assuming 100% of 222 documents estimable): **$3.42 USD**
+  - Extreme upper bound (5,000 prompt + 4,000 output tokens/call, 444 calls): **$8.33 USD**
+- **Budget Ceiling Safety:** The application-managed spending limit of **$25.00 USD** provides a 3x safety margin over the extreme upper bound and a 12x margin over the realistic estimate.
+- **Seed Checkpointing Policy:** When `--full` is initiated, `batch_checkpoint_full_live.json` automatically seeds completed records from `batch_checkpoint_pilot_live.json`, guaranteeing that the 5 verified pilot documents are recognized as `[CACHED / RESUMED]` and never billed again.
+- **Safety Guard:** `--live --full` requires explicit `--authorize-full-run` approval before initiating live API calls.
+
+---
+
+## 8. Archive of User Prompt & Response
+
+### User Request (Received 2026-11-18T14:40:57-05:00):
+```text
+The five-PDF live MMI-Gram pilot has completed, and I approve moving toward the full 222-page Myanmar inference run.
+However, I identified a material billing error and two small scientific provenance issues. Please resolve these in one focused preparation pass.
+Continue on feature/quake-agent-integration.
+1. Correct Gemini pricing and usage accounting — mandatory
+   - Input $0.75/M, Output $3.75/M, Cached $0.075/M.
+   - Output includes thinking tokens.
+   - Deterministic test: 2400 prompt, 450 candidate, 250 thoughts = $0.004425.
+2. Reassess the $25 budget safeguard
+3. Fix scientific provenance and precision (page-47, page-22, page-26)
+4. Verify independent Gemini inference
+5. Prepare the full 222-page execution
+6. Finalize (tests, git commit/push, archive prompt/response, report 8 items)
+```
+*(Full prompt archived above)*
+
