@@ -241,6 +241,44 @@ class HumanReviewRecord:
         )
 
 
+@dataclass
+class ScreeningRecord:
+    """Pre-MMI screening and evidence relevance assessment."""
+    relevance_decision: Literal["ESTIMABLE", "NOT_ESTIMABLE", "REVIEW_REQUIRED"] = "ESTIMABLE"
+    is_estimable: bool = True
+    decision_reasons: List[str] = field(default_factory=list)
+    evidence_types: List[str] = field(default_factory=list)
+    decision_mode: Literal["deterministic_local", "model_inferred", "manually_verified"] = "deterministic_local"
+    confidence: float = 1.0
+
+    duplicate_status: str = "UNIQUE"
+    duplicate_of: Optional[str] = None
+    exact_hash: Optional[str] = None
+    perceptual_hash: Optional[str] = None
+
+    temporal_status: str = "VALID"
+    timestamp_observed: Optional[str] = None
+
+    authenticity_status: str = "NO_INDICATORS_DETECTED"
+    authenticity_score: float = 0.0
+    authenticity_reasoning: Optional[str] = None
+
+    spatial_status: str = "WITHIN_BOUNDS"
+    townships_matched: List[str] = field(default_factory=list)
+
+    review_required: bool = False
+    review_triggers: List[str] = field(default_factory=list)
+
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> ScreeningRecord:
+        if not data:
+            return cls()
+        return cls(**{k: v for k, v in data.items() if k in cls.__dataclass_fields__})
+
+
 class MMIGramState(TypedDict, total=False):
     """
     Shared structured state for LangGraph runtime orchestration.
@@ -265,5 +303,6 @@ class MMIGramState(TypedDict, total=False):
     estimation: Dict[str, Any]           # MMIEstimationResult dict
     qc: Dict[str, Any]                   # QualityControlRecord dict
     review: Dict[str, Any]               # HumanReviewRecord dict
+    screening: Dict[str, Any]            # ScreeningRecord dict
     map_url: Optional[str]
     persisted: bool

@@ -15,6 +15,7 @@ Supports:
 from __future__ import annotations
 import os
 import sys
+import re
 import time
 import json
 import uuid
@@ -35,6 +36,7 @@ from ..geolocation.validator import validate_coordinates, haversine_distance_km,
 from ..qc.checker import evaluate_quality
 from ..review.queue import HumanReviewQueue
 from ..telemetry.tracer import StructuredAgentLogger
+from ..screening.composite_screener import CompositeScreener, ScreeningResult
 
 
 def find_fixtures_dir() -> Path:
@@ -70,6 +72,9 @@ class GeneralSteerPipeline:
         thinking_level: Optional[str] = None,
         reference_mode: Optional[str] = None,
         provider: Optional[str] = None,
+        event_id: str = "us7000pn9s",
+        origin_time_utc: str = "2025-03-28T06:20:00Z",
+        spatial_bounds: Optional[Dict[str, float]] = None,
     ):
         self.mode = mode.lower()
         self.provider = (provider or os.environ.get("GEMINI_PROVIDER", "ai_studio")).lower()
@@ -81,6 +86,16 @@ class GeneralSteerPipeline:
         self.review_queue = review_queue or HumanReviewQueue()
         self.allow_live_api = allow_live_api
         self.pdf_extractor = PDFExtractor(min_text_threshold=min_text_threshold)
+        self.event_id = event_id
+
+        # Pre-MMI Composite Screening Pipeline (All 5 gates)
+        self.composite_screener = CompositeScreener(
+            event_id=event_id,
+            origin_time_utc=origin_time_utc,
+            spatial_bounds=spatial_bounds,
+            allow_live_api=allow_live_api,
+            provider=self.provider,
+        )
 
         # Mapping of known filenames to their offline recorded fixture JSON
         self.fixture_registry: Dict[str, str] = {
@@ -88,6 +103,10 @@ class GeneralSteerPipeline:
             "synthetic_steer_page2_mandalay.pdf": "synthetic_steer_page2_mandalay.json",
             "synthetic_steer_page3_no_coords.pdf": "synthetic_steer_page3_no_coords.json",
         }
+
+    def reset_screener(self):
+        """Reset screener state (e.g. duplicate media cache)."""
+        self.composite_screener.reset()
 
     def process_pdf(self, file_path: Union[str, Path]) -> Dict[str, Any]:
         """
@@ -144,8 +163,208 @@ class GeneralSteerPipeline:
             )
 
         # ──────────────────────────────────────────────────────────────────────
+        # Step 2b: Pre-MMI Relevance & Evidence Screening (CompositeScreener)
+        # ──────────────────────────────────────────────────────────────────────
+        raw_coords_str = None
+        if extraction.has_extractable_text and extraction.extracted_text:
+            m_geo = re.search(r"geolocation\s*\(address/coordinates\):\s*([^\n\r]+)", extraction.extracted_text, re.IGNORECASE)
+            if m_geo:
+                raw_coords_str = m_geo.group(1).strip()
+
+        screening_res = self.composite_screener.screen(
+            file_path=path,
+            extracted_text=extraction.extracted_text,
+            has_extractable_text=extraction.has_extractable_text,
+            page_count=extraction.page_count,
+            latitude=coords.latitude if coords else None,
+            longitude=coords.longitude if coords else None,
+            coordinates_raw=raw_coords_str,
+        )
+
+        # Early exit for NOT_ESTIMABLE documents (e.g. Clara's page-8.pdf regional hazard model map)
+        if screening_res.relevance_decision == "NOT_ESTIMABLE":
+            duration_ms = round((time.time() - t0) * 1000.0, 2)
+            not_estimable_summary = {
+                "pipeline_name": "MMI-Gram General-Purpose StEER Pipeline",
+                "file_name": file_name,
+                "pipeline_mode": self.mode,
+                "pipeline_status": "NOT_ESTIMABLE",
+                "model_identifier": "none_screened_out",
+                "execution_duration_ms": duration_ms,
+                "provenance": {
+                    "is_synthetic": False,
+                    "baseline_type": "SCREENED_NOT_ESTIMABLE",
+                    "is_authoritative_ground_truth": False,
+                    "model_identifier": "none_screened_out",
+                    "thinking_level": None,
+                    "execution_mode": self.mode,
+                    "provider": self.provider if self.mode == "live" else "offline",
+                    "source_sha256": extraction.sha256_hash,
+                    "mmi_result": None,
+                    "uncalibrated_confidence": None,
+                    "token_usage": {
+                        "calls": 0,
+                        "prompt_tokens": 0,
+                        "candidates_tokens": 0,
+                        "thoughts_tokens": 0,
+                        "total_tokens": 0,
+                    },
+                    "retrieval": {
+                        "status": "SKIPPED_NOT_ESTIMABLE",
+                        "source": "none",
+                        "reference_mode": self.reference_mode,
+                        "has_authoritative_reference": False,
+                        "document_count": 0,
+                    },
+                    "execution_duration_ms": duration_ms,
+                },
+                "document_extraction": {
+                    "page_count": extraction.page_count,
+                    "extraction_status": extraction.extraction_status,
+                    "has_extractable_text": extraction.has_extractable_text,
+                    "sha256_hash": extraction.sha256_hash,
+                },
+                "screening": screening_res.to_dict(),
+                "seismic_intensity": {
+                    "mmi_estimation": None,
+                    "confidence": None,
+                    "is_calibrated": False,
+                    "reasoning": "; ".join(screening_res.decision_reasons) if screening_res.decision_reasons else "Insufficient physical damage evidence for MMI estimation.",
+                },
+                "geographic_resolution": {
+                    "location": None,
+                    "coordinates": coords.to_dict() if coords else None,
+                    "document_coordinates": coords.to_dict() if coords else None,
+                    "model_coordinates": None,
+                    "comparison_status": "NOT_EVALUATED",
+                    "coordinates_disagree": False,
+                    "discrepancy_details": "Skipped due to NOT_ESTIMABLE classification",
+                    "discrepancy_distance_km": None,
+                    "has_valid_coordinates": coords.is_valid if coords else False,
+                    "is_authoritative": False,
+                },
+                "quality_control": {
+                    "status": "SCREENED_OUT",
+                    "flags": ["PRE_MMI_NOT_ESTIMABLE"],
+                    "score": 0.0,
+                },
+                "human_in_the_loop": {
+                    "review_required": False,
+                    "review_status": "SCREENED_OUT",
+                    "triggers": [],
+                },
+            }
+            self.logger.log_node_exit("ingest_pdf", not_estimable_summary, duration_ms=duration_ms)
+            return not_estimable_summary
+
+        # ──────────────────────────────────────────────────────────────────────
         # Step 3: Analysis Execution (Strict Offline vs. Live CRAG)
         # ──────────────────────────────────────────────────────────────────────
+        # Early exit for REVIEW_REQUIRED relevance (ambiguous evidence, defer automatic MMI estimation)
+        if screening_res.relevance_decision == "REVIEW_REQUIRED":
+            # If in offline mode and unregistered, strict offline rule takes precedence
+            if self.mode == "offline" and file_name not in self.fixture_registry:
+                not_found_result = {
+                    "pipeline_status": "FIXTURE_NOT_FOUND",
+                    "file_name": file_name,
+                    "file_path": str(path),
+                    "page_count": extraction.page_count,
+                    "extraction_status": extraction.extraction_status,
+                    "has_extractable_text": extraction.has_extractable_text,
+                    "coordinates": coords.to_dict() if coords else None,
+                    "screening": screening_res.to_dict(),
+                    "message": (
+                        f"No offline recorded CRAG fixture found for '{file_name}'. "
+                        "In strict offline mode, unrecorded PDFs cannot produce fabricated MMI predictions. "
+                        "To analyze this file with live AI models, run with --live (requires GCP credentials)."
+                    ),
+                }
+                self.logger.log_node_exit("ingest_pdf", not_found_result, duration_ms=0.5)
+                return not_found_result
+
+            duration_ms = round((time.time() - t0) * 1000.0, 2)
+            review_item = self.review_queue.check_and_enqueue(
+                item_id=file_name,
+                state={
+                    "file_name": file_name,
+                    "screening": screening_res.to_dict(),
+                    "coordinates": coords.to_dict() if coords else None,
+                },
+                force=True,
+            )
+            review_summary = {
+                "pipeline_name": "MMI-Gram General-Purpose StEER Pipeline",
+                "file_name": file_name,
+                "pipeline_mode": self.mode,
+                "pipeline_status": "REVIEW_REQUIRED",
+                "model_identifier": "none_pending_review",
+                "execution_duration_ms": duration_ms,
+                "provenance": {
+                    "is_synthetic": False,
+                    "baseline_type": "DEFERRED_PENDING_REVIEW",
+                    "is_authoritative_ground_truth": False,
+                    "model_identifier": "none_pending_review",
+                    "thinking_level": None,
+                    "execution_mode": self.mode,
+                    "provider": self.provider if self.mode == "live" else "offline",
+                    "source_sha256": extraction.sha256_hash,
+                    "mmi_result": None,
+                    "uncalibrated_confidence": None,
+                    "token_usage": {
+                        "calls": 0,
+                        "prompt_tokens": 0,
+                        "candidates_tokens": 0,
+                        "thoughts_tokens": 0,
+                        "total_tokens": 0,
+                    },
+                    "retrieval": {
+                        "status": "DEFERRED_PENDING_REVIEW",
+                        "source": "none",
+                        "reference_mode": self.reference_mode,
+                        "has_authoritative_reference": False,
+                        "document_count": 0,
+                    },
+                    "execution_duration_ms": duration_ms,
+                },
+                "document_extraction": {
+                    "page_count": extraction.page_count,
+                    "extraction_status": extraction.extraction_status,
+                    "has_extractable_text": extraction.has_extractable_text,
+                    "sha256_hash": extraction.sha256_hash,
+                },
+                "screening": screening_res.to_dict(),
+                "seismic_intensity": {
+                    "mmi_estimation": None,
+                    "confidence": None,
+                    "is_calibrated": False,
+                    "reasoning": "; ".join(screening_res.decision_reasons) if screening_res.decision_reasons else "Relevance is uncertain; deferred pending expert review.",
+                },
+                "geographic_resolution": {
+                    "location": None,
+                    "coordinates": coords.to_dict() if coords else None,
+                    "document_coordinates": coords.to_dict() if coords else None,
+                    "model_coordinates": None,
+                    "comparison_status": "NOT_EVALUATED",
+                    "coordinates_disagree": False,
+                    "discrepancy_details": "Deferred due to REVIEW_REQUIRED classification",
+                    "discrepancy_distance_km": None,
+                    "has_valid_coordinates": coords.is_valid if coords else False,
+                    "is_authoritative": False,
+                },
+                "quality_control": {
+                    "status": "FLAGGED",
+                    "flags": ["PRE_MMI_REVIEW_REQUIRED"],
+                    "score": 0.5,
+                },
+                "human_in_the_loop": {
+                    "review_required": True,
+                    "review_status": review_item.status if review_item else "PENDING_REVIEW",
+                    "triggers": screening_res.review_triggers or screening_res.decision_reasons,
+                },
+            }
+            self.logger.log_node_exit("ingest_pdf", review_summary, duration_ms=duration_ms)
+            return review_summary
+
         if self.mode == "offline":
             fixture_name = self.fixture_registry.get(file_name)
             if not fixture_name:
@@ -158,6 +377,7 @@ class GeneralSteerPipeline:
                     "extraction_status": extraction.extraction_status,
                     "has_extractable_text": extraction.has_extractable_text,
                     "coordinates": coords.to_dict() if coords else None,
+                    "screening": screening_res.to_dict(),
                     "message": (
                         f"No offline recorded CRAG fixture found for '{file_name}'. "
                         "In strict offline mode, unrecorded PDFs cannot produce fabricated MMI predictions. "
@@ -396,6 +616,13 @@ class GeneralSteerPipeline:
             review_required = True
             triggers.append("Candidate coordinates require expert validation against epicentral maps.")
 
+        # Incorporate screening-stage review triggers if any
+        if screening_res.review_required:
+            review_required = True
+            for trg in screening_res.review_triggers:
+                if trg not in triggers:
+                    triggers.append(trg)
+
         review_item = None
         if review_required:
             review_item = self.review_queue.check_and_enqueue(
@@ -465,6 +692,7 @@ class GeneralSteerPipeline:
                 "has_extractable_text": extraction.has_extractable_text,
                 "sha256_hash": extraction.sha256_hash,
             },
+            "screening": screening_res.to_dict(),
             "seismic_intensity": {
                 "mmi_estimation": estimation.mmi_value,
                 "confidence": estimation.confidence,

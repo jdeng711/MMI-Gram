@@ -41,3 +41,8 @@ data/review_queue.json
 server/mmigram/data/
 data/events/*/results/
 *.log
+
+# Inbound research datasets & authentic reconnaissance reports (preserved locally, excluded from git)
+data/events/*/inbound/
+data/events/**/inbound/*
+tests/fixtures/page-8.pdf
