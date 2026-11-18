@@ -48,7 +48,11 @@ data/events/*/inbound/
 data/events/**/inbound/*
 tests/fixtures/page-8.pdf
 
-# ShakeMap large generated grids, binary products, and local profile caches
+# Research evidence images and extracted media (preserved locally, excluded from git per copyright/redistribution rules)
+**/evidence_images/
+docs/research/evidence_images/
+data/events/*/pilot_candidates/evidence_images/
+
 *.hdf
 *.h5
 *.grd
